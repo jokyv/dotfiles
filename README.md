@@ -1,9 +1,15 @@
-## A folder to save all my dot files and scripts
+## All my dot files and scripts
 
-## Clone to your desktop
-git clone https://github.com/jokyv/dotfiles.git ~/dot
+![main_screen](./main_screen.png)
 
-## conda 
+### Installing
+Clone into your `$HOME/repos` directory
+
+```bash
+git clone https://github.com/jokyv/dotfiles.git ~/repos/dot
+```
+
+#### Notes for conda (depreciated) 
 Download: https://docs.conda.io/en/latest/miniconda.html
 - for ipython
 - go to: ~/.ipython/profile_default
@@ -14,13 +20,3 @@ Download: https://docs.conda.io/en/latest/miniconda.html
 - conda install pylint sqlalchemy black xlsxwriter
 - conda install -c conda-forge mysql-connector-python
 - pip install pydomo ibm_db
-
-## NOTES:
-### bash
-- bash scripts saved at the ~/dot/scripts folder
-- they do not need extension .sh
-- just add !/bin/sh on top of the file
-
-### Git
-- will use the .config folder by default
-
