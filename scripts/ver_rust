@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo "::rustup and rustup tools"
+rustup --version
+cargo --version
+rustc --version
+echo ""
+echo "::rust apps"
+fd --version
+rg --version
+alacritty --version
+dust --version
+procs --version

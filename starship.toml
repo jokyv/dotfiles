@@ -1,0 +1,242 @@
+# Configure the format of the prompt
+format = """\
+        $username\
+        $hostname\
+        $kubernetes\
+        $directory\
+        $sudo\
+        $git_branch\
+        $git_commit\
+        $git_state\
+        $git_status\
+        $docker_context\
+        $package\
+        (↓ Toolchain version modules ↓)\
+        $cmake\
+        $golang\
+        $julia\
+        $lua\
+        $nodejs\
+        $ocaml\
+        $python\
+        $rust\
+        (↑ Toolchain version modules ↑)\
+        $conda\
+        $memory_usage\
+        $aws\
+        $gcloud\
+        $env_var\
+        $time\
+        $cmd_duration\
+        (↑ above input line ↑)\
+        $line_break\
+        (↓ on input line ↓)\
+        $jobs\
+        $status\
+        $character\
+    """
+
+# Timeout for starship to scan files (in milliseconds)
+scan_timeout = 75
+# Add a new line before the start of the prompt
+add_newline = true
+
+[aws]
+disabled = true
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+symbol = " "
+
+[character]
+disabled = false
+format = "$symbol "
+success_symbol = "[->](bold green)"
+
+[cmake]
+disabled = true
+format = '\[[$symbol($version)]($style)\]'
+symbol = "喝 "
+
+[cmd_duration]
+disabled = false
+min_time = 2_000
+format = '\[[tt: $duration]($style)\]'
+show_milliseconds = false
+show_notifications = false
+min_time_to_notify = 45_000
+
+[conda]
+disabled = false
+truncation_length = 1
+format = '\[[$symbol$environment]($style)\]'
+symbol = " "
+ignore_base = true
+
+[directory]
+disabled = false
+truncation_length = 3
+truncate_to_repo = true
+fish_style_pwd_dir_length = 0
+use_logical_path = true
+read_only = "  "
+read_only_style = "fg:red"
+truncation_symbol = "../"
+
+# [directory.substitutions]
+# "/path/to/replace" = "string/symbol"
+
+[docker_context]
+disabled = true
+symbol = " "
+format = "[[](bg:#444444 fg:#333333)[via](bg:#444444 fg:white) $symbol$context[](bg:#333333 fg:#444444)]($style)"
+only_with_files = true
+
+[env_var]
+disabled = false
+symbol = ""
+# variable = ""
+# default = ""
+format = "([[](bg:#555555 fg:#333333)[with](bg:#555555 fg:white) $symbol$env_value[](bg:#333333 fg:#555555)]($style))"
+
+[gcloud]
+disabled = false
+format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+symbol = " "
+
+[git_branch]
+disabled = false
+format = '\[[$symbol$branch]($style)\]'
+symbol = " "
+# truncation_length = 7 # default = 2^63 - 1
+truncation_symbol = "…"
+
+[git_commit]
+disabled = false
+commit_hash_length = 7
+format = '\[[$hash\]($style)\]'
+only_detached = true
+
+[git_state]
+disabled = false
+rebase = "REBASING"
+merge = "MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+format = '\[[$state]($style)\]'
+
+[git_status]
+disabled = false
+format = '([\[$all_status$ahead_behind\]]($style))'
+#stashed = '\$'
+stashed = ''
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+conflicted = "="
+deleted = "✘"
+renamed = "»"
+modified = "!"
+staged = "+"
+untracked = "?"
+
+[golang]
+disabled = true
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+
+[hostname]
+disabled = false
+ssh_only = true
+trim_at = "."
+format = '\[[$symbol($hostname)]($style)\]'
+
+[jobs]
+disabled = false
+threshold = 1
+format = '\[[$symbol($number)]($style)\]'
+symbol = "✦"
+
+[julia]
+disabled = true
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+
+[kubernetes]
+disabled = true
+symbol = "☸ "
+format = '[[](bg:#444444 fg:#333333)$symbol$context( \($namespace\)) in[](bg:#333333 fg:#444444)]($style)'
+
+[lua]
+disabled = false
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[line_break]
+disabled = false
+
+[memory_usage]
+disabled = true
+threshold = 50
+format = '\[$symbol[$ram( | $swap)]($style)\]'
+style = "bold dimmed bg:#555555 fg:white"
+symbol = " "
+
+[nodejs]
+disabled = true
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+#symbol = " "
+
+[ocaml]
+disabled = true
+format = "[[](bg:#444444 fg:#333333)[via](bg:#444444 fg:white) $symbol$version[](bg:#333333 fg:#444444)]($style)"
+symbol = "🐫 "
+
+[package]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+#symbol = " "
+#symbol = " "
+display_private = false
+
+[python]
+disabled = false
+pyenv_version_name = false
+pyenv_prefix = "pyenv "
+python_binary = "python"
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+symbol = " "
+#symbol = " "
+
+[rust]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+
+[status]
+disabled = true
+format = "[[](bg:#555555 fg:#333333)$symbol$status[](bg:#333333 fg:#555555)]($style)"
+symbol = " ✖"
+
+[sudo]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+symbol = ""
+
+[time]
+disabled = true
+format = '\[[$time]($style)\]'
+use_12hr = false
+time_format = "%R"
+utc_time_offset = "local"
+time_range = "-"
+
+[username]
+disabled = false
+format = '\[[$user]($style)\]'
+style_root = "bold bg:#555555 fg:red"
+style_user = "bold bg:#555555 fg:yellow"
+show_always = false

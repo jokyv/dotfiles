@@ -1,0 +1,11 @@
+theme = 'bogster'
+
+[editor]
+idle-timeout = 100
+
+[lsp]
+display-messages = true
+
+[keys.insert]
+j = {k = "normal_mode"}
+

@@ -1,0 +1,98 @@
+# Aliases - general shortcuts/improvements
+alias ..='cd ..'
+alias ...='cd ../../'
+alias c='clear'
+alias ssd='sudo shutdown now'
+alias sr='sudo reboot'
+alias clock='tock -cms'
+# with -i it is asking you if overwrites something
+# with -v it explains what is being done on terminal - visual
+# with -p you are making the parent directory if doesnt exist
+alias mkdir='mkdir -pv'
+alias rmd='rm -rfv'
+alias rm='rm -iv' 
+alias mv='mv -iv' 
+alias cp='cp -iv'
+alias cat='bat'
+alias p='python'
+alias b='bash'
+alias v='~/.local/bin/lvim'
+
+# LINUX SCRIPTS
+# source bash files and clear terminal
+alias sb='. linux_scripts.sh && source_files'
+# combine cd with exa
+alias cdd='. linux_scripts.sh && cd_with_exa'
+# run daily updates
+alias dua='. linux_scripts.sh && daily_updates'
+# run weekly updates, checks and clean up
+alias wua='. linux_scripts.sh && weekly_updates' 
+
+# FZF SCRIPTS
+# you need the dot otherwise the script will run in a subshell!
+alias z='. fzf_scripts.sh && fzf_go_to_path'
+# find a file with fzf and open it with nvim
+alias vv='. fzf_scripts.sh && fzf_open_file'
+# find empty files
+alias fe='. fzf_scripts.sh && fzf_empty_files'
+# find files bigger than 100MB
+alias fb='. fzf_scripts.sh && fzf_find_big_files'
+# find all the scripts i have
+alias fs='. fzf_scripts.sh && fzf_find_my_scripts'
+# move a file from anywhere folder to anywhere folder
+alias fm='. fzf_scripts.sh && fzf_move_to_path'
+# copy file to anywhere
+alias fc='. fzf_scripts.sh && fzf_copy_to_path'
+# find a phrase in a file
+alias ff='. fzf_scripts.sh && fzf_file_that_contains_phrase'
+
+# PYTHON-PIP
+# find the version for each python program installed using fzf
+alias pipv='pip list | fzf'
+
+# PACMAN - PARU SCRIPTS
+# install pacman program with the help of fzf
+alias pi='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
+# remove pacman program with the help of fzf
+alias pr='pacman -Qq | fzf --multi --preview "pacman -Qi {1}" | xargs -ro sudo pacman -Rns'
+# find the version for each pacman program install using fzf
+alias pv='pacman -Q | fzf'
+# install arch + aur programs with the help of paru and fzf
+alias auri='paru -Slq | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
+
+# RUST
+# cargo shortcuts
+# https://doc.rust-lang.org/book/ch01-03-hello-cargo.html
+alias cn='cargo new'
+alias ci='cargo install'
+alias cc='cargo check'
+alias cr='cargo run'
+alias cb='cargo build'
+alias cs='cargo search'
+alias cu='cargo install-update -a'
+alias cl='cargo install-update -l'
+# exa shortcuts
+# https://the.exa.website/docs/command-line-options
+alias l='exa -alh --colour=always --sort=ext --icons'
+alias lld='exa -alh --colour=always --group-directories-first --icons' # sort by directory first
+alias lls='exa -alh --colour=always --group-directories-first --sort=size --icons'  # sort by size
+alias lln='exa -alh --colour=always --group-directories-first --sort=name --icons'  # sort by size
+# dust shortcuts
+# https://github.com/bootandy/dust
+alias d='d() { dust -n $1 ;},d'
+
+# GIT SHORTCUTS
+alias gc='. git_scripts.sh && git_commit_workflow'
+alias ginit='. git_scripts.sh && git_init_template'
+alias glg='. git_scripts.sh && git_log_graph'
+alias gpulla='. git_scripts.sh && git_pull_all_git_dirs'
+alias gsa='. git_scripts.sh && git_status_all_git_dirs'
+# amend a commit without changing the commit message
+alias gcane='git commit --amend --no-edit'
+alias gd='git diff'
+alias gl='git log'
+alias glo='git log --oneline'
+alias gs='git status -sb'
+alias lg='lazygit'
+
+echo "-- .aliases file sourced"

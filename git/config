@@ -1,0 +1,11 @@
+[init]
+	defaultBranch = main
+[user]
+	name = John Kyvetos
+	email = johnkyvetos@gmail.com
+[pull]
+	rebase = false
+[core]
+	editor = nvim
+[credential]
+	helper = store
