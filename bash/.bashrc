@@ -9,24 +9,35 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # if $PATH has multiples remove them
-function addToPATH {
+function add_to_path {
   case ":$PATH:" in
     *":$1:"*) :;; # already there
     *) PATH="$1:$PATH";; # or PATH="$PATH:$1"
   esac
 }
 
-# my own scripts
-addToPATH $HOME/dot/scripts
+# ADD TO $PATH
+# my own personal scripts
+add_to_path $HOME/dot/scripts
 # cargo - rust applications
-addToPATH $HOME/.local/share/cargo/bin
-# add python3 for linux
-addToPATH $HOME/.local/bin
-# add python3 for mac
-export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
-addToPATH /usr/local/opt/python/libexec/bin
-addToPATH /usr/local/bin
+add_to_path $HOME/.local/share/cargo/bin
 
+# add python3 for linux - old paths
+# add_to_path $HOME/.local/bin
+# add_to_path $HOME/.local/lib/python3.9/site-packages
+# add_to_path $HOME/.local/lib/python3.10/site-packages
+# add python and site-packages (whole directory)
+# add_to_path $HOME/.local/
+
+# add to $PATH my own python libraries
+export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
+export PYTHONPATH="${PYTHONPATH}:$HOME/.local/lib/python3.10/site-packages"
+
+# add python3 for mac
+add_to_path /usr/local/opt/python/libexec/bin
+add_to_path /usr/local/bin
+
+# old setup for my scripts
 # # my own git scripts
 # addToPATH $HOME/dot/scripts/git_scripts.sh
 # # my own fzf scripts
