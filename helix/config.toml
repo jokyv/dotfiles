@@ -12,7 +12,7 @@ true-color = true
 # C-c = "no_op"
 # q = { q = "wclose" }
 
-[keys.insert]
+# [keys.insert]
 # j = { k = "normal_mode" }
 
 [editor.cursor-shape]

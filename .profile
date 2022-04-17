@@ -2,8 +2,8 @@ if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 
 # =============================================================================
 # Setting up defaults
-export EDITOR='lvim'
-export VISUAL='lvim'
+export EDITOR='hx'
+export VISUAL='hx'
 export BROWSER='firefox'
 export TERMINAL='alacritty'
 export COLORTERM='truecolor'

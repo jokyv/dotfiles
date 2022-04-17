@@ -27,9 +27,9 @@ lvim.keys.normal_mode["<A-k>"] = nil
 -- git signs settings
 -- lvim.builtin.gitsigns.active = false
 -- dashboard settings
-lvim.builtin.dashboard.active = true
-lvim.builtin.dashboard.footer = { "" }
-lvim.builtin.dashboard.custom_header = { "" }
+lvim.builtin.alpha.active = true
+lvim.builtin.alpha.footer = { "" }
+lvim.builtin.alpha.custom_header = { "" }
 -- terminal settings
 lvim.builtin.terminal.active = true
 -- nvimtree settings
