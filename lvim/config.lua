@@ -6,7 +6,8 @@ lvim.format_on_save = true
 -- linting live
 lvim.lint_on_save = false
 -- colorschemes
-lvim.colorscheme = "tokyonight"
+-- lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "onedarker"
 vim.g.tokyonight_style = "night"
 -- lvim.colorscheme = "spacegray"
 vim.opt.timeoutlen = 200
@@ -51,8 +52,8 @@ lvim.builtin.treesitter.autotag.enable = true
 lvim.lsp.diagnostics.virtual_text = false
 -- indent backline settings
 vim.opt.listchars = {
-	space = "⋅",
-	eol = "↴",
+	space = "?",
+	eol = "?",
 }
 
 -- lualine settings

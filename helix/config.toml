@@ -1,11 +1,22 @@
-theme = 'bogster'
+theme = 'everforest_dark'
 
 [editor]
 idle-timeout = 100
+true-color = true
 
-[lsp]
-display-messages = true
+[keys.normal]
+"#" = "toggle_comments"
+"esc" = ["normal_mode", ":format", ":write"] # for quick saving
+
+# "space" = { "space" = "keep_primary_selection",  "q" = ":buffer-close" }
+# C-c = "no_op"
+# q = { q = "wclose" }
 
 [keys.insert]
-j = {k = "normal_mode"}
+# j = { k = "normal_mode" }
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
 
