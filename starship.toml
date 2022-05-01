@@ -36,8 +36,10 @@ format = """\
         $character\
     """
 
+# Timeout for commands executed by starship (in milliseconds).
+command_timeout = 2000
 # Timeout for starship to scan files (in milliseconds)
-scan_timeout = 75
+scan_timeout = 1000
 # Add a new line before the start of the prompt
 add_newline = true
 
