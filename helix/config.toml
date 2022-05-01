@@ -1,4 +1,4 @@
-theme = 'everforest_dark'
+theme = "everforest_dark"
 
 [editor]
 idle-timeout = 100
