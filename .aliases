@@ -16,7 +16,9 @@ alias cp='cp -iv'
 alias cat='bat'
 alias p='python'
 alias b='bash'
+alias ep='echo $PATH | tr : "\n"'
 alias v='~/.local/bin/lvim'
+alias zel='zellij'
 
 # LINUX SCRIPTS
 # source bash files and clear terminal
