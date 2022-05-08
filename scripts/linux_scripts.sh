@@ -40,7 +40,7 @@ source_files() {
 # a simple script that combines cd with exa
 cd_with_exa() {
   cd "$1" &&
-  exa -alh --color=always --sort=ext;
+  exa -ahT --tree --level=2 --sort=ext;
 }
 
 # scripl that updates pacman apps and git pull all repos
