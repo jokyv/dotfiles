@@ -2,9 +2,20 @@
 
 # start tmux every time you open the terminal
 # only when you are on mac
+# if [[ "$OSTYPE" == "darwin"* ]]; then
+#   if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#     exec tmux
+#   fi
+# fi
+
+# start zellij every time you open the terminal
+# only when you are on mac
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    exec tmux
+  if command -v zellij &> /dev/null && 
+  [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && 
+  [[ ! "$TERM" =~ zellij ]] && 
+  [ -z "$ZELLIJ" ]; then
+    exec zellij
   fi
 fi
 
