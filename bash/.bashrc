@@ -25,7 +25,7 @@ add_to_path $HOME/.local/share/cargo/bin
 # add python3 for linux - old paths
 # add_to_path $HOME/.local/bin
 # add_to_path $HOME/.local/lib/python3.9/site-packages
-# add_to_path $HOME/.local/lib/python3.10/site-packages
+add_to_path $HOME/.local/lib/python3.10/site-packages
 # add python and site-packages (whole directory)
 # add_to_path $HOME/.local/
 
