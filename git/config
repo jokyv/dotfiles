@@ -6,6 +6,6 @@
 [pull]
 	rebase = false
 [core]
-	editor = nvim
+	editor = hx
 [credential]
 	helper = store

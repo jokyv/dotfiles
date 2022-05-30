@@ -118,7 +118,7 @@ format = '\[[$hash\]($style)\]'
 only_detached = true
 
 [git_state]
-disabled = false
+disabled = true
 rebase = "REBASING"
 merge = "MERGING"
 revert = "REVERTING"

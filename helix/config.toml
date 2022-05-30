@@ -13,7 +13,7 @@ select = "underline"
 display-messages = true
 
 [keys.insert]
-j = { k = "normal_mode" }
+# j = { k = "normal_mode" }
 
 [keys.normal]
 W = "extend_next_word_start"

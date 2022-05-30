@@ -76,13 +76,13 @@ alias cl='cargo install-update -l'
 alias ct='cargo test'
 # exa shortcuts
 # https://the.exa.website/docs/command-line-options
-alias l='exa -alh --colour=always --sort=ext --icons --ignore-glob="*.DS_Store*"'
+alias l='exa -lh --sort=ext --icons --ignore-glob="*.DS_Store*"'
 # sort by directory first
-alias lld='exa -alh --colour=always --group-directories-first --icons --ignore-glob="*.DS_Store*"'
+alias lld='exa -alh --group-directories-first --icons --ignore-glob="*.DS_Store*"'
 # sort by directory first and then size
-alias lls='exa -alh --colour=always --group-directories-first --sort=size --icons'
+alias lls='exa -alh --group-directories-first --sort=size --icons'
 # sort by directory first and then name
-alias lln='exa -alh --colour=always --group-directories-first --sort=name --icons'
+alias lln='exa -alh --group-directories-first --sort=name --icons'
 # dust shortcuts
 # https://github.com/bootandy/dust
 alias d='d() { dust -n $1 ;},d'
