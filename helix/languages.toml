@@ -6,4 +6,9 @@ file-types = ["rs"]
 [language.auto-pairs]
 '<' = '>'
 
+[[language]]
+name = "bash"
+scope = "source.bash"
+file-types = [".config", ".aliases", ".ini"]
+
 
