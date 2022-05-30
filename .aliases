@@ -73,6 +73,7 @@ alias cb='cargo build'
 alias cs='cargo search'
 alias cu='cargo install-update -a'
 alias cl='cargo install-update -l'
+alias ct='cargo test'
 # exa shortcuts
 # https://the.exa.website/docs/command-line-options
 alias l='exa -alh --colour=always --sort=ext --icons --ignore-glob="*.DS_Store*"'
