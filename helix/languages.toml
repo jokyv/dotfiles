@@ -9,6 +9,6 @@ file-types = ["rs"]
 [[language]]
 name = "bash"
 scope = "source.bash"
-file-types = [".config", ".aliases", ".ini", "ignore"]
+file-types = [".config", ".aliases", ".ini", "ignore", ".env", ".bashrc", ".bash_profile", ".profile"]
 
 
