@@ -9,11 +9,7 @@ file-types = ["rs"]
 [[language]]
 name = "bash"
 scope = "source.bash"
-<<<<<<< Updated upstream
 file-types = [".config", ".aliases", ".ini", "ignore", ".env", ".bashrc", ".bash_profile", ".profile"]
-=======
-file-types = [".config", "config", ".aliases", "ignore"]
->>>>>>> Stashed changes
 
 
 [[language]]
