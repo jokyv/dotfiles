@@ -1,7 +1,7 @@
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 
-# =============================================================================
 # Setting up defaults
+# ----------------------------------------------------------------------------
 export EDITOR='hx'
 export VISUAL='hx'
 export BROWSER='firefox'
@@ -9,8 +9,8 @@ export TERMINAL='alacritty'
 export COLORTERM='truecolor'
 export WM='bspwm'
 
-# =============================================================================
 # ~/ clean up
+# ----------------------------------------------------------------------------
 export XGD_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
@@ -33,8 +33,8 @@ export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/X11/xinitrc"
 # i am adding it to path via bashrc
 # export PATH="$HOME/.local/share/cargo/bin:$PATH"
 
-# =============================================================================
 # FZF
+# ----------------------------------------------------------------------------
 # <CTRL+R> search history of shell commands
 # FZF_DEFAULT_COMMAND is piped into fzf if you run fzf without any input. 
 # So, with this setup, fd . $HOME | fzf and fzf do the same thing.
@@ -54,8 +54,8 @@ export FZF_ALT_C_COMMAND="fd -td . $HOME"
 # note you can use .gitignore file in $HOME to ignore folders that you dont 
 # want the FZF to search and hence speed up performance!
 
-# =============================================================================
 # launch starx automatically
+# ----------------------------------------------------------------------------
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
 fi

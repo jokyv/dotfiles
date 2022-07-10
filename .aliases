@@ -14,11 +14,11 @@ alias rm='rm -iv'
 alias mv='mv -iv' 
 alias cp='cp -iv'
 alias cat='bat'
-alias p='python'
+alias p='python3'
 alias b='bash'
 alias ep='echo $PATH | tr : "\n"'
 alias v='~/.local/bin/lvim'
-alias zel='zellij'
+alias zel='zellij --layout compact'
 
 # LINUX SCRIPTS
 # source bash files and clear terminal

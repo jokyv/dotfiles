@@ -9,6 +9,7 @@
 # fi
 
 # start zellij every time you open the terminal
+# ----------------------------------------------------------------------------
 # only when you are on mac
 if [[ "$OSTYPE" == "darwin"* ]]; then
   if command -v zellij &> /dev/null && 
@@ -28,6 +29,7 @@ function add_to_path {
 }
 
 # ADD TO $PATH
+# ----------------------------------------------------------------------------
 # my own personal scripts
 add_to_path $HOME/dot/scripts
 # cargo - rust applications
@@ -45,7 +47,7 @@ export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
 export PYTHONPATH="${PYTHONPATH}:$HOME/.local/lib/python3.10/site-packages"
 
 # add python3 for mac
-add_to_path /usr/local/opt/python/libexec/bin
+# add_to_path /usr/local/opt/python/libexec/bin
 add_to_path /usr/local/bin
 
 # old setup for my scripts
@@ -60,12 +62,14 @@ add_to_path /usr/local/bin
 [ -f $HOME/dot/.aliases ] && source $HOME/dot/.aliases
 
 # misc settings
+# ----------------------------------------------------------------------------
 set -o vi # enable vim keystrokes in terminal
 shopt -s cdspell 
 bind 'set completion-ignore-case on'
 complete -d cd
 
 # need this for starship
+# ----------------------------------------------------------------------------
 eval "$(starship init bash)"
 
 
