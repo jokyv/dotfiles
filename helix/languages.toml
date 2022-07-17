@@ -9,8 +9,7 @@ file-types = ["rs"]
 [[language]]
 name = "bash"
 scope = "source.bash"
-file-types = [".config", ".aliases", ".ini", "ignore", ".env", ".bashrc", ".bash_profile", ".profile"]
-
+file-types = [".config", ".aliases", "ignore", ".env", ".bashrc", ".bash_profile", ".profile"]
 
 [[language]]
 name = "toml"
