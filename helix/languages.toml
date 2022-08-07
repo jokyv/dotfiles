@@ -14,3 +14,7 @@ file-types = [".config", ".aliases", "ignore", ".env", ".bashrc", ".bash_profile
 [[language]]
 name = "toml"
 file-types = [".ini"]
+
+[[language]]
+name = "markdown"
+formatter = { command = "prettier", args = ["--parser", "markdown"] }
