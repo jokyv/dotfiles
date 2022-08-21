@@ -9,7 +9,7 @@ alias clock='tock -cms'
 # with -v it explains what is being done on terminal - visual
 # with -p you are making the parent directory if doesnt exist
 alias mkdir='mkdir -pv'
-alias rmd='rm -rfv'
+# alias rmd='rm -rfv'
 alias rm='rm -iv' 
 alias mv='mv -iv' 
 alias cp='cp -iv'
@@ -86,6 +86,16 @@ alias lln='exa -alh --group-directories-first --sort=name --icons'
 # dust shortcuts
 # https://github.com/bootandy/dust
 alias d='d() { dust -n $1 ;},d'
+# trashy shortcuts
+# https://github.com/oberblastmeister/trashy
+# use trash with 'rmd'
+alias rmd='trash'
+# trash list
+alias trl='trash list'
+# restore trash item with trashy
+alias trr='. fzf_scripts.sh && fzf_restore_file_from_trash'
+#empty trash item with trashy
+alias tre='. fzf_scripts.sh && fzf_empty_file_from_trash'
 
 # GIT SHORTCUTS
 alias gc='. git_scripts.sh && git_commit_workflow'

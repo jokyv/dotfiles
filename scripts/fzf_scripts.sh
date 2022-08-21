@@ -50,3 +50,24 @@ fzf_find_my_scripts() {
     xargs -r $EDITOR ;
 }
 
+# restore trash item with trashy
+fzf_restore_file_from_trash() {
+    trash list |
+    fzf --multi |
+    awk '{$1=$1;print}' | 
+    rev | 
+    cut -d ' ' -f1 | 
+    rev | 
+    xargs trash restore --match=exact --force
+}
+
+# empty trash item with trashy
+fzf_empty_file_from_trash() {
+    trash list | 
+    fzf --multi |
+    awk '{$1=$1;print}' | 
+    rev | 
+    cut -d ' ' -f1 | 
+    rev | 
+    xargs trash empty --match=exact --force
+}
