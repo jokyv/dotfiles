@@ -1,6 +1,7 @@
 # Bash configurations
 
 # start tmux every time you open the terminal
+# ----------------------------------------------------------------------------
 # only when you are on mac
 # if [[ "$OSTYPE" == "darwin"* ]]; then
 #   if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
@@ -21,6 +22,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # if $PATH has multiples remove them
+# ----------------------------------------------------------------------------
 function add_to_path {
   case ":$PATH:" in
     *":$1:"*) :;; # already there
