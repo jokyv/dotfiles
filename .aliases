@@ -1,6 +1,7 @@
 # Aliases - general shortcuts/improvements
 alias ..='cd ..'
 alias ...='cd ../../'
+alias ....='cd ../../../'
 alias c='clear'
 alias ssd='sudo shutdown now'
 alias sr='sudo reboot'
@@ -17,8 +18,9 @@ alias cat='bat'
 alias p='python3'
 alias b='bash'
 alias ep='echo $PATH | tr : "\n"'
-alias v='~/.local/bin/lvim'
+# alias v='~/.local/bin/lvim'
 alias zel='zellij --layout compact'
+alias md='mdbook serve --open'
 
 # LINUX SCRIPTS
 # source bash files and clear terminal
