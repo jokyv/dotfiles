@@ -76,8 +76,8 @@ eval "$(starship init bash)"
 
 # need this for atuin
 # ----------------------------------------------------------------------------
-# [[ -f $HOME/projects/.bash-preexec.sh ]] && source $HOME/projects/.bash-preexec.sh
-# eval "$(atuin init bash)"
+[[ -f $HOME/projects/.bash-preexec.sh ]] && source $HOME/projects/.bash-preexec.sh
+eval "$(atuin init bash)"
 
 echo "-- .bashrc file sourced"
 
