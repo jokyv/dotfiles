@@ -60,7 +60,8 @@ add_to_path /usr/local/bin
 # # conda distribution
 # addToPATH $HOME/mconda/bin/
 
-# load bash aliases
+# load all my aliases
+# ----------------------------------------------------------------------------
 [ -f $HOME/dot/.aliases ] && source $HOME/dot/.aliases
 
 # misc settings
