@@ -1,7 +1,8 @@
 **/.local/share/nvim/*
 **/.local/share/lunarvim/site/*
-**/.local/share/cargo/registry/*
 **/.cache/*
+**/.local/share/cargo/registry/*
 **/.cargo/*
+**/cargo/*
 **/.git/*
 **/.hedger/*

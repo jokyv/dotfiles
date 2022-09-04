@@ -4,7 +4,12 @@ scope = "source.rust"
 file-types = ["rs"]
 
 [language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
 '<' = '>'
+'"' = '"'
+
 
 [[language]]
 name = "bash"

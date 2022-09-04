@@ -2,7 +2,7 @@
 
 main() {
   cd
-  for file in $(fd -td -H '^.git$' -E '.cargo')
+  for file in $(fd -td -H '^.git$' )
   do
     cd $file
     cd ..
