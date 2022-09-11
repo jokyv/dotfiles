@@ -101,12 +101,12 @@ format = "([[](bg:#555555 fg:#333333)[with](bg:#555555 fg:white) $symbol$env_
 
 [gcloud]
 disabled = false
-format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+format = '([\[$symbol\]]($style))'
 symbol = " "
 
 [git_branch]
 disabled = false
-format = '\[[$symbol$branch]($style)\]'
+format = '([\[$symbol$branch\]]($style))'
 symbol = " "
 # truncation_length = 7 # default = 2^63 - 1
 truncation_symbol = "…"
