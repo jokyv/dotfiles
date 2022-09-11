@@ -38,12 +38,11 @@ display_time = true
 cleanup = true
 
 [git]
-#max_concurrency = 5
+max_concurrency = 5
 # Additional git repositories to pull
-#repos = [
-#    "~/src/*/",
-#    "~/.config/something"
-#]
+repos = [
+    "~/projects/notes",
+]
 
 # Don't pull the predefined git repos
 #pull_predefined = false
