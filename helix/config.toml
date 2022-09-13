@@ -1,9 +1,13 @@
 theme = "catppuccin_mocha"
 
 [editor]
-idle-timeout = 100
+idle-timeout = 50
 true-color = true
+color-modes = true
 mouse = false
+cursorline = true
+bufferline = "multiple"
+rulers = [120]
 
 [editor.cursor-shape]
 normal = "block"
@@ -17,24 +21,26 @@ display-messages = true
 # j = { k = "normal_mode" }
 
 [keys.normal]
+H = "extend_char_left"
+J = "extend_line_down"
+K = "extend_line_up"
+L = "extend_char_right"
 W = "extend_next_word_start"
 B = "extend_prev_word_start"
+E = "extend_next_word_end"
 "left" = "goto_previous_buffer"
 "right" = "goto_next_buffer"
 "#" = "toggle_comments"
-# "{" = "move_prev_paragraph" # doesnt exist yet
-# "}" = "move_next_paragraph"
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
 
-# [editor.whitespace]
-# render = "all"
-# or control each character
-[editor.whitespace.render]
-tab = "all"
-space = "none"
-newline = "none"
+[editor.indent-guides]
+render = true
+character = "╎"
 
-[editor.whitespace.characters]
-tab = "→"
-space = " "
-newline = "⏎"
-nbsp = "⍽"
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "position-percentage", "file-type"]
+separator = "│"
+

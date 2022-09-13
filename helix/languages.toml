@@ -1,3 +1,6 @@
+# download grammer for the below only
+use-grammars = { only = [ "rust", "python", "toml", "bash", "json", "yaml"] }
+
 [[language]]
 name = "rust"
 scope = "source.rust"
@@ -9,7 +12,7 @@ file-types = ["rs"]
 '[' = ']'
 '<' = '>'
 '"' = '"'
-
+'`' = '`'
 
 [[language]]
 name = "bash"
