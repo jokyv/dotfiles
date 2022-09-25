@@ -41,6 +41,6 @@ character = "╎"
 [editor.statusline]
 left = ["mode", "spinner"]
 center = ["file-name"]
-right = ["diagnostics", "selections", "position", "position-percentage", "file-type"]
+right = ["diagnostics", "position", "position-percentage", "file-type"]
 separator = "│"
 
