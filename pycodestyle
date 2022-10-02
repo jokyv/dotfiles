@@ -1,2 +1,4 @@
 [pycodestyle]
 max-line-length = 120
+# imports must be only at the top of a file
+ignore = E402
