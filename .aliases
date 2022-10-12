@@ -96,7 +96,7 @@ alias rmd='trash'
 alias trl='trash list'
 # restore trash item with trashy
 alias trr='. fzf_scripts.sh && fzf_restore_file_from_trash'
-#empty trash item with trashy
+# empty trash item with trashy
 alias tre='. fzf_scripts.sh && fzf_empty_file_from_trash'
 
 # GIT SHORTCUTS
