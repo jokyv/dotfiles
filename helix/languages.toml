@@ -27,11 +27,10 @@ file-types = [
   ".profile",
 ]
 
-# if uncomment toml syntax does not work
-# [[language]]
-# name = "toml"
-# scope = "source.toml"
-# file-types = [".ini"]
+[[language]]
+name = "toml"
+scope = "source.toml"
+file-types = ["toml", "ini", "pycodestyle"]
 
 [[language]]
 name = "markdown"
