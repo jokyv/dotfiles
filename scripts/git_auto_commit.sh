@@ -21,6 +21,7 @@ git_auto_commit() {
       git add .
       git commit -q -m "auto update at: $(date +"%d-%m-%Y %H:%M:%S")"
       git push -q
+      echo ":: Found changes! git add, commit push performed"
     fi
 }
 
