@@ -2,24 +2,6 @@
 
 #######################################################################
 ## HELPER FUNCTIONS
-# helper function that auto git commis
-auto_git_commit() {
-    # MY_PATH="~/projects/notes"
-    cd "$1"
-    CHANGES_EXIST="$(git status --porcelain | wc -l)"
-    # if no changes then exit with code 0
-    echo ":: Checking for repo {$1}"
-    if [ "$CHANGES_EXIST" -eq 0 ]; then
-      echo ":: Nothing to commit moving on..."
-    else
-      git status -s
-      git add .
-      git commit -q -m "weekly auto update: $(date +"%Y-%m-%d %H:%M:%S")"
-      git push -q
-      git status -s
-    fi
-}
-
 # a helper function when a section is of a script is 'disabled'
 work_in_progress() {
   echo ""
