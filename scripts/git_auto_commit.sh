@@ -2,7 +2,9 @@
 
 # Variables
 # ----------------------------------------------------------------------------
-PATHS=("$HOME/projects/notes/")
+PATHS=(
+  "$HOME/projects/notes/"
+  )
 
 # Helper function that auto git commis
 # ----------------------------------------------------------------------------
