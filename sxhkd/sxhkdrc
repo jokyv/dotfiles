@@ -24,6 +24,9 @@ super + b
 # open rofi to launch and application
 super + space
 	rofi -show run
+# launch obsidian
+super + o
+	obsidian
 # launch ranger
 super + r
 	alacritty -e ranger
