@@ -2,26 +2,20 @@
 format = """\
         $username\
         $hostname\
-        $kubernetes\
         $directory\
         $sudo\
         $git_branch\
         $git_commit\
         $git_state\
         $git_status\
-        $docker_context\
         $package\
         (↓ Toolchain version modules ↓)\
-        $cmake\
         $golang\
-        $julia\
         $lua\
         $nodejs\
-        $ocaml\
         $python\
         $rust\
         (↑ Toolchain version modules ↑)\
-        $conda\
         $memory_usage\
         $aws\
         $gcloud\
@@ -37,9 +31,9 @@ format = """\
     """
 
 # Timeout for commands executed by starship (in milliseconds).
-command_timeout = 2000
+command_timeout = 500
 # Timeout for starship to scan files (in milliseconds)
-scan_timeout = 1000
+scan_timeout = 50
 # Add a new line before the start of the prompt
 add_newline = true
 
@@ -53,25 +47,13 @@ disabled = false
 format = "$symbol "
 success_symbol = "[->](bold green)"
 
-[cmake]
-disabled = true
-format = '\[[$symbol($version)]($style)\]'
-symbol = "喝 "
-
 [cmd_duration]
 disabled = false
 min_time = 2_000
 format = '\[[tt: $duration]($style)\]'
-show_milliseconds = false
+show_milliseconds = true
 show_notifications = false
-min_time_to_notify = 45_000
-
-[conda]
-disabled = false
-truncation_length = 1
-format = '\[[$symbol$environment]($style)\]'
-symbol = " "
-ignore_base = true
+min_time_to_notify = 5_000
 
 [directory]
 disabled = false
@@ -85,12 +67,6 @@ truncation_symbol = "../"
 
 # [directory.substitutions]
 # "/path/to/replace" = "string/symbol"
-
-[docker_context]
-disabled = true
-symbol = " "
-format = "[[](bg:#444444 fg:#333333)[via](bg:#444444 fg:white) $symbol$context[](bg:#333333 fg:#444444)]($style)"
-only_with_files = true
 
 [env_var]
 disabled = false
@@ -156,19 +132,10 @@ format = '\[[$symbol($hostname)]($style)\]'
 
 [jobs]
 disabled = false
-threshold = 1
+symbol_threshold = 1
+number_threshold = 2
 format = '\[[$symbol($number)]($style)\]'
-symbol = "✦ "
-
-[julia]
-disabled = true
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-
-[kubernetes]
-disabled = true
-symbol = "☸ "
-format = '[[](bg:#444444 fg:#333333)$symbol$context( \($namespace\)) in[](bg:#333333 fg:#444444)]($style)'
+symbol = "+ "
 
 [lua]
 disabled = false
@@ -179,7 +146,7 @@ format = '\[[$symbol($version)]($style)\]'
 disabled = false
 
 [memory_usage]
-disabled = true
+disabled = false
 threshold = 50
 format = '\[$symbol[$ram( | $swap)]($style)\]'
 style = "bold dimmed bg:#555555 fg:white"
@@ -190,11 +157,6 @@ disabled = true
 format = '\[[$symbol($version)]($style)\]'
 symbol = " "
 #symbol = " "
-
-[ocaml]
-disabled = true
-format = "[[](bg:#444444 fg:#333333)[via](bg:#444444 fg:white) $symbol$version[](bg:#333333 fg:#444444)]($style)"
-symbol = "🐫 "
 
 [package]
 disabled = false
@@ -219,9 +181,11 @@ format = '\[[$symbol($version)]($style)\]'
 symbol = " "
 
 [status]
-disabled = true
-format = "[[](bg:#555555 fg:#333333)$symbol$status[](bg:#333333 fg:#555555)]($style)"
-symbol = " ✖"
+disabled = false
+format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
+# format = "[[]$symbol$status[]]($style)"
+symbol = "🚫 "
+# symbol = " ✖"
 
 [sudo]
 disabled = false
