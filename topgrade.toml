@@ -42,6 +42,7 @@ max_concurrency = 5
 # Additional git repositories to pull
 repos = [
     "~/projects/notes",
+    "~/dot"
 ]
 
 # Don't pull the predefined git repos

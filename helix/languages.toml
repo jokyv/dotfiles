@@ -10,8 +10,8 @@ file-types = ["rs"]
 '(' = ')'
 '{' = '}'
 '[' = ']'
-'<' = '>'
 '"' = '"'
+'<' = '>'
 '`' = '`'
 
 [[language]]
@@ -39,15 +39,15 @@ file-types = ["md"]
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
 # language-server = { command = "ltex-ls" }
 
- [[language]]
- name = "python"
- scope = "source.python"
- injection-regex = "python"
- file-types = ["py"]
- shebangs = ["python"]
- roots = ["pyproject.toml", "setup.py", "Poetry.lock"]
- comment-token = "#"
- language-server = { command = "pyright-langserver", args = ["--stdio"] }
- auto-format = false
- indent = { tab-width = 4, unit = "    " }
- config = {}
+[[language]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py"]
+shebangs = ["python"]
+roots = ["pyproject.toml", "setup.py", "Poetry.lock"]
+comment-token = "#"
+language-server = { command = "pyright-langserver", args = ["--stdio"] }
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+config = {}

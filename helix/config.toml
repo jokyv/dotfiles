@@ -1,4 +1,4 @@
-theme = "catppuccin_mocha"
+theme = "varua"
 
 [editor]
 idle-timeout = 50
@@ -8,14 +8,28 @@ mouse = false
 cursorline = true
 bufferline = "multiple"
 rulers = [120]
+scroll-lines = 5
+auto-save = true
+
+[editor.statusline]
+left = ["mode", "spinner", "diagnostics"]
+center = ["file-name"]
+right = ["position", "position-percentage", "total-line-numbers", "file-type"]
+separator = "│"
+
+[editor.lsp]
+display-messages = true
 
 [editor.cursor-shape]
 normal = "block"
 insert = "bar"
 select = "underline"
 
-[editor.lsp]
-display-messages = true
+[editor.indent-guides]
+render = true
+# character = "╎"
+character = "┆"
+# character = "┊"
 
 [keys.insert]
 # j = { k = "normal_mode" }
@@ -28,19 +42,9 @@ L = "extend_char_right"
 W = "extend_next_word_start"
 B = "extend_prev_word_start"
 E = "extend_next_word_end"
+C-o = ":open ~/.config/helix/config.toml"
 "#" = "toggle_comments"
 "left" = "goto_previous_buffer"
 "right" = "goto_next_buffer"
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
-
-[editor.indent-guides]
-render = true
-character = "╎"
-
-[editor.statusline]
-left = ["mode", "spinner"]
-center = ["file-name"]
-right = ["diagnostics", "position", "position-percentage", "file-type"]
-separator = "│"
-
