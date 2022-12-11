@@ -27,6 +27,9 @@ super + space
 # launch obsidian
 super + o
 	obsidian
+# launch discord
+super + d
+	discord
 # launch ranger
 super + r
 	alacritty -e ranger
@@ -46,7 +49,9 @@ super + w
     feh --bg-fill $(shuf -n 1 -e ~/pics/wallpapers/*)
 # flameshot
 super + y
-    /usr/bin/flameshot gui -p ~/pics/screenshots
+    /usr/bin/flameshot gui --clipboard --path ~/pics/screenshots
+super + shift + y
+    /usr/bin/flameshot gui --clipboard
 # show all opened windows
 super + shift + w
     rofi -show window
