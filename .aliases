@@ -14,7 +14,14 @@ alias mkdir='mkdir -pv'
 alias rm='rm -iv' 
 alias mv='mv -iv' 
 alias cp='cp -iv'
-alias cat='bat'
+alias cat='bat --paging=never' # to preserve cat's default behavior
+
+# use bat to colorize help tex with the below wrapper
+# alias bathelp='bat --plain --language=help'
+# help() {
+#     "$@" --help 2>&1 | bathelp
+# }
+
 alias p='python3'
 alias b='bash'
 alias ep='echo $PATH | tr : "\n"'
