@@ -22,8 +22,13 @@ source_files() {
 # a simple script that combines cd with exa
 cd_with_exa() {
   cd "$1" &&
-  et;
-  # exa -hT --tree --level=2 --sort=ext;
+  exa -hT --tree --level=2 --sort=ext;
+}
+
+# a simple script that combines cd with erdtree
+cd_with_et() {
+  cd "$1" &&
+  et
 }
 
 # scripl that updates pacman apps and git pull all repos
