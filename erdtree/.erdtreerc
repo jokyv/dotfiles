@@ -1,0 +1,7 @@
+--level 1
+--size-left
+--icons
+--hidden
+--ignore-git
+--dirs-first
+--sort size-rev

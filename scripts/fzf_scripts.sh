@@ -23,7 +23,8 @@ fzf_empty_files() {
 fzf_go_to_path() {
     cd
     cd "$(fd -td -H . $HOME | fzf)" &&
-    exa -hT --tree --level=2 --sort=ext
+    et
+    # exa -hT --tree --level=2 --sort=ext
 }
 
 # find all folders from $HOME and choose where to mv next
