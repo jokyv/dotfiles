@@ -1,3 +1,6 @@
+# disable notify
+skip_notify = true
+
 # Don't ask for confirmations
 assume_yes = true
 
