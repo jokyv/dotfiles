@@ -90,7 +90,8 @@ truncation_symbol = "…"
 [git_commit]
 disabled = false
 commit_hash_length = 7
-format = '\[[$hash\]($style)\]'
+format = '([\[$symbol$has\]]($style))'
+# format = '\[[$hash\]($style)\]'
 only_detached = true
 
 [git_state]
