@@ -39,15 +39,26 @@ file-types = ["md"]
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
 # language-server = { command = "ltex-ls" }
 
+# [[language]]
+# name = "python"
+# scope = "source.python"
+# injection-regex = "python"
+# file-types = ["py"]
+# shebangs = ["python"]
+# roots = ["pyproject.toml", "setup.py", "Poetry.lock"]
+# comment-token = "#"
+# language-server = { command = "pyright-langserver", args = ["--stdio"] }
+# language-server = { command = "ruff-lsp" }
+# config = { settings = { args = [] } }
+# indent = { tab-width = 4, unit = "    " }
+# config = {}
+
 [[language]]
 name = "python"
-scope = "source.python"
+auto-format = true
+language-server = {command = "pylsp"}
+config = { pylsp = {plugins = {ruff = { enabled = true }, black = { enabled = true }}}}
 injection-regex = "python"
 file-types = ["py"]
 shebangs = ["python"]
-roots = ["pyproject.toml", "setup.py", "Poetry.lock"]
-comment-token = "#"
-language-server = { command = "pyright-langserver", args = ["--stdio"] }
-auto-format = false
-indent = { tab-width = 4, unit = "    " }
-config = {}
+scope = "source.python"

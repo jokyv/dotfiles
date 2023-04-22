@@ -21,6 +21,9 @@ separator = "│"
 display-messages = true
 display-inlay-hints = true
 
+[editor.soft-wrap]
+enable = true
+
 [editor.cursor-shape]
 normal = "block"
 insert = "bar"
