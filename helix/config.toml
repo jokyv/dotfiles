@@ -1,4 +1,4 @@
-theme = "varua"
+theme = "rose_pine"
 
 [editor]
 idle-timeout = 50
@@ -11,10 +11,13 @@ rulers = [120]
 scroll-lines = 5
 auto-save = true
 
+[editor.soft-wrap]
+enable = true
+
 [editor.statusline]
 left = ["mode", "spinner", "diagnostics"]
 center = ["file-name"]
-right = ["position", "position-percentage", "total-line-numbers", "file-type"]
+right = ["version-control", "position", "position-percentage", "total-line-numbers", "file-type"]
 separator = "│"
 
 [editor.lsp]
