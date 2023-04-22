@@ -11,9 +11,6 @@ rulers = [120]
 scroll-lines = 5
 auto-save = true
 
-[editor.soft-wrap]
-enable = true
-
 [editor.statusline]
 left = ["mode", "spinner", "diagnostics"]
 center = ["file-name"]
