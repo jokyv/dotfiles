@@ -5,3 +5,4 @@
 --ignore-git
 --dirs-first
 --sort size-rev
+--follow-links
