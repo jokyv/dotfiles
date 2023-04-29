@@ -23,7 +23,7 @@ fzf_empty_files() {
 fzf_go_to_path() {
     cd
     cd "$(fd -td -H . $HOME | fzf)" &&
-    et
+    erd
     # exa -hT --tree --level=2 --sort=ext
 }
 

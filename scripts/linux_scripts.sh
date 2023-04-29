@@ -28,7 +28,7 @@ cd_with_exa() {
 # a simple script that combines cd with erdtree
 cd_with_et() {
   cd "$1" &&
-  et
+  erd
 }
 
 # scripl that updates pacman apps and git pull all repos
