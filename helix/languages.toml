@@ -18,6 +18,7 @@ file-types = ["rs"]
 name = "bash"
 scope = "source.bash"
 file-types = [
+  "config",
   ".config",
   ".aliases",
   "ignore",

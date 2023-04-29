@@ -1,10 +1,7 @@
 --level 1
 --icons
 --dirs-first
---sort size
 --human
 --hidden
 --no-git
-
-
-# no need this anymore
+--sort size

@@ -17,7 +17,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && 
   [[ ! "$TERM" =~ zellij ]] && 
   [ -z "$ZELLIJ" ]; then
-    exec zellij
+    exec zellij --layout compact
   fi
 fi
 
@@ -43,13 +43,17 @@ add_to_path $HOME/.local/bin
 add_to_path $HOME/.local/lib/python3.10/site-packages
 # add python and site-packages (whole directory)
 # add_to_path $HOME/.local/
+add_to_path $HOME/projects/python_path
 
 # add to $PATH my own python libraries
 export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
 export PYTHONPATH="${PYTHONPATH}:$HOME/.local/lib/python3.10/site-packages"
 
-# add python3 for mac
-# add_to_path /usr/local/opt/python/libexec/bin
+export IBM_DB_HOME=/usr/local/lib/python3.10/site-packages/clidriver
+export DYLD_LIBRARY_PATH=$IBM_DB_HOME/lib:$DYLD_LIBRARY_PATH
+
+# brew installation
+add_to_path /usr/local/opt
 add_to_path /usr/local/bin
 
 # old setup for my scripts
@@ -59,6 +63,11 @@ add_to_path /usr/local/bin
 # addToPATH $HOME/dot/scripts/fzf_scripts.sh
 # # conda distribution
 # addToPATH $HOME/mconda/bin/
+
+#####
+# export DYLD_LIBRARY_PATH=/usr/lib:$DYLD_LIBRARY_PATH
+
+export PATH=/usr/local/opt/sqlite/bin:$PATH
 
 # load all my aliases
 # ----------------------------------------------------------------------------
