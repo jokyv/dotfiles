@@ -31,7 +31,7 @@ format = """\
     """
 
 # Timeout for commands executed by starship (in milliseconds).
-command_timeout = 500
+command_timeout = 750
 # Timeout for starship to scan files (in milliseconds)
 scan_timeout = 50
 # Add a new line before the start of the prompt
