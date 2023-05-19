@@ -189,7 +189,7 @@ symbol = "🚫 "
 # symbol = " ✖"
 
 [sudo]
-disabled = false
+disabled = true
 format = '\[[$symbol($version)]($style)\]'
 symbol = ""
 
