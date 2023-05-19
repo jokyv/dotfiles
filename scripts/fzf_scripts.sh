@@ -21,7 +21,7 @@ fzf_empty_files() {
 
 # find all folders from $HOME and choose whre to cd next
 fzf_go_to_path() {
-    cd
+    # cd
     cd "$(fd -td -H . $HOME | fzf)" &&
     erd
     # exa -hT --tree --level=2 --sort=ext
@@ -39,16 +39,18 @@ fzf_copy_to_path() {
 
 # find all files from $HOME and opens them with nvim
 fzf_open_file() {
-    fd -tf -H . $HOME | 
-    fzf --preview "bat --style=numbers --color=always {}" |
-    xargs -r $EDITOR ;
+    # fd -tf -H . $HOME | 
+    # fzf --preview "bat --style=numbers --color=always {}" |
+    # xargs -r $EDITOR ;
+    hx $(fd -tf -H . $HOME | sk -m)
 }
 
 # find all my scripts, choose one with fzf and open with nvim
 fzf_find_my_scripts() {
-    fd -tf . $HOME/dot/scripts/ | 
-    fzf --preview "bat --style=numbers --color=always {}" | 
-    xargs -r $EDITOR ;
+    # fd -tf . $HOME/dot/scripts/ | 
+    # fzf --preview "bat --style=numbers --color=always {}" | 
+    # xargs -r $EDITOR ;
+    hx $(fd -tf . $HOME/dot/scripts/ | fzf --preview "bat --style=numbers --color=always {}")
 }
 
 # restore trash item with trashy
