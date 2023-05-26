@@ -1,7 +1,26 @@
+# depth only 1
 --level 1
+
+# look pretty
 --icons
---dirs-first
 --human
+--follow
+--layout inverted
+
+# show hidden but not .git, do not respect .gitignore
 --hidden
 --no-git
---sort size
+--no-ignore
+
+# remove empty directories from output
+--prune
+
+# ordering
+--dir-order last
+--sort name
+
+# truncate output to fit terminal emulator window
+--truncate
+
+# threads to be used
+--threads 4

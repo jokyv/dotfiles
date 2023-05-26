@@ -6,7 +6,7 @@ PATHS=(
   "$HOME/projects/notes/"
   )
 
-# Helper function that auto git commis
+# Helper function that auto git commits
 # ----------------------------------------------------------------------------
 git_auto_commit() {
     cd "$1"
