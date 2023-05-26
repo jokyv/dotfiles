@@ -148,9 +148,9 @@ disabled = false
 
 [memory_usage]
 disabled = false
-threshold = 50
+threshold = 75
 format = '\[$symbol[$ram( | $swap)]($style)\]'
-style = "bold dimmed bg:#555555 fg:white"
+style = "bold bg:#555555 fg:white"
 symbol = " "
 
 [nodejs]
