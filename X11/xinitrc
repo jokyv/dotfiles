@@ -31,6 +31,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# make mouse cursor slower
+xinput --set-prop 11 'libinput Accel Speed' -1
+
 # this is important so the app will start
 # change the wallpaper
 feh --bg-fill ~/pics/the_wallpaper.jpeg &
