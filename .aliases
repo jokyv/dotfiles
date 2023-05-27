@@ -1,4 +1,7 @@
-# Aliases - general shortcuts/improvements
+# ALIASES 
+
+# GENERAL shortcuts/improvements
+# ----------------------------------------------------------------------------
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -25,14 +28,13 @@ alias cat='bat --paging=never' # to preserve cat's default behavior
 alias p='python3'
 alias b='bash'
 alias ep='echo $PATH | tr : "\n"'
-# alias v='~/.local/bin/lvim'
 alias zel='zellij --layout compact'
-alias md='mdbook serve --open'
 
 # LINUX SCRIPTS
+# ----------------------------------------------------------------------------
 # source bash files and clear terminal
 alias sb='. linux_scripts.sh && source_files'
-# combine cd with exa
+# combine cd with erdtree
 alias cdd='. linux_scripts.sh && cd_with_et'
 # run daily updates
 alias dua='. linux_scripts.sh && daily_updates'
@@ -40,6 +42,7 @@ alias dua='. linux_scripts.sh && daily_updates'
 alias wua='. linux_scripts.sh && weekly_updates' 
 
 # FZF SCRIPTS
+# ----------------------------------------------------------------------------
 # you need the dot otherwise the script will run in a subshell!
 alias z='. fzf_scripts.sh && fzf_go_to_path'
 # find a file with fzf and open it with nvim
@@ -58,10 +61,12 @@ alias fc='. fzf_scripts.sh && fzf_copy_to_path'
 alias ff='. fzf_scripts.sh && fzf_file_that_contains_phrase'
 
 # PYTHON-PIP
+# ----------------------------------------------------------------------------
 # find the version for each python program installed using fzf
 alias pipv='pip list | fzf'
 
 # PACMAN - PARU SCRIPTS
+# ----------------------------------------------------------------------------
 # install pacman program with the help of fzf
 alias pi='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
 # remove pacman program with the help of fzf
@@ -72,6 +77,7 @@ alias pv='pacman -Q | fzf'
 alias auri='paru -Slq | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
 
 # RUST
+# ----------------------------------------------------------------------------
 # cargo shortcuts
 # https://doc.rust-lang.org/book/ch01-03-hello-cargo.html
 alias cn='cargo new'
@@ -83,20 +89,34 @@ alias cs='cargo search'
 alias cu='cargo install-update -a'
 alias cl='cargo install-update -l'
 alias ct='cargo test'
+
 # exa shortcuts
 # https://the.exa.website/docs/command-line-options
-alias l='exa -lh --sort=ext --icons --ignore-glob="*.DS_Store*"'
+# alias l='exa -lh --sort=ext --icons --ignore-glob="*.DS_Store*"'
 # sort by directory first
-alias lld='exa -alh --group-directories-first --icons --ignore-glob="*.DS_Store*"'
+# alias lld='exa -alh --group-directories-first --icons --ignore-glob="*.DS_Store*"'
 # sort by directory first and then size
-alias lls='exa -alh --group-directories-first --sort=size --icons'
+# alias lls='exa -alh --group-directories-first --sort=size --icons'
 # sort by directory first and then name
-alias lln='exa -alh --group-directories-first --sort=name --icons'
+# alias lln='exa -alh --group-directories-first --sort=name --icons'
+
+# erdtree shortcuts
+# https://github.com/solidiquis/erdtree
+# sort by name first, directory first, short format
+alias l='erd'
+# sort by name with directory first, long format
+alias ll='erd --long'
+# sort by size first, directory first, short format
+alias lss='erd --sort size'
+# sort by size with directory first, long format
+alias lsl='erd --long --sort size'
+
 # dust shortcuts
 # https://github.com/bootandy/dust
 alias d='d() { dust -n $1 ;},d'
 # trashy shortcuts
 # https://github.com/oberblastmeister/trashy
+
 # use trash with 'rmd'
 alias rmd='trash'
 # trash list
@@ -107,6 +127,7 @@ alias trr='. fzf_scripts.sh && fzf_restore_file_from_trash'
 alias tre='. fzf_scripts.sh && fzf_empty_file_from_trash'
 
 # GIT SHORTCUTS
+# ----------------------------------------------------------------------------
 alias gc='. git_scripts.sh && git_commit_workflow'
 alias ginit='. git_scripts.sh && git_init_template'
 alias glg='. git_scripts.sh && git_log_graph'
@@ -120,4 +141,6 @@ alias glo='git log --oneline'
 alias gs='git status -sb'
 alias lg='lazygit'
 
+# PRINT CONFIRMATION
+# ----------------------------------------------------------------------------
 echo "-- .aliases file sourced"
