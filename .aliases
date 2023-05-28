@@ -114,13 +114,15 @@ alias lsl='erd --long --sort size'
 # dust shortcuts
 # https://github.com/bootandy/dust
 alias d='d() { dust -n $1 ;},d'
+
 # trashy shortcuts
 # https://github.com/oberblastmeister/trashy
-
 # use trash with 'rmd'
 alias rmd='trash'
 # trash list
 alias trl='trash list'
+# empty all items from trash
+alias tra='trash empty --all'
 # restore trash item with trashy
 alias trr='. fzf_scripts.sh && fzf_restore_file_from_trash'
 # empty trash item with trashy

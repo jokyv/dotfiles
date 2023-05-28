@@ -23,4 +23,4 @@
 --truncate
 
 # threads to be used
---threads 4
+--threads 3

@@ -27,6 +27,7 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/bash/history"
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export PYLINTHOME="${XDG_DATA_HOME:-$HOME/.local/share}/pylint"
 export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/X11/xinitrc"
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/.ripgreprc"
 #export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority 
 # for global git is using the $XDG_CONFIG_HOME
 
