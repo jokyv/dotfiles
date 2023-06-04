@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # fkill - kill processes - list only the ones you can kill.
 fkill() {
     local pid 

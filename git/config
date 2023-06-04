@@ -18,12 +18,12 @@
 [interactive]
     diffFilter = delta --color-only
 [add.interactive]
-	useBuilting = false
+		useBuilting = false
 
 [delta]
     features = side-by-side line-numbers decorations
-	navigate = true
-	plus-style = syntax "#003800"
+		navigate = true
+		plus-style = syntax "#003800"
     minus-style = syntax "#3f0001"
 
 [delta "decorations"]
@@ -39,7 +39,7 @@
     line-numbers-plus-style = 28
 
 [merge]
-	conflictstyle = diff3
+		conflictstyle = diff3
 
 [diff]
-	colorMoved = default
+		colorMoved = default

@@ -3,3 +3,5 @@
 **/.git/*
 **/.hedger/*
 **/__pycache__/*
+
+**/*.parquet

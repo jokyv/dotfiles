@@ -9,9 +9,10 @@ fzf_file_that_contains_phrase() {
     xargs -r $EDITOR ;
 }
 
-# find files and folders above 50MB
+# find files and folders above certain MB, for example 500MB
 fzf_find_big_files() {
-    fd -H . $HOME --size +50MB | fzf
+    file_size=$1
+    fd -H . $HOME --size +$file_size | fzf
 }
 
 # find empty files
@@ -19,36 +20,33 @@ fzf_empty_files() {
     fd -te -H . $HOME | fzf
 }
 
-# find all folders from $HOME and choose whre to cd next
+# find all type directories from $HOME and choose where to cd next
+# fd -i for enabling case-sensitive
 fzf_go_to_path() {
-    # cd
-    cd "$(fd -td -H . $HOME | fzf)" &&
+    cd "$(fd -td -H -i . $HOME | fzf)" &&
     erd
 }
 
 # find all folders from $HOME and choose where to mv next
+# fd -i for enabling case-sensitive
 fzf_move_to_path() {
-    mv -iv $(fd -tf -H . $HOME | fzf) $(fd -td -H . $HOME | fzf) 
+    mv -iv $(fd -tf -H -i . $HOME | fzf) $(fd -td -H . $HOME | fzf) 
 }
 
 # find all folders from $HOME and choose where to cp next
+# fd -i for enabling case-sensitive
 fzf_copy_to_path() {
-    cp -iv $(fd -tf -H . $HOME | fzf) $(fd -td -H . $HOME | fzf) 
+    cp -iv $(fd -tf -H -i . $HOME | fzf) $(fd -td -H . $HOME | fzf) 
 }
 
-# find all files from $HOME and opens them with nvim
+# find all files from $HOME and opens them with helix
+# fd -i for enabling case-sensitive
 fzf_open_file() {
-    # fd -tf -H . $HOME | 
-    # fzf --preview "bat --style=numbers --color=always {}" |
-    # xargs -r $EDITOR ;
-    hx $(fd -tf -H . $HOME | sk -m)
+    hx $(fd -tf -H -i . $HOME | sk --preview "bat --style=numbers --color=always {}")
 }
 
 # find all my scripts, choose one with fzf and open with nvim
 fzf_find_my_scripts() {
-    # fd -tf . $HOME/dot/scripts/ | 
-    # fzf --preview "bat --style=numbers --color=always {}" | 
-    # xargs -r $EDITOR ;
     hx $(fd -tf . $HOME/dot/scripts/ | fzf --preview "bat --style=numbers --color=always {}")
 }
 

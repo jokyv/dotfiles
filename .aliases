@@ -49,7 +49,7 @@ alias z='. fzf_scripts.sh && fzf_go_to_path'
 alias vv='. fzf_scripts.sh && fzf_open_file'
 # find empty files
 alias fe='. fzf_scripts.sh && fzf_empty_files'
-# find files bigger than 100MB
+# find files bigger than xxxMB
 alias fb='. fzf_scripts.sh && fzf_find_big_files'
 # find all the scripts i have
 alias fs='. fzf_scripts.sh && fzf_find_my_scripts'
