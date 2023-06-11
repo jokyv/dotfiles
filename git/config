@@ -1,45 +1,45 @@
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [user]
-	name = John Kyvetos
-	email = johnkyvetos@gmail.com
+  name = John Kyvetos 
+  email = johnkyvetos@gmail.com
 
 [pull]
-	rebase = false
+  rebase = false
 
 [core]
-	editor = hx
-	pager = delta
+  editor = hx
+  pager = delta
 
 [credential]
-	helper = store
+  helper = store
 
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [add.interactive]
-		useBuilting = false
+  seBuilting = false
 
 [delta]
-    features = side-by-side line-numbers decorations
-		navigate = true
-		plus-style = syntax "#003800"
-    minus-style = syntax "#3f0001"
+  features = side-by-side line-numbers decorations
+  navigate = true
+  plus-style = syntax "#003800"
+  minus-style = syntax "#3f0001"
 
 [delta "decorations"]
-    commit-decoration-style = bold yellow box ul
-    file-style = bold yellow ul
-    file-decoration-style = none
-    hunk-header-decoration-style = cyan box ul
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow ul
+  file-decoration-style = none
+  hunk-header-decoration-style = cyan box ul
 
 [delta "line-numbers"]
-    line-numbers-left-style = cyan
-    line-numbers-right-style = cyan
-    line-numbers-minus-style = 124
-    line-numbers-plus-style = 28
+  line-numbers-left-style = cyan
+  line-numbers-right-style = cyan
+  line-numbers-minus-style = 124
+  line-numbers-plus-style = 28
 
 [merge]
-		conflictstyle = diff3
+  conflictstyle = diff3
 
 [diff]
-		colorMoved = default
+  colorMoved = default
