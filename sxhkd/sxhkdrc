@@ -21,6 +21,9 @@ super + {_,shift} + Return
 # launch browser
 super + b
 	firefox
+# launch brave
+super + shift + b
+	brave
 # open rofi to launch and application
 super + space
 	rofi -show run
