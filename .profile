@@ -34,6 +34,11 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/.ripgreprc"
 # i am adding it to path via bashrc
 # export PATH="$HOME/.local/share/cargo/bin:$PATH"
 
+# i need this for pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # FZF
 # ----------------------------------------------------------------------------
 # <CTRL+R> search history of shell commands
