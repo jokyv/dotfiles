@@ -3,7 +3,6 @@
 # start zellij every time you open the terminal on macOS
 # ------------------------------------------------------
 
-# only when you are on mac
 if [[ "$OSTYPE" == "darwin"* ]]; then
   if command -v zellij &> /dev/null && 
   [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && 
@@ -55,10 +54,7 @@ add_to_path /usr/local/bin
 # addToPATH $HOME/dot/scripts/git_scripts.sh
 # # my own fzf scripts
 # addToPATH $HOME/dot/scripts/fzf_scripts.sh
-# # conda distribution
-# addToPATH $HOME/mconda/bin/
 
-#####
 # export DYLD_LIBRARY_PATH=/usr/lib:$DYLD_LIBRARY_PATH
 
 export PATH=/usr/local/opt/sqlite/bin:$PATH
@@ -77,19 +73,14 @@ shopt -s cdspell
 bind 'set completion-ignore-case on'
 complete -d cd
 
-# Need this for pyenv
-# -------------------
+# Need this for applications
+# --------------------------
 
+# pyenv
 eval "$(pyenv virtualenv-init -)"
-
-# Need this for starship
-# ----------------------
-
+# starship
 eval "$(starship init bash)"
-
-# Need this for atuin
-# -------------------
-
+#atuin
 [[ -f $HOME/projects/.bash-preexec.sh ]] && source $HOME/projects/.bash-preexec.sh
 eval "$(atuin init bash)"
 

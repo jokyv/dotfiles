@@ -1,6 +1,6 @@
 # ALIASES 
 
-# GENERAL shortcuts/improvements
+# GENERAL SHORTCUTS
 # ----------------------------------------------------------------------------
 alias ..='cd ..'
 alias ...='cd ../../'
@@ -64,6 +64,7 @@ alias ff='. fzf_scripts.sh && fzf_file_that_contains_phrase'
 # ----------------------------------------------------------------------------
 # find the version for each python program installed using fzf
 alias pipv='pip list | fzf'
+alias pu='pip install -U `pip list --outdated | awk "NR>2 {print $1}"`'
 
 # PACMAN - PARU SCRIPTS
 # ----------------------------------------------------------------------------
@@ -111,10 +112,6 @@ alias lss='erd --sort size'
 # sort by size with directory first, long format
 alias lsl='erd --long --sort size'
 
-# dust shortcuts
-# https://github.com/bootandy/dust
-alias d='d() { dust -n $1 ;},d'
-
 # trashy shortcuts
 # https://github.com/oberblastmeister/trashy
 # use trash with 'rmd'
@@ -143,6 +140,6 @@ alias glo='git log --oneline'
 alias gs='git status -sb'
 alias lg='lazygit'
 
-# PRINT CONFIRMATION
+# PRINT FILE SOURCED CONFIRMATION
 # ----------------------------------------------------------------------------
 echo "-- .aliases file sourced"
