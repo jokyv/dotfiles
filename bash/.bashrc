@@ -2,7 +2,6 @@
 
 # start zellij every time you open the terminal on macOS
 # ------------------------------------------------------
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
   if command -v zellij &> /dev/null && 
   [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && 
@@ -14,7 +13,6 @@ fi
 
 # if $PATH has multiples remove them
 # ----------------------------------
-
 function add_to_path {
   case ":$PATH:" in
     *":$1:"*) :;; # already there
@@ -24,7 +22,6 @@ function add_to_path {
 
 # ADD TO $PATH
 # ------------
-
 # my own personal scripts
 add_to_path $HOME/dot/scripts
 # cargo - rust applications
@@ -35,6 +32,7 @@ add_to_path $HOME/.local/bin
 add_to_path $HOME/.local/lib/python3.10/site-packages
 # add python and site-packages (whole directory)
 # add_to_path $HOME/.local/
+
 # add my own libraries to python path
 add_to_path $HOME/projects/python_path
 
@@ -61,21 +59,17 @@ export PATH=/usr/local/opt/sqlite/bin:$PATH
 
 # Load all my aliases
 # -------------------
-
 [ -f $HOME/dot/.aliases ] && source $HOME/dot/.aliases
 
 # Misc settings
 # -------------
-
 set -o vi # enable vim keystrokes in terminal
-
 shopt -s cdspell 
 bind 'set completion-ignore-case on'
 complete -d cd
 
 # Need this for applications
 # --------------------------
-
 # pyenv
 eval "$(pyenv virtualenv-init -)"
 # starship
@@ -86,6 +80,5 @@ eval "$(atuin init bash)"
 
 # Print if the file is sourced
 # ----------------------------
-
 echo "-- .bashrc file sourced"
 
