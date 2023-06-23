@@ -173,8 +173,8 @@ pyenv_version_name = false
 pyenv_prefix = "pyenv "
 python_binary = "python3"
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-symbol = " "
-#symbol = " "
+# symbol = " "
+symbol = " "
 
 [rust]
 disabled = false

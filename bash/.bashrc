@@ -24,21 +24,14 @@ function add_to_path {
 # ------------
 # my own personal scripts
 add_to_path $HOME/dot/scripts
+# add my own libraries to python path
+add_to_path $HOME/projects/python_path
 # cargo - rust applications
 add_to_path $HOME/.local/share/cargo/bin
 
-# add python3 for linux - old paths
-add_to_path $HOME/.local/bin
-add_to_path $HOME/.local/lib/python3.10/site-packages
-# add python and site-packages (whole directory)
-# add_to_path $HOME/.local/
-
-# add my own libraries to python path
-add_to_path $HOME/projects/python_path
-
 # add to $PATH my own python libraries
 export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
-export PYTHONPATH="${PYTHONPATH}:$HOME/.local/lib/python3.10/site-packages"
+# export PYTHONPATH="${PYTHONPATH}:$HOME/.local/lib/python3.10/site-packages"
 
 export IBM_DB_HOME=/usr/local/lib/python3.10/site-packages/clidriver
 export DYLD_LIBRARY_PATH=$IBM_DB_HOME/lib:$DYLD_LIBRARY_PATH
@@ -52,8 +45,6 @@ add_to_path /usr/local/bin
 # addToPATH $HOME/dot/scripts/git_scripts.sh
 # # my own fzf scripts
 # addToPATH $HOME/dot/scripts/fzf_scripts.sh
-
-# export DYLD_LIBRARY_PATH=/usr/lib:$DYLD_LIBRARY_PATH
 
 export PATH=/usr/local/opt/sqlite/bin:$PATH
 
