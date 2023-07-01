@@ -1,0 +1,86 @@
+# config for normal erdtree
+# ----------------------------------------------------------------------------
+# e.g. 'erd'
+layout = "inverted"
+dir-order = "last"
+follow = true
+hidden = true
+human = true
+icons = true
+level = 1
+no-git = true
+no-ignore = true
+sort = "name"
+
+# Compute file sizes like `du`
+# ----------------------------------------------------------------------------
+# e.g. `erd --config du`
+[du]
+disk_usage = "block"
+hidden = true
+icons = true
+layout = "flat"
+level = 1
+no-git = true
+no-ignore = true
+
+# `ls` style
+# ----------------------------------------------------------------------------
+
+# Do as `ls -l`
+# e.g. `erd --config ls`
+[ls]
+human = true
+icons = true
+level = 1
+long = true
+suppress-size = true
+
+# e.g. `erd --config ls-long`
+[ls-long]
+layout = "inverted"
+dir-order = "last"
+human = true
+icons = true
+level = 1
+long = true
+suppress-size = true
+sort = "name"
+
+# e.g. `erd --config ls-size`
+[ls-size]
+layout = "inverted"
+dir-order = "last"
+human = true
+icons = true
+level = 1
+suppress-size = true
+sort = "size"
+
+# e.g. `erd --config ls-long-size`
+[ls-long-size]
+layout = "inverted"
+dir-order = "last"
+human = true
+icons = true
+level = 1
+long = true
+suppress-size = true
+sort = "size"
+
+# Check how many lines for specific lang
+# ----------------------------------------------------------------------------
+
+# How many lines of Rust are in this code base?
+# e.g. `erd --config rs`
+[rs]
+level = 1
+disk-usage = "line"
+pattern = "\\.rs$"
+
+# How many lines of Python are in this code base?
+# e.g. `erd --config py`
+[py]
+level = 1
+disk-usage = "line"
+pattern = "\\.py$"
