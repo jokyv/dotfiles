@@ -1,3 +1,4 @@
+[misc]
 # disable notify
 skip_notify = true
 
