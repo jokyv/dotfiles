@@ -20,7 +20,7 @@ function add_to_path {
   esac
 }
 
-# ADD TO $PATH
+# add to $PATH
 # ------------
 # my own personal scripts
 add_to_path $HOME/dot/scripts
@@ -30,11 +30,11 @@ add_to_path $HOME/projects/python_path
 add_to_path $HOME/.local/share/cargo/bin
 
 # add to $PATH my own python libraries
-export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
+# export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
 # export PYTHONPATH="${PYTHONPATH}:$HOME/.local/lib/python3.10/site-packages"
 
-export IBM_DB_HOME=/usr/local/lib/python3.10/site-packages/clidriver
-export DYLD_LIBRARY_PATH=$IBM_DB_HOME/lib:$DYLD_LIBRARY_PATH
+# export IBM_DB_HOME=/usr/local/lib/python3.10/site-packages/clidriver
+# export DYLD_LIBRARY_PATH=$IBM_DB_HOME/lib:$DYLD_LIBRARY_PATH
 
 # brew installation
 add_to_path /usr/local/opt
@@ -46,7 +46,7 @@ add_to_path /usr/local/bin
 # # my own fzf scripts
 # addToPATH $HOME/dot/scripts/fzf_scripts.sh
 
-export PATH=/usr/local/opt/sqlite/bin:$PATH
+# export PATH=/usr/local/opt/sqlite/bin:$PATH
 
 # Load all my aliases
 # -------------------
