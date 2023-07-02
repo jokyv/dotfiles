@@ -16,6 +16,9 @@ left = ["mode", "spinner", "diagnostics"]
 center = ["file-name"]
 right = ["version-control", "position", "position-percentage", "total-line-numbers", "file-type"]
 separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 [editor.lsp]
 display-messages = true
@@ -34,6 +37,7 @@ render = true
 # character = "╎"
 character = "┆"
 # character = "┊"
+skip-levels = 1
 
 [keys.insert]
 # j = { k = "normal_mode" }
