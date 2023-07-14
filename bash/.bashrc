@@ -30,7 +30,7 @@ add_to_path $HOME/projects/python_path
 add_to_path $HOME/.local/share/cargo/bin
 
 # add to $PATH my own python libraries
-# export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
+export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
 # export PYTHONPATH="${PYTHONPATH}:$HOME/.local/lib/python3.10/site-packages"
 
 # export IBM_DB_HOME=/usr/local/lib/python3.10/site-packages/clidriver
