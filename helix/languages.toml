@@ -29,6 +29,11 @@ file-types = [
 ]
 
 [[language]]
+name = "json"
+scope = "source.json"
+file-types = ["json", "kdl"]
+
+[[language]]
 name = "toml"
 scope = "source.toml"
 file-types = ["toml", "ini", "pycodestyle"]
