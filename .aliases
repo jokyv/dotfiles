@@ -28,7 +28,7 @@ alias cat='bat --paging=never' # to preserve cat's default behavior
 alias p='python3'
 alias b='bash'
 alias ep='echo $PATH | tr : "\n"'
-alias zel='zellij --layout compact'
+alias zel='zellij'
 
 # LINUX SCRIPTS
 # ----------------------------------------------------------------------------
