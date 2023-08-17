@@ -16,13 +16,16 @@ left = ["mode", "spinner", "diagnostics"]
 center = ["file-name"]
 right = ["version-control", "position", "position-percentage", "total-line-numbers", "file-type"]
 separator = "│"
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
+
+[editor.statusline.mode]
+normal = "NORMAL"
+insert = "INSERT"
+select = "SELECT"
 
 [editor.lsp]
 display-messages = true
 display-inlay-hints = true
+auto-signature-help = true
 
 [editor.soft-wrap]
 enable = true
@@ -33,6 +36,7 @@ insert = "bar"
 select = "underline"
 
 [editor.indent-guides]
+rainbow-option = "normal"
 render = true
 # character = "╎"
 character = "┆"
