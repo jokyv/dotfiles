@@ -25,6 +25,8 @@ function add_to_path {
 # ------------
 # my own personal scripts
 add_to_path $HOME/dot/scripts
+# my own personal scripts in rust
+add_to_path $HOME/dot/scripts_in_rust
 # add my own libraries to python path
 add_to_path $HOME/projects/python_path
 # cargo - rust applications
