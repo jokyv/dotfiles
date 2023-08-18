@@ -2,15 +2,15 @@
 
 # start zellij every time you open the terminal on macOS
 # ------------------------------------------------------
-if [[ "$OSTYPE" == "darwin"* ]]; then
-# if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  if command -v zellij &> /dev/null && 
-  [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && 
-  [[ ! "$TERM" =~ zellij ]] && 
-  [ -z "$ZELLIJ" ]; then
-    eval "$(zellij setup --generate-auto-start bash)"
-  fi
-fi
+# if [[ "$OSTYPE" == "darwin"* ]]; then
+# # if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+#   if command -v zellij &> /dev/null && 
+#   [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && 
+#   [[ ! "$TERM" =~ zellij ]] && 
+#   [ -z "$ZELLIJ" ]; then
+#     eval "$(zellij setup --generate-auto-start bash)"
+#   fi
+# fi
 
 # if $PATH has multiples remove them
 # ----------------------------------
