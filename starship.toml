@@ -1,34 +1,21 @@
 # Configure the format of the prompt
-format = """\
-        $username\
-        $hostname\
-        $directory\
-        $sudo\
-        $git_branch\
-        $git_commit\
-        $git_state\
-        $git_status\
-        $package\
-        (↓ Toolchain version modules ↓)\
-        $golang\
-        $lua\
-        $nodejs\
-        $python\
-        $rust\
-        (↑ Toolchain version modules ↑)\
-        $memory_usage\
-        $aws\
-        $gcloud\
-        $env_var\
-        $time\
-        $cmd_duration\
-        (↑ above input line ↑)\
-        $line_break\
-        (↓ on input line ↓)\
-        $jobs\
-        $status\
-        $character\
-    """
+format = """
+$username\
+$hostname\
+$directory\
+$sudo\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$git_metrics\
+$gcloud\
+$fill\
+$jobs $python $rust $cmd_duration $time\
+$line_break\
+$status\
+$character
+"""
 
 # Timeout for commands executed by starship (in milliseconds).
 command_timeout = 750
@@ -37,15 +24,17 @@ scan_timeout = 50
 # Add a new line before the start of the prompt
 add_newline = true
 
-[aws]
-disabled = true
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-symbol = " "
+[fill]
+disabled = false
+symbol = " "
 
 [character]
 disabled = false
 format = "$symbol "
-success_symbol = "[->](bold green)"
+# success_symbol = "[->](bold green)"
+success_symbol = "[❯](bold purple)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold green)"
 
 [cmd_duration]
 disabled = false
@@ -57,23 +46,13 @@ min_time_to_notify = 5_000
 
 [directory]
 disabled = false
-truncation_length = 3
+truncation_length = 4
 truncate_to_repo = true
 fish_style_pwd_dir_length = 0
 use_logical_path = true
 read_only = "  "
 read_only_style = "fg:red"
 truncation_symbol = "../"
-
-# [directory.substitutions]
-# "/path/to/replace" = "string/symbol"
-
-[env_var]
-disabled = false
-symbol = ""
-# variable = ""
-# default = ""
-format = "([[](bg:#555555 fg:#333333)[with](bg:#555555 fg:white) $symbol$env_value[](bg:#333333 fg:#555555)]($style))"
 
 [gcloud]
 disabled = false
@@ -82,10 +61,11 @@ symbol = " "
 
 [git_branch]
 disabled = false
-format = '([\[$symbol$branch\]]($style))'
+style = "bright-black"
+format = '([\[$symbol$branch\]]($style)) '
 symbol = " "
-# truncation_length = 7 # default = 2^63 - 1
 truncation_symbol = "…"
+# truncation_length = 7 # default = 2^63 - 1
 
 [git_commit]
 disabled = false
@@ -107,7 +87,7 @@ format = '\[[$state]($style)\]'
 
 [git_status]
 disabled = false
-format = '([\[$all_status$ahead_behind\]]($style))'
+format = '([\[$all_status$ahead_behind\]]($style)) '
 #stashed = '\$'
 stashed = ''
 ahead = "⇡"
@@ -120,10 +100,9 @@ modified = "!"
 staged = "+"
 untracked = "?"
 
-[golang]
-disabled = true
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
+[git_metrics]
+disabled = false
+format = '([+$added]($added_style) )([-$deleted]($deleted_style))'
 
 [hostname]
 disabled = false
@@ -133,43 +112,17 @@ format = '\[[$symbol($hostname)]($style)\]'
 
 [jobs]
 disabled = false
+symbol = "+ "
 symbol_threshold = 1
 number_threshold = 2
-format = '\[[$symbol($number)]($style)\]'
-symbol = "+ "
-
-[lua]
-disabled = false
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
+format = '[[$symbol($number)]($style)]'
 
 [line_break]
 disabled = false
 
-[memory_usage]
-disabled = false
-threshold = 75
-format = '\[$symbol[$ram( | $swap)]($style)\]'
-style = "bold bg:#555555 fg:white"
-symbol = " "
-
-[nodejs]
-disabled = true
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-#symbol = " "
-
-[package]
-disabled = false
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-#symbol = " "
-#symbol = " "
-display_private = false
-
 [python]
 disabled = false
-pyenv_version_name = false
+pyenv_version_name = true
 pyenv_prefix = "pyenv "
 python_binary = "python3"
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
@@ -194,10 +147,9 @@ format = '\[[$symbol($version)]($style)\]'
 symbol = ""
 
 [time]
-disabled = true
+disabled = false
 format = '\[[$time]($style)\]'
-use_12hr = false
-time_format = "%R"
+# time_format = "%R"
 utc_time_offset = "local"
 time_range = "-"
 
