@@ -81,6 +81,7 @@ alias auri='paru -Slq | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S
 # ----------------------------------------------------------------------------
 # cargo shortcuts
 # https://doc.rust-lang.org/book/ch01-03-hello-cargo.html
+
 alias cn='cargo new'
 alias ci='cargo install'
 alias cc='cargo check'
@@ -91,18 +92,9 @@ alias cu='cargo install-update -a'
 alias cl='cargo install-update -l'
 alias ct='cargo test'
 
-# exa shortcuts
-# https://the.exa.website/docs/command-line-options
-# alias l='exa -lh --sort=ext --icons --ignore-glob="*.DS_Store*"'
-# sort by directory first
-# alias lld='exa -alh --group-directories-first --icons --ignore-glob="*.DS_Store*"'
-# sort by directory first and then size
-# alias lls='exa -alh --group-directories-first --sort=size --icons'
-# sort by directory first and then name
-# alias lln='exa -alh --group-directories-first --sort=name --icons'
-
 # erdtree shortcuts
 # https://github.com/solidiquis/erdtree
+
 # sort by name first, directory first, short format
 alias l='erd'
 # sort by name first, directory first, long format
@@ -114,6 +106,7 @@ alias lsl='erd --config ls-long-size'
 
 # trashy shortcuts
 # https://github.com/oberblastmeister/trashy
+
 # use trash with 'rmd'
 alias rmd='trash'
 # trash list
@@ -139,6 +132,20 @@ alias gl='git log'
 alias glo='git log --oneline'
 alias gs='git status -sb'
 alias lg='lazygit'
+
+# FUNCTIONS
+# ----------------------------------------------------------------------------
+function take {
+    mkdir -p $1
+    cd $1
+}
+
+function note() {
+    NOTES_PATH=$HOME/projects/notes/to_do_list.md
+    echo "date: $(date)" >> $NOTES_PATH
+    echo "$@" >> $NOTES_PATH
+    echo "" >> $NOTES_PATH
+}
 
 # PRINT FILE SOURCED CONFIRMATION
 # ----------------------------------------------------------------------------
