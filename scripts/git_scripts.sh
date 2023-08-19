@@ -1,5 +1,34 @@
 #!/bin/bash
 
+# Helper function that auto git commits
+# ----------------------------------------------------------------------------
+git_auto_commit() {
+
+  PATHS=("$HOME/projects/notes/")
+
+  cd "$1"
+  git pull
+
+  CHANGES_EXIST="$(git status --porcelain | wc -l)"
+
+  echo ":: Checking for repo {$1}"
+
+  # if no changes then exit with code 0
+  if [ "$CHANGES_EXIST" -eq 0 ]; then
+    echo ":: Nothing to commit moving on..."
+  else
+    git add .
+    git commit -q -m "auto update at: $(date +"%d-%m-%Y %H:%M:%S")"
+    git push -q
+    echo ":: Found changes! git add, commit push performed"
+  fi
+
+  for path in ${PATHS[@]}
+  do 
+    git_auto_commit $path
+  done
+}
+
 # a git init template when i start a new git project
 git_init_template() {
   git init
