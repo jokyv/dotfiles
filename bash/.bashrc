@@ -34,7 +34,6 @@ add_to_path $HOME/.local/share/cargo/bin
 
 # add to $PATH my own python libraries
 export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
-# export PYTHONPATH="${PYTHONPATH}:$HOME/.local/lib/python3.10/site-packages"
 
 # export IBM_DB_HOME=/usr/local/lib/python3.10/site-packages/clidriver
 # export DYLD_LIBRARY_PATH=$IBM_DB_HOME/lib:$DYLD_LIBRARY_PATH
@@ -49,8 +48,6 @@ add_to_path /usr/local/bin
 # # my own fzf scripts
 # addToPATH $HOME/dot/scripts/fzf_scripts.sh
 
-# export PATH=/usr/local/opt/sqlite/bin:$PATH
-
 # Load all my aliases
 # -------------------
 [ -f $HOME/dot/.aliases ] && source $HOME/dot/.aliases
@@ -62,8 +59,8 @@ shopt -s cdspell
 bind 'set completion-ignore-case on'
 complete -d cd
 
-# Need this for applications
-# --------------------------
+# Need this for the following applications
+# ----------------------------------------
 # pyenv
 eval "$(pyenv virtualenv-init -)"
 # starship
