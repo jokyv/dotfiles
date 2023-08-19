@@ -4,7 +4,7 @@ if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 # ----------------------------------------------------------------------------
 export EDITOR='hx'
 export VISUAL='hx'
-export BROWSER='firefox'
+export BROWSER='brave'
 export TERMINAL='alacritty'
 export COLORTERM='truecolor'
 export WM='bspwm'
