@@ -17,6 +17,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 #export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:="$HOME/.config/runtime_dir/"}
 
 # disable LESS history file
+# ----------------------------------------------------------------------------
 export LESSHISTFILE="-"
 
 # i need this way so it gets the default path
@@ -35,6 +36,7 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/.ripgreprc"
 # export PATH="$HOME/.local/share/cargo/bin:$PATH"
 
 # i need this for pyenv
+# ----------------------------------------------------------------------------
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"

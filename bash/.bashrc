@@ -12,8 +12,8 @@
 #   fi
 # fi
 
-# if $PATH has multiples remove them
-# ----------------------------------
+# add to $PATH, if $PATH has multiples remove them
+# ------------------------------------------------
 function add_to_path {
   case ":$PATH:" in
     *":$1:"*) :;; # already there
@@ -21,16 +21,22 @@ function add_to_path {
   esac
 }
 
-# function that can source a file if it exist
+# function that will source a file if it exist
+# basically will replace the following
+# [ -f $HOME/dot/.aliases ] && source $HOME/dot/.aliases
+# --------------------------------------------
 source_if_exists () {
     if test -r "$1"; then
         source "$1"
     fi
 }
 
+# source all my scripts
 source_if_exists $HOME/dot/scripts/fzf_scripts.sh
 source_if_exists $HOME/dot/scripts/linux_scripts.sh
 source_if_exists $HOME/dot/scripts/git_scripts.sh
+# source all my aliases
+source_if_exists $HOME/dot/.aliases
 
 # add to $PATH
 # ------------
@@ -54,16 +60,6 @@ export PYTHONIOENCODING='UTF-8'
 # brew installation
 add_to_path /usr/local/opt
 add_to_path /usr/local/bin
-
-# old setup for my scripts
-# # my own git scripts
-# addToPATH $HOME/dot/scripts/git_scripts.sh
-# # my own fzf scripts
-# addToPATH $HOME/dot/scripts/fzf_scripts.sh
-
-# Load all my aliases
-# -------------------
-[ -f $HOME/dot/.aliases ] && source $HOME/dot/.aliases
 
 # Misc settings
 # -------------

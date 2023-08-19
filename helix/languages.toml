@@ -19,9 +19,9 @@ name = "bash"
 scope = "source.bash"
 file-types = [
   "config",
+  "ignore",
   ".config",
   ".aliases",
-  "ignore",
   ".env",
   ".bashrc",
   ".bash_profile",
