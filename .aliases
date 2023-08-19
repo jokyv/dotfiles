@@ -33,32 +33,32 @@ alias zel='zellij'
 # LINUX SCRIPTS
 # ----------------------------------------------------------------------------
 # source bash files and clear terminal
-alias sb='. linux_scripts.sh && source_files'
+alias sb=source_files
 # combine cd with erdtree
-alias cdd='. linux_scripts.sh && cd_with_et'
+alias cdd=cd_with_et
 # run daily updates
-alias dua='. linux_scripts.sh && daily_updates'
+alias dua=daily_updates
 # run weekly updates, checks and clean up
-alias wua='. linux_scripts.sh && weekly_updates' 
+alias wua=weekly_updates 
 
 # FZF SCRIPTS
 # ----------------------------------------------------------------------------
 # you need the dot otherwise the script will run in a subshell!
-alias z='. fzf_scripts.sh && fzf_go_to_path'
+alias z=fzf_go_to_path
 # find a file with fzf and open it with nvim
-alias vv='. fzf_scripts.sh && fzf_open_file'
+alias vv=fzf_open_file
 # find empty files
-alias fe='. fzf_scripts.sh && fzf_empty_files'
+alias fe=fzf_empty_files
 # find files bigger than xxxMB
-alias fb='. fzf_scripts.sh && fzf_find_big_files'
+alias fb=fzf_find_big_files
 # find all the scripts i have
-alias fs='. fzf_scripts.sh && fzf_find_my_scripts'
+alias fs=fzf_find_my_scripts
 # move a file from anywhere folder to anywhere folder
-alias fm='. fzf_scripts.sh && fzf_move_to_path'
+alias fm=fzf_move_to_path
 # copy file to anywhere
-alias fc='. fzf_scripts.sh && fzf_copy_to_path'
+alias fc=fzf_copy_to_path
 # find a phrase in a file
-alias ff='. fzf_scripts.sh && fzf_file_that_contains_phrase'
+alias ff=fzf_file_that_contains_phrase
 
 # PYTHON-PIP
 # ----------------------------------------------------------------------------
@@ -120,14 +120,14 @@ alias tre='. fzf_scripts.sh && fzf_empty_file_from_trash'
 
 # GIT SHORTCUTS
 # ----------------------------------------------------------------------------
-alias gc='. git_scripts.sh && git_commit_workflow'
-alias ginit='. git_scripts.sh && git_init_template'
-alias glg='. git_scripts.sh && git_log_graph'
-alias gpulla='. git_scripts.sh && git_pull_all_git_dirs'
-alias gsa='. git_scripts.sh && git_status_all_git_dirs'
+alias gc=git_commit_workflow
+alias ginit=git_init_template
+alias glg=git_log_graph
+alias gpulla=git_pull_all_git_dirs
+alias gsa=git_status_all_git_dirs
 # amend a commit without changing the commit message
-alias gcane='git commit --amend --no-edit'
-alias gd='git diff'
+alias gcame='git commit --amend --no-edit'
+alias gd='git diff -w'
 alias gl='git log'
 alias glo='git log --oneline'
 alias gs='git status -sb'
@@ -135,16 +135,27 @@ alias lg='lazygit'
 
 # FUNCTIONS
 # ----------------------------------------------------------------------------
+# create a folder and cd into it
 function take {
     mkdir -p $1
     cd $1
 }
 
+# add a note into your to_do_list file
 function note() {
     NOTES_PATH=$HOME/projects/notes/to_do_list.md
     echo "date: $(date)" >> $NOTES_PATH
     echo "$@" >> $NOTES_PATH
     echo "" >> $NOTES_PATH
+}
+
+# Git prompt components
+function minutes_since_last_commit {
+    now=`date +%s`
+    last_commit=`git log --pretty=format:'%at' -1`
+    seconds_since_last_commit=$((now-last_commit))
+    minutes_since_last_commit=$((seconds_since_last_commit/60))
+    echo $minutes_since_last_commit
 }
 
 # PRINT FILE SOURCED CONFIRMATION

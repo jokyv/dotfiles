@@ -21,10 +21,21 @@ function add_to_path {
   esac
 }
 
+# function that can source a file if it exist
+source_if_exists () {
+    if test -r "$1"; then
+        source "$1"
+    fi
+}
+
+source_if_exists $HOME/dot/scripts/fzf_scripts.sh
+source_if_exists $HOME/dot/scripts/linux_scripts.sh
+source_if_exists $HOME/dot/scripts/git_scripts.sh
+
 # add to $PATH
 # ------------
 # my own personal scripts
-add_to_path $HOME/dot/scripts
+# add_to_path $HOME/dot/scripts
 # my own personal scripts in rust
 add_to_path $HOME/dot/scripts_in_rust
 # add my own libraries to python path
@@ -34,6 +45,8 @@ add_to_path $HOME/.local/share/cargo/bin
 
 # add to $PATH my own python libraries
 export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8'
 
 # export IBM_DB_HOME=/usr/local/lib/python3.10/site-packages/clidriver
 # export DYLD_LIBRARY_PATH=$IBM_DB_HOME/lib:$DYLD_LIBRARY_PATH

@@ -6,12 +6,14 @@ git_auto_commit() {
 
   PATHS=("$HOME/projects/notes/")
 
-  cd "$1"
+  for path in ${PATHS[@]}
+  do 
+  cd $path
   git pull
 
   CHANGES_EXIST="$(git status --porcelain | wc -l)"
 
-  echo ":: Checking for repo {$1}"
+  echo ":: Checking for repo {$path}"
 
   # if no changes then exit with code 0
   if [ "$CHANGES_EXIST" -eq 0 ]; then
@@ -22,14 +24,11 @@ git_auto_commit() {
     git push -q
     echo ":: Found changes! git add, commit push performed"
   fi
-
-  for path in ${PATHS[@]}
-  do 
-    git_auto_commit $path
   done
 }
 
 # a git init template when i start a new git project
+# ----------------------------------------------------------------------------
 git_init_template() {
   git init
   touch .gitignore
@@ -40,6 +39,7 @@ git_init_template() {
 
 # a simple for loop that searches git directories and 
 # execute a git pull for each one
+# ----------------------------------------------------------------------------
 git_pull_all_git_dirs() {
   cd
   pids=""
@@ -58,6 +58,8 @@ git_pull_all_git_dirs() {
   wait $pids
 }
 
+# get the git status of all the git dirs except for cargo
+# ----------------------------------------------------------------------------
 git_status_all_git_dirs() {
   cd
   for file in $(fd -td -H '^.git$' -E '.cargo')
@@ -78,6 +80,7 @@ git_status_all_git_dirs() {
 # all in one bash function
 # git stash, git pull, git add, git commit, git push
 # check if any file big size
+# ----------------------------------------------------------------------------
 git_commit_workflow() {
   FILE_SIZE=50
   # git stash local repo and git pull
@@ -110,6 +113,8 @@ git_commit_workflow() {
   git status -sb
 }
 
+# get a nice graph with git repo commits
+# ----------------------------------------------------------------------------
 git_log_graph() {
   git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) 
 %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all

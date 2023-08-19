@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#######################################################################
-## HELPER FUNCTIONS
+# HELPER FUNCTIONS
+# ----------------------------------------------------------------------------
 # a helper function when a section is of a script is 'disabled'
 work_in_progress() {
   echo ""
@@ -9,8 +9,8 @@ work_in_progress() {
   echo ""
 }
 
-#######################################################################
-## SCRIPTS
+# SCRIPTS
+# ----------------------------------------------------------------------------
 # a simple script that source .bash_aliases, .bashrc and .profile files
 source_files() {
   clear
@@ -33,6 +33,7 @@ cd_with_et() {
 
 # scripl that updates pacman apps and git pull all repos
 # for daily morning usage
+# ----------------------------------------------------------------------------
 daily_updates() {
   echo -e '\n==========================' && 
   echo -e '|------ UPGRADE OS ------|' &&
@@ -54,7 +55,8 @@ daily_updates() {
   fi 
 }
 
-# =============================================================================
+# weekly script
+# ----------------------------------------------------------------------------
 weekly_updates() {
   echo -e '\n==========================' && 
   echo -e '|------ UPGRADE OS ------|' &&
@@ -153,4 +155,53 @@ weekly_updates() {
       * ) echo "Please answer y or n.";;
     esac
   echo ""
+}
+
+# rename files in bulk
+# ----------------------------------------------------------------------------
+bulk_rename() {
+  
+  # TODO: 
+  # use xargs -i touch {}.png etc to rename the files
+
+  read -t 10 -p "Enter a phrase: " phrase
+  count=0
+  for file in *.png; do
+      mv "$file" "${phrase}_${count}.png"
+      count=$((count+1))
+  done
+  for file in *.jpeg; do
+      mv "$file" "${phrase}_${count}.jpeg"
+      count=$((count+1))
+  done
+  for file in *.jpg; do
+      mv "$file" "${phrase}_${count}.jpg"
+      count=$((count+1))
+  done
+  for file in *.webp; do
+      mv "$file" "${phrase}_${count}.webp"
+      count=$((count+1))
+  done
+}
+
+# typical figure for a 250GB SSD lies between 60 and 150 terabytes written
+# https://www.ontrack.com/blog/2018/02/07/how-long-do-ssds-really-last/
+# ----------------------------------------------------------------------------
+check_driver() {
+  sudo smartctl -a /dev/nvme0n1
+}
+
+# fkill - kill processes - list only the ones you can kill.
+# ----------------------------------------------------------------------------
+fkill() {
+    local pid 
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    fi  
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+    fi  
 }
