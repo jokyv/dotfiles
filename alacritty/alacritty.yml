@@ -1,5 +1,8 @@
+env:
+  TERM: xterm-256color
+
 schemes:
-  # Tokyo Night theme, based on both:
+    # Tokyo Night theme, based on both:
   #   https://github.com/ghifarit53/tokyonight-vim
   #   https://github.com/enkia/tokyo-night-vscode-theme
   tokyo-night: &tokyo-night
@@ -144,26 +147,26 @@ font:
     y: 0
 
 window:
+  opacity: 1.0
   dimensions:
     columns: 130
     lines: 50
   padding:
-    x: 2
-    y: 2
+    x: 3
+    y: 3
     #decorations: none
 
 scrolling:
   history: 10000
   multiplier: 10
 
-# If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
-
 selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
   save_to_clipboard: true
 
 live_config_reload: true
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
 
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
@@ -172,3 +175,4 @@ key_bindings:
   - { key: Equals, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
   - { key: N, mods: Control, action: SpawnNewInstance }
+  - { key: Q, mods: Control, action: Quit}
