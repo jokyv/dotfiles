@@ -11,12 +11,12 @@ work_in_progress() {
 
 # SCRIPTS
 # ----------------------------------------------------------------------------
-# a simple script that source .bash_aliases, .bashrc and .profile files
+# a simple script that source .bash_aliases, .bashrc and .bash_profile files
 source_files() {
   clear
   echo "-- terminal cleared"
-  # sourcing .profile will source .bashrc which will source .aliases
-  source ~/.profile
+  # sourcing .bash_profile will source .bashrc which will source .aliases
+  source ~/.bash_profile
 }
 
 # a simple script that combines cd with exa

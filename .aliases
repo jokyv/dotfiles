@@ -5,6 +5,7 @@
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+alias .....='cd ../../../../'
 alias c='clear'
 alias ssd='sudo shutdown now'
 alias sr='sudo reboot'
@@ -18,17 +19,9 @@ alias rm='rm -iv'
 alias mv='mv -iv' 
 alias cp='cp -iv'
 alias cat='bat --paging=never' # to preserve cat's default behavior
-
-# use bat to colorize help tex with the below wrapper
-# alias bathelp='bat --plain --language=help'
-# help() {
-#     "$@" --help 2>&1 | bathelp
-# }
-
-alias p='python3'
 alias b='bash'
+# echo PATH, every path in different line
 alias ep='echo $PATH | tr : "\n"'
-alias zel='zellij'
 
 # LINUX SCRIPTS
 # ----------------------------------------------------------------------------
@@ -62,6 +55,7 @@ alias ff=fzf_file_that_contains_phrase
 
 # PYTHON-PIP
 # ----------------------------------------------------------------------------
+alias p='python3'
 # find the version for each python program installed using fzf
 alias pipv='pip list | fzf'
 alias pu='pip install -U `pip list --outdated | awk "NR>2 {print $1}"`'
@@ -88,9 +82,9 @@ alias cc='cargo check'
 alias cr='cargo run'
 alias cb='cargo build'
 alias cs='cargo search'
+alias ct='cargo test'
 alias cu='cargo install-update -a'
 alias cl='cargo install-update -l'
-alias ct='cargo test'
 
 # erdtree shortcuts
 # https://github.com/solidiquis/erdtree
@@ -117,6 +111,12 @@ alias tra='trash empty --all'
 alias trr='. fzf_scripts.sh && fzf_restore_file_from_trash'
 # empty trash item with trashy
 alias tre='. fzf_scripts.sh && fzf_empty_file_from_trash'
+
+# zellij shortcuts
+# https://github.com/zellij-org/zellij
+
+# run zellij
+alias zel='zellij'
 
 # GIT SHORTCUTS
 # ----------------------------------------------------------------------------
@@ -150,12 +150,12 @@ function note() {
 }
 
 # Git prompt components
-function minutes_since_last_commit {
+function hour_since_last_commit {
     now=`date +%s`
     last_commit=`git log --pretty=format:'%at' -1`
     seconds_since_last_commit=$((now-last_commit))
-    minutes_since_last_commit=$((seconds_since_last_commit/60))
-    echo $minutes_since_last_commit
+    hour_since_last_commit=$((seconds_since_last_commit/60/60))
+    echo "hours since last commit: $hour_since_last_commit"
 }
 
 # PRINT FILE SOURCED CONFIRMATION

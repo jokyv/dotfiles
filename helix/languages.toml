@@ -18,8 +18,10 @@ file-types = ["rs"]
 name = "bash"
 scope = "source.bash"
 file-types = [
+  "text",
   "config",
   "ignore",
+  ".conf",
   ".config",
   ".aliases",
   ".env",
@@ -37,6 +39,7 @@ file-types = ["json", "kdl"]
 name = "toml"
 scope = "source.toml"
 file-types = ["toml", "ini", "pycodestyle"]
+formatter = { command = "taplo", args = ["fmt", "-"] }
 
 [[language]]
 name = "markdown"
@@ -62,9 +65,14 @@ formatter = { command = "prettier", args = ["--parser", "markdown"] }
 [[language]]
 name = "python"
 auto-format = true
-language-server = {command = "pylsp"}
-config = { pylsp = {plugins = {ruff = { enabled = true }, black = { enabled = true }}}}
 injection-regex = "python"
 file-types = ["py"]
 shebangs = ["python"]
 scope = "source.python"
+formatter = { command = "black", args = ["--quiet", "-"] }
+language-servers = ["pylsp"]
+# config = { pylsp = {plugins = {ruff = { enabled = true }, black = { enabled = true }}}}
+
+# [language-server]
+# [language-server.nil.config]
+# command = {plugins = {ruff = { enabled = true }, black = { enabled = true }}}
