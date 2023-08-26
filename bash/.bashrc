@@ -1,7 +1,7 @@
 # Bash configurations
 
 # start zellij every time you open the terminal on macOS
-# ------------------------------------------------------
+# ----------------------------------------------------------------------------
 # if [[ "$OSTYPE" == "darwin"* ]]; then
 # # if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 #   if command -v zellij &> /dev/null && 
@@ -13,7 +13,7 @@
 # fi
 
 # add to $PATH, if $PATH has multiples remove them
-# ------------------------------------------------
+# ----------------------------------------------------------------------------
 function add_to_path {
   case ":$PATH:" in
     *":$1:"*) :;; # already there
@@ -24,14 +24,14 @@ function add_to_path {
 # function that will source a file if it exist
 # basically will replace the following
 # [ -f $HOME/dot/.aliases ] && source $HOME/dot/.aliases
-# --------------------------------------------
+# ----------------------------------------------------------------------------
 source_if_exists () {
-    if test -r "$1"; then
-        source "$1"
+    if test -r "$1"; then source "$1"
     fi
 }
 
 # source all my scripts
+# ----------------------------------------------------------------------------
 source_if_exists $HOME/dot/scripts/fzf_scripts.sh
 source_if_exists $HOME/dot/scripts/linux_scripts.sh
 source_if_exists $HOME/dot/scripts/git_scripts.sh
@@ -39,7 +39,7 @@ source_if_exists $HOME/dot/scripts/git_scripts.sh
 source_if_exists $HOME/dot/.aliases
 
 # add to $PATH
-# ------------
+# ----------------------------------------------------------------------------
 # my own personal scripts
 # add_to_path $HOME/dot/scripts
 # my own personal scripts in rust
@@ -61,24 +61,23 @@ export PYTHONIOENCODING='UTF-8'
 add_to_path /usr/local/opt
 add_to_path /usr/local/bin
 
+# Need this for the following applications
+# ----------------------------------------------------------------------------
+# pyenv
+eval "$(pyenv virtualenv-init -)"
+# starship
+eval "$(starship init bash)"
+# atuin
+[[ -f $HOME/projects/.bash-preexec.sh ]] && source $HOME/projects/.bash-preexec.sh
+eval "$(atuin init bash)"
+
 # Misc settings
-# -------------
+# ----------------------------------------------------------------------------
 set -o vi # enable vim keystrokes in terminal
 shopt -s cdspell 
 bind 'set completion-ignore-case on'
 complete -d cd
 
-# Need this for the following applications
-# ----------------------------------------
-# pyenv
-eval "$(pyenv virtualenv-init -)"
-# starship
-eval "$(starship init bash)"
-#atuin
-[[ -f $HOME/projects/.bash-preexec.sh ]] && source $HOME/projects/.bash-preexec.sh
-eval "$(atuin init bash)"
-
 # Print if the file is sourced
-# ----------------------------
+# ----------------------------------------------------------------------------
 echo "-- .bashrc file sourced"
-
