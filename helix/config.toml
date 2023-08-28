@@ -13,7 +13,7 @@ auto-save = true
 
 [editor.statusline]
 left = ["mode", "spinner", "diagnostics"]
-center = ["file-name"]
+center = ["file-name", "file-modification-indicator"]
 right = ["version-control", "position", "position-percentage", "total-line-numbers", "file-type"]
 separator = "│"
 
