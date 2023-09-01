@@ -11,12 +11,6 @@ work_in_progress() {
 
 # SCRIPTS
 # ----------------------------------------------------------------------------
-# a simple script that prints the date to the format i want for my notes
-day() {
-  date_now=$(date +"%A, %d %B %Y")
-  echo "$date_now"
-}
-
 # a simple script that source .bash_aliases, .bashrc and .bash_profile files
 source_files() {
   clear

@@ -35,6 +35,7 @@ source_if_exists () {
 source_if_exists $HOME/dot/scripts/fzf_scripts.sh
 source_if_exists $HOME/dot/scripts/linux_scripts.sh
 source_if_exists $HOME/dot/scripts/git_scripts.sh
+source_if_exists $HOME/dot/scripts/day.sh
 # source all my aliases
 source_if_exists $HOME/dot/.aliases
 

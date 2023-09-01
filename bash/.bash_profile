@@ -1,3 +1,15 @@
+# start zellij every time you open the terminal on macOS
+# ----------------------------------------------------------------------------
+if [[ "$OSTYPE" == "darwin"* ]]; then
+# if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  if command -v zellij &> /dev/null && 
+  [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && 
+  [[ ! "$TERM" =~ zellij ]] && 
+  [ -z "$ZELLIJ" ]; then
+    eval "$(zellij setup --generate-auto-start bash)"
+  fi
+fi
+
 # need this for the gcloud on MACos
 # ----------------------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
