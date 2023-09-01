@@ -2,15 +2,15 @@
 
 # start zellij every time you open the terminal on macOS
 # ----------------------------------------------------------------------------
-# if [[ "$OSTYPE" == "darwin"* ]]; then
-# # if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-#   if command -v zellij &> /dev/null && 
-#   [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && 
-#   [[ ! "$TERM" =~ zellij ]] && 
-#   [ -z "$ZELLIJ" ]; then
-#     eval "$(zellij setup --generate-auto-start bash)"
-#   fi
-# fi
+if [[ "$OSTYPE" == "darwin"* ]]; then
+# if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  if command -v zellij &> /dev/null && 
+  [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && 
+  [[ ! "$TERM" =~ zellij ]] && 
+  [ -z "$ZELLIJ" ]; then
+    eval "$(zellij setup --generate-auto-start bash)"
+  fi
+fi
 
 # add to $PATH, if $PATH has multiples remove them
 # ----------------------------------------------------------------------------
@@ -35,20 +35,21 @@ source_if_exists () {
 source_if_exists $HOME/dot/scripts/fzf_scripts.sh
 source_if_exists $HOME/dot/scripts/linux_scripts.sh
 source_if_exists $HOME/dot/scripts/git_scripts.sh
-source_if_exists $HOME/dot/scripts/day.sh
+
 # source all my aliases
+# ----------------------------------------------------------------------------
 source_if_exists $HOME/dot/.aliases
 
 # add to $PATH
 # ----------------------------------------------------------------------------
-# my own personal scripts
-# add_to_path $HOME/dot/scripts
 # my own personal scripts in rust
 add_to_path $HOME/dot/scripts_in_rust
 # add my own libraries to python path
 add_to_path $HOME/projects/python_path
 # cargo - rust applications
 add_to_path $HOME/.local/share/cargo/bin
+# day script
+add_to_path $HOME/dot/scripts/day.sh
 
 # add to $PATH my own python libraries
 export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"

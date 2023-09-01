@@ -8,3 +8,4 @@ day() {
   echo "$date_now"
 }
 
+day()
