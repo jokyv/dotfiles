@@ -1,5 +1,12 @@
 # Bash configurations
 
+# Misc settings
+# ----------------------------------------------------------------------------
+set -o vi # enable vim keystrokes in terminal
+shopt -s cdspell 
+bind 'set completion-ignore-case on'
+complete -d cd
+
 # start zellij every time you open the terminal on macOS
 # ----------------------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -25,20 +32,10 @@ function add_to_path {
 # basically will replace the following
 # [ -f $HOME/dot/.aliases ] && source $HOME/dot/.aliases
 # ----------------------------------------------------------------------------
-source_if_exists () {
+function source_if_exists {
     if test -r "$1"; then source "$1"
     fi
 }
-
-# source all my scripts
-# ----------------------------------------------------------------------------
-source_if_exists $HOME/dot/scripts/fzf_scripts.sh
-source_if_exists $HOME/dot/scripts/linux_scripts.sh
-source_if_exists $HOME/dot/scripts/git_scripts.sh
-
-# source all my aliases
-# ----------------------------------------------------------------------------
-source_if_exists $HOME/dot/.aliases
 
 # add to $PATH
 # ----------------------------------------------------------------------------
@@ -51,17 +48,20 @@ add_to_path $HOME/.local/share/cargo/bin
 # day script
 add_to_path $HOME/dot/scripts/day.sh
 
-# add to $PATH my own python libraries
-export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
-# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
-export PYTHONIOENCODING='UTF-8'
-
-# export IBM_DB_HOME=/usr/local/lib/python3.10/site-packages/clidriver
-# export DYLD_LIBRARY_PATH=$IBM_DB_HOME/lib:$DYLD_LIBRARY_PATH
-
 # brew installation
 add_to_path /usr/local/opt
 add_to_path /usr/local/bin
+
+# source all my scripts
+# ----------------------------------------------------------------------------
+source_if_exists $HOME/dot/scripts/fzf_scripts.sh
+source_if_exists $HOME/dot/scripts/linux_scripts.sh
+source_if_exists $HOME/dot/scripts/git_scripts.sh
+
+# source all my aliases and exports
+# ----------------------------------------------------------------------------
+source_if_exists $HOME/dot/.aliases
+source_if_exists $HOME/dot/bash/.exports
 
 # Need this for the following applications
 # ----------------------------------------------------------------------------
@@ -70,15 +70,9 @@ eval "$(pyenv virtualenv-init -)"
 # starship
 eval "$(starship init bash)"
 # atuin
-[[ -f $HOME/projects/.bash-preexec.sh ]] && source $HOME/projects/.bash-preexec.sh
+# [[ -f ~/$HOME/projects/.bash-preexec.sh ]] && source ~/$HOME/projects/.bash-preexec.sh
+source_if_exists $HOME/projects/.bash-preexec.sh
 eval "$(atuin init bash)"
-
-# Misc settings
-# ----------------------------------------------------------------------------
-set -o vi # enable vim keystrokes in terminal
-shopt -s cdspell 
-bind 'set completion-ignore-case on'
-complete -d cd
 
 # Print if the file is sourced
 # ----------------------------------------------------------------------------

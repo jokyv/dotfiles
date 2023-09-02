@@ -11,7 +11,7 @@ work_in_progress() {
 
 # SCRIPTS
 # ----------------------------------------------------------------------------
-# a simple script that source .bash_aliases, .bashrc and .bash_profile files
+# a simple script that source .aliases, .bashrc and .bash_profile files
 source_files() {
   clear
   echo "-- terminal cleared"

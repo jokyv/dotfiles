@@ -23,6 +23,9 @@ alias b='bash'
 # echo PATH, every path in different line
 alias ep='echo $PATH | tr : "\n"'
 
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
 # LINUX SCRIPTS
 # ----------------------------------------------------------------------------
 # source bash files and clear terminal
@@ -136,7 +139,7 @@ alias lg='lazygit'
 # FUNCTIONS
 # ----------------------------------------------------------------------------
 # create a folder and cd into it
-function take {
+function mkd() {
     mkdir -p $1
     cd $1
 }

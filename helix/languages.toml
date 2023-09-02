@@ -27,6 +27,7 @@ file-types = [
   ".env",
   ".bashrc",
   ".bash_profile",
+  ".exports",
   ".profile",
 ]
 
