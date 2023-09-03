@@ -35,6 +35,9 @@ normal = "block"
 insert = "bar"
 select = "underline"
 
+[editor.file-picker]
+hidden = false
+
 [editor.indent-guides]
 rainbow-option = "normal"
 render = true
