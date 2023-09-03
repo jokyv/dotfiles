@@ -1,6 +1,6 @@
 # Bash configurations
 
-# Misc settings
+# Misc settings - always on top of the file
 # ----------------------------------------------------------------------------
 set -o vi # enable vim keystrokes in terminal
 shopt -s cdspell 

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Setting up defaults
 # ----------------------------------------------------------------------------
 export EDITOR='hx'

@@ -1,6 +1,6 @@
-# ALIASES 
+#!/usr/bin/env bash
 
-# GENERAL SHORTCUTS
+# EASIER NAVIGATION
 # ----------------------------------------------------------------------------
 alias ..='cd ..'
 alias ...='cd ../../'
