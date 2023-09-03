@@ -10,18 +10,28 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   fi
 fi
 
+# function that will source a file if it exist
+# basically will replace the following
+# [ -f $HOME/dot/.aliases ] && source $HOME/dot/.aliases
+# ----------------------------------------------------------------------------
+function source_if_exists {
+    if test -r "$1"; then source "$1"
+    fi
+}
+
 # need this for the gcloud on MACos
 # ----------------------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # The next line updates PATH for the Google Cloud SDK.
-  if [ -f '/Users/jkyvetos/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/jkyvetos/Downloads/google-cloud-sdk/path.bash.inc'; fi
+  source_if_exists $HOME/Downloads/google-cloud-sdk/path.bash.inc
   # The next line enables shell command completion for gcloud.
-  if [ -f '/Users/jkyvetos/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/jkyvetos/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+  source_if_exists $HOME/Downloads/google-cloud-sdk/completion.bash.inc
 fi
 
 # source bashrc if exist
 # ----------------------------------------------------------------------------
-if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+# if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+source_if_exists $HOME/.bashrc
 
 # launch starx automatically
 # ----------------------------------------------------------------------------

@@ -71,9 +71,6 @@ file-types = ["py"]
 shebangs = ["python"]
 scope = "source.python"
 formatter = { command = "black", args = ["--quiet", "-"] }
-# language-servers = ["pylsp"]
-config = { pylsp = {plugins = {ruff = { enabled = true }, black = { enabled = true }}}}
 
-# [language-server]
-# [language-server.nil.config]
-# command = {plugins = {ruff = { enabled = true }, black = { enabled = true }}}
+[language-server.pylsp]
+ config = { pylsp = {plugins = {ruff = { enabled = true }, black = { enabled = true }}}}
