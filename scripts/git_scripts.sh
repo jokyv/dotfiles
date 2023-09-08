@@ -119,3 +119,12 @@ git_log_graph() {
   git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) 
 %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 }
+
+git_clean_up() {
+  # Remove the files from the index (not the actual files in the working copy)
+  git rm -r --cached .
+  # Add these removals to the Staging Area...
+  git add .
+  # ...and commit them!
+  git commit -m "Clean up ignored files"
+}
