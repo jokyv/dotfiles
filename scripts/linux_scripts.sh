@@ -205,3 +205,13 @@ fkill() {
         echo $pid | xargs kill -${1:-9}
     fi  
 }                  
+
+# Find the weather in Singapore
+weather() {
+    curl -s "https://wttr.in/${1:-Serangoon}?m2F&format=v2"
+}
+
+# Find your IP address
+ip-address() {
+    curl -s -H "Accept: application/json" "https://ipinfo.io/${1:-}" | jq "del(.loc, .postal, .readme)"
+}
