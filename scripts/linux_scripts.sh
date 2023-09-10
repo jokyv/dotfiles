@@ -48,10 +48,10 @@ daily_updates() {
   read answer
   # reverse inequality
   if [ "$answer" != "${answer#[yesYy]}" ]; then
-      echo "...YES 'git pull all' right now!"
-      gpulla
+    echo "...YES 'git pull all' right now!"
+    gpulla
   else
-      echo "...NO 'git pull all' right now!"
+    echo "...NO 'git pull all' right now!"
   fi 
 }
 
@@ -166,20 +166,20 @@ bulk_rename() {
   read -t 10 -p "Enter a phrase: " phrase
   count=0
   for file in *.png; do
-      mv "$file" "${phrase}_${count}.png"
-      count=$((count+1))
+    mv "$file" "${phrase}_${count}.png"
+    count=$((count+1))
   done
   for file in *.jpeg; do
-      mv "$file" "${phrase}_${count}.jpeg"
-      count=$((count+1))
+    mv "$file" "${phrase}_${count}.jpeg"
+    count=$((count+1))
   done
   for file in *.jpg; do
-      mv "$file" "${phrase}_${count}.jpg"
-      count=$((count+1))
+    mv "$file" "${phrase}_${count}.jpg"
+    count=$((count+1))
   done
   for file in *.webp; do
-      mv "$file" "${phrase}_${count}.webp"
-      count=$((count+1))
+    mv "$file" "${phrase}_${count}.webp"
+    count=$((count+1))
   done
 }
 
@@ -193,54 +193,54 @@ check_driver() {
 # fkill - kill processes - list only the ones you can kill.
 # ----------------------------------------------------------------------------
 fkill() {
-    local pid 
-    if [ "$UID" != "0" ]; then
-        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
-    else
-        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-    fi  
-    if [ "x$pid" != "x" ]
-    then
-        echo $pid | xargs kill -${1:-9}
-    fi  
+  local pid 
+  if [ "$UID" != "0" ]; then
+    pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+  else
+    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  fi  
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi  
 }                  
 
 # Find the weather in Singapore
 # ----------------------------------------------------------------------------
 weather() {
-    curl -s "https://wttr.in/${1:-Serangoon}?m2F&format=v2"
+  curl -s "https://wttr.in/${1:-Serangoon}?m2F&format=v2"
 }
 
 # Find your IP address
 # ----------------------------------------------------------------------------
 ip-address() {
-    curl -s -H "Accept: application/json" "https://ipinfo.io/${1:-}" | jq "del(.loc, .postal, .readme)"
+  curl -s -H "Accept: application/json" "https://ipinfo.io/${1:-}" | jq "del(.loc, .postal, .readme)"
 }
 
 # create a folder and cd into it
 # ----------------------------------------------------------------------------
 mkd() {
-    mkdir -p $1
-    cd $1
+  mkdir -p $1
+  cd $1
 }
 
 # add a note into your to_do_list file
 # ----------------------------------------------------------------------------
 note() {
-    NOTES_PATH=$HOME/projects/notes/to_do_list.md
-    echo "date: $(date)" >> $NOTES_PATH
-    echo "$@" >> $NOTES_PATH
-    echo "" >> $NOTES_PATH
+  NOTES_PATH=$HOME/projects/notes/to_do_list.md
+  echo "date: $(date)" >> $NOTES_PATH
+  echo "$@" >> $NOTES_PATH
+  echo "" >> $NOTES_PATH
 }
 
 # Git prompt components
 # ----------------------------------------------------------------------------
 hour_since_last_commit() {
-    now=`date +%s`
-    last_commit=`git log --pretty=format:'%at' -1`
-    seconds_since_last_commit=$((now-last_commit))
-    hour_since_last_commit=$((seconds_since_last_commit/60/60))
-    echo "hours since last commit: $hour_since_last_commit"
+  now=`date +%s`
+  last_commit=`git log --pretty=format:'%at' -1`
+  seconds_since_last_commit=$((now-last_commit))
+  hour_since_last_commit=$((seconds_since_last_commit/60/60))
+  echo "hours since last commit: $hour_since_last_commit"
 }
 
 pip_update() {
