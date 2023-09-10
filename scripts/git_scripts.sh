@@ -120,6 +120,8 @@ git_log_graph() {
 %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 }
 
+# remove files that are tracked but suppose to be git ignored
+# ----------------------------------------------------------------------------
 git_clean_up() {
   # Remove the files from the index (not the actual files in the working copy)
   git rm -r --cached .
@@ -127,4 +129,6 @@ git_clean_up() {
   git add .
   # ...and commit them!
   git commit -m "Clean up ignored files"
+  # finally do a git push
+  git push
 }
