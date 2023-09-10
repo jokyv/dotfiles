@@ -160,7 +160,6 @@ weekly_updates() {
 # rename files in bulk
 # ----------------------------------------------------------------------------
 bulk_rename() {
-  
   # TODO: 
   # use xargs -i touch {}.png etc to rename the files
 
@@ -207,11 +206,39 @@ fkill() {
 }                  
 
 # Find the weather in Singapore
+# ----------------------------------------------------------------------------
 weather() {
     curl -s "https://wttr.in/${1:-Serangoon}?m2F&format=v2"
 }
 
 # Find your IP address
+# ----------------------------------------------------------------------------
 ip-address() {
     curl -s -H "Accept: application/json" "https://ipinfo.io/${1:-}" | jq "del(.loc, .postal, .readme)"
+}
+
+# create a folder and cd into it
+# ----------------------------------------------------------------------------
+mkd() {
+    mkdir -p $1
+    cd $1
+}
+
+# add a note into your to_do_list file
+# ----------------------------------------------------------------------------
+note() {
+    NOTES_PATH=$HOME/projects/notes/to_do_list.md
+    echo "date: $(date)" >> $NOTES_PATH
+    echo "$@" >> $NOTES_PATH
+    echo "" >> $NOTES_PATH
+}
+
+# Git prompt components
+# ----------------------------------------------------------------------------
+hour_since_last_commit() {
+    now=`date +%s`
+    last_commit=`git log --pretty=format:'%at' -1`
+    seconds_since_last_commit=$((now-last_commit))
+    hour_since_last_commit=$((seconds_since_last_commit/60/60))
+    echo "hours since last commit: $hour_since_last_commit"
 }

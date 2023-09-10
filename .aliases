@@ -124,45 +124,20 @@ alias zel='zellij'
 
 # GIT SHORTCUTS
 # ----------------------------------------------------------------------------
-alias gc=git_commit_workflow
 alias ginit=git_init_template
+alias gc=git_commit_workflow
 alias glg=git_log_graph
-alias gpulla=git_pull_all_git_dirs
-alias gsa=git_status_all_git_dirs
-# amend a commit without changing the commit message
-alias gcame='git commit --amend --no-edit'
-alias gd='git diff -w'
 alias gl='git log'
 alias glo='git log --oneline'
+alias gpulla=git_pull_all_git_dirs
+# amend a commit without changing the commit message
+alias gcame='git commit --amend --no-edit'
 alias gs='git status -sb'
-alias lg='lazygit'
+alias gsa=git_status_all_git_dirs
 # clean up ignore files that mistakenly are tracked
 alias gclean='git_clean_up'
-
-# FUNCTIONS
-# ----------------------------------------------------------------------------
-# create a folder and cd into it
-function mkd() {
-    mkdir -p $1
-    cd $1
-}
-
-# add a note into your to_do_list file
-function note() {
-    NOTES_PATH=$HOME/projects/notes/to_do_list.md
-    echo "date: $(date)" >> $NOTES_PATH
-    echo "$@" >> $NOTES_PATH
-    echo "" >> $NOTES_PATH
-}
-
-# Git prompt components
-function hour_since_last_commit {
-    now=`date +%s`
-    last_commit=`git log --pretty=format:'%at' -1`
-    seconds_since_last_commit=$((now-last_commit))
-    hour_since_last_commit=$((seconds_since_last_commit/60/60))
-    echo "hours since last commit: $hour_since_last_commit"
-}
+alias gd='git diff -w'
+alias lg='lazygit'
 
 # PRINT FILE SOURCED CONFIRMATION
 # ----------------------------------------------------------------------------
