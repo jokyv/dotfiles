@@ -3,7 +3,7 @@
 # Misc settings - always on top of the file
 # ----------------------------------------------------------------------------
 set -o vi # enable vim keystrokes in terminal
-shopt -s cdspell 
+shopt -s cdspell # autocorrect typos in path when using cd
 bind 'set completion-ignore-case on'
 complete -d cd
 

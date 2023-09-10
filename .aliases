@@ -135,6 +135,8 @@ alias gl='git log'
 alias glo='git log --oneline'
 alias gs='git status -sb'
 alias lg='lazygit'
+# clean up ignore files that mistakenly are tracked
+alias gclean='git_clean_up'
 
 # FUNCTIONS
 # ----------------------------------------------------------------------------
