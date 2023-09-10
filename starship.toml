@@ -31,7 +31,6 @@ symbol = " "
 [character]
 disabled = false
 format = "$symbol "
-# success_symbol = "[->](bold green)"
 success_symbol = "[❯](bold purple)"
 error_symbol = "[❯](bold red)"
 vicmd_symbol = "[❮](bold green)"
@@ -48,11 +47,11 @@ min_time_to_notify = 5_000
 disabled = false
 truncation_length = 4
 truncate_to_repo = true
+truncation_symbol = "../"
 fish_style_pwd_dir_length = 0
 use_logical_path = true
-read_only = "  "
+read_only = " 🔒"
 read_only_style = "fg:red"
-truncation_symbol = "../"
 
 [gcloud]
 disabled = false
@@ -65,17 +64,19 @@ style = "bright-black"
 format = '([\[$symbol$branch\]]($style)) '
 symbol = " "
 truncation_symbol = "…"
-# truncation_length = 7 # default = 2^63 - 1
 
 [git_commit]
 disabled = false
+style = 'bright-black'
+tag_symbol = ' 🏷 '
+# tag_symbol = '🔖 '
+format = '[\[$hash$tag\]]($style) '
 commit_hash_length = 7
-format = '([\[$symbol$has\]]($style))'
-# format = '\[[$hash\]($style)\]'
+# if false will always show commit hash
 only_detached = true
 
 [git_state]
-disabled = true
+disabled = false
 rebase = "REBASING"
 merge = "MERGING"
 revert = "REVERTING"
@@ -88,7 +89,7 @@ format = '\[[$state]($style)\]'
 [git_status]
 disabled = false
 format = '([\[$all_status$ahead_behind\]]($style)) '
-#stashed = '\$'
+# stashed = '\$'
 stashed = ''
 ahead = "⇡"
 behind = "⇣"
@@ -141,7 +142,7 @@ disabled = false
 format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
 # format = "[[]$symbol$status[]]($style)"
 symbol = "🚫 "
-# symbol = " ✖"
+# symbol = "✖ "
 
 [sudo]
 disabled = true
