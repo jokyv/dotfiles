@@ -233,7 +233,7 @@ note() {
   echo "" >> $NOTES_PATH
 }
 
-# Git prompt components
+# find how many hours since last commit
 # ----------------------------------------------------------------------------
 hour_since_last_commit() {
   now=`date +%s`
@@ -243,9 +243,17 @@ hour_since_last_commit() {
   echo "hours since last commit: $hour_since_last_commit"
 }
 
+# upgrade all the python libraries that are outdated
+# ----------------------------------------------------------------------------
 pip_update() {
   library_list=`pip list --outdated | awk 'NR>2 {print $1}'`
-  for library in $library_list; do
-    pip install -U $library 
-  done
+  length_library_list=`echo -n "$library_list" | wc -c`
+  if [ $length_library_list -ge 1 ]; then
+    echo "::Proceeding to upgrade the following libraries:"
+    echo $library_list
+    for library in $library_list; do
+      pip install -U $library 
+    done
+  else echo "::All python libraries are up to date"
+  fi
 }
