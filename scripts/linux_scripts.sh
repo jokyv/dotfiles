@@ -242,3 +242,10 @@ hour_since_last_commit() {
     hour_since_last_commit=$((seconds_since_last_commit/60/60))
     echo "hours since last commit: $hour_since_last_commit"
 }
+
+pip_update() {
+  library_list=`pip list --outdated | awk 'NR>2 {print $1}'`
+  for library in $library_list; do
+    pip install -U $library 
+  done
+}

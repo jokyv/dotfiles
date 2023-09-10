@@ -62,7 +62,7 @@ alias ff=fzf_file_that_contains_phrase
 alias p='python3'
 # find the version for each python program installed using fzf
 alias pipv='pip list | fzf'
-alias pu='pip install -U `pip list --outdated | awk "NR>2 {print $1}"`'
+alias pu=pip_update
 
 # PACMAN - PARU SCRIPTS
 # ----------------------------------------------------------------------------
