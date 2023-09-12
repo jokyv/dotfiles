@@ -45,7 +45,7 @@ min_time_to_notify = 5_000
 
 [directory]
 disabled = false
-truncation_length = 4
+truncation_length = 2
 truncate_to_repo = true
 truncation_symbol = "../"
 fish_style_pwd_dir_length = 0
