@@ -15,9 +15,11 @@ git clone https://github.com/jokyv/dotfiles.git ~/repos/dot
   - continue improving scripts
   - documentation - README.md
   - stabilise everything before moving to wayland and new wm
-- [ ] version 3
+- [ ] version 3.0
   - move away from x11 wm such as bspwm
-  - move to qtile (?)
+  - move to qtile
+- [ ] version 4.0
   - move to wayland
-- [ ] version 4
-  - Wayland with hyprland
+  - Wayland with hyprland or qtile?
+  - replace x11 apps with wayland apps
+  - replace ranger with rust based file manager
