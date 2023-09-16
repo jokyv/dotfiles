@@ -36,8 +36,12 @@ xinput --set-prop 11 'libinput Accel Speed' -1
 
 # this is important so the app will start
 # change the wallpaper
-feh --bg-fill ~/pics/the_wallpaper.jpeg &
+# xargs feh --bg-fill $(shuf -n 1 -e ~/pics/wallpapers/*) &
 # run the compositor
 picom -f &
+
 # launch bspwm
-exec bspwm
+# exec bspwm
+
+#launch qtile
+exec qtile start
