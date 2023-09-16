@@ -32,19 +32,27 @@
         "#ea6f91"
     ],
     "color1": [
-        "#eabbb9",
-        "#eabbb9"
+        "#ebbcba",
+        "#ebbcba"
     ],
     "color2": [
-        "#f1ca93",
-        "#f1ca93"
+        "#f6c177",
+        "#f6c177"
     ],
     "color3": [
-        "#9bced7",
-        "#9bced7"
+        "#9ccfd8",
+        "#9ccfd8"
     ],
     "color4": [
-        "#ea6f91",
-        "#ea6f91"
+        "#eb6f92",
+        "#eb6f92"
+    ],
+    "color5": [
+        "#3e8fb0",
+        "#3e8fb0"
+    ],
+    "color6": [
+        "#c4a7e7",
+        "#c4a7e7"
     ]
 }

@@ -73,6 +73,7 @@ primary_widgets = [
     icon(bg="color1", text="󰕾 "),
     widget.Volume(
         **base(bg="color1"),
+        padding=5,
     ),
     separator(),
     icon(bg="color3", text="󰻠 "),
@@ -100,10 +101,10 @@ primary_widgets = [
     widget.CurrentLayoutIcon(**base(bg="color2"), scale=0.65),
     widget.CurrentLayout(**base(bg="color2"), padding=5),
     separator(),
-    icon(bg="color1", fontsize=17, text=" "),  # Icon: nf-mdi-calendar_clock
-    widget.Clock(**base(bg="color1"), format="%H:%M - %d/%m/%Y "),
+    icon(bg="color6", fontsize=17, text=" "),  # Icon: nf-mdi-calendar_clock
+    widget.Clock(**base(bg="color6"), format="%H:%M - %d/%m/%Y "),
     # separator(),
-    # widget.Systray(background=colors["dark"], padding=5),
+    # widget.Systray(background="color6"),
 ]
 
 secondary_widgets = [

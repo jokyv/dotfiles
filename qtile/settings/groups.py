@@ -7,14 +7,15 @@ from .keys import mod, keys
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 # Icons:
-# nf-fa-firefox,
-# nf-fae-python,
 # nf-dev-terminal,
+# nf-fa-brave,
+# nf-fae-python,
 # nf-fa-code,
 # nf-oct-git_merge,
-# nf-linux-docker,
+# nf-md-discord,
 # nf-mdi-image,
 # nf-mdi-layers
+# nf-md-whatsapp
 
 groups = [
     Group(i)
@@ -23,11 +24,12 @@ groups = [
         "   ",
         "   ",
         "   ",
-        "  ",
-        "   ",
+        "   ",
+        " 󰙯  ",
         "   ",
         "   ",
         "   ",
+        # " 󰖣  ",
     ]
 ]
 

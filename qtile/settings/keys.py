@@ -61,7 +61,7 @@ keys = [
         (
             [mod],
             "w",
-            lazy.spawncmd("feh --bg-fill $(shuf -n 1 -e ~/pics/wallpapers/*)"),
+            lazy.spawn("feh --bg-fill $(shuf -n 1 -e ~/pics/wallpapers/*)"),
         ),
         # ------------ Hardware Configs ------------
         # Volume
