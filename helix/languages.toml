@@ -3,7 +3,6 @@ use-grammars = { only = [ "rust", "python", "toml", "bash", "json", "yaml", "mar
 
 [[language]]
 name = "rust"
-scope = "source.rust"
 file-types = ["rs"]
 
 [language.auto-pairs]
@@ -33,18 +32,16 @@ file-types = [
 
 [[language]]
 name = "json"
-scope = "source.json"
 file-types = ["json", "kdl"]
+formatter = { command = "prettier", args = ["--parser", "json"] }
 
 [[language]]
 name = "toml"
-scope = "source.toml"
 file-types = ["toml", "ini", "pycodestyle"]
 formatter = { command = "taplo", args = ["fmt", "-"] }
 
 [[language]]
 name = "markdown"
-scope = "source.md"
 file-types = ["md"]
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
 # language-server = { command = "ltex-ls" }
