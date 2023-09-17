@@ -1,7 +1,11 @@
-from libqtile import widget
+from libqtile import widget, qtile
 from .theme import colors
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
+
+# VARIABLES
+# ----------------------------------------------------------------------------
+MY_TERM = "alacritty"
 
 
 # add basic color config
@@ -82,6 +86,7 @@ primary_widgets = [
         measure_mem="G",
         update_interval=5,
         format="Mem:{MemUsed: .2f}{mm}",
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(MY_TERM + " -e btm")},
     ),
     separator(),
     icon(bg="color3", text="󰻠 "),
@@ -89,6 +94,7 @@ primary_widgets = [
         **base(bg="color3"),
         update_interval=5,
         format="CPU: {freq_current}GHz {load_percent}%",
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(MY_TERM + " -e btm")},
     ),
     separator(),
     icon(bg="color3", text=" "),  # Icon: nf-fa-feed
@@ -96,6 +102,7 @@ primary_widgets = [
         **base(bg="color3"),
         interface="wlan0",
         format="{interface} ↓↑ {down}",
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(MY_TERM + " -e btm")},
     ),
     separator(),
     widget.CurrentLayoutIcon(**base(bg="color2"), scale=0.65),
@@ -113,9 +120,7 @@ secondary_widgets = [
     powerline("color1", "dark"),
     widget.CurrentLayoutIcon(**base(bg="color1"), scale=0.65),
     widget.CurrentLayout(**base(bg="color1"), padding=5),
-    powerline("color2", "color1"),
     widget.Clock(**base(bg="color2"), format="%d/%m/%Y - %H:%M "),
-    powerline("dark", "color2"),
 ]
 
 widget_defaults = {
