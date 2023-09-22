@@ -14,7 +14,13 @@ true-color = true
 [editor.statusline]
 left = ["mode", "spinner", "diagnostics"]
 center = ["file-name", "file-modification-indicator"]
-right = ["version-control", "position", "position-percentage", "total-line-numbers", "file-type"]
+right = [
+  "version-control",
+  "position",
+  "position-percentage",
+  "total-line-numbers",
+  "file-type",
+]
 separator = "│"
 
 [editor.statusline.mode]
@@ -32,7 +38,8 @@ enable = true
 
 [editor.cursor-shape]
 normal = "block"
-insert = "bar"
+# insert = "bar"
+insert = "block"     # works better for rose-pine
 select = "underline"
 
 [editor.file-picker]
@@ -68,7 +75,11 @@ C-o = ":config-open"
 C-r = [":w", ":config-reload"]
 # CONFLICT: c + shift is used for something else
 # C = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection", "insert_mode"]
-D = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection"]
+D = [
+  "extend_to_line_end",
+  "yank_main_selection_to_clipboard",
+  "delete_selection",
+]
 
 # EXPERIMENT:
 # in normal mode, press space and c and then the keys below
