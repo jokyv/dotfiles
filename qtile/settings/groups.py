@@ -1,6 +1,6 @@
 # Qtile workspaces
 
-from libqtile.config import Key, Group
+from libqtile.config import Key, Group, Match
 from libqtile.command import lazy
 from .keys import mod, keys
 
@@ -17,20 +17,32 @@ from .keys import mod, keys
 # nf-mdi-layers
 # nf-md-whatsapp
 
+# groups = [
+#     Group(i)
+#     for i in [
+#         "   ",
+#         "   ",
+#         "   ",
+#         "   ",
+#         "   ",
+#         " 󰙯  ",
+#         "   ",
+#         "   ",
+#         "   ",
+#         # " 󰖣  ",
+#     ]
+# ]
 groups = [
-    Group(i)
-    for i in [
-        "   ",
-        "   ",
-        "   ",
-        "   ",
-        "   ",
-        " 󰙯  ",
-        "   ",
-        "   ",
-        "   ",
-        # " 󰖣  ",
-    ]
+    Group("   ", spawn="alacritty"),
+    Group("   ", matches=[Match(wm_class="brave")], spawn="brave"),
+    Group("   "),
+    Group("   "),
+    Group("   "),
+    Group(" 󰙯  ", matches=[Match(wm_class="discord")]),
+    Group("   "),
+    Group("   "),
+    Group(" 󰖣  "),
+    # "   ",
 ]
 
 for i, group in enumerate(groups):

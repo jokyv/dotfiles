@@ -101,7 +101,8 @@ primary_widgets = [
     widget.Net(
         **base(bg="color3"),
         interface="wlan0",
-        format="{interface} ↓↑ {down}",
+        update_interval=5,
+        format="{interface}: {down}",
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(MY_TERM + " -e btm")},
     ),
     separator(),

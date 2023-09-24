@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # systray battery icon
 # cbatticon -u 5 &
@@ -6,4 +6,4 @@
 # volumeicon &
 
 # change the wallpaper
-xargs feh --bg-fill $(shuf -n 1 -e ~/pics/wallpapers/*) &
+xargs feh --bg-fill $(shuf -n 1 -e ~/pics/wallpapers/*)

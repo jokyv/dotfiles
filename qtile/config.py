@@ -22,7 +22,7 @@ import subprocess
 
 @hook.subscribe.startup_once
 def autostart():
-    subprocess.call([path.join(qtile_path, 'autostart.sh')])
+    subprocess.call([path.join(qtile_path, "autostart.sh")])
 
 
 main = None
@@ -32,5 +32,5 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = True
 auto_fullscreen = True
-focus_on_window_activation = 'urgent'
-wmname = 'LG3D'
+focus_on_window_activation = "urgent"
+wmname = "QTILE"
