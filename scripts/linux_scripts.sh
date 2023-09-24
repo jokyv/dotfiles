@@ -250,7 +250,9 @@ pip_update() {
   length_library_list=`echo -n "$library_list" | wc -c`
   if [ $length_library_list -ge 1 ]; then
     echo "::Proceeding to upgrade the following libraries:"
+    echo ""
     echo $library_list
+    echo ""
     for library in $library_list; do
       pip install -U $library 
     done
