@@ -10,16 +10,18 @@ git clone https://github.com/jokyv/dotfiles.git ~/repos/dot
 
 ### Roadmap
 
-- [ ] version 2.x
-  - continue improving dotfiles
-  - continue improving scripts
+- [x] version 2.x
+  - improving dotfiles
+  - improving scripts
   - documentation - README.md
   - stabilise everything before moving to wayland and new wm
-- [ ] version 3.0
-  - move away from x11 wm such as bspwm
-  - move to qtile
+- [x] version 3.0
+  - [x] move to qtile
+  - [ ] move away from x11 wm such as bspwm
 - [ ] version 4.0
   - move to wayland
   - Wayland with hyprland or qtile?
   - replace x11 apps with wayland apps
   - replace ranger with rust based file manager
+- [ ] version 5.0
+  - [ ] merge arch installation and dotfiles
