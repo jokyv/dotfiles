@@ -1,5 +1,9 @@
 ## All my dot files and scripts
 
+### QTILE
+...to be continued
+
+### BSPWM
 ![main_screen](./main_screen.png)
 
 ### Instalation
