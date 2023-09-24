@@ -125,7 +125,10 @@ alias zel='zellij'
 # GIT SHORTCUTS
 # ----------------------------------------------------------------------------
 alias ginit=git_init_template
-alias gc=git_commit_workflow
+alias ga='git add'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gcw=git_commit_workflow
 alias glg=git_log_graph
 alias gl='git log'
 alias glo='git log --oneline'
