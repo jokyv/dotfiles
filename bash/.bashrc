@@ -47,6 +47,8 @@ add_to_path $HOME/projects/python_path
 add_to_path $HOME/.local/share/cargo/bin
 # day script
 add_to_path $HOME/dot/scripts/day.sh
+# day script
+add_to_path $HOME/dot/scripts/update_wall.sh
 
 # brew installation
 add_to_path /usr/local/opt
