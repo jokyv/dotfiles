@@ -135,3 +135,12 @@ keys = [
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]
+
+keys.extend(
+    [
+        Key([mod], "F5", lazy.group["pad"].dropdown_toggle("chatgpt")),
+        Key([mod], "F6", lazy.group["pad"].dropdown_toggle("terminal")),
+        Key([mod], "F7", lazy.group["pad"].dropdown_toggle("logout")),
+        # Key([mod], "F8", lazy.group["6"].dropdown_toggle("scrcpy")),
+    ]
+)

@@ -1,6 +1,6 @@
 # Qtile workspaces
 
-from libqtile.config import Key, Group, Match
+from libqtile.config import Key, Group, Match, ScratchPad, DropDown
 from libqtile.command import lazy
 from .keys import mod, keys
 
@@ -45,6 +45,7 @@ groups = [
     # "   ",
 ]
 
+
 for i, group in enumerate(groups):
     actual_key = str(i + 1)
     keys.extend(
@@ -55,3 +56,47 @@ for i, group in enumerate(groups):
             Key([mod, "shift"], actual_key, lazy.window.togroup(group.name)),
         ]
     )
+
+# --------------------------------------------------------
+# Scratchpads
+# --------------------------------------------------------
+
+groups.append(
+    ScratchPad(
+        "pad",
+        [
+            DropDown(
+                "chatgpt",
+                "brave --app=https://chat.openai.com",
+                x=0.3,
+                y=0.1,
+                width=0.40,
+                height=0.4,
+                on_focus_lost_hide=False,
+            ),
+            DropDown(
+                "logout",
+                "alacritty -e my_logout.sh",
+                x=0.3,
+                y=0.1,
+                width=0.40,
+                height=0.4,
+                on_focus_lost_hide=False,
+            ),
+            DropDown(
+                "terminal",
+                "alacritty",
+                x=0.3,
+                y=0.1,
+                width=0.40,
+                height=0.4,
+                on_focus_lost_hide=False,
+            ),
+            # some more ideas i can use the ScratchPad module
+            # blueman-manager for bluetooth
+            # scrcpy
+            # manage music
+            # manage volume
+        ],
+    )
+)
