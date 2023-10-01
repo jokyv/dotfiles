@@ -45,10 +45,8 @@ add_to_path $HOME/dot/scripts_in_rust
 add_to_path $HOME/projects/python_path
 # cargo - rust applications
 add_to_path $HOME/.local/share/cargo/bin
-# day script
-add_to_path $HOME/dot/scripts/day.sh
-# day script
-add_to_path $HOME/dot/scripts/update_wall.sh
+# add to path all my scripts
+add_to_path $HOME/dot/scripts
 
 # brew installation
 add_to_path /usr/local/opt
