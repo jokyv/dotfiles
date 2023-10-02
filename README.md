@@ -1,9 +1,11 @@
 ## All my dot files and scripts
 
 ### QTILE
+
 ...to be continued
 
 ### BSPWM
+
 ![main_screen](./main_screen.png)
 
 ### Instalation
@@ -21,11 +23,12 @@ git clone https://github.com/jokyv/dotfiles.git ~/repos/dot
   - stabilise everything before moving to wayland and new wm
 - [x] version 3.0
   - [x] move to qtile
-  - [ ] move away from x11 wm such as bspwm
+  - [x] move away from x11 wm such as bspwm
 - [ ] version 4.0
   - move to wayland
-  - Wayland with hyprland or qtile?
   - replace x11 apps with wayland apps
-  - replace ranger with rust based file manager
 - [ ] version 5.0
+  - wayland with hyprland or qtile option
+  - replace ranger with rust based file manager
+- [ ] version 6.0
   - [ ] merge arch installation and dotfiles
