@@ -1,18 +1,15 @@
 # Qtile Config File
 # http://www.qtile.org/
 
-from libqtile import hook
-
-from settings.keys import mod, keys
-from settings.groups import groups
-from settings.layouts import layouts, floating_layout
-from settings.widgets import widget_defaults, extension_defaults
-from settings.screens import screens
-from settings.mouse import mouse
-
-
 import os
 import subprocess
+from libqtile import hook
+from settings.keys import mod, keys  # noqa: F401
+from settings.groups import groups  # noqa: F401
+from settings.layouts import layouts, floating_layout  # noqa: F401
+from settings.widgets import widget_defaults, extension_defaults  # noqa: F401
+from settings.screens import screens  # noqa: F401
+from settings.mouse import mouse  # noqa: F401
 
 
 @hook.subscribe.startup_once

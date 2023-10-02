@@ -2,9 +2,6 @@ from libqtile import layout
 from libqtile.config import Match
 from .theme import colors
 
-# Layouts and layout rules
-
-
 layout_conf = {"border_focus": colors["focus"][0], "border_width": 3, "margin": 4}
 
 layouts = [
