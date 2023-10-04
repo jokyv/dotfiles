@@ -254,7 +254,9 @@ pip_update() {
     echo $library_list
     echo ""
     for library in $library_list; do
+      echo ""
       pip install -U $library 
+      echo ""
     done
   else echo "::All python libraries are up to date"
   fi
