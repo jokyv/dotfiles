@@ -15,11 +15,17 @@ MY_TERM = "alacritty"
 MY_BROWSER = "brave"
 
 keys = [
-    # ------------ Window Configs ------------
+    # ------------ Screen Configs ------------
+    Key([mod, "control"], "1", lazy.to_screen(0), desc="move focus to the screen 0"),
+    Key([mod, "control"], "2", lazy.to_screen(1), desc="move focus to the screen 1"),
+    Key([mod, "control"], "period", lazy.next_screen(), desc="go to next screen"),
+    Key([mod, "control"], "comma", lazy.prev_screen(), desc="go to previous screen"),
+    # ------------ Window focus Configs ------------
     Key([mod], "h", lazy.layout.left(), desc="move focus left"),
     Key([mod], "j", lazy.layout.down(), desc="move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="move focus up"),
     Key([mod], "l", lazy.layout.right(), desc="move focus right"),
+    # ------------ Window move Configs ------------
     Key(
         [mod, "shift"],
         "h",
@@ -49,6 +55,7 @@ keys = [
         desc="move window downup/move up a section in treetab",
     ),
     Key([mod], "space", lazy.layout.next(), desc="move window focus to other window"),
+    # ------------ Resize window Configs ------------
     Key(
         [mod],
         "equal",
@@ -63,36 +70,92 @@ keys = [
         lazy.layout.shrink().when(layout=["monadtall", "monadwide"]),
         desc="Grow window to the left",
     ),
-    Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="toggle float"),
+    # ------------ Fullscreen window Configs ------------
+    Key(
+        [mod],
+        "f",
+        lazy.window.toggle_fullscreen(),
+        desc="toggle a window to fullscreen",
+    ),
+    Key(
+        [mod, "shift"],
+        "f",
+        lazy.window.toggle_floating(),
+        desc="toggle a window to floating",
+    ),
+    # ------------ Layout Configs ------------
     Key([mod], "Tab", lazy.next_layout(), desc="choose next layout"),
     Key([mod, "shift"], "Tab", lazy.prev_layout(), desc="choose previous layout"),
-    Key([mod], "q", lazy.window.kill(), desc="kill focused window"),
-    Key([mod], "period", lazy.next_screen(), desc="go to next screen"),
-    Key([mod], "comma", lazy.prev_screen(), desc="go to previous screen"),
-    # Key([mod], "n", lazy.layout.normalize(), desc="reset all window sizes"),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="reload the config"),
+    Key([mod], "q", lazy.window.kill(), desc="kill the focused window"),
+    Key(
+        [mod],
+        "n",
+        lazy.layout.normalize(),
+        desc="reset all window sizes - currently does not work",
+    ),
+    Key(
+        [mod, "control"],
+        "r",
+        lazy.reload_config(),
+        desc="reload the qtile's config file",
+    ),
     # Key([mod, "control"], "r", lazy.restart(), desc="restart qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="shutdown qtile"),
-    # Key(
-    #     [mod, "control"],
-    #     "m",
-    #     lazy.window.minimize_all(),
-    #     desc="Toggle hide/show all windows on current group",
-    # ),
+    Key(
+        [mod, "control"],
+        "m",
+        lazy.window.minimize_all(),
+        desc="Toggle hide/show all windows on current group",
+    ),
     # ------------ App Configs ------------
-    Key([mod], "m", lazy.spawn("rofi -show drun"), desc="launch apps via rofi"),
-    Key([mod, "shift"], "m", lazy.spawn("rofi -show"), desc="nav windows via rofi"),
-    Key([mod], "b", lazy.spawn(MY_BROWSER), desc="launch browser"),
-    Key([mod], "e", lazy.spawn("thunar"), desc="launch file explorer"),
-    Key([mod], "Return", lazy.spawn(MY_TERM), desc="launch terminal"),
+    Key(
+        [mod],
+        "m",
+        lazy.spawn("rofi -show drun"),
+        desc="launch any of your apps via rofi",
+    ),
+    Key(
+        [mod, "shift"],
+        "m",
+        lazy.spawn("rofi -show window"),
+        desc="nav windows via rofi",
+    ),
+    Key(
+        [mod],
+        "b",
+        lazy.spawn(MY_BROWSER),
+        desc="launch the browser you specified with the MY_BROWSER variable",
+    ),
+    Key(
+        [mod],
+        "e",
+        lazy.spawn("thunar"),
+        desc="launch your file explorer - currently thunar",
+    ),
+    Key(
+        [mod],
+        "Return",
+        lazy.spawn(MY_TERM),
+        desc="launch the terminal you specified with MY_TERM variable",
+    ),
     Key(
         [mod, "shift"],
         "Return",
         lazy.spawn(f"{MY_TERM} -e zellij"),
-        desc="launch teminal & zellij",
+        desc="launch teminal & zellij together",
     ),
-    Key([mod], "r", lazy.spawn("redshift -O 5000"), desc="change temp color"),
-    Key([mod, "shift"], "r", lazy.spawn("redshift -x"), desc="reset redshift"),
+    Key(
+        [mod],
+        "r",
+        lazy.spawn("redshift -O 5000"),
+        desc="change temp color of your screen",
+    ),
+    Key(
+        [mod, "shift"],
+        "r",
+        lazy.spawn("redshift -x"),
+        desc="reset temp color of your screen",
+    ),
     Key(
         [mod],
         "y",
@@ -105,14 +168,16 @@ keys = [
         lazy.spawn("flameshot gui --clipboard"),
         desc="take screenshot and save it on clipboard",
     ),
-    Key([mod], "o", lazy.spawn("obsidian"), desc="launch obsidian"),
-    Key([mod], "d", lazy.spawn("discord"), desc="launch discord"),
+    Key([mod], "o", lazy.spawn("obsidian"), desc="launch application obsidian"),
+    Key([mod], "d", lazy.spawn("discord"), desc="launch application discord"),
+    # ------------ Update wallpaper script ------------
     Key(
         [mod],
         "w",
         lazy.spawn(home + "/dot/scripts/update_wall.sh"),
     ),
     # ------------ Hardware Configs ------------
+    # Sound
     Key(
         [mod],
         "F9",
@@ -132,10 +197,21 @@ keys = [
         desc="toggle between mute and unmute",
     ),
     # Brightness
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
+    Key(
+        [mod, "control"],
+        "equal",
+        "XF86MonBrightnessUp",
+        lazy.spawn("brightnessctl set +10%"),
+    ),
+    Key(
+        [mod, "control"],
+        "minus",
+        "XF86MonBrightnessDown",
+        lazy.spawn("brightnessctl set 10%-"),
+    ),
 ]
 
+# scratchpad
 keys.extend(
     [
         Key([mod], "F5", lazy.group["pad"].dropdown_toggle("chatgpt")),

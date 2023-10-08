@@ -67,11 +67,12 @@ groups.append(
         [
             DropDown(
                 "chatgpt",
-                "brave --app=https://chat.openai.com",
+                "chromium --app=https://chat.openai.com",
                 x=0.3,
                 y=0.1,
                 width=0.40,
                 height=0.4,
+                opacity=1,
                 on_focus_lost_hide=False,
             ),
             DropDown(
