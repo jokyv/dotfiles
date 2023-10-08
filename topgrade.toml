@@ -1,6 +1,6 @@
 [misc]
 # disable notify
-skip_notify = true
+# skip_notify = true
 
 # Don't ask for confirmations
 assume_yes = true
@@ -44,10 +44,7 @@ cleanup = true
 [git]
 max_concurrency = 5
 # Additional git repositories to pull
-repos = [
-    "~/projects/notes",
-    "~/dot"
-]
+repos = ["~/projects/notes", "~/dot"]
 
 # Don't pull the predefined git repos
 #pull_predefined = false
