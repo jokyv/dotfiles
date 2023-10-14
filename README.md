@@ -1,5 +1,19 @@
 ## All my dot files and scripts
 
+### Common Packages
+
+- Terminal: alacritty
+- Editor: helix
+- Prompt: starship
+- Icons: Nerd Font
+- Mens: Rofi
+- Colorscheme: rose-pine
+- Browsers: brave, chromium
+- Filemanager: Thunar
+- Compositor: picom
+- Status Bar: Qtile
+- Sreenshots: flameshot
+
 ### QTILE
 
 ...to be continued
