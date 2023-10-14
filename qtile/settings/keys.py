@@ -127,6 +127,12 @@ keys = [
         desc="launch the browser you specified with the MY_BROWSER variable",
     ),
     Key(
+        [mod, "shift"],
+        "b",
+        lazy.spawn(home + "/dot/scripts/bravebookmarks.sh"),
+        desc="launch rofi with brave bookmarks to run",
+    ),
+    Key(
         [mod],
         "e",
         lazy.spawn("thunar"),
