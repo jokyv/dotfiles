@@ -10,7 +10,7 @@
 # session_path = "~/.key"
 
 ## date format used, either "us" or "uk"
-dialect = "us" 								
+dialect = "us"
 
 ## enable or disable automatic sync
 auto_sync = false
@@ -40,3 +40,6 @@ exit_mode = "return-query"
 
 # Choose a height for the inline history search
 inline_height = 20
+
+# Pressing enter will immediately select and execute the search result
+enter_accept = true
