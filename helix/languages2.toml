@@ -69,14 +69,12 @@ formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 [[language]]
 name = "python"
 auto-format = true
-injection-regex = "python"
-file-types = ["py"]
-shebangs = ["python"]
-scope = "source.python"
-language-servers = ["pylsp"]
-formatter = { command = "black", args = ["--quiet", "-"] }
+language-servers = ["pylsp", "ruff"]
+formatter = { command = "sh", args = ["-c", "ruff format --quiet -"] }
+# formatter = { command = "black", args = ["--quiet", "-"] }
 
-[language-server.pylsp.plugins]
-ruff = { enabled = true }
-black = { enabled = true }
-pycodestyle = { enabled = false }
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.pylsp]
+command = "pylsp"
