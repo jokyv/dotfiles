@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
+# -----------------------------------------------------
 # EASIER NAVIGATION
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -27,8 +28,9 @@ alias ep='echo $PATH | tr : "\n"'
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
+# -----------------------------------------------------
 # LINUX SCRIPTS
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------
 # source bash files and clear terminal
 alias sb=source_files
 # combine cd with erdtree
@@ -38,8 +40,9 @@ alias dua=daily_updates
 # run weekly updates, checks and clean up
 alias wua=weekly_updates 
 
+# -----------------------------------------------------
 # FZF SCRIPTS
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------
 # you need the dot otherwise the script will run in a subshell!
 alias z=fzf_go_to_path
 # find a file with fzf and open it with nvim
@@ -57,15 +60,17 @@ alias fc=fzf_copy_to_path
 # find a phrase in a file
 alias ff=fzf_file_that_contains_phrase
 
+# -----------------------------------------------------
 # PYTHON-PIP
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------
 alias p='python3'
 # find the version for each python program installed using fzf
 alias pipv='pip list | fzf'
 alias pu=pip_update
 
+# -----------------------------------------------------
 # PACMAN - PARU SCRIPTS
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------
 # install pacman program with the help of fzf
 alias pi='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
 # remove pacman program with the help of fzf
@@ -75,8 +80,9 @@ alias pv='pacman -Q | fzf'
 # install arch + aur programs with the help of paru and fzf
 alias auri='paru -Slq | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
 
+# -----------------------------------------------------
 # RUST
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------
 # cargo shortcuts
 # https://doc.rust-lang.org/book/ch01-03-hello-cargo.html
 
@@ -122,9 +128,12 @@ alias tre='. fzf_scripts.sh && fzf_empty_file_from_trash'
 # run zellij
 alias zel='zellij'
 
+# -----------------------------------------------------
 # GIT SHORTCUTS
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------
 alias ginit=git_init_template
+alias gpu='git push'
+alias gpl='git pull'
 alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m'
@@ -142,6 +151,7 @@ alias gclean='git_clean_up'
 alias gd='git diff -w'
 alias lg='lazygit'
 
+# -----------------------------------------------------
 # PRINT FILE SOURCED CONFIRMATION
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------
 echo "-- .aliases file sourced"

@@ -10,10 +10,10 @@ case $SRL in
         sudo /sbin/reboot
         ;;
     Logout)
-        pkill xmonad
+        pkill qtile
         ;;
     Lock)
-        logout.sh
+        betterlockscreen --lock
         ;;
     *)
         ;;
