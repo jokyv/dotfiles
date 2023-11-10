@@ -2,6 +2,7 @@
 line-length = 88
 fix = true
 
+[tool.ruff.lint]
 select = [
   "E",   # pycodestyle
   "W",   # pycodestyle
@@ -18,7 +19,6 @@ select = [
   "PT",  # flake8-pytest-style
   "RUF", # Ruff-specific rules
 ]
-
 ignore = [
   # Line length regulated by black
   # "E501",
