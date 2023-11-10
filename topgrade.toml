@@ -1,6 +1,6 @@
 [misc]
 # disable notify
-# skip_notify = true
+skip_notify = false
 
 # Don't ask for confirmations
 assume_yes = true
