@@ -9,10 +9,19 @@ use-grammars = { only = [
   "markdown",
 ] }
 
+
+[[language]]
+name = "yaml"
+auto-format = true
+file-types = ["yaml"]
+language-servers = ["yaml-language-server"]
+
+
 [[language]]
 name = "rust"
 auto-format = true
 file-types = ["rs"]
+language-servers = ["rust-analyzer"]
 
 [language.auto-pairs]
 '(' = ')'
@@ -22,11 +31,14 @@ file-types = ["rs"]
 '<' = '>'
 '`' = '`'
 
+
 [[language]]
 name = "bash"
 auto-format = true
 scope = "source.bash"
 file-types = [
+  "sh",
+  "bash",
   "text",
   "config",
   "ignore",
@@ -39,12 +51,15 @@ file-types = [
   ".exports",
   ".profile",
 ]
+language-servers = ["bash-language-server"]
+
 
 [[language]]
 name = "json"
 auto-format = true
 file-types = ["json", "kdl"]
 formatter = { command = "prettier", args = ["--parser", "json"] }
+
 
 [[language]]
 name = "toml"
@@ -53,10 +68,12 @@ file-types = ["toml", "ini", "pycodestyle"]
 language-servers = ["taplo"]
 formatter = { command = "taplo", args = ["fmt", "-"] }
 
+
 [[language]]
 name = "markdown"
 auto-format = true
 file-types = ["md"]
+language-servers = ["marksman", "ltex-ls"]
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 [language.auto-pairs]
 '(' = ')'
@@ -67,11 +84,12 @@ formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 '`' = '`'
 '*' = '*'
 
+
 [[language]]
 name = "python"
 auto-format = true
 language-servers = ["pylsp", "ruff"]
-formatter = { command = "sh", args = ["-c", "ruff format --quiet -"] }
+formatter = { command = "sh", args = ["-c", "isort - | ruff format --quiet -"] }
 # formatter = { command = "black", args = ["--quiet", "-"] }
 
 [language-server.ruff]
