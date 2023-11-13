@@ -20,8 +20,10 @@ language-servers = ["yaml-language-server"]
 [[language]]
 name = "rust"
 auto-format = true
-file-types = ["rs"]
 language-servers = ["rust-analyzer"]
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
 
 [language.auto-pairs]
 '(' = ')'
@@ -51,14 +53,20 @@ file-types = [
   ".exports",
   ".profile",
 ]
-language-servers = ["bash-language-server"]
+# language-servers = ["bash-server"]
 
+# [language-server.bash-server]
+# command = "bash-language-server"
 
 [[language]]
 name = "json"
 auto-format = true
 file-types = ["json", "kdl"]
+language-servers = ["json-server"]
 formatter = { command = "prettier", args = ["--parser", "json"] }
+
+[language-server.json-server]
+command = "vscode-json-language-server"
 
 
 [[language]]

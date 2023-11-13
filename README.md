@@ -34,7 +34,7 @@ git clone https://github.com/jokyv/dotfiles.git ~/repos/dot
   - improving dotfiles
   - improving scripts
   - documentation - README.md
-  - stabilise everything before moving to wayland and new wm
+  - stabilize everything before moving to wayland and new wm
 - [x] version 3.0
   - [x] move to qtile
   - [x] move away from x11 wm such as bspwm
