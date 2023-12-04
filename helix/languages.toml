@@ -1,7 +1,7 @@
 # download grammar for the below only
 use-grammars = { only = [
-  "rust",
   "python",
+  "rust",
   "toml",
   "bash",
   "json",
@@ -9,13 +9,28 @@ use-grammars = { only = [
   "markdown",
 ] }
 
+[[language]]
+name = "python"
+auto-format = true
+language-servers = ["pylsp", "ruff"]
+formatter = { command = "sh", args = ["-c", "isort - | ruff format --quiet -"] }
+# formatter = { command = "black", args = ["--quiet", "-"] }
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.pylsp]
+command = "pylsp"
 
 [[language]]
 name = "yaml"
 auto-format = true
-file-types = ["yaml"]
+file-types = ["yaml", "yml"]
 language-servers = ["yaml-language-server"]
+formatter = { command = "prettier", args = ["--parser", "yaml"] }
 
+# [language-server.yaml-server]
+# command = "yaml-language-server"
 
 [[language]]
 name = "rust"
@@ -91,17 +106,3 @@ formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 '<' = '>'
 '`' = '`'
 '*' = '*'
-
-
-[[language]]
-name = "python"
-auto-format = true
-language-servers = ["pylsp", "ruff"]
-formatter = { command = "sh", args = ["-c", "isort - | ruff format --quiet -"] }
-# formatter = { command = "black", args = ["--quiet", "-"] }
-
-[language-server.ruff]
-command = "ruff-lsp"
-
-[language-server.pylsp]
-command = "pylsp"
