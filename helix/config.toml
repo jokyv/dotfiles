@@ -1,11 +1,15 @@
-theme = "rose_pine"
+theme = "everforest_dark"
+# theme = "boo_berry"
+# theme = "ferra"
+# theme = "hex_toxic"
+# theme = "rose_pine"
 
 [editor]
 auto-save = true
 bufferline = "multiple"
 color-modes = true
 cursorline = true
-idle-timeout = 50
+idle-timeout = 25
 mouse = false
 rulers = [120]
 scroll-lines = 5
@@ -57,6 +61,7 @@ skip-levels = 1
 # j = { k = "normal_mode" }
 
 [keys.normal]
+"esc" = ["normal_mode", ":format", ":write"] # For quick saving
 H = "extend_char_left"
 J = "extend_line_down"
 K = "extend_line_up"
@@ -80,6 +85,17 @@ D = [
   "yank_main_selection_to_clipboard",
   "delete_selection",
 ]
+# EXPERIMENT:
+# I like for moving selected text up/down and left/right:
+A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+A-k = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
+A-h = ["delete_selection", "move_char_left", "paste_before"]
+A-l = ["delete_selection", "move_char_right", "paste_after"]
 
 # EXPERIMENT:
 # in normal mode, press space and c and then the keys below

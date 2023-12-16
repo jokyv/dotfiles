@@ -96,7 +96,8 @@ formatter = { command = "taplo", args = ["fmt", "-"] }
 name = "markdown"
 auto-format = true
 file-types = ["md"]
-language-servers = ["marksman", "ltex-ls"]
+# language-servers = ["marksman", "ltex-ls"]
+language-servers = ["marksman"]
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 [language.auto-pairs]
 '(' = ')'
