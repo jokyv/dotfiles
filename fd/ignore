@@ -1,7 +1,5 @@
-**/.local/share/*
-**/.cache/*
-**/.git/*
-**/.hedger/*
-**/__pycache__/*
+*/.local/share/*
+*/.cache/*
+*/.hedger/*
 
-**/*.parquet
+*/*.parquet

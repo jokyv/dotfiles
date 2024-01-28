@@ -11,9 +11,9 @@ git_auto_commit() {
   cd $path
   git pull
 
-  CHANGES_EXIST="$(git status --porcelain | wc -l)"
-
   echo ":: Checking for repo {$path}"
+
+  CHANGES_EXIST="$(git status --porcelain | wc -l)"
 
   # if no changes then exit with code 0
   if [ "$CHANGES_EXIST" -eq 0 ]; then
@@ -22,32 +22,32 @@ git_auto_commit() {
     git add .
     git commit -q -m "auto update at: $(date +"%d-%m-%Y %H:%M:%S")"
     git push -q
-    echo ":: Found changes! git add, commit push performed"
+    echo ":: Found changes! git add, git commit git push performed"
   fi
   done
 }
 
-# a git init template when i start a new git project
+# A git init template when i start a new git project
 # ----------------------------------------------------------------------------
 git_init_template() {
   git init
   touch .gitignore
   echo -e "*.csv\n*.pkl\n*.xlsx\n*.txt\n__pycache__" > .gitignore
   git add .gitignore
-  git commit -m "git init and add basic git ignore file"
+  git commit -m "git init and git add - basic git ignore file"
 }
 
-# a simple for loop that searches git directories and 
-# execute a git pull for each one
+# A simple for loop that searches git directories and
+# executes a git pull for each one
 # ----------------------------------------------------------------------------
 git_pull_all_git_dirs() {
   cd
   pids=""
-  for file in $(fd -td -H '^.git$' -E 'nvim')
+  # fd dirs that have .git but exclude dirs with names nvim or .local/share
+  for file in $(fd -td -HI -g .git -gE nvim -gE .local/share)
   do
     cd $file
     cd ..
-    # echo ""
     echo "git pull for $file"
     # run it as subprocess - like bash async
     git pull -q &
@@ -58,11 +58,13 @@ git_pull_all_git_dirs() {
   wait $pids
 }
 
-# get the git status of all the git dirs except for cargo
+# A simple for loop that searches the git status of all the git dirs 
+# except for .cache, .local/share, cargo
 # ----------------------------------------------------------------------------
 git_status_all_git_dirs() {
   cd
-  for file in $(fd -td -H '^.git$' -E '.cargo')
+  # fd dirs that have .git but exclude dirs with names .cache or .local/share or cargo
+  for file in $(fd -td -HI -g .git -gE .cache -gE .local/share -gE cargo)
   do
     cd $file
     cd ..
@@ -77,9 +79,9 @@ git_status_all_git_dirs() {
   done
 }
 
-# all in one bash function
+# All in one git commit bash function
 # git stash, git pull, git add, git commit, git push
-# check if any file big size
+# check if any file big size (more than 50MB) too...
 # ----------------------------------------------------------------------------
 git_commit_workflow() {
   FILE_SIZE=50
@@ -113,14 +115,14 @@ git_commit_workflow() {
   git status -sb
 }
 
-# get a nice graph with git repo commits
+# Get a nice graph with git repo commits
 # ----------------------------------------------------------------------------
 git_log_graph() {
   git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) 
 %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 }
 
-# remove files that are tracked but suppose to be git ignored
+# Remove files that are tracked but suppose to be git ignored
 # ----------------------------------------------------------------------------
 git_clean_up() {
   # Remove the files from the index (not the actual files in the working copy)
