@@ -8,16 +8,17 @@ theme = "everforest_dark"
 auto-save = true
 bufferline = "multiple"
 color-modes = true
+completion-replace = true
 cursorline = true
 idle-timeout = 25
 mouse = false
 rulers = [120]
-scroll-lines = 5
+scrolloff = 10
 true-color = true
 
 [editor.statusline]
 left = ["mode", "spinner", "diagnostics"]
-center = ["file-name", "file-modification-indicator"]
+center = ["file-name", "read-only-indicator", "file-modification-indicator"]
 right = [
   "version-control",
   "position",
@@ -35,27 +36,26 @@ select = "SELECT"
 [editor.lsp]
 display-messages = true
 display-inlay-hints = true
-auto-signature-help = true
-
-[editor.soft-wrap]
-enable = true
 
 [editor.cursor-shape]
 normal = "block"
-# insert = "bar"
-insert = "block"     # works better for rose-pine
+insert = "bar"
+# insert = "block" # works better for rose-pine
 select = "underline"
 
 [editor.file-picker]
 hidden = false
 
 [editor.indent-guides]
-rainbow-option = "normal"
 render = true
+rainbow-option = "normal"
 # character = "╎"
 character = "┆"
 # character = "┊"
 skip-levels = 1
+
+[editor.soft-wrap]
+enable = true
 
 [keys.insert]
 # j = { k = "normal_mode" }
@@ -78,24 +78,29 @@ G = "goto_file_end"
 "}" = "goto_next_paragraph"
 C-o = ":config-open"
 C-r = [":w", ":config-reload"]
-# CONFLICT: c + shift is used for something else
-# C = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection", "insert_mode"]
 D = [
   "extend_to_line_end",
   "yank_main_selection_to_clipboard",
   "delete_selection",
 ]
+
+# CONFLICT: 
+# c + shift is used for something else
+# C = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection", "insert_mode"]
+
 # EXPERIMENT:
 # I like for moving selected text up/down and left/right:
-A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-A-k = [
+# Userd Alt key but it seems there was a conflict with Alt key used by alacritty
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = [
   "extend_to_line_bounds",
   "delete_selection",
   "move_line_up",
   "paste_before",
 ]
-A-h = ["delete_selection", "move_char_left", "paste_before"]
-A-l = ["delete_selection", "move_char_right", "paste_after"]
+# C-l = ["delete_selection", "move_char_right", "paste_after"]
+# CONFLICT:
+# C-h = ["delete_selection", "move_char_left", "paste_before"]
 
 # EXPERIMENT:
 # in normal mode, press space and c and then the keys below
