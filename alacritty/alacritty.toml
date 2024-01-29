@@ -1,4 +1,4 @@
-import = ["/home/jokyv/.config/alacritty/everforest.toml"]
+import = ["~/.config/alacritty/everforest.toml"]
 
 live_config_reload = true
 
