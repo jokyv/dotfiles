@@ -1,10 +1,18 @@
+# NOTES
+# -----------------------------------------------
+"""
+    Use `c` to kill instead of `q`
+"""
+# -----------------------------------------------
 # Qtile keybindings
 
-# from libqtile import qtile
-from libqtile.config import Key
-from libqtile.command import lazy
 from pathlib import Path
 
+from libqtile.command import lazy
+from libqtile.config import Key
+
+# VARIABLES
+# -----------------------------------------------
 # Get home path
 home = str(Path.home())
 # set mod key to SUPER
@@ -14,6 +22,29 @@ MY_TERM = "alacritty"
 # my browser
 MY_BROWSER = "brave"
 
+
+# FUNCTIONS
+# -----------------------------------------------
+@lazy.function
+def minimize_all(qtile):
+    """A function for hide/show all the windows in a group"""
+    for win in qtile.current_group.windows:
+        if hasattr(win, "toggle_minimize"):
+            win.toggle_minimize()
+
+
+@lazy.function
+def maximize_by_switching_layout(qtile):
+    """A function for toggling between MAX and MONADTALL layouts"""
+    current_layout_name = qtile.current_group.layout.name
+    if current_layout_name == "monadtall":
+        qtile.current_group.layout = "max"
+    elif current_layout_name == "max":
+        qtile.current_group.layout = "monadtall"
+
+
+# KEYS
+# -----------------------------------------------
 keys = [
     # ------------ Screen Configs ------------
     Key([mod, "control"], "1", lazy.to_screen(0), desc="move focus to the screen 0"),
@@ -54,7 +85,12 @@ keys = [
         lazy.layout.section_up().when(layout=["treetab"]),
         desc="move window downup/move up a section in treetab",
     ),
-    Key([mod], "space", lazy.layout.next(), desc="move window focus to other window"),
+    Key(
+        [mod],
+        "space",
+        lazy.layout.next(),
+        desc="move the window focus to another window",
+    ),
     # ------------ Resize window Configs ------------
     Key(
         [mod],
@@ -70,7 +106,7 @@ keys = [
         lazy.layout.shrink().when(layout=["monadtall", "monadwide"]),
         desc="Grow window to the left",
     ),
-    # ------------ Fullscreen window Configs ------------
+    # ------------ Fullscreen / Floating window Configs ------------
     Key(
         [mod],
         "f",
@@ -84,9 +120,9 @@ keys = [
         desc="toggle a window to floating",
     ),
     # ------------ Layout Configs ------------
-    Key([mod], "Tab", lazy.next_layout(), desc="choose next layout"),
-    Key([mod, "shift"], "Tab", lazy.prev_layout(), desc="choose previous layout"),
-    Key([mod], "q", lazy.window.kill(), desc="kill the focused window"),
+    Key([mod], "Tab", lazy.next_layout(), desc="choose the next layout"),
+    Key([mod, "shift"], "Tab", lazy.prev_layout(), desc="choose the previous layout"),
+    Key([mod], "q", lazy.window.kill(), desc="kill the focused window immediately"),
     Key(
         [mod],
         "n",
@@ -100,13 +136,25 @@ keys = [
         desc="reload the qtile's config file",
     ),
     # Key([mod, "control"], "r", lazy.restart(), desc="restart qtile"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="shutdown qtile"),
+    Key(
+        [mod, "control"],
+        "q",
+        lazy.shutdown(),
+        desc="quit/shutdown the whole qtile application",
+    ),
     Key(
         [mod, "control"],
         "m",
-        lazy.window.minimize_all(),
+        minimize_all(),
         desc="Toggle hide/show all windows on current group",
     ),
+    # Key(
+    #     [mod],
+    #     "f",
+    #     maximize_by_switching_layout(),
+    #     lazy.window.toggle_fullscreen(),
+    #     desc="toggle fullscreen (better way!)",
+    # ),
     # ------------ App Configs ------------
     Key(
         [mod],
@@ -174,8 +222,8 @@ keys = [
         lazy.spawn("flameshot gui --clipboard"),
         desc="take screenshot and save it on clipboard",
     ),
-    Key([mod], "o", lazy.spawn("obsidian"), desc="launch application obsidian"),
-    Key([mod], "d", lazy.spawn("discord"), desc="launch application discord"),
+    Key([mod], "o", lazy.spawn("obsidian"), desc="launch the application obsidian"),
+    Key([mod], "d", lazy.spawn("discord"), desc="launch the application discord"),
     # ------------ Update wallpaper script ------------
     Key(
         [mod],

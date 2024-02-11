@@ -1,9 +1,9 @@
 # Qtile workspaces
 
-from libqtile.config import Key, Group, Match, ScratchPad, DropDown
 from libqtile.command import lazy
-from .keys import mod, keys
+from libqtile.config import DropDown, Group, Key, Match, ScratchPad
 
+from .keys import keys, mod
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 # Icons:

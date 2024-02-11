@@ -1,10 +1,11 @@
-from libqtile import widget, qtile
+from libqtile import qtile, widget
+
 from .theme import colors
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
 # VARIABLES
-# ----------------------------------------------------------------------------
+# -----------------------------------------------
 MY_TERM = "alacritty"
 
 
@@ -26,7 +27,10 @@ def icon(fg="text", bg="dark", fontsize=16, text="?"):
 # powerline style icons
 def powerline(fg="light", bg="dark"):
     return widget.TextBox(
-        **base(fg, bg), text="", fontsize=37, padding=-2  # Icon: nf-oct-triangle_left
+        **base(fg, bg),
+        text="",
+        fontsize=37,
+        padding=-2,  # Icon: nf-oct-triangle_left
     )
 
 
