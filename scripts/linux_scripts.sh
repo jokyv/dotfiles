@@ -1,7 +1,9 @@
 #!/bin/bash
 
+# ----------------------------------------------------------------------------
 # HELPER FUNCTIONS
 # ----------------------------------------------------------------------------
+
 # a helper function when a section is of a script is 'disabled'
 work_in_progress() {
   echo ""
@@ -9,8 +11,10 @@ work_in_progress() {
   echo ""
 }
 
-# SCRIPTS
 # ----------------------------------------------------------------------------
+# SMALL FUNCTIONS
+# ----------------------------------------------------------------------------
+
 # a simple script that source .aliases, .bashrc and .bash_profile files
 source_files() {
   clear
@@ -20,9 +24,9 @@ source_files() {
 }
 
 # a simple script that combines cd with exa
-cd_with_exa() {
+cd_with_eza() {
   cd "$1" &&
-  exa -hT --tree --level=2 --sort=ext;
+  eza -hT --tree --level=2 --sort=ext;
 }
 
 # a simple script that combines cd with erdtree
@@ -31,130 +35,121 @@ cd_with_et() {
   erd
 }
 
-# scripl that updates pacman apps and git pull all repos
-# for daily morning usage
-# ----------------------------------------------------------------------------
-daily_updates() {
-  echo -e '\n==========================' && 
-  echo -e '|------ UPGRADE OS ------|' &&
-  echo -e '==========================\n' &&
-  # upgrade with pacman
-  sudo pacman -Syu
-  echo -e '\n===========================' &&
-  echo -e '|------ GIT PULL ALL -----|' &&
-  echo -e '===========================\n' &&
-  # pull request from all git repos
-  echo "-- do you want to run the 'git pull all' command? [yes/no]"
-  read answer
-  # reverse inequality
-  if [ "$answer" != "${answer#[yesYy]}" ]; then
-    echo "...YES 'git pull all' right now!"
-    gpulla
-  else
-    echo "...NO 'git pull all' right now!"
-  fi 
+# Ask Y/n
+function ask() {
+    read -p "$1 (Y/n): " resp
+    if [ -z "$resp" ]; then
+        response_lc="y" # empty is Yes
+    else
+        response_lc=$(echo "$resp" | tr '[:upper:]' '[:lower:]') # case insensitive
+    fi
+
+    [ "$response_lc" = "y" ]
 }
 
-# weekly script
 # ----------------------------------------------------------------------------
+# Scripl that updates pacman apps and git pull all repos for daily morning usage
+# ----------------------------------------------------------------------------
+
+daily_updates() {
+  if ask ':: ------- UPGRADE OS --------'; then
+    # upgrade with pacman
+    sudo pacman -Syu
+  fi
+  if ask ':: ------ GIT PULL ALL ------'; then
+    # pull request from all git repos
+    echo "-- do you want to run the 'git pull all' command? [yes/no]"
+    read answer
+    # reverse inequality
+    if [ "$answer" != "${answer#[yesYy]}" ]; then
+      echo "...YES 'git pull all' right now!"
+      gpulla
+    else
+      echo "...NO 'git pull all' right now!"
+    fi 
+  fi
+}
+
+# ----------------------------------------------------------------------------
+# Weekly script
+# ----------------------------------------------------------------------------
+
 weekly_updates() {
-  echo -e '\n==========================' && 
-  echo -e '|------ UPGRADE OS ------|' &&
-  echo -e '==========================\n' &&
-  sudo pacman -Syu
-  echo -e '\n===========================' &&
-  echo -e '|----- GIT STATUS ALL ----|' &&
-  echo -e '===========================\n' &&
-  gsa
-  echo -e '\n===========================' &&
-  echo -e '|------ GIT PUSH ALL -----|' &&
-  echo -e '===========================\n' &&
-  # TODO: do i need this?
-  work_in_progress
+  if ask ':: ------- UPGRADE OS -------'; then
+    sudo pacman -Syu
+  fi
 
-  echo -e '\n===========================' &&
-  echo -e '|------ WALLPAPERS -----|' &&
-  echo -e '===========================\n' &&
+  if ask ':: ----- GIT STATUS ALL -----'; then
+    gsa
+  fi
 
-  echo -e 'change wallpaper at least ance a week ;)'
-  feh --bg-fill $(shuf -n 1 -e ~/pics/wallpapers/*)
+  if ask ':: ------ GIT PUSH ALL ------'; then
+    work_in_progress
+  fi
 
-  echo -e '\n==========================' && 
-  echo -e '|------ NVIM TASKS ------|' &&
-  echo -e '==========================' &&
-  # echo 'sorting nvim spell file'
-  # sort -u $HOME/.config/nvim/spell/en.utf-8.add -o "$HOME/.config/nvim/spell/en.utf-8.add"
-  echo "git pull lvim"
-  cd ~
-  cd $HOME/.local/share/lunarvim/lvim/
-  git pull
-  lvim +LvimCacheReset +PackerUpdate
-  # clean OS
-  echo -e '\n==========================' && 
-  echo -e '|------- CLEAN OS -------|' &&
-  echo -e '==========================' &&
-  # TODO: update paru packages first, will update pacman packages also
-  paru -Syu
-  sudo pacman -Sc
-  paru -Sc
-  echo -e '\n==========================' && 
-  echo -e '|---- Remove Orphans ----|' &&
-  echo -e '==========================\n' &&
-  echo 'the following are pacman defined orphan programs:'
-  echo 'this was run using: "sudo pacman -Qdt"'
-  echo 'please remove with sudo pacman -Rns <Program>'
-  sudo pacman -Qdt
-  echo ''
-  echo 'the following are paru defined orphan programs:'
-  paru -Qdt
-  echo -e '\n==========================' && 
-  echo -e '|--- CONDA UPDATE ALL ---|' &&
-  echo -e '==========================\n' &&
-  # conda update -y conda # updates all conda packages without conflicts (recommended)
-  # TODO: replace with pip install-update
-  work_in_progress
+  if ask ':: ---- UPDATE WALLPAPER ----'; then
+    echo -e 'change wallpaper at least ance a week ;)'
+    feh --bg-fill $(shuf -n 1 -e ~/pics/wallpapers/*)
+  fi
+
+  if ask ':: -------- CLEAN OS --------'; then
+    paru -Syu
+    sudo pacman -Sc
+    paru -Sc
+  fi
+
+  if ask ':: ----- Remove Orphans -----'; then
+    echo 'the following are pacman defined orphan programs:'
+    echo 'this was run using: "sudo pacman -Qdt"'
+    echo 'please remove with sudo pacman -Rns <Program>'
+    sudo pacman -Qdt
+    echo ''
+    echo 'the following are paru defined orphan programs:'
+    paru -Qdt
+  fi
+
+  if ask ':: - Python Packages Update -'; then
+    pip_update
+  fi
 
   # need to install reflector
   # sudo reflector -c Singapore -a 6 --sort rate --save /etc/pacman.d/mirrorlist
-  echo -e '\n==========================' && 
-  echo -e '|----- CHECK SYSTEM -----|' &&
-  echo -e '==========================\n' &&
 
-  echo '::check if any system failures'
-  systemctl --failed
+  if ask ':: ------ CHECK SYSTEM ------'; then
+    echo '::check if any system failures'
+    systemctl --failed
 
-  echo ''
-  echo '::check how big is your cache'
-  echo '::remove with rm -rf .cache/*'
-  # du -sh ~/.cache/
-  dust -p -n 10 ~/.cache/
+    echo ''
+    echo '::check how big is your cache'
+    echo '::remove with rm -rf .cache/*'
+    # du -sh ~/.cache/
+    dust -p -n 10 ~/.cache/
 
-  echo ''
-  echo '::check how big is your journal'
-  echo '::remove with sudo journalctl --vacuum-time=2weeks'
-  # du -sh /var/log/journal
-  dust -p -n 10 /var/log/journal
+    echo ''
+    echo '::check how big is your journal'
+    echo '::remove with sudo journalctl --vacuum-time=2weeks'
+    # du -sh /var/log/journal
+    dust -p -n 10 /var/log/journal
+  fi
 
-  echo -e '\n==========================' && 
-  echo -e '|----- CARGO UPDATE -----|' &&
-  echo -e '==========================\n' &&
-  cargo install-update -l
-  cargo install-update -a -q
+  if ask ':: ------ CARGO UPDATE ------'; then
+    cargo install-update -l
+    cargo install-update -a -q
+  fi
 
-  echo -e '\n==========================' && 
-  echo -e '|-- WEEKLY GIT COMMITS --|' &&
-  echo -e '==========================\n' &&
+  if ask ':: --- WEEKLY GIT COMMITS ---'; then
 
-  read -p "Do you want to commit your wallpapers, notes and my_wiki? " yn
-    case $yn in
-      [Yy]* ) 
-        auto_git_commit "$HOME/pics/wallpapers/" &&
-        auto_git_commit "$HOME/projects/notes/" &&
-        auto_git_commit "$HOME/projects/my_wiki";;
-      [Nn]* ) echo "...NO "git commit" right now!";;
-      * ) echo "Please answer y or n.";;
-    esac
-  echo ""
+    read -p "Do you want to commit your wallpapers, notes and my_wiki? " yn
+      case $yn in
+        [Yy]* ) 
+          auto_git_commit "$HOME/pics/wallpapers/" &&
+          auto_git_commit "$HOME/projects/notes/" &&
+          auto_git_commit "$HOME/projects/my_wiki";;
+        [Nn]* ) echo "...NO "git commit" right now!";;
+        * ) echo "Please answer y or n.";;
+      esac
+    echo ""
+  fi
 }
 
 # rename files in bulk
