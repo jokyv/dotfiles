@@ -63,7 +63,7 @@ daily_updates() {
     # reverse inequality
     if [ "$answer" != "${answer#[yesYy]}" ]; then
       echo "...YES 'git pull all' right now!"
-      gpulla
+      git_pull_all_git_dirs
     else
       echo "...NO 'git pull all' right now!"
     fi 
@@ -80,7 +80,7 @@ weekly_updates() {
   fi
 
   if ask ':: ----- GIT STATUS ALL -----'; then
-    gsa
+    git_status_all_git_dirs
   fi
 
   if ask ':: ------ GIT PUSH ALL ------'; then
@@ -122,14 +122,15 @@ weekly_updates() {
     echo ''
     echo '::check how big is your cache'
     echo '::remove with rm -rf .cache/*'
-    # du -sh ~/.cache/
-    dust -p -n 10 ~/.cache/
+    cd $HOME/.cache/
+    erd --layout flat --disk-usage block --no-ignore --hidden --level 1 --sort size
+  
 
     echo ''
     echo '::check how big is your journal'
     echo '::remove with sudo journalctl --vacuum-time=2weeks'
-    # du -sh /var/log/journal
-    dust -p -n 10 /var/log/journal
+    cd /var/log/journal
+    erd --layout flat --disk-usage block --no-ignore --hidden --level 1 --sort size
   fi
 
   if ask ':: ------ CARGO UPDATE ------'; then
@@ -142,9 +143,8 @@ weekly_updates() {
     read -p "Do you want to commit your wallpapers, notes and my_wiki? " yn
       case $yn in
         [Yy]* ) 
-          auto_git_commit "$HOME/pics/wallpapers/" &&
-          auto_git_commit "$HOME/projects/notes/" &&
-          auto_git_commit "$HOME/projects/my_wiki";;
+          git_auto_commit "$HOME/pics/wallpapers/" &&
+          git_auto_commit "$HOME/projects/notes/";;
         [Nn]* ) echo "...NO "git commit" right now!";;
         * ) echo "Please answer y or n.";;
       esac
