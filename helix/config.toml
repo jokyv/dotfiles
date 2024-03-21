@@ -70,7 +70,11 @@ W = "extend_next_word_start"
 B = "extend_prev_word_start"
 E = "extend_next_word_end"
 X = "extend_line_above"
-C = ["move_next_word_end", "delete_selection", "insert_mode"] # replace word
+C = [
+  "move_next_word_end",
+  "delete_selection",
+  "insert_mode",
+] # replace word like wc
 D = [
   "extend_to_line_end",
   "yank_main_selection_to_clipboard",
@@ -95,16 +99,16 @@ C-k = [
   "paste_before",
 ]
 
-# EXPERIMENT_2
+# EXPERIMENT_2:
 # switch between uppercase and lowercase
 C-a = "switch_case"
 # a = "switch_to_lowercase"
 # A = "switch_to_uppercase"
 
 # EXPERIMENT_3:
-tab = "goto_next_function"           # select and jump to the next function via Treesitter
-S-tab = "goto_prev_function"         # select and jump to the previous function via Treesitter 
-backspace = ["delete_char_backward"] # counterpart for `d`
+tab = "goto_next_function"          # select and jump to the next function via Treesitter
+S-tab = "goto_prev_function"        # select and jump to the previous function via Treesitter 
+backspace = ["delete_chr_backward"] # counterpart for `d`
 
 # EXPERIMENT_4:
 # my custom keys with <space> first
