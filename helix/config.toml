@@ -106,9 +106,9 @@ C-a = "switch_case"
 # A = "switch_to_uppercase"
 
 # EXPERIMENT_3:
-tab = "goto_next_function"          # select and jump to the next function via Treesitter
-S-tab = "goto_prev_function"        # select and jump to the previous function via Treesitter 
-backspace = ["delete_chr_backward"] # counterpart for `d`
+tab = "goto_next_function"           # select and jump to the next function via Treesitter
+S-tab = "goto_prev_function"         # select and jump to the previous function via Treesitter 
+backspace = ["delete_char_backward"] # counterpart for `d`
 
 # EXPERIMENT_4:
 # my custom keys with <space> first
