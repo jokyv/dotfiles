@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# ----------------------------------------------------------------------------
+# -----------------------------------------------
 # HELPER FUNCTIONS
-# ----------------------------------------------------------------------------
+# -----------------------------------------------
 
 # a helper function when a section is of a script is 'disabled'
 work_in_progress() {
@@ -11,9 +11,9 @@ work_in_progress() {
   echo ""
 }
 
-# ----------------------------------------------------------------------------
+# -----------------------------------------------
 # SMALL FUNCTIONS
-# ----------------------------------------------------------------------------
+# -----------------------------------------------
 
 # a simple script that source .aliases, .bashrc and .bash_profile files
 source_files() {
@@ -47,9 +47,10 @@ function ask() {
     [ "$response_lc" = "y" ]
 }
 
-# ----------------------------------------------------------------------------
-# Scripl that updates pacman apps and git pull all repos for daily morning usage
-# ----------------------------------------------------------------------------
+# -----------------------------------------------
+# Scripl that updates pacman apps and git pull all repos 
+# for daily morning usage
+# -----------------------------------------------
 
 daily_updates() {
   if ask ':: ------- UPGRADE OS --------'; then
@@ -70,13 +71,14 @@ daily_updates() {
   fi
 }
 
-# ----------------------------------------------------------------------------
-# Weekly script
-# ----------------------------------------------------------------------------
+# -----------------------------------------------
+# WEEKLY UPDATE SCRIPT
+# -----------------------------------------------
 
 weekly_updates() {
-  if ask ':: ------- UPGRADE OS -------'; then
+  if ask ':: ----- PACMAN UPDATE ------'; then
     sudo pacman -Syu
+    paru -Syu
   fi
 
   if ask ':: ----- GIT STATUS ALL -----'; then
@@ -93,7 +95,6 @@ weekly_updates() {
   fi
 
   if ask ':: -------- CLEAN OS --------'; then
-    paru -Syu
     sudo pacman -Sc
     paru -Sc
   fi
@@ -109,9 +110,11 @@ weekly_updates() {
   fi
 
   if ask ':: - Python Packages Update -'; then
+    # replace pip with uv
     pip_update
   fi
 
+  # better mirror list
   # need to install reflector
   # sudo reflector -c Singapore -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 
@@ -133,14 +136,22 @@ weekly_updates() {
     erd --layout flat --disk-usage block --no-ignore --hidden --level 1 --sort size
   fi
 
+  if ask ':: ------ RUSTUP UPDATE -----'; then
+    rustup update
+  fi
+
   if ask ':: ------ CARGO UPDATE ------'; then
     cargo install-update -l
     cargo install-update -a -q
   fi
 
+  if ask ':: ------ CARGO CACHE -------'; then
+    cargo cache -a
+  fi
+
   if ask ':: --- WEEKLY GIT COMMITS ---'; then
 
-    read -p "Do you want to commit your wallpapers, notes and my_wiki? " yn
+    read -p "Do you want to commit your wallpapers and notes? " yn
       case $yn in
         [Yy]* ) 
           git_auto_commit "$HOME/pics/wallpapers/" &&
