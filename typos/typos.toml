@@ -1,0 +1,11 @@
+[files]
+extend-exclude = ["*.csv"]
+
+[default.extend-words]
+ACTIV = "ACTIV"
+Bund = "Bund"
+OT = "OT"
+Maks = "Maks"
+NDFs = "NDFs"
+ND = "ND"
+WTH = "WTH"
