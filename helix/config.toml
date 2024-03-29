@@ -70,7 +70,11 @@ W = "extend_next_word_start"
 B = "extend_prev_word_start"
 E = "extend_next_word_end"
 X = "extend_line_above"
-C = ["move_next_word_end", "delete_selection", "insert_mode"] # replace word
+C = [
+  "move_next_word_end",
+  "delete_selection",
+  "insert_mode",
+] # replace word like wc
 D = [
   "extend_to_line_end",
   "yank_main_selection_to_clipboard",
@@ -95,7 +99,7 @@ C-k = [
   "paste_before",
 ]
 
-# EXPERIMENT_2
+# EXPERIMENT_2:
 # switch between uppercase and lowercase
 C-a = "switch_case"
 # a = "switch_to_lowercase"
