@@ -1,5 +1,5 @@
-[files]
-extend-exclude = ["*.csv"]
+[default]
+extend-ignore-identifiers-re = ["splitted.*"]
 
 [default.extend-words]
 ACTIV = "ACTIV"
@@ -9,3 +9,6 @@ Maks = "Maks"
 NDFs = "NDFs"
 ND = "ND"
 WTH = "WTH"
+
+[files]
+extend-exclude = ["*.csv"]
