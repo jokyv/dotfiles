@@ -60,8 +60,8 @@ source_if_exists $HOME/dot/scripts/git_scripts.sh
 
 # source all my aliases and exports
 # ----------------------------------------------------------------------------
-source_if_exists $HOME/dot/.aliases
-source_if_exists $HOME/dot/bash/.exports
+source_if_exists $HOME/dot/shell/.aliases
+source_if_exists $HOME/dot/shell/.exports
 
 # Need this for the following applications
 # ----------------------------------------------------------------------------
