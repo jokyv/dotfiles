@@ -13,11 +13,7 @@ use-grammars = { only = [
 name = "python"
 auto-format = true
 language-servers = ["pylsp", "ruff"]
-formatter = { command = "sh", args = [
-  "-c",
-  # "ruff format --quiet - | ruff --fix -",
-  "ruff format --quiet -",
-] }
+formatter = { command = "sh", args = ["-c", "ruff format --quiet -"] }
 
 [language-server.ruff]
 command = "ruff-lsp"

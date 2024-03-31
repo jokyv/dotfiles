@@ -15,6 +15,7 @@ mouse = false
 rulers = [120]
 scrolloff = 10
 true-color = true
+popup-border = "all"
 
 [editor.statusline]
 left = ["mode", "spinner", "diagnostics"]
