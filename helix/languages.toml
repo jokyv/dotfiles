@@ -21,6 +21,10 @@ command = "ruff-lsp"
 [language-server.pylsp]
 command = "pylsp"
 
+[language-server.pylsp.config.pylsp]
+plugins.pyls_mypy.enabled = true
+plugins.pyls_mypy.live_mode = true
+
 [[language]]
 name = "yaml"
 auto-format = true
