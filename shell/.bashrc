@@ -41,6 +41,8 @@ function source_if_exists {
 # ----------------------------------------------------------------------------
 # my own personal scripts in rust
 add_to_path $HOME/dot/scripts_in_rust
+# my own personal scripts in python
+add_to_path $HOME/dot/scripts_in_python
 # add my own libraries to python path
 add_to_path $HOME/projects/python_path
 # cargo - rust applications
