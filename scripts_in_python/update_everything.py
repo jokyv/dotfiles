@@ -7,6 +7,8 @@
 import os
 import subprocess
 
+from git_auto_commit_python import git_auto_commit
+from messaging import display_message as dm
 from rich.console import Console
 from rich.prompt import Prompt
 
@@ -32,14 +34,14 @@ def ask(question):
 
 
 def os_update():
-    console.rule(":: ----- PACMAN UPDATE ------")
+    console.rule("------- PACMAN UPDATE -------")
     if ask("Do you want to update OS?"):
         subprocess.run(["sudo", "pacman", "-Syu"])
         subprocess.run(["paru", "-Syu"])
 
 
 def git_status_all_git_dirs():
-    console.rule(":: ----- GIT STATUS ALL -----")
+    console.rule("------ GIT STATUS ALL -------")
     if ask("Do you want to update git repos?"):
         # Implement logic to show git status
         # for all directories containing Git repositories
@@ -47,16 +49,16 @@ def git_status_all_git_dirs():
 
 
 def git_push_all():
-    console.rule(":: ------ GIT PUSH ALL ------")
-    if ask("DO you want to git push all repos?"):
+    console.rule("------- GIT PUSH ALL --------")
+    if ask("Do you want to git push all repos?"):
         # Implement logic to push changes for all Git repositories
         pass
 
 
 def update_wallpaper():
-    console.rule(":: ---- UPDATE WALLPAPER ----")
+    console.rule("----- UPDATE WALLPAPER ------")
     if ask("Do you want to update wallpaper repo?"):
-        console.print("Change wallpaper at least once a week :warning:")
+        dm("INFO", "change wallpaper at least once per week")
         wallpapers_dir = f"{HOME_DIR}/pics/wallpapers/"
         wallpapers = subprocess.run(
             ["shuf", "-n", "1", "-e", f"{wallpapers_dir}*"],
@@ -67,39 +69,37 @@ def update_wallpaper():
 
 
 def clean_os():
-    console.rule(":: -------- CLEAN OS --------")
+    console.rule("--------- CLEAN OS ----------")
     if ask("Do you want to clean your OS?"):
+        # clean OS
         subprocess.run(["sudo", "pacman", "-Sc"])
         subprocess.run(["paru", "-Sc"])
 
-
-def remove_orphans():
-    console.rule(":: ----- Remove Orphans -----")
-    if ask("Do you want to remove Orphans?"):
-        console.print("The following are orphan programs defined by pacman:")
-        console.print('This was run using: "sudo pacman -Qdt"')
+        # remove orphans
+        dm("INFO", "The following are orphan programs defined by pacman:")
+        dm("INFO", "This was run using: 'sudo pacman -Qdt'")
         subprocess.run(["sudo", "pacman", "-Qdt"])
         console.print("")
-        console.print("The following are paru defined orphan programs:")
+        dm("INFO", "The following are paru defined orphan programs:")
         subprocess.run(["paru", "-Qdt"])
 
 
 def python_packages_update():
-    console.rule(":: - Python Packages Update -")
+    console.rule("--- Python Packages Update --")
     if ask("Do you want to update Python Packages?"):
         # Replace with your logic to update Python packages
         pass
 
 
 def check_system():
-    console.rule(":: ------ CHECK SYSTEM ------")
+    console.rule("------- CHECK SYSTEM --------")
     if ask("Do you want to check system?"):
-        console.print(":: Check if any system failures")
+        dm("CHECKING", "if any system failures.")
         subprocess.run(["systemctl", "--failed"])
 
         console.print("")
-        console.print(":: Check how big is your cache")
-        console.print(":: Remove with rm -rf .cache/*")
+        dm("CHECKING", "how big is your cache")
+        dm("INFO", "Remove with `rm -rf ~/.cache/*`")
         os.chdir(f"{HOME_DIR}/.cache/")
         subprocess.run(
             [
@@ -118,8 +118,8 @@ def check_system():
         )
 
         console.print("")
-        console.print(":: Check how big is your journal")
-        console.print(":: Remove with sudo journalctl --vacuum-time=2weeks")
+        dm("CHECKING", "How big is your journal")
+        dm("INFO", "Remove with `sudo journalctl --vacuum-time=2weeks`")
         os.chdir("/var/log/journal")
         subprocess.run(
             [
@@ -139,29 +139,24 @@ def check_system():
 
 
 def rust_update():
-    console.rule(":: ------ RUST UPDATE -------")
+    console.rule("-------- RUST UPDATE --------")
     if ask("Do you want to update rust?"):
-        console.print("updating rustup...")
+        dm("CHECKING", "rustup updates")
         subprocess.run(["rustup", "update"])
 
-        console.print("updating all apps installed with cargo")
+        dm("CHECKING", "updates for all apps installed with cargo")
         subprocess.run(["cargo", "install-update", "-l"])
         subprocess.run(["cargo", "install-update", "-a", "-q"])
 
-        console.print("removing cache that we dont need from cargo")
+        dm("INFO", "Removing cache that we dont need from cargo")
         subprocess.run(["cargo", "cache", "-a"])
 
 
 def weekly_git_commits():
-    console.rule(":: --- WEEKLY GIT COMMITS ---")
+    console.rule("----- WEEKLY GIT COMMITS ----")
     if ask("Do you want to perform weekly git commits?"):
-        git_auto_commit("~/pics/wallpapers/")
-        git_auto_commit("~/projects/notes/")
-
-
-def git_auto_commit(path):
-    # Implement logic to perform git auto-commit for the given path
-    pass
+        paths = [f"{HOME_DIR}/projects/notes/", f"{HOME_DIR}/pics/wallpapers/"]
+        git_auto_commit(paths)
 
 
 # -----------------------------------------------
@@ -175,7 +170,6 @@ def main() -> None:
     git_push_all()
     update_wallpaper()
     clean_os()
-    remove_orphans()
     python_packages_update()
     check_system()
     rust_update()

@@ -8,6 +8,7 @@ import os
 import subprocess
 from datetime import datetime
 
+from messaging import display_message as dm
 from rich.console import Console
 
 # -----------------------------------------------
@@ -15,7 +16,7 @@ from rich.console import Console
 # -----------------------------------------------
 
 HOME_DIR = os.path.expanduser("~")
-PATHS = [f"{HOME_DIR}/projects/notes/", f"{HOME_DIR}/pics/wallpapers"]
+PATHS = [f"{HOME_DIR}/projects/notes/", f"{HOME_DIR}/pics/wallpapers/"]
 
 # -----------------------------------------------
 # FUNCTIONS
@@ -37,14 +38,11 @@ def git_auto_commit(paths: list[str]) -> None:
     for path in paths:
         console.rule("[bold red]Checking repo")
         if not os.path.exists(path):
-            console.print(
-                f"[bold red]:: Error![/bold red] Path: '{path}' does not exist."
-            )
+            dm("FAILURE", f"Path: {path} does not exist.")
             continue
 
         subprocess.run(["git", "pull"], cwd=path)
-
-        console.print(f":: Checking for repo {path}")
+        dm("CHECKING", f"Any changes for repo: {path}")
 
         # Run git status to check for changes
         git_status_process = subprocess.run(
@@ -54,7 +52,7 @@ def git_auto_commit(paths: list[str]) -> None:
 
         # if no changes then exit with code 0
         if changes_exist == 0:
-            console.print("[bold green]:: Nothing to commit,[/bold green] moving on...")
+            dm("SUCCESS", "Nothing to commit, moving on!")
             console.print("")
         else:
             subprocess.run(["git", "add", "."], cwd=path)
@@ -63,8 +61,8 @@ def git_auto_commit(paths: list[str]) -> None:
             )
             subprocess.run(["git", "commit", "-q", "-m", commit_message], cwd=path)
             subprocess.run(["git", "push", "-q"], cwd=path)
-            console.print("[bold green]:: Found changes![/bold green]")
-            console.print("'git add', 'git commit', 'git push' performed")
+            dm("SUCCESS", "Found changes!")
+            dm("SUCCESS", "git add, git commit and git push performed")
             console.print("")
 
 
