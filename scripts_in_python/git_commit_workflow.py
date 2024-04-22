@@ -21,12 +21,12 @@ FILE_SIZE_LIMIT = 50  # MB
 
 def git_commit_workflow(commit_message):
     # Git stash, pull, and apply
-    print("...git pull and git stash apply")
+    dm("INFO", "git pull and git stash apply")
     subprocess.run(["git", "stash", "--include-untracked"])
     subprocess.run(["git", "pull", "-q"])
     subprocess.run(["git", "stash", "apply", "-q"])
 
-    print(f"...checking if any file above {FILE_SIZE_LIMIT} MB exist")
+    dm("CHECKING", f"if any file above {FILE_SIZE_LIMIT} MB exist")
     # Get the path to the git folder
     dir_path = subprocess.run(
         ["git", "rev-parse", "--show-toplevel"], capture_output=True, text=True
@@ -56,7 +56,7 @@ def git_commit_workflow(commit_message):
     subprocess.run(["git", "push", "-q"])
 
     # Check git status
-    print("...below is the current git status of the repo")
+    dm("INFO", "Below is the current git status of the repo")
     subprocess.run(["git", "status", "-sb"])
 
 
