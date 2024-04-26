@@ -39,8 +39,6 @@ function source_if_exists {
 
 # add to $PATH
 # ----------------------------------------------------------------------------
-# my own personal scripts in rust
-add_to_path $HOME/dot/scripts_in_rust
 # my own personal scripts in python
 add_to_path $HOME/dot/scripts_in_python
 # add my own libraries to python path
