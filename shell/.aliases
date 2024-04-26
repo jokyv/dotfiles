@@ -64,13 +64,14 @@ alias fc=fzf_copy_to_path
 alias ff=fzf_file_that_contains_phrase
 
 # -----------------------------------------------------
-# PYTHON-PIP
+# PYTHON SCRIPTS
 # -----------------------------------------------------
 
 alias p='python3'
 # find the version for each python program installed using fzf
 alias pipv='pip list | fzf'
 alias pu=pip_update
+alias pic=python_init_code.py
 
 # -----------------------------------------------------
 # PACMAN - PARU SCRIPTS
@@ -140,17 +141,17 @@ alias gpl='git pull'
 alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m'
-alias gcw=git_commit_workflow
-alias glg=git_log_graph
+alias gcw=git_commit_workflow.py
+alias glg=git_log_graph.py
 alias gl='git log'
 alias glo='git log --oneline'
-alias gpulla=git_pull_all_git_dirs
+alias gpulla=git_pull_all_git_dirs.py
 # amend a commit without changing the commit message
 alias gcame='git commit --amend --no-edit'
 alias gs='git status -sb'
-alias gsa=git_status_all_git_dirs
+alias gsa=git_status_all_git_dirs.py
 # clean up ignore files that mistakenly are tracked
-alias gclean='git_clean_up'
+alias gclean=git_clean_up.py
 alias gd='git diff -w'
 alias lg='lazygit'
 
