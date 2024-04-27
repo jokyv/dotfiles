@@ -11,7 +11,7 @@ import os
 # -----------------------------------------------
 
 
-def git_init_template() -> None:
+def main() -> None:
     """
     Function that creates a git repo and .gitignore file.
 
@@ -47,10 +47,6 @@ def git_init_template() -> None:
 # -----------------------------------------------
 # MAIN
 # -----------------------------------------------
-
-
-def main() -> None:
-    git_init_template()
 
 
 if __name__ == "__main__":

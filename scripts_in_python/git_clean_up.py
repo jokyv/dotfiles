@@ -11,7 +11,7 @@ import subprocess
 # -----------------------------------------------
 
 
-def git_clean_up() -> None:
+def main() -> None:
     # Remove the files from the index (not the actual files in the working copy)
     subprocess.run(["git", "rm", "-r", "--cached", "."])
     # Add these removals to the Staging Area...
@@ -25,10 +25,6 @@ def git_clean_up() -> None:
 # -----------------------------------------------
 # MAIN
 # -----------------------------------------------
-
-
-def main() -> None:
-    git_clean_up()
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ import subprocess
 # -----------------------------------------------
 
 HOME = os.path.expanduser("~")
-EXCLUDE_DIRS = ["-gE", ".local/share", "-gE", "helix/"]
+EXCLUDE_DIRS = ["-gE", ".local/share", "-gE", "helix/", "-gE", ".pyenv"]
 
 # -----------------------------------------------
 # fUNCTIONS

@@ -36,6 +36,7 @@ def git_auto_commit(paths: list[str]) -> None:
     console = Console()
 
     for path in paths:
+        console.print("")
         console.rule("[bold red]Checking repo")
         if not os.path.exists(path):
             dm("FAILURE", f"Path: {path} does not exist.")
