@@ -24,7 +24,7 @@ fzf_empty_files() {
 # fd -i for enabling case-sensitive
 fzf_go_to_path() {
     cd "$(fd -td -H -i . $HOME | fzf)" &&
-    erd
+    eza --color=always --icons=always --long --all --group-directories-first --git
 }
 
 # find all folders from $HOME and choose where to mv next
