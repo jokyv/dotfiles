@@ -116,7 +116,7 @@ alias cl='cargo install-update -l'
 # sort by name first, directory first, no info
 alias l='eza --color=always --icons=always --long --all --group-directories-first --git --no-permissions --no-filesize --no-time --no-user'
 # sort by name first, directory first, with info
-alias ll='eza --color=always --icons=always --long --all --group-directories-first'
+alias ll='eza --color=always --icons=always --long --all --group-directories-first --git'
 # default eza
 alias lss='eza'
 # sort by size name, long format
@@ -150,6 +150,7 @@ alias gpl='git pull'
 alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m'
+alias gac=git_auto_commit.py
 alias gcw=git_commit_workflow.py
 alias glg=git_log_graph.py
 alias gl='git log'
