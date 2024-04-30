@@ -112,8 +112,9 @@ S-tab = "goto_prev_function"         # select and jump to the previous function 
 backspace = ["delete_char_backward"] # counterpart for `d`
 
 # EXPERIMENT_4:
-# my custom keys with <space> first
-# in normal mode, press space and c and then the keys below
+# my custom keys: in normal mode, press space and c and then the keys below
 [keys.normal.space.c]
 r = [":w", ":config-reload"]
 o = ":config-open"
+w = ":wq"
+q = ":q"
