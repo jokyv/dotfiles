@@ -45,8 +45,8 @@ def git_commit_workflow(commit_message):
             print(file)
         return
 
-    dm("INFO", "...no big files found")
-    dm("INFO", "...proceeding with git add, commit, and push")
+    dm("SUCCESS", "no big files found!")
+    dm("INFO", "proceeding with git add, commit, and push")
 
     # Git add everything
     subprocess.run(["git", "add", "-A"])
@@ -56,7 +56,7 @@ def git_commit_workflow(commit_message):
     subprocess.run(["git", "push", "-q"])
 
     # Check git status
-    dm("INFO", "Below is the current git status of the repo")
+    dm("INFO", "below is the current git status of the repo")
     subprocess.run(["git", "status", "-sb"])
 
 

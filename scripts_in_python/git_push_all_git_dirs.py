@@ -1,37 +1,38 @@
 #!/usr/bin/env python
 
 # -----------------------------------------------
-# lIBRARIES
+# LIBRARIES
 # -----------------------------------------------
 
 import os
 import subprocess
 
 # -----------------------------------------------
-# vARIABLES
+# VARIABLES
 # -----------------------------------------------
 
 HOME = os.path.expanduser("~")
-EXCLUDE_DIRS = ["-gE", ".local/share", "-gE", "helix/", "-gE", ".pyenv"]
+EXCLUDE_DIRS = ["-gE", "helix/"]
 
 # -----------------------------------------------
-# fUNCTIONS
+# FUNCTIONS
 # -----------------------------------------------
 
 
 def main() -> None:
     """
-    Function git pull all dirs that have git directories.
+    Function git push all dirs that have git dir in projects folder.
 
-    The function first will move to HOME dir.
-    Using fd find all folders that have git directory.
-    Iterate through git directories executing git pull in async mode.
+    The Function first will move to projects dir.
+    Using fd will find all git folders in the project dir.
+    Then it will iterate through them executing a git push
+    with an auto generated message.
     """
-    # Change to the home directory
-    os.chdir(HOME)
+    # Change to the project directory
+    os.chdir(f"{HOME}/projects")
 
     # Use fd to find directories with .git
-    # but exclude dirs with names nvim or .local/share
+    # but exclude dirs as defined by exclude_dirs variable
     git_dirs = subprocess.run(
         ["fd", "-td", "-HI", "-g", ".git", *EXCLUDE_DIRS],
         capture_output=True,
@@ -40,17 +41,22 @@ def main() -> None:
 
     # Iterate through found git directories
     for git_dir in git_dirs:
-        os.chdir(f"{HOME}/{git_dir}")
+        os.chdir(f"{HOME}/projects/{git_dir}")
         # Move up one directory level
         os.chdir("..")
-        print(f"git pull for {git_dir}")
-        # Run git pull command in quiet mode
+        print(f"git push for {git_dir}")
+        print()
+        # Run git add, commit and push
+        commit_message = "This is an auto generated git commit!"
+        subprocess.run(["git", "add", "."])
+        subprocess.run(["git", "commit", "-qm", commit_message])
         subprocess.run(["git", "pull", "-q"])
 
 
 # -----------------------------------------------
-# mAIN
+# MAIN
 # -----------------------------------------------
+
 
 if __name__ == "__main__":
     main()
