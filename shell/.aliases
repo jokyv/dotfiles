@@ -156,6 +156,7 @@ alias glg=git_log_graph.py
 alias gl='git log'
 alias glo='git log --oneline'
 alias gpulla=git_pull_all_git_dirs.py
+alias gpusha=git_push_all_git_dirs.py
 alias gac=git_auto_commit.py
 # amend a commit without changing the commit message
 alias gcame='git commit --amend --no-edit'

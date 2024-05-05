@@ -7,6 +7,9 @@
 import os
 import subprocess
 
+from messaging import display_message as dm
+from rich.console import Console
+
 # -----------------------------------------------
 # VARIABLES
 # -----------------------------------------------
@@ -28,6 +31,8 @@ def main() -> None:
     Then it will iterate through them executing a git push
     with an auto generated message.
     """
+    # init rich.console
+    console = Console()
     # Change to the project directory
     os.chdir(f"{HOME}/projects")
 
@@ -42,15 +47,25 @@ def main() -> None:
     # Iterate through found git directories
     for git_dir in git_dirs:
         os.chdir(f"{HOME}/projects/{git_dir}")
+
         # Move up one directory level
         os.chdir("..")
-        print(f"git push for {git_dir}")
-        print()
-        # Run git add, commit and push
-        commit_message = "This is an auto generated git commit!"
-        subprocess.run(["git", "add", "."])
-        subprocess.run(["git", "commit", "-qm", commit_message])
-        subprocess.run(["git", "pull", "-q"])
+        git_status_process = subprocess.run(
+            ["git", "status", "-s"], capture_output=True, text=True
+        )
+        git_status = len(git_status_process.stdout.splitlines())
+
+        if git_status > 0:
+            # messaging
+            console.print("")
+            dm("WARNING", f"{git_dir} repo needs a git commit")
+
+            # Run git add, commit and push
+            commit_message = "This is an auto generated git commit!"
+            subprocess.run(["git", "add", "."])
+            subprocess.run(["git", "commit", "-qm", commit_message])
+            subprocess.run(["git", "push", "-q"])
+            dm("SUCCESS", "git auto commit was pushed!")
 
 
 # -----------------------------------------------
