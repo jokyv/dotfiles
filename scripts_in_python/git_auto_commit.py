@@ -23,7 +23,7 @@ PATHS = [f"{HOME_DIR}/projects/notes/", f"{HOME_DIR}/pics/wallpapers/"]
 # -----------------------------------------------
 
 
-def git_auto_commit(paths: list[str]) -> None:
+def auto_commit(paths: list[str]) -> None:
     """
     Function that automatically git commit and push repo list.
 
@@ -31,7 +31,6 @@ def git_auto_commit(paths: list[str]) -> None:
     ----------
     paths : list[str]
         list of paths with repos to check, commit and push
-
     """
     console = Console()
 
@@ -42,6 +41,7 @@ def git_auto_commit(paths: list[str]) -> None:
             dm("FAILURE", f"Path: {path} does not exist.")
             continue
 
+        dm("INFO", "Pulling all the latest commits")
         subprocess.run(["git", "pull"], cwd=path)
         dm("CHECKING", f"Any changes for repo: {path}")
 
@@ -72,4 +72,4 @@ def git_auto_commit(paths: list[str]) -> None:
 # -----------------------------------------------
 
 if __name__ == "__main__":
-    git_auto_commit(PATHS)
+    auto_commit(PATHS)

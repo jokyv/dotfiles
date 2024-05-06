@@ -38,7 +38,7 @@ alias sb=source_files
 # combine cd with erdtree
 alias cdd=cd_with_eza
 # run weekly updates, checks and clean up
-alias wua=update_everything.py
+alias ue=update_everything.py
 
 # -----------------------------------------------------
 # FZF SCRIPTS

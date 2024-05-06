@@ -7,7 +7,8 @@
 import os
 import subprocess
 
-from git_auto_commit_python import git_auto_commit
+from git_auto_commit import auto_commit
+from python_pip_update import pip_update
 from messaging import display_message as dm
 from rich.console import Console
 from rich.prompt import Prompt
@@ -59,9 +60,9 @@ def update_wallpaper():
     console.rule("----- UPDATE WALLPAPER ------")
     if ask("Do you want to update wallpaper repo?"):
         dm("INFO", "change wallpaper at least once per week")
-        wallpapers_dir = f"{HOME_DIR}/pics/wallpapers/"
+        wallpapers_dir = f"{HOME_DIR}/pics/wallpapers/*"
         wallpapers = subprocess.run(
-            ["shuf", "-n", "1", "-e", f"{wallpapers_dir}*"],
+            ["shuf", "-n", "1", "-e", wallpapers_dir],
             capture_output=True,
             text=True,
         ).stdout.strip()
@@ -87,8 +88,7 @@ def clean_os():
 def python_packages_update():
     console.rule("--- Python Packages Update --")
     if ask("Do you want to update Python Packages?"):
-        # Replace with your logic to update Python packages
-        pass
+        pip_update()
 
 
 def check_system():
@@ -103,17 +103,14 @@ def check_system():
         os.chdir(f"{HOME_DIR}/.cache/")
         subprocess.run(
             [
-                "erd",
-                "--layout",
-                "flat",
-                "--disk-usage",
-                "block",
-                "--no-ignore",
-                "--hidden",
-                "--level",
-                "1",
-                "--sort",
-                "size",
+                "eza",
+                "--total-size",
+                "--long",
+                "--all",
+                "--no-permissions",
+                "--no-time",
+                "--no-user",
+                "--sort=size",
             ]
         )
 
@@ -123,17 +120,14 @@ def check_system():
         os.chdir("/var/log/journal")
         subprocess.run(
             [
-                "erd",
-                "--layout",
-                "flat",
-                "--disk-usage",
-                "block",
-                "--no-ignore",
-                "--hidden",
-                "--level",
-                "1",
-                "--sort",
-                "size",
+                "eza",
+                "--total-size",
+                "--long",
+                "--all",
+                "--no-permissions",
+                "--no-time",
+                "--no-user",
+                "--sort=size",
             ]
         )
 
@@ -156,7 +150,7 @@ def weekly_git_commits():
     console.rule("----- WEEKLY GIT COMMITS ----")
     if ask("Do you want to perform weekly git commits?"):
         paths = [f"{HOME_DIR}/projects/notes/", f"{HOME_DIR}/pics/wallpapers/"]
-        git_auto_commit(paths)
+        auto_commit(paths)
 
 
 # -----------------------------------------------
