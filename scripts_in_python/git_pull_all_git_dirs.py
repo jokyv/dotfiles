@@ -7,6 +7,9 @@
 import os
 import subprocess
 
+from messaging import display_message as dm
+from rich.console import Console
+
 # -----------------------------------------------
 # vARIABLES
 # -----------------------------------------------
@@ -19,14 +22,17 @@ EXCLUDE_DIRS = ["-gE", ".local/share", "-gE", "helix/", "-gE", ".pyenv"]
 # -----------------------------------------------
 
 
-def main() -> None:
+def pull_all_git_dirs() -> None:
     """
     Function git pull all dirs that have git directories.
 
     The function first will move to HOME dir.
-    Using fd find all folders that have git directory.
+    Using fd will find all folders that have git directory.
     Iterate through git directories executing git pull in async mode.
     """
+    # init console
+    console = Console()
+
     # Change to the home directory
     os.chdir(HOME)
 
@@ -40,12 +46,15 @@ def main() -> None:
 
     # Iterate through found git directories
     for git_dir in git_dirs:
+        console.print("")
+        console.rule("[bold red]Checking repo")
+
         os.chdir(f"{HOME}/{git_dir}")
         # Move up one directory level
         os.chdir("..")
-        print(f"git pull for {git_dir}")
-        # Run git pull command in quiet mode
-        subprocess.run(["git", "pull", "-q"])
+
+        dm("CHECKING", f"Anything to pull for repo: {git_dir}")
+        subprocess.run(["git", "pull"])
 
 
 # -----------------------------------------------
@@ -53,4 +62,4 @@ def main() -> None:
 # -----------------------------------------------
 
 if __name__ == "__main__":
-    main()
+    pull_all_git_dirs()

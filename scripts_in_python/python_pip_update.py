@@ -33,10 +33,11 @@ LIBRARIES_TO_UPDATE = [
 
 
 def pip_update(all_libraries=False):
-    if all_libraries:
-        libraries_to_update = []
-    else:
-        libraries_to_update = LIBRARIES_TO_UPDATE
+    libraries_to_update = [] if all_libraries else LIBRARIES_TO_UPDATE
+    # if all_libraries:
+    #     libraries_to_update = []
+    # else:
+    #     libraries_to_update = LIBRARIES_TO_UPDATE
 
     # Get the list of outdated libraries
     outdated_libraries = subprocess.run(

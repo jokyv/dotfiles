@@ -31,6 +31,7 @@ def auto_commit(paths: list[str]) -> None:
     ----------
     paths : list[str]
         list of paths with repos to check, commit and push
+
     """
     console = Console()
 
