@@ -47,19 +47,19 @@ alias ue=update_everything.py
 # you need the dot otherwise the script will run in a subshell!
 alias z=fzf_go_to_path
 # find a file with fzf and open it with nvim
-alias vv=fzf_open_file
+alias vv='fzf_util.py --open_file'
 # find empty files
-alias fe=fzf_empty_files
+alias fe='fzf_tuil.py --empty_files'
 # find files bigger than xxxMB
-alias fb=fzf_find_big_files
+alias fb='fzf_util.py --big_files'
 # find all the scripts i have
-alias fs=fzf_find_my_scripts
+alias fs='fzf_util.py --find_scripts'
 # move a file from anywhere folder to anywhere folder
-alias fm=fzf_move_to_path
+alias fm='fzf_util.py --move_file'
 # copy file to anywhere
-alias fc=fzf_copy_to_path
+alias fc='fzf_util.py --copy_file'
 # find a phrase in a file
-alias ff=fzf_file_that_contains_phrase
+alias ff='fzf_util.py --file_phrase'
 
 # -----------------------------------------------------
 # PYTHON SCRIPTS
@@ -131,9 +131,9 @@ alias trl='trash list'
 # empty all items from trash
 alias tra='trash empty --all'
 # restore trash item with trashy
-alias trr='. fzf_scripts.sh && fzf_restore_file_from_trash'
+alias trr='fzf_util.py --restore_file'
 # empty trash item with trashy
-alias tre='. fzf_scripts.sh && fzf_empty_file_from_trash'
+alias tre='fzf_util.py --empty_trash'
 
 # zellij shortcuts
 # https://github.com/zellij-org/zellij

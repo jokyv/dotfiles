@@ -70,7 +70,7 @@ def fzf_go_to_path():
     selected_path, _ = fzf_process.communicate()
     if selected_path:
         selected_path = selected_path.decode().strip()
-        os.chdir(selected_path)
+        subprocess.run(["cd", selected_path], shell=True)
         subprocess.run(
             [
                 "eza",
@@ -84,56 +84,95 @@ def fzf_go_to_path():
         )
 
 
+def fzf_move_to_path():
+    fd_process = subprocess.Popen(
+        ["fd", "-tf", "-H", "-i", ".", os.environ["HOME"]], stdout=subprocess.PIPE
+    )
+    fzf_process = subprocess.Popen(
+        ["fzf"], stdin=fd_process.stdout, stdout=subprocess.PIPE
+    )
+    fd_process.stdout.close()
+    selected_file, _ = fzf_process.communicate()
+
+    if selected_file:
+        destination_directory_process = subprocess.Popen(
+            ["fd", "-td", "-H", ".", os.environ["HOME"]], stdout=subprocess.PIPE
+        )
+        selected_destination = subprocess.Popen(
+            ["fzf"], stdin=destination_directory_process.stdout, stdout=subprocess.PIPE
+        )
+        destination_directory_process.stdout.close()
+        selected_dir, _ = selected_destination.communicate()
+
+        selected_file = selected_file.decode().strip()
+        selected_dir = selected_dir.decode().strip()
+        file_name = os.path.basename(selected_file)
+        new_file_name = f"{selected_dir}{file_name}"
+        if selected_dir:
+            subprocess.run(["mv", "-iv", selected_file, new_file_name])
+
+
 def fzf_copy_to_path():
-    fd_output = subprocess.run(
-        ["fd", "-tf", "-H", "-i", ".", os.environ["HOME"]],
-        capture_output=True,
-        text=True,
+    fd_process = subprocess.Popen(
+        ["fd", "-tf", "-H", "-i", ".", os.environ["HOME"]], stdout=subprocess.PIPE
     )
-    source_file = subprocess.run(
-        ["fzf"], input=fd_output.stdout, capture_output=True, text=True
-    ).stdout.strip()
-    destination_directory = subprocess.run(
-        ["fd", "-td", "-H", ".", os.environ["HOME"]], capture_output=True, text=True
+    fzf_process = subprocess.Popen(
+        ["fzf"], stdin=fd_process.stdout, stdout=subprocess.PIPE
     )
-    if destination_directory.stdout:
-        destination_directory = subprocess.run(
-            ["fzf"], input=destination_directory.stdout, capture_output=True, text=True
-        ).stdout.strip()
-        if destination_directory:
-            subprocess.run(["cp", "-iv", source_file, destination_directory])
+    fd_process.stdout.close()
+    selected_file, _ = fzf_process.communicate()
+
+    if selected_file:
+        destination_directory_process = subprocess.Popen(
+            ["fd", "-td", "-H", ".", os.environ["HOME"]], stdout=subprocess.PIPE
+        )
+        selected_destination = subprocess.Popen(
+            ["fzf"], stdin=destination_directory_process.stdout, stdout=subprocess.PIPE
+        )
+        destination_directory_process.stdout.close()
+        selected_dir, _ = selected_destination.communicate()
+
+        selected_file = selected_file.decode().strip()
+        selected_dir = selected_dir.decode().strip()
+        file_name = os.path.basename(selected_file)
+        new_file_name = f"{selected_dir}{file_name}"
+        if selected_dir:
+            subprocess.run(["cp", "-iv", selected_file, new_file_name])
 
 
 def fzf_open_file():
-    fd_output = subprocess.run(
-        ["fd", "-tf", "-H", "-i", ".", os.environ["HOME"]],
-        capture_output=True,
-        text=True,
+    fd_output = subprocess.Popen(
+        ["fd", "-tf", "-H", "-i", ".", os.environ["HOME"]], stdout=subprocess.PIPE
     )
-    selected_file = subprocess.run(
+    selected_file = subprocess.Popen(
         ["fzf", "--preview", "bat --style=numbers --color=always {}"],
-        input=fd_output.stdout,
-        capture_output=True,
-        text=True,
-    ).stdout.strip()
-    if selected_file:
-        subprocess.run(["hx", selected_file])
+        stdin=fd_output.stdout,
+        stdout=subprocess.PIPE,
+    )
+    fd_output.stdout.close()
+    file, _ = selected_file.communicate()
+    file = file.decode().strip()
+
+    if file:
+        subprocess.run(["hx", file])
 
 
 def fzf_find_my_scripts():
-    fd_output = subprocess.run(
-        ["fd", "-tf", ".", os.environ["HOME"] + "/dot/scripts/"],
-        capture_output=True,
-        text=True,
+    fd_output = subprocess.Popen(
+        ["fd", "-tf", ".", os.environ["HOME"] + "/dot/scripts_in_python/"],
+        stdout=subprocess.PIPE,
     )
-    selected_script = subprocess.run(
+    selected_script = subprocess.Popen(
         ["fzf", "--preview", "bat --style=numbers --color=always {}"],
-        input=fd_output.stdout,
-        capture_output=True,
-        text=True,
-    ).stdout.strip()
-    if selected_script:
-        subprocess.run(["hx", selected_script])
+        stdin=fd_output.stdout,
+        stdout=subprocess.PIPE,
+    )
+    fd_output.stdout.close()
+    script, _ = selected_script.communicate()
+    script = script.decode().strip()
+
+    if script:
+        subprocess.run(["hx", script])
 
 
 def fzf_restore_file_from_trash():
@@ -173,7 +212,7 @@ if __name__ == "__main__":
     parser.add_argument("-bf", "--big_files", action="store_true")
     parser.add_argument("-ef", "--empty_files", action="store_true")
     parser.add_argument("-gp", "--go_to_path", action="store_true")
-
+    parser.add_argument("-mf", "--move_file", action="store_true")
     parser.add_argument("-cf", "--copy_file", action="store_true")
     parser.add_argument("-of", "--open_file", action="store_true")
     parser.add_argument("-fs", "--find_scripts", action="store_true")
@@ -192,6 +231,8 @@ if __name__ == "__main__":
         fzf_empty_files()
     elif args.go_to_path:
         fzf_go_to_path()
+    elif args.move_file:
+        fzf_move_to_path()
     elif args.copy_file:
         fzf_copy_to_path()
     elif args.open_file:
