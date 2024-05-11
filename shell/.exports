@@ -59,11 +59,25 @@ eval "$(pyenv init -)"
 # <CTRL+R> search history of shell commands
 # FZF_DEFAULT_COMMAND is piped into fzf if you run fzf without any input. 
 # So, with this setup, fd . $HOME | fzf and fzf do the same thing.
-export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd_prefix --exclude .git . $HOME"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git . $HOME" 
 
+# customize FZF prompt
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --height=40% 
+  --layout=reverse 
+  --height 45% 
+  --info=inline 
+  --border 
+  --margin=1 
+  --padding=1   
+  --color=prompt:#d7005f,spinner:#af5fff,pointer:#af5fff,header:#87afaf
+  --color=border:#262626,label:#aeaeae,query:#d9d9d9
+  --border="rounded" --border-label="" --preview-window="border-rounded" 
+  --prompt="> "
+    --marker=">" --pointer="◆" --separator="─" --scrollbar="│"'
+  
 # the below seems not working with mac
 #source /usr/share/fzf/completion.bash
 #source /usr/share/fzf/key-bindings.bash
