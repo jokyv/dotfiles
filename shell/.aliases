@@ -68,7 +68,8 @@ alias ff='fzf_util.py --file_phrase'
 alias p='python3'
 # find the version for each python program installed using fzf
 alias pipv='pip list | fzf'
-alias pu=pip_update
+alias pu=python_pip_update.py
+alias pua='python_pip_update.py --all'
 alias pic=python_init_code.py
 
 # -----------------------------------------------------
