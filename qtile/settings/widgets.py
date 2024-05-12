@@ -1,5 +1,4 @@
 from libqtile import qtile, widget
-
 from .theme import colors
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)

@@ -1,7 +1,7 @@
 # NOTES
 # -----------------------------------------------
 """
-    Use `c` to kill instead of `q`
+Use `c` to kill instead of `q`
 """
 # -----------------------------------------------
 # Qtile keybindings
@@ -233,20 +233,20 @@ keys = [
     # ------------ Hardware Configs ------------
     # Sound
     Key(
-        [mod],
-        "F9",
+        [mod, "control"],
+        "8",
         lazy.spawn("amixer -q set Master 5%-"),
         desc="increase the volume by 5",
     ),
     Key(
-        [mod],
-        "F10",
+        [mod, "control"],
+        "9",
         lazy.spawn("amixer -q set Master 5%+"),
         desc="decrease the volume by 5",
     ),
     Key(
-        [mod],
-        "F11",
+        [mod, "control"],
+        "0",
         lazy.spawn("amixer -q set Master toggle"),
         desc="toggle between mute and unmute",
     ),
@@ -268,9 +268,9 @@ keys = [
 # scratchpad
 keys.extend(
     [
-        Key([mod], "F5", lazy.group["pad"].dropdown_toggle("chatgpt")),
-        Key([mod], "F6", lazy.group["pad"].dropdown_toggle("terminal")),
-        Key([mod], "F7", lazy.group["pad"].dropdown_toggle("logout")),
+        Key([mod, "control"], "1", lazy.group["pad"].dropdown_toggle("chatgpt")),
+        Key([mod, "control"], "2", lazy.group["pad"].dropdown_toggle("terminal")),
+        Key([mod, "control"], "3", lazy.group["pad"].dropdown_toggle("logout")),
         # Key([mod], "F8", lazy.group["6"].dropdown_toggle("scrcpy")),
     ]
 )
