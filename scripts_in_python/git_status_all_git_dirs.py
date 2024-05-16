@@ -22,7 +22,7 @@ console = Console()
 # -----------------------------------------------
 
 
-def git_status_all_git_dirs() -> None:
+def status_all_git_dirs() -> None:
     # Change to the home directory
     os.chdir(os.path.expanduser("~"))
 
@@ -56,9 +56,5 @@ def git_status_all_git_dirs() -> None:
 # -----------------------------------------------
 
 
-def main() -> None:
-    git_status_all_git_dirs()
-
-
 if __name__ == "__main__":
-    main()
+    status_all_git_dirs()

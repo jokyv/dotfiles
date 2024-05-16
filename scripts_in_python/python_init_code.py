@@ -21,7 +21,7 @@ TEMPLATE_PATH = f"{HOME_DIR}/dot/scripts_in_python/python_template.py"
 # -----------------------------------------------
 
 
-def main(filename) -> None:
+def init_code(filename) -> None:
     if not os.path.exists(filename):
         if filename.endswith(".py"):
             dm("INFO", f"created a file with name {filename} from {TEMPLATE_PATH}")
@@ -39,4 +39,4 @@ def main(filename) -> None:
 
 if __name__ == "__main__":
     filename = input("Enter filename of script with `.py` extension: ")
-    main(filename)
+    init_code(filename)

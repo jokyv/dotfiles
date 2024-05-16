@@ -11,7 +11,7 @@ import subprocess
 # -----------------------------------------------
 
 
-def git_log_graph() -> None:
+def log_graph() -> None:
     git_log_command = [
         "git",
         "log",
@@ -29,9 +29,5 @@ def git_log_graph() -> None:
 # -----------------------------------------------
 
 
-def main() -> None:
-    git_log_graph()
-
-
 if __name__ == "__main__":
-    main()
+    log_graph()

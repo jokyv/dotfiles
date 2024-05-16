@@ -22,7 +22,7 @@ EXCLUDE_DIRS = ["-gE", "helix/"]
 # -----------------------------------------------
 
 
-def main() -> None:
+def push_all_git_dirs() -> None:
     """
     Function git push all dirs that have git dir in projects folder.
 
@@ -74,4 +74,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    push_all_git_dirs()

@@ -19,7 +19,7 @@ FILE_SIZE_LIMIT = 50  # MB
 # -----------------------------------------------
 
 
-def git_commit_workflow(commit_message):
+def commit_workflow(commit_message):
     # Git stash, pull, and apply
     dm("INFO", "git pull and git stash apply")
     subprocess.run(["git", "stash", "--include-untracked"])
@@ -67,7 +67,7 @@ def git_commit_workflow(commit_message):
 
 def main() -> None:
     commit_message = input("Enter commit message: ")
-    git_commit_workflow(commit_message)
+    commit_workflow(commit_message)
 
 
 if __name__ == "__main__":

@@ -18,7 +18,16 @@ import subprocess
 # -----------------------------------------------
 
 
-def fzf_file_that_contains_phrase(phrase):
+def fzf_file_that_contains_phrase(phrase: str):
+    """
+    Find file that contains a specified phrase.
+
+    Parameters
+    ----------
+    phrase : str
+        phrase that you want the script to search for
+
+    """
     rg_process = subprocess.Popen(["rg", phrase, "-l"], stdout=subprocess.PIPE)
     fzf_process = subprocess.Popen(
         ["fzf", "--preview", "bat --style=numbers --color=always {}"],
@@ -33,6 +42,15 @@ def fzf_file_that_contains_phrase(phrase):
 
 
 def fzf_find_big_files(file_size):
+    """
+    Find big files above a certain size.
+
+    Parameters
+    ----------
+    file_size : int
+        the size of the files script is going to check.
+
+    """
     fd_process = subprocess.Popen(
         ["fd", "-H", ".", os.environ["HOME"], "--size", "+" + file_size],
         stdout=subprocess.PIPE,
@@ -47,6 +65,11 @@ def fzf_find_big_files(file_size):
 
 
 def fzf_empty_files():
+    """
+    Find empty files.
+
+    find files that have zero size.
+    """
     fd_process = subprocess.Popen(
         ["fd", "-te", "-H", ".", os.environ["HOME"]], stdout=subprocess.PIPE
     )
@@ -59,7 +82,10 @@ def fzf_empty_files():
         print(selected_file.decode().strip())
 
 
+# NOTE: does NOT work due to limitation from python itself
+# NOTE: using bash script for this one
 def fzf_go_to_path():
+    """Go to a path from a selection of folders."""
     fd_process = subprocess.Popen(
         ["fd", "-td", "-H", "-i", ".", os.environ["HOME"]], stdout=subprocess.PIPE
     )
@@ -84,7 +110,8 @@ def fzf_go_to_path():
         )
 
 
-def fzf_move_to_path():
+def fzf_move_file_to_path():
+    """Move a file selected via FZF to a path selected by FZF again."""
     fd_process = subprocess.Popen(
         ["fd", "-tf", "-H", "-i", ".", os.environ["HOME"]], stdout=subprocess.PIPE
     )
@@ -112,7 +139,8 @@ def fzf_move_to_path():
             subprocess.run(["mv", "-iv", selected_file, new_file_name])
 
 
-def fzf_copy_to_path():
+def fzf_copy_file_to_path():
+    """Copy a file selected via FZF to a path selected by FZF again."""
     fd_process = subprocess.Popen(
         ["fd", "-tf", "-H", "-i", ".", os.environ["HOME"]], stdout=subprocess.PIPE
     )
@@ -140,7 +168,8 @@ def fzf_copy_to_path():
             subprocess.run(["cp", "-iv", selected_file, new_file_name])
 
 
-def fzf_open_file():
+def fzf_open_file_from_path():
+    """Open a file selected via FZF using helix editor."""
     fd_output = subprocess.Popen(
         ["fd", "-tf", "-H", "-i", ".", os.environ["HOME"]], stdout=subprocess.PIPE
     )
@@ -158,6 +187,7 @@ def fzf_open_file():
 
 
 def fzf_find_my_scripts():
+    """Select a script from my script folder using FZF."""
     fd_output = subprocess.Popen(
         ["fd", "-tf", ".", os.environ["HOME"] + "/dot/scripts_in_python/"],
         stdout=subprocess.PIPE,
@@ -176,6 +206,7 @@ def fzf_find_my_scripts():
 
 
 def fzf_restore_file_from_trash():
+    """Restore a file from trash."""
     trash_output = subprocess.run(["trash", "list"], capture_output=True, text=True)
     selected_files = subprocess.run(
         ["fzf", "--multi"], input=trash_output.stdout, capture_output=True, text=True
@@ -188,6 +219,7 @@ def fzf_restore_file_from_trash():
 
 
 def fzf_empty_file_from_trash():
+    """Permanetly delete a file from trash."""
     trash_output = subprocess.run(["trash", "list"], capture_output=True, text=True)
     selected_files = subprocess.run(
         ["fzf", "--multi"], input=trash_output.stdout, capture_output=True, text=True
@@ -211,7 +243,7 @@ if __name__ == "__main__":
     parser.add_argument("-fp", "--file_phrase", action="store_true")
     parser.add_argument("-bf", "--big_files", action="store_true")
     parser.add_argument("-ef", "--empty_files", action="store_true")
-    parser.add_argument("-gp", "--go_to_path", action="store_true")
+    # parser.add_argument("-gp", "--go_to_path", action="store_true")
     parser.add_argument("-mf", "--move_file", action="store_true")
     parser.add_argument("-cf", "--copy_file", action="store_true")
     parser.add_argument("-of", "--open_file", action="store_true")
@@ -229,14 +261,14 @@ if __name__ == "__main__":
         fzf_find_big_files(file_size)
     elif args.empty_files:
         fzf_empty_files()
-    elif args.go_to_path:
-        fzf_go_to_path()
+    # elif args.go_to_path:
+    #     fzf_go_to_path()
     elif args.move_file:
-        fzf_move_to_path()
+        fzf_move_file_to_path()
     elif args.copy_file:
-        fzf_copy_to_path()
+        fzf_copy_file_to_path()
     elif args.open_file:
-        fzf_open_file()
+        fzf_open_file_from_path()
     elif args.find_scripts:
         fzf_find_my_scripts()
     elif args.restore_file:
