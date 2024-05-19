@@ -151,7 +151,6 @@ alias gpl='git pull'
 alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m'
-alias gac=git_auto_commit.py
 alias gcw=git_commit_workflow.py
 alias glg=git_log_graph.py
 alias gl='git log'
@@ -161,6 +160,8 @@ alias gpusha=git_push_all_git_dirs.py
 alias gac=git_auto_commit.py
 # amend a commit without changing the commit message
 alias gcame='git commit --amend --no-edit'
+# working directory removes all changes and goes back to the latest commit
+alias gcheck='git checkout .'
 alias gs='git status -sb'
 alias gsa=git_status_all_git_dirs.py
 # clean up ignore files that mistakenly are tracked
