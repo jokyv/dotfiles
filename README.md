@@ -1,6 +1,6 @@
-## All my dot files and scripts
+# All my dot files and scripts
 
-### Common Packages
+## Packages
 
 - Terminal: alacritty
 - Editor: helix
@@ -14,21 +14,26 @@
 - Status Bar: Qtile
 - Sreenshots: flameshot
 
-### QTILE
+## QTILE
 
 ...to be continued
 
-### BSPWM
+## BSPWM
 
 ![main_screen](./main_screen.png)
 
-### Instalation
+## Instalation
 
 ```bash
 git clone https://github.com/jokyv/dotfiles.git ~/repos/dot
 ```
 
-### Roadmap
+## Notes
+
+- just `CTL` or `CTL` + `Shift` reserved for Alacritty shortcuts.
+- just `Super Key` or `Super Key` + `Shift` for Qtile shortcuts.
+
+## Roadmap
 
 - [x] version 2.x
   - improving dotfiles
