@@ -6,7 +6,7 @@
   email = johnkyvetos@gmail.com
 
 [pull]
-  rebase = false
+  rebase = true
 
 [core]
   editor = hx
