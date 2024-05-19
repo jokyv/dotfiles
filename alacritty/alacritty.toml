@@ -47,7 +47,7 @@ mods = "Control|Shift"
 
 [[keyboard.bindings]]
 action = "ResetFontSize"
-key = "Key0"
+key = "R"
 mods = "Control"
 
 [[keyboard.bindings]]
