@@ -15,8 +15,12 @@ auto-format = true
 language-servers = ["pylsp", "ruff"]
 formatter = { command = "sh", args = ["-c", "ruff format --quiet -"] }
 
+# [language-server.ruff]
+# command = "ruff-lsp"
+
 [language-server.ruff]
-command = "ruff-lsp"
+command = "ruff"
+args = ["server", "--preview"]
 
 [language-server.pylsp]
 command = "pylsp"
