@@ -15,7 +15,16 @@ from rich.console import Console
 # -----------------------------------------------
 
 HOME = os.path.expanduser("~")
-EXCLUDE_DIRS = ["-gE", ".local/share", "-gE", "helix/", "-gE", ".pyenv"]
+EXCLUDE_DIRS = [
+    "-gE",
+    ".local/share",
+    "-gE",
+    "helix/",
+    "-gE",
+    ".pyenv",
+    "-gE",
+    ".cache/",
+]
 
 # -----------------------------------------------
 # fUNCTIONS
