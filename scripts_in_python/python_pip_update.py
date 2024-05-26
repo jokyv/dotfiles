@@ -16,7 +16,7 @@ from messaging import display_message as dm
 LIBRARIES_TO_UPDATE = [
     "uv",
     "ruff",
-    "ruff-lsp",
+    # "ruff-lsp",
     "rich",
     "pyarrow",
     "pip",
@@ -25,6 +25,10 @@ LIBRARIES_TO_UPDATE = [
     "pandas",
     "tqdm",
     "numpy",
+    "pydantic",
+    "requests",
+    "fastapi",
+    "uvicorn",
 ]
 
 # -----------------------------------------------
