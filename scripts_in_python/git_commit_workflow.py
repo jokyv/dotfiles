@@ -34,7 +34,7 @@ def commit_workflow(commit_message):
 
     # Check if big files exist before committing
     big_files = subprocess.run(
-        ["fd", "-H", ".", dir_path, "--size", f"+{FILE_SIZE_LIMIT}MB"],
+        ["fd", "-H", ".", dir_path, "--size", f"+{FILE_SIZE_LIMIT}MB", "-gE", ".git"],
         capture_output=True,
         text=True,
     ).stdout.splitlines()
