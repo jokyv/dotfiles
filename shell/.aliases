@@ -49,7 +49,7 @@ alias z=fzf_go_to_path
 # find a file with fzf and open it with nvim
 alias vv='fzf_util.py --open_file'
 # find empty files
-alias fe='fzf_tuil.py --empty_files'
+alias fe='fzf_util.py --empty_files'
 # find files bigger than xxxMB
 alias fb='fzf_util.py --big_files'
 # find all the scripts i have
