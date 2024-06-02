@@ -42,12 +42,12 @@ git clone https://github.com/jokyv/dotfiles.git ~/repos/dot
   - stabilize everything before moving to wayland and new wm
 - [x] version 3.0
   - [x] move to qtile
-  - [x] move away from x11 wm such as bspwm
+  - [x] move away from x11 only WM such as bspwm
 - [ ] version 4.0
-  - move to wayland
+  - move to wayland using niri
   - replace x11 apps with wayland apps
 - [ ] version 5.0
-  - wayland with hyprland or qtile option
+  - wayland with niri or qtile option
   - replace ranger with rust based file manager
 - [ ] version 6.0
   - [ ] merge arch installation and dotfiles
