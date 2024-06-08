@@ -183,7 +183,7 @@ def fzf_open_file_from_path():
     file = file.decode().strip()
 
     if file:
-        subprocess.run(["hx", file])
+        subprocess.run(["helix", file])
 
 
 def fzf_find_my_scripts():
@@ -202,7 +202,7 @@ def fzf_find_my_scripts():
     script = script.decode().strip()
 
     if script:
-        subprocess.run(["hx", script])
+        subprocess.run(["helix", script])
 
 
 def fzf_restore_file_from_trash():
