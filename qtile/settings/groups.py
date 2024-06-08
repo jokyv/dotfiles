@@ -1,6 +1,6 @@
 # Qtile workspaces
 
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 from libqtile.config import DropDown, Group, Key, Match, ScratchPad
 
 from .keys import keys, mod

@@ -8,7 +8,7 @@ Use `c` to kill instead of `q`
 
 from pathlib import Path
 
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 from libqtile.config import Key
 
 # VARIABLES
