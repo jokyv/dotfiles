@@ -141,8 +141,8 @@ symbol = " "
 disabled = false
 format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
 # format = "[[]$symbol$status[]]($style)"
-symbol = "🚫 "
-# symbol = "✖ "
+# symbol = "🚫 "
+symbol = "✖ "
 
 [sudo]
 disabled = true
