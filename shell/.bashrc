@@ -66,12 +66,12 @@ source_if_exists $HOME/dot/shell/.exports
 # Need this for the following applications
 # ----------------------------------------------------------------------------
 # pyenv
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv virtualenv-init -)"
 # starship
 eval "$(starship init bash)"
 # atuin
-# [[ -f ~/$HOME/projects/.bash-preexec.sh ]] && source ~/$HOME/projects/.bash-preexec.sh
-source_if_exists $HOME/projects/.bash-preexec.sh
+# [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+source_if_exists $HOME/.bash-preexec.sh
 eval "$(atuin init bash)"
 
 # Print if the file is sourced
