@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # -----------------------------------------------
 # LIBRARIES
@@ -16,7 +16,6 @@ from messaging import display_message as dm
 LIBRARIES_TO_UPDATE = [
     "uv",
     "ruff",
-    # "ruff-lsp",
     "rich",
     "pyarrow",
     "pip",
@@ -45,7 +44,7 @@ def pip_update(all_libraries=False):
 
     # Get the list of outdated libraries
     outdated_libraries = subprocess.run(
-        ["pip", "list", "--outdated"],
+        ["uv", "pip", "list", "--outdated"],
         capture_output=True,
         text=True,
     ).stdout.split("\n")[2:]
@@ -56,7 +55,7 @@ def pip_update(all_libraries=False):
             if all_libraries or library in libraries_to_update:
                 dm("INFO", f"Updating {library}...")
                 subprocess.run(
-                    ["pip", "install", "-U", library], stdout=subprocess.PIPE
+                    ["uv", "pip", "install", "-U", library], stdout=subprocess.PIPE
                 )
 
 
