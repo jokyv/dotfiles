@@ -112,7 +112,7 @@ trim_at = "."
 format = '\[[$symbol($hostname)]($style)\]'
 
 [jobs]
-disabled = false
+disabled = true
 symbol = "+ "
 symbol_threshold = 1
 number_threshold = 2
