@@ -7,18 +7,6 @@ shopt -s cdspell # autocorrect typos in path when using cd
 bind 'set completion-ignore-case on'
 complete -d cd
 
-# start zellij every time you open the terminal on macOS
-# ----------------------------------------------------------------------------
-if [[ "$OSTYPE" == "darwin"* ]]; then
-# if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  if command -v zellij &> /dev/null && 
-  [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && 
-  [[ ! "$TERM" =~ zellij ]] && 
-  [ -z "$ZELLIJ" ]; then
-    eval "$(zellij setup --generate-auto-start bash)"
-  fi
-fi
-
 # add to $PATH, if $PATH has multiples remove them
 # ----------------------------------------------------------------------------
 function add_to_path {
