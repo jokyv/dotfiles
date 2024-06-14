@@ -9,7 +9,7 @@
   rebase = true
 
 [core]
-  editor = helix
+  editor = hx
   pager = delta
 
 [credential]
