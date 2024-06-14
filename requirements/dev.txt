@@ -8,6 +8,7 @@ mysql.connector
 mysql-connector-python
 sqlalchemy
 google-cloud-bigquery
+google-cloud-bigquery-storage
 openpyxl
 xlsxwriter
 python-decouple
