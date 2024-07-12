@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # -----------------------------------------------
 # LIBRARIES
@@ -183,7 +183,7 @@ def fzf_open_file_from_path():
     file = file.decode().strip()
 
     if file:
-        subprocess.run(["helix", file])
+        subprocess.run(["hx", file])
 
 
 def fzf_find_my_scripts():
@@ -202,7 +202,7 @@ def fzf_find_my_scripts():
     script = script.decode().strip()
 
     if script:
-        subprocess.run(["helix", script])
+        subprocess.run(["hx", script])
 
 
 def fzf_restore_file_from_trash():
