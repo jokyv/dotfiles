@@ -9,15 +9,6 @@ use-grammars = { only = [
   "markdown",
 ] }
 
-[[language]]
-name = "python"
-auto-format = true
-language-servers = ["pylsp", "ruff"]
-formatter = { command = "sh", args = ["-c", "ruff format --quiet -"] }
-
-# [language-server.ruff]
-# command = "ruff-lsp"
-
 [language-server.ruff]
 command = "ruff"
 args = ["server", "--preview"]
@@ -28,6 +19,14 @@ command = "pylsp"
 [language-server.pylsp.config.pylsp]
 plugins.pyls_mypy.enabled = true
 plugins.pyls_mypy.live_mode = true
+
+[[language]]
+name = "python"
+auto-format = true
+language-servers = ["ruff", "pylsp"]
+# formatter = { command = "sh", args = ["-c", "ruff format --quiet -"] }
+formatter = { command = "ruff", args = ["format", "--quiet", "-"] }
+
 
 [[language]]
 name = "yaml"
