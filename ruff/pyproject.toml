@@ -23,8 +23,8 @@ select = [
   "RUF",  # Ruff-specific rules
   "I",
   "TD",
-  "FIC",
 ]
+
 ignore = [
   # Line length regulated by black
   # "E501",
