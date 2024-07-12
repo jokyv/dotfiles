@@ -35,28 +35,31 @@ LIBRARIES_TO_UPDATE = [
 # -----------------------------------------------
 
 
-def pip_update(all_libraries=False):
-    libraries_to_update = [] if all_libraries else LIBRARIES_TO_UPDATE
-    # if all_libraries:
-    #     libraries_to_update = []
-    # else:
-    #     libraries_to_update = LIBRARIES_TO_UPDATE
+def pip_update_selected_libraries():
+    for library in LIBRARIES_TO_UPDATE:
+        dm("CHECKING", f"{library}")
+        subprocess.run(["uv", "pip", "install", "-U", library], stdout=subprocess.PIPE)
 
-    # Get the list of outdated libraries
-    outdated_libraries = subprocess.run(
-        ["uv", "pip", "list", "--outdated"],
+
+def pip_update_all_libraries():
+    # Get the list of all libraries
+    all_libraries = subprocess.run(
+        ["uv", "pip", "list"],
         capture_output=True,
         text=True,
-    ).stdout.split("\n")[2:]
+    ).stdout
 
-    for line in outdated_libraries:
-        if line.strip():
-            library, _, _, _ = line.split()
-            if all_libraries or library in libraries_to_update:
-                dm("INFO", f"Updating {library}...")
-                subprocess.run(
-                    ["uv", "pip", "install", "-U", library], stdout=subprocess.PIPE
-                )
+    lines = all_libraries.strip().split("\n")
+    package_names = []
+
+    # Skip the first two lines (headers and separator)
+    for line in lines[2:]:
+        package, _ = line.rsplit(maxsplit=1)
+        package_names.append(package.strip())
+
+    for library in package_names:
+        dm("CHECKING", f"{library}")
+        subprocess.run(["uv", "pip", "install", "-U", library], stdout=subprocess.PIPE)
 
 
 # -----------------------------------------------
@@ -65,7 +68,13 @@ def pip_update(all_libraries=False):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Update Python libraries.")
-    parser.add_argument("--all", action="store_true", help="Update all libraries")
+    parser.add_argument("-A", "--all", action="store_true", help="Update all libraries")
+    parser.add_argument(
+        "-S", "--selected", action="store_true", help="Update all libraries"
+    )
     args = parser.parse_args()
 
-    pip_update(args.all)
+    if args.all:
+        pip_update_all_libraries()
+    elif args.selected:
+        pip_update_selected_libraries()
