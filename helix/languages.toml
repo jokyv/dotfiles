@@ -84,7 +84,8 @@ name = "json"
 auto-format = true
 file-types = ["json", "kdl"]
 language-servers = ["json-server"]
-formatter = { command = "prettier", args = ["--parser", "json"] }
+# formatter = { command = "prettier", args = ["--parser", "json"] }
+formatter = { command = "dprint", args = ["fmt", "--stdin", "json"] }
 
 [language-server.json-server]
 command = "vscode-json-language-server"
