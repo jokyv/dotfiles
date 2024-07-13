@@ -8,7 +8,7 @@ import os
 import subprocess
 
 from git_auto_commit import auto_commit
-from python_pip_update import pip_update
+from python_pip_update import pip_update_selected_libraries
 from messaging import display_message as dm
 from rich.console import Console
 from rich.prompt import Prompt
@@ -88,7 +88,7 @@ def clean_os():
 def python_packages_update():
     console.rule("--- Python Packages Update --")
     if ask("Do you want to update Python Packages?"):
-        pip_update()
+        pip_update_selected_libraries()
 
 
 def check_system():
