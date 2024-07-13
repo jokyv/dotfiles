@@ -16,6 +16,7 @@ from messaging import display_message as dm
 LIBRARIES_TO_UPDATE = [
     "uv",
     "ruff",
+    "python-lsp-server",
     "rich",
     "pyarrow",
     "pip",
