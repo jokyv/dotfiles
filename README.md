@@ -1,26 +1,25 @@
-# All my dot files and scripts
+# My configs for Arch on Wayland
 
-## Packages
+## Applications
 
-- Terminal: alacritty
-- Editor: helix
-- Prompt: starship
-- Icons: Nerd Font
-- Mens: Rofi
-- Colorscheme: rose-pine
-- Browsers: brave, chromium
-- Filemanager: Thunar
-- Compositor: picom
-- Status Bar: Qtile
-- Sreenshots: flameshot
+- Window sytem: [Wayland](https://wayland.freedesktop.org/)
+- Wayland Compositor: [Niri](https://github.com/YaLTeR/niri)
+- Terminal: [Alacritty](https://github.com/alacritty/alacritty)
+- Editor: [Helix](https://github.com/helix-editor/helix)
+- Prompt: [Starship](https://github.com/starship/starship)
+- Fonts: [Hack Nerd Font](https://www.nerdfonts.com/)
+- Application Launcher: [Fuzzel](https://codeberg.org/dnkl/fuzzel)
+- Colorscheme: [Everforest](https://github.com/sainnhe/everforest)
+- Browsers: [Brave](https://github.com/brave/brave-browser) and [Firefox](https://www.mozilla.org/en-US/firefox/)
+- Filemanager: [Nautilus](https://gitlab.gnome.org/GNOME/nautilus)
+- Status Bar: [Waybar](https://github.com/Alexays/Waybar)
+- Sreenshots: [Gnome-Screenshot](https://gitlab.gnome.org/GNOME/gnome-screenshot)
 
-## QTILE
+## Archived configs
 
-...to be continued
+### QTILE
 
-## BSPWM
-
-![main_screen](./main_screen.png)
+### BSPWM
 
 ## Instalation
 
@@ -43,11 +42,12 @@ git clone https://github.com/jokyv/dotfiles.git ~/repos/dot
 - [x] version 3.0
   - [x] move to qtile
   - [x] move away from x11 only WM such as bspwm
-- [ ] version 4.0
+- [x] version 4.0
   - move to wayland using niri
   - replace x11 apps with wayland apps
 - [ ] version 5.0
   - wayland with niri or qtile option
   - replace ranger with rust based file manager
 - [ ] version 6.0
+  - [ ] move to NixOS
   - [ ] merge arch installation and dotfiles
