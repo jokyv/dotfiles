@@ -26,7 +26,8 @@ input {
 output "DP-1" {
     // off
 
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
+    // The format is "<width>x<height>"
+    // or "<width>x<height>@<refresh rate>".
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
     mode "1920x1080@60.000"
 
@@ -87,9 +88,9 @@ layout {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
         off
-        width 6
-        active-color "#ffc87f"
-        inactive-color "#505050"
+        // width 6
+        // active-color "#ffc87f"
+        // inactive-color "#505050"
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
@@ -121,6 +122,7 @@ cursor {
     xcursor-theme "breeze_cursors"
     xcursor-size 28
 }
+
 // Animation settings.
 animations {
     // off
@@ -160,10 +162,6 @@ animations {
         spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
     }
 
-    // screenshot-ui-open {
-    //     duration-ms 200
-    //     curve "ease-out-quad"
-    // }
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -367,9 +365,11 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    // Screenshots
+    Mod+S { spawn "take_screenshot.sh"; }
+    Mod+Y { screenshot; }
+    Mod+Shift+Y { screenshot-screen; }
+    Mod+Ctrl+Y { screenshot-window; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
