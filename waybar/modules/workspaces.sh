@@ -8,7 +8,7 @@ up)
 down)
     niri msg action focus-workspace-down && pkill -SIGRTMIN+8 waybar;;
 *)
-    glyphs=""
+    glyphs=""
     workspace_str=""
     for ws in $(niri msg -j workspaces | jq ".[] | select(.output == \"$1\") | .is_active"); do
         workspace_str="$workspace_str$( if "$ws"; then
