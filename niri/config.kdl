@@ -108,8 +108,7 @@ layout {
 // which may be more convenient to use.
 
 spawn-at-startup "alacritty"
-spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-i" "/home/jokyv/pics/wallpapers/purple_view.png"
+// spawn-at-startup "waybar"
 // spawn-at-startup "swaybg" "-i" "$(shuf -n 1 -e ~/pics/wallpapers/)"
 
 // prefer-no-csd
