@@ -20,11 +20,12 @@ FILE_SIZE_LIMIT = 50  # MB
 
 
 def commit_workflow(commit_message):
+    # WARNING removing git pull and git stash as i am using git push rebase now
     # Git stash, pull, and apply
-    dm("INFO", "git pull and git stash apply")
-    subprocess.run(["git", "stash", "--include-untracked"])
-    subprocess.run(["git", "pull", "-q"])
-    subprocess.run(["git", "stash", "apply", "-q"])
+    # dm("INFO", "git pull and git stash apply")
+    # subprocess.run(["git", "stash", "--include-untracked"])
+    # subprocess.run(["git", "pull", "-q"])
+    # subprocess.run(["git", "stash", "apply", "-q"])
 
     dm("CHECKING", f"if any file above {FILE_SIZE_LIMIT} MB exist")
     # Get the path to the git folder

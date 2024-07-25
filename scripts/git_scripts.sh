@@ -85,11 +85,12 @@ git_status_all_git_dirs() {
 # ----------------------------------------------------------------------------
 git_commit_workflow() {
   FILE_SIZE=50
+  # WARNING: removing git pull and git stash as i am using git push rebase
   # git stash local repo and git pull
-  echo "...git pull and git stash apply"
-  git stash --include-untracked
-  git pull -q
-  git stash apply -q
+  # echo "...git pull and git stash apply"
+  # git stash --include-untracked
+  # git pull -q
+  # git stash apply -q
   echo "...checking if any file above $FILE_SIZE MB exist"
   # get the path to the git folder
   DIR_PATH=$(git rev-parse --show-toplevel)
