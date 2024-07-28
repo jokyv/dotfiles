@@ -7,7 +7,7 @@ function source_if_exists {
     fi
 }
 
-# need this for the gcloud on MACos
+# need this for the gcloud on MacOS
 # ----------------------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # The next line updates PATH for the Google Cloud SDK.
@@ -23,9 +23,9 @@ source_if_exists $HOME/.bashrc
 
 # launch starx automatically
 # ----------------------------------------------------------------------------
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
-fi
+# if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+# exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
+# fi
 
 # Print if the file is sourced
 # ----------------------------------------------------------------------------
