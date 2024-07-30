@@ -6,10 +6,11 @@
 
 import os
 import subprocess
+import sys
 
 from git_auto_commit import auto_commit
-from python_pip_update import pip_update_selected_libraries
 from messaging import display_message as dm
+from python_pip_update import pip_update_selected_libraries
 from rich.console import Console
 from rich.prompt import Prompt
 
@@ -26,12 +27,23 @@ console = Console()
 
 
 def ask(question):
-    response = Prompt.ask(
-        console.render_str(f"{question} ([bold yellow]yes[/bold yellow]/no) ")
-    )
+    # beutification
+    yes = "[bold yellow]yes[/bold yellow]"
+    exit = "[bold red]exit[/bold red]"
+    response = Prompt.ask(console.render_str(f"{question} ({yes}/no/{exit}) "))
+
     if not response:
         return True  # Return True for empty input (default to Yes)
-    return response.lower().startswith("y")
+    response = response.lower().strip()
+    if response.startswith("y"):
+        return True
+    elif response.startswith("n"):
+        return False
+    elif response == "exit":
+        console.print("Exiting the script. Goodbye!")
+        sys.exit()
+    else:
+        console.print("Invalid input. Please try again!")
 
 
 def os_update():
