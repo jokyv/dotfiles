@@ -1,15 +1,10 @@
-# NOTES
-# -----------------------------------------------
-"""
-Use `c` to kill instead of `q`
-"""
-# -----------------------------------------------
 # Qtile keybindings
+# -----------------------------------------------
 
 from pathlib import Path
 
-from libqtile.lazy import lazy
 from libqtile.config import Key
+from libqtile.lazy import lazy
 
 # VARIABLES
 # -----------------------------------------------
@@ -27,7 +22,7 @@ MY_BROWSER = "brave"
 # -----------------------------------------------
 @lazy.function
 def minimize_all(qtile):
-    """A function for hide/show all the windows in a group"""
+    """A function for hide/show all the windows in a group."""
     for win in qtile.current_group.windows:
         if hasattr(win, "toggle_minimize"):
             win.toggle_minimize()
@@ -35,7 +30,7 @@ def minimize_all(qtile):
 
 @lazy.function
 def maximize_by_switching_layout(qtile):
-    """A function for toggling between MAX and MONADTALL layouts"""
+    """A function for toggling between MAX and MONADTALL layouts."""
     current_layout_name = qtile.current_group.layout.name
     if current_layout_name == "monadtall":
         qtile.current_group.layout = "max"
@@ -177,7 +172,7 @@ keys = [
     Key(
         [mod, "shift"],
         "b",
-        lazy.spawn(home + "/dot/scripts/bravebookmarks.sh"),
+        lazy.spawn(home + "/dot/bin/bravebookmarks.sh"),
         desc="launch rofi with brave bookmarks to run",
     ),
     Key(
@@ -228,7 +223,7 @@ keys = [
     Key(
         [mod],
         "w",
-        lazy.spawn(home + "/dot/scripts/update_wall.sh"),
+        lazy.spawn(home + "/dot/bin/update_wall.sh"),
     ),
     # ------------ Hardware Configs ------------
     # Sound
