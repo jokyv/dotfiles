@@ -10,7 +10,7 @@ case $SRL in
         sudo /sbin/reboot
         ;;
     Logout)
-        pkill qtile
+        pkill niri
         ;;
     Lock)
         betterlockscreen --lock
