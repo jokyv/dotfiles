@@ -108,7 +108,6 @@ layout {
 // which may be more convenient to use.
 
 spawn-at-startup "kitty"
-// spawn-at-startup "waybar"
 // spawn-at-startup "swaybg" "-i" "$(shuf -n 1 -e ~/pics/wallpapers/)"
 
 // prefer-no-csd
@@ -120,6 +119,11 @@ screenshot-path "~/pics/screenshots/screenshot from %Y-%m-%d %H-%M-%S.png"
 cursor {
     xcursor-theme "breeze_cursors"
     xcursor-size 28
+}
+
+// Hotkey overlay
+hotkey-overlay {
+    skip-at-startup
 }
 
 // Animation settings.
@@ -175,19 +179,21 @@ window-rule {
     // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+    geometry-corner-radius 8
+
 }
 
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+// window-rule {
+    // match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    // match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
-    block-out-from "screen-capture"
+    // block-out-from "screen-capture"
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
-}
+// }
 
 binds {
     // Most actions that you can bind here can also be invoked programmatically with
