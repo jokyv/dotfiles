@@ -49,7 +49,7 @@ alias ue=update_everything.py
 # -----------------------------------------------------
 
 # find a directory with fzf and go there, works only with bash
-alias z=fzf_go_to_path.sh
+alias z=fzf_go_to_path
 # find a file with fzf and open it with nvim
 alias vv='fzf_util.py --open_file'
 # find empty files
