@@ -49,7 +49,7 @@ alias ue=update_everything.py
 # -----------------------------------------------------
 
 # find a directory with fzf and go there, works only with bash
-alias z=fzf_go_to_path
+alias z=fzf_go_to_path.sh
 # find a file with fzf and open it with nvim
 alias vv='fzf_util.py --open_file'
 # find empty files
@@ -147,7 +147,6 @@ alias zel='zellij'
 
 # yazi shortcuts
 # https://github.com/sxyazi/yazi
-
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
@@ -161,29 +160,28 @@ function yy() {
 # GIT SHORTCUTS
 # -----------------------------------------------------
 
-alias ginit=git_init_template.py
+alias ginit='git_util.py --init_template'
 alias gpu='git push'
 alias gpl='git pull'
 alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m'
-alias gcw=git_commit_workflow.py
-alias glg=git_log_graph.py
+alias gcw='git_util.py --commit_workflow'
+alias glg='git_util.py --log_graph'
 alias gl='git log'
 alias glo='git log --oneline'
-alias gpulla=git_pull_all_git_dirs.py
-alias gpusha=git_push_all_git_dirs.py
-alias gac=git_auto_commit.py
+alias gpulla='git_util.py --pull_all_dirs'
+alias gpusha='git_util.py --push_all_dirs'
+alias gac='git_util.py --auto_commit'
 # amend a commit without changing the commit message
 alias gcame='git commit --amend --no-edit'
 # working directory removes all changes and goes back to the latest commit
 alias gcheck='git checkout .'
 alias gs='git status -sb'
-alias gsa=git_status_all_git_dirs.py
+alias gsa='git_util.py --status_all_dirs'
 # clean up ignore files that mistakenly are tracked
-alias gclean=git_clean_up.py
+alias gclean='git_util.py --clean_up'
 alias gd='git diff -w'
-alias lg='lazygit'
 
 # -----------------------------------------------------
 # PRINT FILE SOURCED CONFIRMATION

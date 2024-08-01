@@ -27,14 +27,12 @@ function source_if_exists {
 
 # add to $PATH
 # -----------------------------------------------
-# my own personal scripts in python
-add_to_path $HOME/dot/scripts_in_python
+# my own personal scripts
+add_to_path $HOME/dot/bin
 # add my own libraries to python path
 add_to_path $HOME/projects/python_path
 # cargo - rust applications
 add_to_path $HOME/.local/share/cargo/bin
-# add to path all my scripts
-add_to_path $HOME/dot/scripts
 
 # brew installation
 add_to_path /usr/local/opt
@@ -42,9 +40,9 @@ add_to_path /usr/local/bin
 
 # source all my scripts
 # -----------------------------------------------
-source_if_exists $HOME/dot/scripts/fzf_scripts.sh
-source_if_exists $HOME/dot/scripts/linux_scripts.sh
-source_if_exists $HOME/dot/scripts/git_scripts.sh
+# source_if_exists $HOME/dot/bin/fzf_scripts.sh
+source_if_exists $HOME/dot/bin/linux_scripts.sh
+# source_if_exists $HOME/dot/bin/git_scripts.sh
 
 # source all my aliases and exports
 # -----------------------------------------------
