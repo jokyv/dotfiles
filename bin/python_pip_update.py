@@ -17,6 +17,7 @@ LIBRARIES_TO_UPDATE = [
     "uv",
     "ruff",
     "python-lsp-server",
+    "mypy",
     "rich",
     "pyarrow",
     "pip",
