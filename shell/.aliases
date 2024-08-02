@@ -39,7 +39,7 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # source bash files and clear terminal
 alias sb=source_files
-# combine cd with erdtree
+# combine cd with eza
 alias cdd=cd_with_eza
 # run weekly updates, checks and clean up
 alias ue=update_everything.py
@@ -90,7 +90,7 @@ alias pv='pacman -Q | fzf'
 alias auri='paru -Slq | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
 
 # -----------------------------------------------------
-# RUST
+# RUST applications
 # -----------------------------------------------------
 
 # cargo shortcuts
@@ -105,19 +105,14 @@ alias ct='cargo test'
 alias cu='cargo install-update -a'
 alias cl='cargo install-update -l'
 
-# erdtree shortcuts
-# https://github.com/solidiquis/erdtree
-# sort by name first, directory first, short format
-# alias l='erd'
-# sort by name first, directory first, long format
-# alias ll='erd --config ls-long'
-# sort by size first, directory first, short format
-# alias lss='erd --config ls-size'
-# sort by size first, directory first, long format
-# alias lsl='erd --config ls-long-size'
-
 # eza shortcuts
 # https://github.com/eza-community/eza
+# TODO:
+# sort by name first, directory first, short format
+# sort by name first, directory first, long format
+# sort by size first, directory first, short format
+# sort by size first, directory first, long format
+
 # sort by name first, directory first, no info
 alias l='eza --color=always --icons=always --long --all --group-directories-first --git --no-permissions --no-filesize --no-time --no-user'
 # sort by name first, directory first, with info
@@ -140,13 +135,9 @@ alias trr='fzf_util.py --restore_file'
 # empty trash item with trashy
 alias tre='fzf_util.py --empty_trash'
 
-# zellij shortcuts
-# https://github.com/zellij-org/zellij
-# run zellij
-alias zel='zellij'
-
 # yazi shortcuts
 # https://github.com/sxyazi/yazi
+# use the below function so yazi can change directory
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"

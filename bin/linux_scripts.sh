@@ -29,12 +29,6 @@ cd_with_eza() {
   eza -hT --tree --level=2 --sort=ext;
 }
 
-# a simple script that combines cd with erdtree
-cd_with_et() {
-  cd "$1" &&
-  erd
-}
-
 # Ask Y/n
 function ask() {
     read -p "$1 (Y/n): " resp
