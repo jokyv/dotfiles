@@ -2,64 +2,70 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [4.0.0] - 2024-08-02
+
+### Breaking Changes
+
+- Moved from X11 to wayland
+- Moved from qtile wm to niri wm
+- Moved from X11 based apps to wayland based apps
 
 ### 󰩉 Features
 
-- Add fira code nerd fonts
-- _(helix)_ Added HELIX_RUNTIME var.
-- _(python)_ Add requirements folder with list of critical python libraries
-- _(alacritty)_ Changed fonts to Hack Nerd Fonts
-- _(scripts_in_python)_ Updated library list, using uv now
-- _(requirements)_ Add more important python libraries
-- _(aliases)_ Add aliases for activate and deactiva virtual env.
-- _(python scripts)_ Add new sudo previous command script
-- _(python libraries update)_ Add pylsp to the list
-- _(dprint)_ New versions for dprint plugins
-- _(update_everything script)_ Update with the correct python function
-- _(helix)_ Change json formater to dprint
-- _(qtile)_ Theme nord json format update
-- _(niri)_ Added niri wm config file
-- _(wayland)_ Added niri, fuzzel waybar configs.
-- _(mako)_ Add configuration
-- _(waybar)_ Completly reworked the waybar configuration.
-- _(niri)_ Completely changed and cleaned the niri configuration.
-- _(swappy)_ Add configs for the app
-- _(dprint)_ Added dprint in the parent directory
-- _(scripts)_ Added take_screenshot.sh script
-- _(waybar)_ Cleaner configs for the app.
-- _(niri)_ Cleaner config for the app.
-- _(archived_configs)_ Renamed retired_configs to archived_configs
-- _(systemd)_ Add configs for niri systemd services
-- _(archived_configs)_ Moved not used configs to archived_configs folder.
-- _(scripts)_ Removing git stash from scripts
-- _(kitty)_ Add configs for kitty
-- _(yazi)_ Add configs for yazi
-- _(niri)_ Replaced alacritty for kitty.
-- _(alacritty)_ Changed fonts to Fira.
-- _(shell)_ Cleaning and stopped X11 start up command.
-- _(kitty)_ Update config and lcon.
-- _(scripts_in_python)_ Added exit option for update everything script.
 - _(alacritty)_ Archived alacritty configs.
-- _(kitty)_ Change fonts other than regular to automated method.
-- _(kitty)_ Add new icons for kitty.
-- _(qtile)_ Path fixing and formating.
+- _(alacritty)_ Changed fonts to Fira.
+- _(alacritty)_ Changed fonts to Hack Nerd Fonts
+- _(aliases)_ Add aliases for activate and deactiva virtual env.
+- _(archived_configs)_ Moved not used configs to archived_configs folder.
+- _(archived_configs)_ Renamed retired_configs to archived_configs
 - _(bin)_ Created folder bin for all .sh and .py scripts.
+- _(dprint)_ Added dprint in the parent directory
+- _(dprint)_ New versions for dprint plugins
+- _(helix)_ Add fira code nerd fonts
+- _(helix)_ Added HELIX_RUNTIME var.
+- _(helix)_ Change json formater to dprint
+- _(kitty)_ Add configs for kitty
+- _(kitty)_ Add new icons for kitty.
+- _(kitty)_ Change fonts other than regular to automated method.
+- _(kitty)_ Update config and lcon.
+- _(mako)_ Add configuration
+- _(niri)_ Added niri wm config file
+- _(niri)_ Cleaner config for the app.
+- _(niri)_ Completely changed and cleaned the niri configuration.
+- _(niri)_ Replaced alacritty for kitty.
+- _(python libraries update)_ Add pylsp to the list
+- _(python scripts)_ Add new sudo previous command script
+- _(python)_ Add requirements folder with list of critical python libraries
+- _(qtile)_ Path fixing and formating.
+- _(qtile)_ Theme nord json format update
+- _(requirements)_ Add more important python libraries
+- _(scripts)_ Added take_screenshot.sh script
+- _(scripts)_ Removing git stash from scripts
+- _(scripts_in_python)_ Added exit option for update everything script.
+- _(scripts_in_python)_ Updated library list, using uv now
+- _(shell)_ Cleaning and stopped X11 start up command.
+- _(swappy)_ Add configs for the app
+- _(systemd)_ Add configs for niri systemd services
+- _(update_everything script)_ Update with the correct python function
+- _(waybar)_ Cleaner configs for the app.
+- _(waybar)_ Completly reworked the waybar configuration.
+- _(wayland)_ Added niri, fuzzel waybar configs.
+- _(yazi)_ Add configs for yazi
 
 ###  Bug Fixes
 
-- Replace `hx` with `helix`
-- _(starship)_ Updated broken icons.
-- _(git)_ Editor is set to `helix` now.
 - _(aliases)_ Added alias for helix.
 - _(bashrc)_ Commented pyenv, replaced path for bash-preexec (atuin).
-- _(starship)_ Deactivated jobs task as it was broken
+- _(exports)_ Fixed the helix enviromental runtime variable path
+- _(fzf_util)_ Moved from 'helix' to 'hx'
+- _(git)_ Editor is set to `helix` now.
 - _(git/config)_ Switch back to editor `hx` instead of `helix`.
 - _(helix language)_ Simplified python config
-- _(ruff)_ Removed lint that was not working
-- _(fzf_util)_ Moved from 'helix' to 'hx'
+- _(helix)_ Replace `hx` with `helix`
 - _(python update libraries)_ New commands to shortcuts to update python libraries
-- _(exports)_ Fixed the helix enviromental runtime variable path
+- _(ruff)_ Removed lint that was not working
+- _(starship)_ Deactivated jobs task as it was broken
+- _(starship)_ Updated broken icons.
 
 ### 📚 Documentation
 
