@@ -2,13 +2,14 @@
 {
   home = {
     packages = with pkgs; [
-      hello
+      btop
       htop
     # fortune
       brave
       nil
       dprint
       trashy
+      helix
     ];
 
     username = "jokyv";
@@ -16,4 +17,5 @@
 
     stateVersion = "24.05";
   };
+  programs.home-manager.enable = true;
 }

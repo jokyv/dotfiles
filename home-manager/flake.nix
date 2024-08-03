@@ -21,6 +21,7 @@
         my_profile = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home.nix ];
+          # modules = [ ~/.config/home_manager/home.nix ];
         };
       };
     };
