@@ -4,12 +4,13 @@
     packages = with pkgs; [
       btop
       htop
-    # fortune
       brave
       nil
       dprint
       trashy
       helix
+      marksman
+      vscode-langservers-extracted
     ];
 
     username = "jokyv";
@@ -18,4 +19,5 @@
     stateVersion = "24.05";
   };
   programs.home-manager.enable = true;
+  programs.helix.enable = true;
 }
