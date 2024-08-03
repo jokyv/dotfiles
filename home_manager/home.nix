@@ -3,6 +3,12 @@
   home = {
     packages = with pkgs; [
       hello
+      htop
+    # fortune
+      brave
+      nil
+      dprint
+      trashy
     ];
 
     username = "jokyv";
