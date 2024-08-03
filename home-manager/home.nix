@@ -6,11 +6,11 @@
       htop
       brave
       nil
+      marksman
+      vscode-langservers-extracted
       dprint
       trashy
       helix
-      marksman
-      vscode-langservers-extracted
     ];
 
     username = "jokyv";
@@ -19,5 +19,6 @@
     stateVersion = "24.05";
   };
   programs.home-manager.enable = true;
-  programs.helix.enable = true;
+  # programs.helix.enable = true;
+  # programs.helix.settings.theme = "autumn_night_transparent";
 }
