@@ -9,6 +9,10 @@ use-grammars = { only = [
   "markdown",
 ] }
 
+[[language]]
+name = "nix"
+formatter = { command = "nixpkgs-fmt" }
+
 [language-server.ruff]
 command = "ruff"
 args = ["server", "--preview"]
