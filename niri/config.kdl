@@ -71,7 +71,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 5
+        width 6
 
         // Color of the ring on the active monitor.
         // active-color "#7fc8ff" // bluish
@@ -134,7 +134,6 @@ animations {
     slowdown 2.0
 
     // Individual animations.
-
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
@@ -167,33 +166,12 @@ animations {
 
 }
 
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
-
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
 window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+    clip-to-geometry true
     geometry-corner-radius 8
 
 }
-
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-// window-rule {
-    // match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    // match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    // block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
-// }
 
 binds {
     // Most actions that you can bind here can also be invoked programmatically with
