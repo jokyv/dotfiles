@@ -1,233 +1,266 @@
 [
- {
-// Install otf-font-awesome ttf-font-logos(AUR)
+  {
+    // Install otf-font-awesome ttf-font-logos(AUR)
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 35, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 1, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left":   ["custom/niri_workspaces", "wlr/taskbar"],
-    "modules-center": ["clock"],
-    "modules-right":  ["custom/weather","custom/clipboard","custom/loadavg", "memory", "temperature", "backlight", "bluetooth", "pulseaudio","network", "custom/logout"],
+    "modules-left": [
+      "custom/niri_workspaces",
+      "wlr/taskbar"
+    ],
+    "modules-center": [
+      "clock"
+    ],
+    "modules-right": [
+      "custom/weather",
+      "custom/clipboard",
+      "custom/loadavg",
+      "memory",
+      "temperature",
+      "backlight",
+      "bluetooth",
+      "pulseaudio",
+      "network",
+      "custom/logout"
+    ],
     // "modules-right": ["custom/updates", "custom/unmount", "tray", "custom/clipboard","pulseaudio"],
-
     // Modules configuration
-// Install jq mpv mpv-mpris wl-clipboard fuzzel
+    // Install jq mpv mpv-mpris wl-clipboard fuzzel
     "custom/niri_workspaces": {
-        "format": "{}",
-        "interval": 2,
-        "return-type": "json",
-        "exec": "$HOME/.config/waybar/modules/workspaces.sh \"$WAYBAR_OUTPUT_NAME\"",
-        "on-click": "fuzzel",
-        // "on-click-right": "",
-        "on-scroll-up": "$HOME/.config/waybar/modules/workspaces.sh up",
-        "on-scroll-down": "$HOME/.config/waybar/modules/workspaces.sh down",
-        "signal": 8
+      "format": "{}",
+      "interval": 2,
+      "return-type": "json",
+      "exec": "$HOME/.config/waybar/modules/workspaces.sh \"$WAYBAR_OUTPUT_NAME\"",
+      "on-click": "fuzzel",
+      // "on-click-right": "",
+      "on-scroll-up": "$HOME/.config/waybar/modules/workspaces.sh up",
+      "on-scroll-down": "$HOME/.config/waybar/modules/workspaces.sh down",
+      "signal": 8
     },
     "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 24,
-        //"tooltip-format": "{title} | {app_id}",
-        "on-click": "activate",
-        "on-click-middle": "close"
+      "format": "{icon}",
+      "icon-size": 24,
+      //"tooltip-format": "{title} | {app_id}",
+      "on-click": "activate",
+      "on-click-middle": "close"
     },
-// Install curl jq gnome-weather
+    // Install curl jq gnome-weather
     "custom/weather": {
-        "format": "{}",
-        // "format-alt": "{alt}: {}",
-        // "format-alt-click": "click-right",
-        "interval": 1800,
-        "min-length": 40,
-        "align": 0.8,
-        "return-type": "json",
-        "exec": "$HOME/.config/waybar/modules/weather.sh",
-        "exec-if": "sleep 20 && ping -4 ifconfig.co -c1",
-        "on-click": "gnome-weather",
-        "on-click-middle": "$HOME/.config/waybar/modules/weather.sh reload && pkill -SIGRTMIN+12 waybar",
-        "signal": 12
+      "format": "{}",
+      // "format-alt": "{alt}: {}",
+      // "format-alt-click": "click-right",
+      "interval": 1800,
+      "min-length": 40,
+      "align": 0.8,
+      "return-type": "json",
+      "exec": "$HOME/.config/waybar/modules/weather.sh",
+      "exec-if": "sleep 20 && ping -4 ifconfig.co -c1",
+      "on-click": "gnome-weather",
+      "on-click-middle": "$HOME/.config/waybar/modules/weather.sh reload && pkill -SIGRTMIN+12 waybar",
+      "signal": 12
     },
     "clock": {
-        "format": "{:%a %d %b %H:%M}",
-        "format-alt": "Week {:%V of the %Y}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode"          : "month",
-            "mode-mon-col"  : 2,
-            "weeks-pos"     : "left",
-            "on-scroll"     : 1,
-            "on-click-right": "mode",
-            "format": {
-                "months":     "<span color='#ffead3'><b>{}</b></span>",
-                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-            }
-        },
-        "actions":  {
-            "on-click-right": "mode",
-            "on-click-forward": "tz_up",
-            "on-click-backward": "tz_down",
-            "on-click-middle": "shift_reset",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
+      "format": "{:%a %d %b %H:%M}",
+      "format-alt": "Week {:%V of the %Y}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+        "mode": "month",
+        "mode-mon-col": 2,
+        "weeks-pos": "left",
+        "on-scroll": 1,
+        "on-click-right": "mode",
+        "format": {
+          "months": "<span color='#ffead3'><b>{}</b></span>",
+          "days": "<span color='#ecc6d9'><b>{}</b></span>",
+          "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+          "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+          "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
         }
+      },
+      "actions": {
+        "on-click-right": "mode",
+        "on-click-forward": "tz_up",
+        "on-click-backward": "tz_down",
+        "on-click-middle": "shift_reset",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+      }
     },
     "custom/loadavg": {
-        "format": "{}  ",
-        "interval": 10,
-        "return-type": "json",
-        "exec": "$HOME/.config/waybar/modules/loadavg.sh",
-        "on-click": "kgx -e htop"
+      "format": "{}  ",
+      "interval": 10,
+      "return-type": "json",
+      "exec": "$HOME/.config/waybar/modules/loadavg.sh",
+      "on-click": "kgx -e htop"
     },
     // "cpu": {
     //     "format": "{usage}% ",
     //     "tooltip": false
     // },
     "memory": {
-        "format": "{used} Gb ",
-        "format-alt": "",
-        "tooltip-format": "{percentage}%"
+      "format": "{used} Gb ",
+      "format-alt": "",
+      "tooltip-format": "{percentage}%"
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        "format-critical": "  {temperatureC}°C {icon}",
-        "format": "{icon}",
-        "format-alt": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""],
-        "tooltip": false
+      // "thermal-zone": 2,
+      // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      "critical-threshold": 80,
+      "format-critical": "  {temperatureC}°C {icon}",
+      "format": "{icon}",
+      "format-alt": "{temperatureC}°C {icon}",
+      "format-icons": [
+        "",
+        "",
+        ""
+      ],
+      "tooltip": false
     },
     "backlight": {
-        "device": "acpi_video1",
-        "tooltip-format": "Backlight: {percent}%",
-        "format": "{icon}",
-        "format-alt": "{percent}% {icon}",
-        "on-scroll-up": "brightnessctl -c backlight set +1",
-        "on-scroll-down": "brightnessctl -c backlight set 1-",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+      "device": "acpi_video1",
+      "tooltip-format": "Backlight: {percent}%",
+      "format": "{icon}",
+      "format-alt": "{percent}% {icon}",
+      "on-scroll-up": "brightnessctl -c backlight set +1",
+      "on-scroll-down": "brightnessctl -c backlight set 1-",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
     },
-// Install blueman pulseaudio-bluetooth
-// and https://wiki.archlinux.org/title/Bluetooth#Enabling_experimental_features
+    // Install blueman pulseaudio-bluetooth
+    // and https://wiki.archlinux.org/title/Bluetooth#Enabling_experimental_features
     "bluetooth": {
-        "format": "  ",
-        "format-alt": "  ",
-        "format-connected": " {device_alias}  ",
-        "format-connected-battery": " {device_alias} {device_battery_percentage}%  ",
-        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click-right": "blueman-manager"
+      "format": "  ",
+      "format-alt": "  ",
+      "format-connected": " {device_alias}  ",
+      "format-connected-battery": " {device_alias} {device_battery_percentage}%  ",
+      // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+      "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+      "on-click-right": "blueman-manager"
     },
-// Install iwd fuzzel
+    // Install iwd fuzzel
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "",
-        "format-ethernet": "",
-        "tooltip-format-wifi": "  {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz",
-        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click-right": "$HOME/.config/waybar/modules/wifiselector.sh",
+      // "interface": "wlp2*", // (Optional) To force the use of this interface
+      "format-wifi": "",
+      "format-ethernet": "",
+      "tooltip-format-wifi": "  {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz",
+      "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": "Disconnected ⚠",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}",
+      "on-click-right": "$HOME/.config/waybar/modules/wifiselector.sh",
     },
-// Install wireguard-tools openresolv
-// Put your client wireguard config to '/etc/wireguard/wg0.conf'
+    // Install wireguard-tools openresolv
+    // Put your client wireguard config to '/etc/wireguard/wg0.conf'
     "custom/vpn": {
-        "format": "",
-        "exec": "echo '{\"class\": \"connected\", \"tooltip\": \"VPN is ON\"}'",
-        "exec-if": "test -d /proc/sys/net/ipv4/conf/wg0",
-        "return-type": "json",
-        "on-click": "kgx -e '$HOME/.config/waybar/modules/vpn.sh wg0 && pkill -SIGRTMIN+4 waybar'",
-        "signal": 4
+      "format": "",
+      "exec": "echo '{\"class\": \"connected\", \"tooltip\": \"VPN is ON\"}'",
+      "exec-if": "test -d /proc/sys/net/ipv4/conf/wg0",
+      "return-type": "json",
+      "on-click": "kgx -e '$HOME/.config/waybar/modules/vpn.sh wg0 && pkill -SIGRTMIN+4 waybar'",
+      "signal": 4
     },
     "custom/logout": {
-        "format": "⏻",
-        "tooltip": false,
-        "on-click": "niri msg action quit"
+      "format": "⏻",
+      "tooltip": false,
+      "on-click": "niri msg action quit"
     },
     "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 85,
-        // "format-icons": {
-        // "firefox": "",
-        // "default": "" // ""
-        // },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/modules/mediaplayer.py 2> /dev/null",
-        "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl next",
-        "on-click-middle": "playerctl previous"
-        // "exec": "$HOME/.config/waybar/modules/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+      "format": "{icon} {}",
+      "return-type": "json",
+      "max-length": 85,
+      // "format-icons": {
+      // "firefox": "",
+      // "default": "" // ""
+      // },
+      "escape": true,
+      "exec": "$HOME/.config/waybar/modules/mediaplayer.py 2> /dev/null",
+      "on-click": "playerctl play-pause",
+      "on-click-right": "playerctl next",
+      "on-click-middle": "playerctl previous"
+      // "exec": "$HOME/.config/waybar/modules/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
-// Install pikaur(AUR)
+    // Install pikaur(AUR)
     "custom/updates": {
-        "format": "{}  ",
-        "interval": "once",
-        "return-type": "json",
-        "exec": "$HOME/.config/waybar/modules/updates.sh",
-        "on-click": "kgx -e '$HOME/.config/waybar/modules/updates.sh getnews && pkill -SIGRTMIN+9 waybar'",
-        "signal": 9
+      "format": "{}  ",
+      "interval": "once",
+      "return-type": "json",
+      "exec": "$HOME/.config/waybar/modules/updates.sh",
+      "on-click": "kgx -e '$HOME/.config/waybar/modules/updates.sh getnews && pkill -SIGRTMIN+9 waybar'",
+      "signal": 9
     },
-// Install python-pydbus ydotool gsconnect(AUR)
-// then 'sudo usermod -aG input $USER' AND REBOOT
-    "custom/gsconnect" : {
-        "format": "{}",
-        // "min-length": 30,
-        // "align": 0.2,
-        "format-alt": "{alt}",
-        "tooltip": false,
-        "interval": 10,
-        "return-type": "json",
-        "escape": true,
-        "exec": "$HOME/.config/waybar/modules/gsconnect-status.py",
-        "on-click-right": "/usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/gsconnect-preferences",
+    // Install python-pydbus ydotool gsconnect(AUR)
+    // then 'sudo usermod -aG input $USER' AND REBOOT
+    "custom/gsconnect": {
+      "format": "{}",
+      // "min-length": 30,
+      // "align": 0.2,
+      "format-alt": "{alt}",
+      "tooltip": false,
+      "interval": 10,
+      "return-type": "json",
+      "escape": true,
+      "exec": "$HOME/.config/waybar/modules/gsconnect-status.py",
+      "on-click-right": "/usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/gsconnect-preferences",
     },
-// Install fuzzel
+    // Install fuzzel
     "custom/unmount": {
-        "format": "{}  ",
-        "interval": 10,
-        "return-type": "json",
-        "exec": "$HOME/.config/waybar/modules/unmount.sh",
-        "on-click": "$HOME/.config/waybar/modules/unmount.sh unmount",
-        "signal": 10
+      "format": "{}  ",
+      "interval": 10,
+      "return-type": "json",
+      "exec": "$HOME/.config/waybar/modules/unmount.sh",
+      "on-click": "$HOME/.config/waybar/modules/unmount.sh unmount",
+      "signal": 10
     },
     "tray": {
-        "spacing": 3
+      "spacing": 3
     },
-// Install cliphist wl-clipboard libnotify fuzzel
+    // Install cliphist wl-clipboard libnotify fuzzel
     "custom/clipboard": {
-        "format": "{}  ",
-        "tooltip": false,
-        "on-click": "$HOME/.config/waybar/modules/clipboard.sh",
-        "on-click-middle": "$HOME/.config/waybar/modules/clipboard.sh wipe"
+      "format": "{}  ",
+      "tooltip": false,
+      "on-click": "$HOME/.config/waybar/modules/clipboard.sh",
+      "on-click-middle": "$HOME/.config/waybar/modules/clipboard.sh wipe"
     },
-// Install pavucontrol pipewire-media-session pulseaudio pulseaudio-alsa
+    // Install pavucontrol pipewire-media-session pulseaudio pulseaudio-alsa
     "pulseaudio": {
-        "scroll-step": 5, // %, can be a float
-        "tooltip-format": "{volume}%",
-        "format": "{icon}", //"{format_source}",
-        "format-bluetooth": "{icon}{format_source}",
-        "format-bluetooth-muted": " {icon}{format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}%",
-        "format-source-muted": "",// "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol",
-        "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+      "scroll-step": 5, // %, can be a float
+      "tooltip-format": "{volume}%",
+      "format": "{icon}", //"{format_source}",
+      "format-bluetooth": "{icon}{format_source}",
+      "format-bluetooth-muted": " {icon}{format_source}",
+      "format-muted": " {format_source}",
+      "format-source": "{volume}%",
+      "format-source-muted": "", // "",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": [
+          "",
+          "",
+          ""
+        ]
+      },
+      "on-click": "pavucontrol",
+      "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     }
-}
+  }
 ]
