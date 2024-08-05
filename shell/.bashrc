@@ -41,7 +41,7 @@ add_to_path /usr/local/bin
 # source all my scripts
 # -----------------------------------------------
 source_if_exists $HOME/dot/bin/fzf_scripts.sh
-# source_if_exists $HOME/dot/bin/linux_scripts.sh
+source_if_exists $HOME/dot/bin/linux_scripts.sh
 # source_if_exists $HOME/dot/bin/git_scripts.sh
 
 # source all my aliases and exports
