@@ -58,8 +58,8 @@ def auto_commit(paths: list[str]) -> None:
             dm("FAILURE", f"Path: {path} does not exist.")
             continue
 
-        dm("INFO", "Pulling all the latest commits")
-        subprocess.run(["git", "pull"], cwd=path)
+        # dm("INFO", "Pulling all the latest commits")
+        # subprocess.run(["git", "pull"], cwd=path)
         dm("CHECKING", f"Any changes for repo: {path}")
 
         # Run git status to check for changes

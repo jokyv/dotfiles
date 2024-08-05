@@ -8,7 +8,7 @@ import os
 import subprocess
 import sys
 
-from git_auto_commit import auto_commit
+from git_util import auto_commit
 from messaging import display_message as dm
 from python_pip_update import pip_update_selected_libraries
 from rich.console import Console
@@ -72,13 +72,14 @@ def update_wallpaper():
     console.rule("----- UPDATE WALLPAPER ------")
     if ask("Do you want to update wallpaper repo?"):
         dm("INFO", "change wallpaper at least once per week")
-        wallpapers_dir = f"{HOME_DIR}/pics/wallpapers/*"
-        wallpapers = subprocess.run(
-            ["shuf", "-n", "1", "-e", wallpapers_dir],
-            capture_output=True,
-            text=True,
-        ).stdout.strip()
-        subprocess.run(["feh", "--bg-fill", wallpapers])
+        pass
+        # wallpapers_dir = f"{HOME_DIR}/pics/wallpapers/*"
+        # wallpapers = subprocess.run(
+        #     ["shuf", "-n", "1", "-e", wallpapers_dir],
+        #     capture_output=True,
+        #     text=True,
+        # ).stdout.strip()
+        # subprocess.run(["swaybg", "-i", wallpapers])
 
 
 def clean_os():
