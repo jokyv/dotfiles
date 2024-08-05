@@ -8,14 +8,14 @@ theme = "everforest_dark"
 auto-save = true
 bufferline = "multiple"
 color-modes = true
-# completion-replace = true
 cursorline = true
 idle-timeout = 25
 mouse = false
+popup-border = "all"
 rulers = [120]
 scrolloff = 10
 true-color = true
-popup-border = "all"
+# completion-replace = true
 
 [editor.statusline]
 left = ["mode", "spinner", "diagnostics"]
@@ -89,6 +89,8 @@ G = "goto_file_end"
 "}" = "goto_next_paragraph"
 C-o = ":config-open"
 C-r = [":w", ":config-reload"]
+C-v = "paste_clipboard_before" # paste from clipboard
+C-c = "yank_to_clipboard" # copy to clipboard
 
 # EXPERIMENT_1:
 # I like for moving selected text up/down
