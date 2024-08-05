@@ -2,11 +2,9 @@
 {
   home = {
     packages = with pkgs; [
-      btop
-      htop
       brave
       nil
-      marksman
+      nixpkgs-fmt
       vscode-langservers-extracted
       dprint
       trashy
