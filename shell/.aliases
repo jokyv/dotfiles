@@ -175,6 +175,13 @@ alias gclean='git_util.py --clean_up'
 alias gd='git diff -w'
 
 # -----------------------------------------------------
+# NIX SHORTCUTS
+# -----------------------------------------------------
+
+alias hms='home-manager switch'
+alias hmsf="home-manager switch --flake ~/.config/home-manager/#my_profile"
+
+# -----------------------------------------------------
 # PRINT FILE SOURCED CONFIRMATION
 # -----------------------------------------------------
 
