@@ -2,6 +2,10 @@
   {
     // Install otf-font-awesome ttf-font-logos(AUR)
     "layer": "top", // Waybar at top layer
+    "output": [
+      "DP-1",
+      "HDMI-A-1"
+    ],
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 35, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
