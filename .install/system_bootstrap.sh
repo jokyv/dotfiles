@@ -5,9 +5,9 @@
 # -----------------------------------------------
 
 set -o nounset   # error when referencing undefined variable
-set -o errexit   # exit when command fails
-set -o pipefail  # exit if any command in a pipeline fails
-set -x           # print each command before executing it (helpful for debugging)
+# set -o errexit   # exit when command fails
+# set -o pipefail  # exit if any command in a pipeline fails
+# set -x           # print each command before executing it (helpful for debugging)
 
 # This trap will catch any errors that occur,
 # print the line number where the error occurred before exiting.
@@ -26,14 +26,14 @@ install_packages() {
         cliphist cmake cronie cups discord htop obsidian pavucontrol slurp dialog 
         dnsmasq dnsutils dosfstools edk2-ovmf efibootmgr eza wget wireless_tools fd 
         firefox firewalld fuzzel fzf git-cliff git-delta github-cli grim grub gvfs 
-        gvfs-smb hplip inetutils ipset kitty linux-headers ly mako marksman mtools 
+        gvfs-smb hplip inetutils ipset kitty ly mako marksman mtools 
         nautilus network-manager-applet networkmanager nfs-utils niri nix nss-mdns 
         ntfs-3g openbsd-netcat openssh os-prober pulseaudio pulseaudio-alsa python 
         otf-font-awesome otf-firamono-nerd ttf-firacode-nerd ttf-hack-nerd 
-        python-pip python-rich qemu qemu-arch-extra reflector ripgrep skim sof-firmware 
+        python-pip python-rich reflector ripgrep skim sof-firmware 
         starship swappy swaybg swaylock taplo-cli tlp tokei typos uv vde2 virt-manager 
         ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common
-        vscode-json-languageserver waybar wl-clipboard wlogout wpa_supplicant xdg-user-dirs 
+        vscode-json-languageserver waybar wl-clipboard wpa_supplicant xdg-user-dirs 
         xdg-utils yaml-language-server yazi zathura awesome-terminal-fonts    
     )
 
@@ -55,9 +55,9 @@ enable_systems() {
         "tlp"
         "reflector.timer"
         "fstrim.timer"
-        "libvirtd"
+        # "libvirtd" # do i need this?
         "firewalld"
-        "acpid"
+        # "acpid"
         "systemd-timesyncd.service"
     )
 
@@ -85,6 +85,33 @@ enable_systems() {
     fi
 }
 
+add_user() {
+    echo "Do you want to add a new user? (y/n)"
+    read -r add_user_response
+    if [[ "$add_user_response" =~ ^[Yy]$ ]]; then
+        echo "Adding a new user..."
+        read -p "Enter the username for the new user: " username
+        useradd -m -G wheel -s /bin/bash "$username"
+        passwd "$username"
+        echo "$username ALL=(ALL) ALL" | sudo tee "/etc/sudoers.d/$username"
+        echo "User $username has been added."
+    else
+        echo "Skipping user addition."
+    fi
+}
+
+ask_reboot() {
+    echo "It's recommended to reboot your system to ensure all changes take effect."
+    echo "Would you like to reboot now? (y/n)"
+    read -r ask_reboot_response
+    if [[ "$ask_reboot_response" =~ ^[Yy]$ ]]; then
+        echo "Rebooting system..."
+        reboot
+    else
+        echo "Please remember to reboot your system later for all changes to take effect."
+    fi
+}
+
 # -----------------------------------------------
 # Main execution
 # -----------------------------------------------
@@ -94,19 +121,11 @@ main() {
 
     install_packages
     enable_systems
+    add_user
 
     echo "Post-installation setup complete."
 
-    # Ask for reboot
-    echo "It's recommended to reboot your system to ensure all changes take effect."
-    echo "Would you like to reboot now? (y/n)"
-    read -r reboot_response
-    if [[ "$reboot_response" =~ ^[Yy]$ ]]; then
-        echo "Rebooting system..."
-        reboot
-    else
-        echo "Please remember to reboot your system later for all changes to take effect."
-    fi
+    ask_reboot
 }
 
 # Run the main function

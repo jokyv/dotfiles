@@ -11,6 +11,7 @@ use-grammars = { only = [
 
 [[language]]
 name = "nix"
+auto-format = true
 formatter = { command = "nixpkgs-fmt" }
 
 [language-server.ruff]
@@ -78,10 +79,7 @@ file-types = [
   ".exports",
   ".profile",
 ]
-# language-servers = ["bash-server"]
-
-# [language-server.bash-server]
-# command = "bash-language-server"
+formatter = { command = "shfmt", args = ["-l", "-w"] }
 
 [[language]]
 name = "json"

@@ -12,6 +12,7 @@
     dprint
     trashy
     helix
+    wlogout
   ];
 
   home.stateVersion = "24.05";
