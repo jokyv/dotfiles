@@ -120,3 +120,4 @@ r = [":w", ":config-reload"]
 o = ":config-open"
 w = ":wq"
 q = ":q"
+b = ":bc"
