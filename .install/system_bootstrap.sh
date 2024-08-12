@@ -35,6 +35,10 @@ install_packages() {
         ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common
         vscode-json-languageserver wpa_supplicant xdg-user-dirs 
         xdg-utils yaml-language-server yazi zathura awesome-terminal-fonts    
+
+        # maybe section
+        # pipewire
+        # wire-plumber
     )
     sudo pacman -S --needed "${pacman[@]}"
 
