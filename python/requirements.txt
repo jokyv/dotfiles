@@ -8,6 +8,7 @@ mysql.connector
 numpy
 openpyxl
 pandas
+panel
 plotly
 polars
 pyarrow
