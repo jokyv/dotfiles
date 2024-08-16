@@ -19,7 +19,7 @@ trap 'echo "Error on line $LINENO"; exit 1' ERR
 
 create_swap_partition() {
     local disk="/dev/nvme0n1"  # Default disk, change if needed
-    local size="16G"        # Default size, change if needed
+    local size="16G"           # Default size, change if needed
 
     # Check for root privileges
     if [ "$EUID" -ne 0 ]; then
@@ -85,7 +85,8 @@ install_packages() {
     sudo pacman -S --needed "${niri_packages[@]}"
 
     # for waybar
-    waybar_packages=(blueman curl fuzzel gnome-weather gsconnect iwd jq mpv 
+    waybar_packages=(
+        blueman curl fuzzel gnome-weather gsconnect iwd jq mpv 
         mpv-mpris openresolv pavucontrol pikaur pipewire-media-session 
         pulseaudio-bluetooth python-pydbus ttf-font-logos wireguard-tools ydotool
     )
@@ -213,7 +214,7 @@ setup_github() {
     # Create pics directory if it doesn't exist
     if [ ! -d "$pics_dir" ]; then
         mkdir -p "$pics_dir"
-        echo "Created repos directory at $pics_dir"
+        echo "Created pics directory at $pics_dir"
     fi
 
     # Clone wallpapers repository
