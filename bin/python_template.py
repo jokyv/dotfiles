@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+# NOTES
+"""
+- always remember to have absolute paths 
+"""
+
 # -----------------------------------------------
 # LIBRARIES
 # -----------------------------------------------
