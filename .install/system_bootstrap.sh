@@ -179,6 +179,7 @@ setup_github() {
     local github_username
     local dotfiles_repo
     local repos_dir="$HOME/repos"
+    local pics_dir="$HOME/pics"
 
     # Ask for GitHub username
     read -p "Enter your GitHub username: " github_username
@@ -203,14 +204,28 @@ setup_github() {
 
     # Clone dotfiles repository
     read -p "Enter the name of your dotfiles repository: " dotfiles_repo
-    git clone "git@github.com:${github_username}/${dotfiles_repo}.git" "$HOME/${dotfiles_repo}"
+    git clone "git@github.com:${github_username}/${dotfiles_repo}.git" "$HOME/dot"
+
+    # Clone dotfiles wiki repository
+    read -p "Enter the name of your dotfiles wiki repository: " dotfiles_wiki_repo
+    git clone "git@github.com:${github_username}/${dotfiles_wiki_repo}.git" "$HOME/${dotfiles_wiki_repo}"
+
+    # Create pics directory if it doesn't exist
+    if [ ! -d "$pics_dir" ]; then
+        mkdir -p "$pics_dir"
+        echo "Created repos directory at $pics_dir"
+    fi
+
+    # Clone wallpapers repository
+    read -p "Enter the name of your wallpapers repository: " wallpapers_repo
+    git clone "git@github.com:${github_username}/${wallpapers_repo}.git" "$HOME/${wallpapers_repo}"
 
     # Create repos directory if it doesn't exist
     if [ ! -d "$repos_dir" ]; then
         mkdir -p "$repos_dir"
         echo "Created repos directory at $repos_dir"
     fi
-
+    
     # Ask for additional repositories to clone
     while true; do
         read -p "Enter the name of another repository to clone (or press Enter to finish): " repo_name
@@ -283,8 +298,9 @@ add_symlinks() {
     create_symlink "$source_dir/ripgrep/.ripgreprc" "$dest_dir/.ripgreprc"    
     create_symlink "$source_dir/python/mypy" "$dest_dir/mypy"    
     create_symlink "$source_dir/python/ruff" "$dest_dir/ruff"    
-    create_symlink "$source_dir/shell/.bashrc" "~/.bashrc"    
-    create_symlink "$source_dir/shell/.bash_profile" "~/.bash_profile"    
+    create_symlink "$source_dir/typos/typos.toml" "$dest_dir/typos/typos.toml"    
+    create_symlink "$source_dir/shell/.bashrc" "$HOME/.bashrc"    
+    create_symlink "$source_dir/shell/.bash_profile" "$HOME/.bash_profile"    
 
     echo ""
     echo ":: Symlinking complete!"
@@ -370,7 +386,7 @@ main() {
     create_swap_partition
     install_packages
     enable_system_services
-    # add_user # this is done using archinstall script at the beginning
+    add_user # this is done using archinstall script at the beginning
     enable_niri_services
     setup_github
     add_symlinks
