@@ -176,11 +176,12 @@ binds {
 
     Mod+Shift+T { spawn "sh" "-c" "kitty msg create-window || kitty"; }
     Mod+T { spawn "kitty"; }
-    Mod+B { spawn "brave";}
+    Mod+B { spawn "brave"; }
+    Mod+Shift+B { spawn "firefox"; }
     Mod+D { spawn "fuzzel"; }
     Mod+E { spawn "nautilus"; }    
     Mod+Q { close-window; }
-    Super+Alt+L { spawn "swaylock"; }
+    Super+Ctrl+L { spawn "swaylock" "-i" "~/pics/wallpapers/20920.jpg"; }
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { reset-window-height; }
