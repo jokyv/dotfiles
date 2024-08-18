@@ -56,39 +56,51 @@ create_swap_partition() {
 install_packages() {
     echo "Installing packages..."
     pacman=(
-        amd-ucode alsa-utils alsa-firmware atuin avahi base base-devel bash-completion 
-        bash-language-server bat bluez bluez-utils bridge-utils chrono-date 
-        cmake cronie cups discord htop obsidian slurp dialog 
-        dnsmasq dnsutils dosfstools edk2-ovmf efibootmgr eza wget wireless_tools fd firefox
-        firewalld fzf git-cliff git-delta github-cli grim grub gvfs 
-        gvfs-smb hplip inetutils ipset kitty ly marksman mtools 
-        nautilus network-manager-applet networkmanager nfs-utils niri nix nss-mdns 
-        ntfs-3g openbsd-netcat openssh os-prober pulseaudio pulseaudio-alsa python 
-        otf-font-awesome otf-firamono-nerd ttf-firacode-nerd ttf-hack-nerd 
-        python-pip python-rich reflector ripgrep skim sof-firmware 
-        starship swappy swaylock taplo-cli tlp tokei typos uv vde2 virt-manager 
-        ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common
-        vscode-json-languageserver wpa_supplicant xdg-user-dirs 
+        alsa-utils alsa-firmware atuin bash-completion bash-language-server 
+        bat bluez bluez-utils bridge-utils chrono-date cmake cronie cups 
+        discord htop obsidian slurp dialog dnsmasq dnsutils dosfstools 
+        edk2-ovmf efibootmgr eza wget wireless_tools fd firefox firewalld 
+        fzf git-cliff git-delta github-cli grim gvfs gvfs-smb hplip inetutils 
+        ipset kitty ly marksman mtools nautilus network-manager-applet nfs-utils 
+        niri nix nss-mdns ntfs-3g openbsd-netcat openssh os-prober pulseaudio 
+        pulseaudio-alsa otf-font-awesome otf-firamono-nerd ttf-firacode-nerd 
+        ttf-hack-nerd python-pip python-rich reflector ripgrep skim sof-firmware 
+        starship swappy taplo-cli tlp tokei typos uv vde2 virt-manager ttf-nerd-fonts-symbols 
+        ttf-nerd-fonts-symbols-common vscode-json-languageserver wpa_supplicant xdg-user-dirs 
         xdg-utils xclip yaml-language-server yazi zathura awesome-terminal-fonts    
+        pacman-contrib apparmor jq
 
+        # installed from archinstall script
+        # amd-ucode
+        # avahi
+        # base
+        # base-devel
+        # grub
+        # python
+        
         # maybe section
         # pipewire
+        # networkmanager         
         # wire-plumber
+
     )
     sudo pacman -S --needed "${pacman[@]}"
 
     # for your current WM niri
     niri_packages=(
-        mako waybar swaybg swayidle wl-clipboard cliphist polkit-gnome playerctl wlsunset 
+        mako waybar swaybg swayidle swaylock fuzzel wl-clipboard cliphist polkit-gnome playerctl wlsunset 
         libpulse gnome-console brightnessctl libnotify darkman
     )
     sudo pacman -S --needed "${niri_packages[@]}"
 
     # for waybar
     waybar_packages=(
-        blueman curl fuzzel gnome-weather gsconnect iwd jq mpv 
+        blueman curl gnome-weather gsconnect iwd jq mpv 
         mpv-mpris openresolv pavucontrol pikaur pipewire-media-session 
         pulseaudio-bluetooth python-pydbus ttf-font-logos wireguard-tools ydotool
+
+        # maybe section
+        # jack2
     )
     sudo pacman -S --needed "${waybar_packages[@]}"
 
@@ -116,9 +128,14 @@ enable_system_services() {
         "systemd-timesyncd.service" # for system clock to remain accurate
         "cronie.service" # for scheduling tasks (cron jobs)
 
-        "fwupd.service" # for firmware updates on supported hardward
+        # for firmware updates on supported hardward
+        # you need to install `fwupd` but systemctl could NOT enable it
+        # "fwupd.service" 
+
         "paccache.timer" # for cleaning up old packages from the pacman cache
         "apparmor.service" # for enabling AppArmor for enhanced security
+
+        "ly.service" for the display manager
     )
 
     # enable services
@@ -168,10 +185,10 @@ enable_niri_services() {
     mkdir -p ~/.config/systemd/user/niri.service.wants
     ln -s /usr/lib/systemd/user/mako.service ~/.config/systemd/user/niri.service.wants/
     ln -s /usr/lib/systemd/user/waybar.service ~/.config/systemd/user/niri.service.wants/
-    ln -s ~/dot/dot/systemd/user/swaybg.service ~/.config/systemd/user/swaybg.service
+    ln -s ~/dot/systemd/user/swaybg.service ~/.config/systemd/user/swaybg.service
     systemctl --user daemon-reload
     ln -s ~/.config/systemd/user/swaybg.service ~/.config/systemd/user/niri.service.wants/
-    ln -s ~/dot/dot/systemd/user/swayidle.service ~/.config/systemd/user/swayidle.service
+    ln -s ~/dot/systemd/user/swayidle.service ~/.config/systemd/user/swayidle.service
     systemctl --user daemon-reload
     ln -s ~/.config/systemd/user/swayidle.service ~/.config/systemd/user/niri.service.wants/
 }
