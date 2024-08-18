@@ -62,3 +62,5 @@ eval "$(atuin init bash)"
 # Print if the file is sourced
 # -----------------------------------------------
 echo "-- .bashrc file sourced"
+
+export NIX_PATH=nixpkgs=https://github.com/nixos/nixpkgs/archive/refs/heads/master.tar.gz
