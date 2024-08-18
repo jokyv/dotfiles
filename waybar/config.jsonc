@@ -166,7 +166,7 @@
       "format-linked": "{ifname} (No IP) ",
       "format-disconnected": "Disconnected ⚠",
       "format-alt": "{ifname}: {ipaddr}/{cidr}",
-      "on-click-right": "$HOME/.config/waybar/modules/wifiselector.sh",
+      "on-click-right": "$HOME/.config/waybar/modules/wifiselector.sh"
     },
     // Install wireguard-tools openresolv
     // Put your client wireguard config to '/etc/wireguard/wg0.conf'
@@ -181,7 +181,8 @@
     "custom/logout": {
       "format": "⏻",
       "tooltip": false,
-      "on-click": "niri msg action quit"
+      "on-click": "niri msg action quit",
+      "on-click-right": "wlogout"
     },
     "custom/media": {
       "format": "{icon} {}",
@@ -219,7 +220,7 @@
       "return-type": "json",
       "escape": true,
       "exec": "$HOME/.config/waybar/modules/gsconnect-status.py",
-      "on-click-right": "/usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/gsconnect-preferences",
+      "on-click-right": "/usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/gsconnect-preferences"
     },
     // Install fuzzel
     "custom/unmount": {
