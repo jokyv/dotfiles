@@ -178,7 +178,7 @@ alias gd='git diff -w'
 # -----------------------------------------------------
 
 alias hms='home-manager switch'
-alias hmsf="home-manager switch --flake ~/.config/home-manager/#my_profile"
+alias hmsf="home-manager switch --flake path:.config/home-manager/#my_profile --impure"
 
 # -----------------------------------------------------
 # PRINT FILE SOURCED CONFIRMATION
