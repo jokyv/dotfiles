@@ -39,7 +39,7 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/.ripgreprc"
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
 # add to $PATH my own python libraries
-export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
+export PYTHONPATH="${PYTHONPATH}:$HOME/repos/python_path"
 
 # Prefer US English and use UTF-8.
 # -----------------------------------------------
