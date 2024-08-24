@@ -17,7 +17,7 @@ from rich.console import Console
 # -----------------------------------------------
 
 HOME = os.path.expanduser("~")
-PATHS = [f"{HOME}/projects/notes/", f"{HOME}/pics/wallpapers/"]
+PATHS = [f"{HOME}/repos/notes/", f"{HOME}/pics/wallpapers/"]
 EXCLUDE_DIRS = [
     "-gE",
     ".local/share",
@@ -220,9 +220,9 @@ def pull_all_git_dirs() -> None:
 
 def push_all_git_dirs() -> None:
     """
-    Function git push all dirs that have git dir in projects folder.
+    Function git push all dirs that have git dir in repos folder.
 
-    The Function first will move to projects dir.
+    The Function first will move to repos dir.
     Using fd will find all git folders in the project dir.
     Then it will iterate through them executing a git push
     with an auto generated message.
@@ -230,7 +230,7 @@ def push_all_git_dirs() -> None:
     # init rich.console
     console = Console()
     # Change to the project directory
-    os.chdir(f"{HOME}/projects")
+    os.chdir(f"{HOME}/repos")
 
     # Use fd to find directories with .git
     # but exclude dirs as defined by exclude_dirs variable
@@ -242,7 +242,7 @@ def push_all_git_dirs() -> None:
 
     # Iterate through found git directories
     for git_dir in git_dirs:
-        os.chdir(f"{HOME}/projects/{git_dir}")
+        os.chdir(f"{HOME}/repos/{git_dir}")
 
         # Move up one directory level
         os.chdir("..")

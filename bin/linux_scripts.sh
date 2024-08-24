@@ -149,7 +149,7 @@ weekly_updates() {
       case $yn in
         [Yy]* ) 
           git_auto_commit "$HOME/pics/wallpapers/" &&
-          git_auto_commit "$HOME/projects/notes/";;
+          git_auto_commit "$HOME/repos/notes/";;
         [Nn]* ) echo "...NO "git commit" right now!";;
         * ) echo "Please answer y or n.";;
       esac
@@ -227,7 +227,7 @@ mkd() {
 # add a note into your to_do_list file
 # ----------------------------------------------------------------------------
 note() {
-  NOTES_PATH=$HOME/projects/notes/to_do_list.md
+  NOTES_PATH=$HOME/repos/notes/to_do_my_list.md
   echo "date: $(date)" >> $NOTES_PATH
   echo "$@" >> $NOTES_PATH
   echo "" >> $NOTES_PATH

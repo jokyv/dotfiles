@@ -4,7 +4,7 @@
 # ----------------------------------------------------------------------------
 git_auto_commit() {
 
-  PATHS=("$HOME/projects/notes/")
+  PATHS=("$HOME/repos/notes/")
 
   for path in ${PATHS[@]}
   do 
