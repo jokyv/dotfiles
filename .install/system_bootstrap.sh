@@ -14,6 +14,12 @@ set -o nounset   # error when referencing undefined variable
 trap 'echo "Error on line $LINENO"; exit 1' ERR
 
 # -----------------------------------------------
+# Source files
+# -----------------------------------------------
+
+source $HOME/dot/bin/bash_util.sh
+
+# -----------------------------------------------
 # Function definitions
 # -----------------------------------------------
 
@@ -21,9 +27,10 @@ create_swap_partition() {
     local disk="/dev/nvme0n1"  # Default disk, change if needed
     local size="16G"           # Default size, change if needed
 
-    # Check for root privileges
+    # Check for root privileges otherwise exit
     if [ "$EUID" -ne 0 ]; then
-        echo "Please run as root or with sudo"
+        echo "Please run as root or with sudo..."
+        echo "moving to next step..."
         return 1
     fi
 
@@ -51,6 +58,8 @@ create_swap_partition() {
 
     echo "Swap partition created and enabled on $partition"
     free -h
+
+    pause_for_user
 }
 
 install_packages() {
@@ -58,8 +67,8 @@ install_packages() {
     pacman=(
         alsa-utils alsa-firmware atuin bash-completion bash-language-server 
         bat bluez bluez-utils bridge-utils chrono-date cmake cronie cups 
-        discord htop obsidian slurp dialog dnsmasq dnsutils dosfstools 
-        edk2-ovmf efibootmgr eza wget wireless_tools fd firefox firewalld 
+        discord htop slurp dialog dnsmasq dnsutils dosfstools 
+        edk2-ovmf efibootmgr eza wget wireless_tools fd firefox 
         fzf git-cliff git-delta github-cli grim gvfs gvfs-smb hplip inetutils 
         ipset kitty ly marksman mtools nautilus network-manager-applet nfs-utils 
         niri nix nss-mdns ntfs-3g openbsd-netcat openssh os-prober pulseaudio 
@@ -68,7 +77,7 @@ install_packages() {
         starship swappy taplo-cli tlp tokei typos uv vde2 virt-manager ttf-nerd-fonts-symbols 
         ttf-nerd-fonts-symbols-common vscode-json-languageserver wpa_supplicant xdg-user-dirs 
         xdg-utils xclip yaml-language-server yazi zathura awesome-terminal-fonts    
-        pacman-contrib apparmor jq
+        pacman-contrib apparmor jq acpid
 
         # installed from archinstall script
         # amd-ucode
@@ -85,6 +94,7 @@ install_packages() {
 
     )
     sudo pacman -S --needed "${pacman[@]}"
+    pause_for_user
 
     # for your current WM niri
     niri_packages=(
@@ -92,21 +102,26 @@ install_packages() {
         libpulse gnome-console brightnessctl libnotify darkman
     )
     sudo pacman -S --needed "${niri_packages[@]}"
+    pause_for_user
 
     # for waybar
     waybar_packages=(
-        blueman curl gnome-weather gsconnect iwd jq mpv 
-        mpv-mpris openresolv pavucontrol pikaur pipewire-media-session 
-        pulseaudio-bluetooth python-pydbus ttf-font-logos wireguard-tools ydotool
+        blueman curl gnome-weather iwd jq mpv mpv-mpris 
+        openresolv pavucontrol pipewire-media-session pulseaudio-bluetooth python-pydbus wireguard-tools ydotool
 
-        # maybe section
+        # maybe section - most from aur
         # jack2
+        # gsconnect
+        # pikaur
+        # ttf-font-logos
     )
     sudo pacman -S --needed "${waybar_packages[@]}"
+    pause_for_user
 
     # Uncomment the appropriate line for your GPU
     # sudo pacman -S --needed xf86-video-amdgpu  # AMD GPU
     sudo pacman -S --needed nvidia nvidia-utils nvidia-settings  # NVIDIA GPU
+    pause_for_user
 }
 
 
@@ -114,28 +129,27 @@ enable_system_services() {
     echo ":: Enabling system services..."
     echo ""
     services=(
-        "iwd.service" # a lightweight app for wifi connections
-        # "NetworkManager" # internet connection
         "bluetooth" # bluetooth connection
-        # "cups.service" # for connecting to printer
-        # "avahi-daemon" # for printing services, works in conjuction with cups
-        # "sshd" # for remote access
-        # "tlp" # optimize battery life on Linux systems (laptops)
         "reflector.timer" # automatically updates the mirror list
-        "fstrim.timer" # ensure your SSD receive regular TROM operations that helps longevity and perf
-        # "firewalld" # firewall solution
-        "acpid" # manage power and hardware events
         "systemd-timesyncd.service" # for system clock to remain accurate
         "cronie.service" # for scheduling tasks (cron jobs)
-
-        # for firmware updates on supported hardward
-        # you need to install `fwupd` but systemctl could NOT enable it
-        # "fwupd.service" 
-
-        "paccache.timer" # for cleaning up old packages from the pacman cache
+        "acpid" # manage power and hardware events
         "apparmor.service" # for enabling AppArmor for enhanced security
+        "ly.service" # for the display manager
+        "paccache.timer" # for cleaning up old packages from the pacman cache
 
-        "ly.service" for the display manager
+        # already enabled?
+        "fstrim.timer" # ensure your SSD receive regular TROM operations that helps longevity and perf
+        "iwd.service" # a lightweight app for wifi connections
+        "systemd-timesyncd.service" # for system clock to remain accurate
+        
+        # maybe section
+        # "NetworkManager" # internet connection
+        # "cups.service" # for connecting to printer
+        # "avahi-daemon" # for printing services, works in conjuction with cups
+        # "tlp" # optimize battery life on Linux systems (laptops)
+        # "firewalld" # firewall solution
+        # "sshd" # for remote access
     )
 
     # enable services
@@ -147,6 +161,7 @@ enable_system_services() {
             sudo systemctl enable "$service"
         fi
     done
+    pause_for_user
 
     # Ask for optional services
     echo ""
@@ -161,6 +176,49 @@ enable_system_services() {
             fi
         done
     fi
+}
+
+setup_fwupd() {
+    # Check if function is run as root
+    if [ "$EUID" -ne 0 ]; then
+        echo "This function needs to be run as root"
+        echo "Moving to the next part..."
+        return 1
+    fi
+
+    # Install fwupd if not already installed
+    if ! pacman -Qs fwupd > /dev/null; then
+        echo "Installing fwupd..."
+        pacman -S --noconfirm fwupd || return 1
+    else
+        echo "fwupd is already installed."
+    fi
+
+    # Create symlink to enable service on boot
+    echo "Creating symlink for fwupd service..."
+    ln -sf /usr/lib/systemd/system/fwupd.service /etc/systemd/system/multi-user.target.wants/fwupd.service
+
+    # Reload systemd manager configuration
+    echo "Reloading systemd manager configuration..."
+    systemctl daemon-reload
+
+    # Start the fwupd service
+    echo "Starting fwupd service..."
+    systemctl start fwupd.service
+
+    # Check if service is enabled
+    if systemctl is-enabled fwupd.service > /dev/null 2>&1; then
+        echo "fwupd service is enabled and will start on boot."
+    else
+        echo "Warning: Unable to confirm if fwupd service is enabled."
+    fi
+
+    # Check service status
+    echo "Checking fwupd service status..."
+    systemctl status fwupd.service
+
+    echo "fwupd setup complete."
+    pause_for_user
 }
 
 add_user() {
@@ -191,6 +249,7 @@ enable_niri_services() {
     ln -s ~/dot/systemd/user/swayidle.service ~/.config/systemd/user/swayidle.service
     systemctl --user daemon-reload
     ln -s ~/.config/systemd/user/swayidle.service ~/.config/systemd/user/niri.service.wants/
+    pause_for_user
 }
 
 setup_github() {
@@ -255,6 +314,7 @@ setup_github() {
 
     echo ""
     echo ":: Setup complete!"
+    pause_for_user
 }
 
     
@@ -322,11 +382,13 @@ add_symlinks() {
 
     echo ""
     echo ":: Symlinking complete!"
+    pause_for_user
 }
 
 setup_atuin_bash() {
     echo ":: Downloading .bash-preexec.sh"
     curl https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o ~/.bash-preexec.sh
+    pause_for_user
 }
 
 setup_python_env() {
@@ -377,6 +439,7 @@ setup_python_env() {
         echo ""
         echo ":: Failed to activate the virtual environment"
     fi
+    pause_for_user
 }
 
 ask_reboot() {
@@ -404,6 +467,7 @@ main() {
     create_swap_partition
     install_packages
     enable_system_services
+    setup_fwupd
     add_user # this is done using archinstall script at the beginning
     enable_niri_services
     setup_github
