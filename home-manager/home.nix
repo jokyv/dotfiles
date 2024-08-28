@@ -18,12 +18,39 @@
   home.stateVersion = "24.05";
 
   # install packages AND specify their configs
+  # gtk settings
   # gtk = {
   #   enable = true;
   #   theme.name = "adw-gtk3";
   #   cursorTheme.name = "Bibata-Modern-Ice";
   #   iconTheme.name = "GruvboxPlus";
-  # }
+  # };
+  #
+  # network settings
+  # networking = {
+  #   hostname = "";
+  #   networkmanager.enable = true;
+  #   firewall = {
+  #     enabe = true;
+  #     allowedTCPPorts = [ ];
+  #   };
+  # };
+  #
+  # enviroment variables
+  # enviroment.variables = {
+  #   SECRET_KEY = "";
+  #   PATH = [ "" ];
+  # };
+  #
+  # User management
+  # users.users.jokyc = {
+  #   isNormalUser = true;
+  #   home = "/home/jokyv";
+  #   extraGroups = [ "wheel" "networkmanager"];
+  #   openssh.authorizedkeys.kyes = [
+  #     "ssh-rsa ..."
+  #   ];
+  # };
 
   programs.home-manager.enable = true;
 
