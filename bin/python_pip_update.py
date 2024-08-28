@@ -28,6 +28,7 @@ LIBRARIES_TO_UPDATE = [
     "pyarrow",
     "pydantic",
     "python-lsp-server",
+    "pylsp-mypy",  # plugin for mypy
     "requests",
     "rich",
     "ruff",
