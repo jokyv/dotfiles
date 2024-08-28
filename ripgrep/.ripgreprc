@@ -3,7 +3,10 @@
 --max-columns-preview
 
 # Using glob patterns to include/exclude files or folders
---glob=!git/*
+--glob=!.git/*
+--glob=!*.pdf
+--glob=!*.parquet
+--glob=!*.{jpg,jpeg,png,gif,bmp,tiff}
 
 # Set the colors.
 --colors=line:style:bold
