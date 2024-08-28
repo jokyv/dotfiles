@@ -31,6 +31,15 @@ alias ep='echo $PATH | tr : "\n"'
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
+# Run previous command with sudo
+s() {
+    if [ $# -eq 0 ]; then
+        sudo "$(fc -ln -1)"
+    else
+        sudo "$@"
+    fi
+}
+
 # -----------------------------------------------------
 # LINUX SCRIPTS
 # -----------------------------------------------------
