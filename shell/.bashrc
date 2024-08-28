@@ -31,7 +31,7 @@ function source_if_exists {
 add_to_path $HOME/dot/bin
 add_to_path $HOME/dot/bin/scripts
 # add my own libraries to python path
-add_to_path $HOME/repos/python_path
+# add_to_path $HOME/repos/python_path
 # cargo - rust applications
 add_to_path $HOME/.local/share/cargo/bin
 
