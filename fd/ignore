@@ -1,6 +1,7 @@
 **/.local/share/*
 **/.cache/*
 **/.mypy_cache/*
+**/.git/*
 
 */.hedger/*
 **/Library/**
