@@ -4,6 +4,9 @@ warn_return_any = True
 [mypy-oandapp]
 ignore_missing_imports = True
 
+[mypy-oandapp.info]
+ignore_missing_imports = True
+
 [mypy-seaborn]
 ignore_missing_imports = True
 

@@ -1,26 +1,38 @@
-docstring-code-format = true
+# ruff.toml
+
 line-length = 88
-fix = true
 
+[format]
+# fix = true
+docstring-code-format = true
+docstring-code-line-length = 60
+# ban-relative-imports = "all"
+# strict = true
+
+[lint]
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
 select = [
-  "E",    # pycodestyle
-  "W",    # pycodestyle
-  "F",    # Pyflakes
-  "B",    # flake8-bugbear
-  "C4",   # flake8-comprehensions
-  "D",    # flake8-docstrings
-  "I001", # isort
-  "SIM",  # flake8-simplify
-  "TCH",  # flake8-type-checking
-  "TID",  # flake8-tidy-imports
-  "Q",    # flake8-quotes
-  "UP",   # pyupgrade
-  "PT",   # flake8-pytest-style
-  "RUF",  # Ruff-specific rules
-  "I",
-  "TD",
+  "E",   # pycodestyle
+  "W",   # pycodestyle
+  "F",   # Pyflakes
+  "B",   # flake8-bugbear
+  "C4",  # flake8-comprehensions
+  "D",   # flake8-docstrings
+  "SIM", # flake8-simplify
+  "TCH", # flake8-type-checking
+  "TID", # flake8-tidy-imports
+  "Q",   # flake8-quotes
+  "PT",  # flake8-pytest-style
+  "DTZ", # flake8-datetimez
+  "TD",  # flake8-todos
+  "UP",  # pyupgrade
+  "RUF", # Ruff-specific rules
+  "I",   # isort
+  "TD",  # flake8-todos
+  "N",   # pep8-naming
 ]
-
 ignore = [
   # Line length regulated by black
   # "E501",
@@ -49,7 +61,3 @@ ignore = [
   "D104",
   "D101",
 ]
-
-max-doc-length = 88
-ban-relative-imports = "all"
-strict = true
