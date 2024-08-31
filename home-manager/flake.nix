@@ -16,20 +16,10 @@
     # helix.url = "github:helix-editor/helix"; 
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
-    let
-      system = "x86_64-linux";
-      lib = nixpkgs.lib;
-      pkgs = import nixpkgs { inherit system; };
-    in
-    {
-      homeConfigurations = {
-        my_profile = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home.nix ];
-          # modules = [ ./home.nix ./helix.nix];
-          # extraSpecialArgs = {helix-flake = helix;      };
-        };
-      };
+  outputs = { nixpkgs, home-manager, ... }: {
+    homeConfigurations."jokyv" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [ ./home.nix ];
     };
+  };
 }
