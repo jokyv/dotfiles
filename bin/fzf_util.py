@@ -186,12 +186,35 @@ def fzf_open_file_from_path():
         subprocess.run(["hx", file])
 
 
+# def fzf_find_my_scripts():
+#     """Select a script from my script folder using FZF."""
+#     fd_output = subprocess.Popen(
+#         ["fd", "-tf", ".", os.environ["HOME"] + "/dot/bin/"], stdout=subprocess.PIPE
+#     )
+#     selected_script = subprocess.Popen(
+#         ["fzf", "--preview", "bat --style=numbers --color=always {}"],
+#         stdin=fd_output.stdout,
+#         stdout=subprocess.PIPE,
+#     )
+#     fd_output.stdout.close()
+#     script, _ = selected_script.communicate()
+#     script = script.decode().strip()
+
+#     if script:
+#         subprocess.run(["hx", script])
+
+
 def fzf_find_my_scripts():
-    """Select a script from my script folder using FZF."""
+    """Select a script from multiple script folders using FZF."""
+    home = os.environ["HOME"]
+    search_paths = [
+        os.path.join(home, "dot/bin/")
+        # os.path.join(home, "dot/bin/scripts/"),
+    ]
     fd_output = subprocess.Popen(
-        ["fd", "-tf", ".", os.environ["HOME"] + "/dot/bin/"],
-        stdout=subprocess.PIPE,
+        ["fd", "-tf", "."] + search_paths, stdout=subprocess.PIPE
     )
+
     selected_script = subprocess.Popen(
         ["fzf", "--preview", "bat --style=numbers --color=always {}"],
         stdin=fd_output.stdout,

@@ -31,6 +31,7 @@ EXCLUDE_DIRS = [
     ".cargo/",
 ]
 FILE_SIZE_LIMIT = 50  # in MB
+# init rich console
 console = Console()
 
 

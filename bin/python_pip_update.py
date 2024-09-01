@@ -16,6 +16,7 @@ from messaging import display_message as dm
 # -----------------------------------------------
 
 LIBRARIES_TO_UPDATE = [
+    "altair",
     "fastapi",
     "hvplot",
     "ipython",
@@ -88,9 +89,7 @@ def pip_update_selected_libraries():
 def pip_update_all_libraries():
     # Get the list of all libraries
     all_libraries = subprocess.run(
-        ["uv", "pip", "list"],
-        capture_output=True,
-        text=True,
+        ["uv", "pip", "list"], capture_output=True, text=True
     ).stdout
 
     lines = all_libraries.strip().split("\n")

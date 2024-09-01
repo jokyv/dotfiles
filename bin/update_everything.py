@@ -161,7 +161,7 @@ def check_system():
 def weekly_git_commits():
     console.rule("----- WEEKLY GIT COMMITS ----")
     if ask("Do you want to perform weekly git commits?"):
-        paths = [f"{HOME_DIR}/repos/notes/", f"{HOME_DIR}/pics/wallpapers/"]
+        paths = [f"{HOME_DIR}/projects/notes/", f"{HOME_DIR}/pics/wallpapers/"]
         auto_commit(paths)
 
 
