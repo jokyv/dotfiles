@@ -3,40 +3,66 @@
 line-length = 88
 
 [format]
-# fix = true
+indent-style = "space"
+line-ending = "auto"
 docstring-code-format = true
 docstring-code-line-length = 60
-# ban-relative-imports = "all"
-# strict = true
+skip-magic-trailing-comma = true
 
 [lint]
 # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []
 select = [
-  "E",   # pycodestyle
-  "W",   # pycodestyle
-  "F",   # Pyflakes
   "B",   # flake8-bugbear
   "C4",  # flake8-comprehensions
-  "D",   # flake8-docstrings
+  "D",   # pydocstyle
+  "DTZ", # flake8-datetimez
+  "E",   # pycodestyle
+  "F",   # Pyflakes
+  "I",   # isort
+  "N",   # pep8-naming
+  "PT",  # flake8-pytest-style
+  "Q",   # flake8-quotes
+  "RUF", # Ruff-specific rules
   "SIM", # flake8-simplify
   "TCH", # flake8-type-checking
+  "TD",  # flake8-todos
   "TID", # flake8-tidy-imports
-  "Q",   # flake8-quotes
-  "PT",  # flake8-pytest-style
-  "DTZ", # flake8-datetimez
-  "TD",  # flake8-todos
   "UP",  # pyupgrade
-  "RUF", # Ruff-specific rules
-  "I",   # isort
-  "TD",  # flake8-todos
-  "N",   # pep8-naming
+  "W",   # pycodestyle
 ]
+
 ignore = [
-  # Line length regulated by black
-  # "E501",
-  # pydocstyle: http://www.pydocstyle.org/en/stable/error_codes.html
+
+  # tab-indentation 
+  "W191",
+  # indentation-with-invalid-multiple
+  "E111",
+  # indentation-with-invalid-multiple-comment
+  "E114",
+  # over-indented
+  "E117",
+  # indent-with-spaces
+  "D206",
+  # triple-single-quotes
+  "D300",
+  # bad-quotes-inline-string
+  "Q000",
+  # bad-quotes-multiline-string
+  "Q001",
+  # bad-quotes-docstring
+  "Q002",
+  # avoidable-escaped-quote
+  "Q003",
+  # missing-trailing-comma
+  "COM812",
+  # prohibited-trailing-comma
+  "COM819",
+  # single-line-implicit-string-concatenation
+  "ISC001",
+  # multi-line-implicit-string-concatenation
+  "ISC002",
   # numpy convention with a few additional lints
   "D107",
   "D203",
@@ -59,5 +85,7 @@ ignore = [
   "D103",
   "D102",
   "D104",
-  "D101",
+  # todo errors
+  "TD002",
+  "TD003",
 ]
