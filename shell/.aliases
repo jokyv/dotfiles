@@ -56,7 +56,15 @@ alias ue=update_everything.py
 # -----------------------------------------------------
 
 # find a directory with fzf and go there, works only with bash
-alias z=fzf_go_to_path
+z() {
+    local dir
+    dir=$(fzf_go_to_path.sh)
+    if [ -n "$dir" ]; then
+        cd "$dir" && eza --color=always --icons=always --long --all --group-directories-first --git
+    else
+        echo "No directory selected."
+    fi
+}
 # find a file with fzf and open it with nvim
 alias vv='fzf_util.py --open_file'
 # find empty files
@@ -186,7 +194,7 @@ alias gd='git diff -w'
 # NIX SHORTCUTS
 # -----------------------------------------------------
 
-alias hms='home-manager switch'
+alias hms='home-manager switch --flake .'
 alias hmsf="home-manager switch --flake path:.config/home-manager/#my_profile --impure"
 
 # -----------------------------------------------------

@@ -30,23 +30,17 @@ function source_if_exists {
 # my own personal scripts
 add_to_path $HOME/dot/bin
 add_to_path $HOME/dot/bin/scripts
-# add my own libraries to python path
-# add_to_path $HOME/repos/python_path
 # cargo - rust applications
-add_to_path $HOME/.local/share/cargo/bin
+# add_to_path $HOME/.local/share/cargo/bin
 
-# brew installation
+# brew installation for MacOS
 add_to_path /usr/local/opt
 add_to_path /usr/local/bin
 
-# source all my scripts
+# source all my scripts, aliases and exports
 # -----------------------------------------------
-source_if_exists $HOME/dot/bin/fzf_scripts.sh
+# source_if_exists $HOME/dot/bin/fzf_scripts.sh
 source_if_exists $HOME/dot/bin/linux_scripts.sh
-# source_if_exists $HOME/dot/bin/git_scripts.sh
-
-# source all my aliases and exports
-# -----------------------------------------------
 source_if_exists $HOME/dot/shell/.aliases
 source_if_exists $HOME/dot/shell/.exports
 
@@ -60,8 +54,13 @@ eval "$(starship init bash)"
 source_if_exists $HOME/.bash-preexec.sh
 eval "$(atuin init bash)"
 
+# uv
+eval "$(uv generate-shell-completion bash)"
+
+# Nix
+export NIX_PATH=nixpkgs=https://github.com/nixos/nixpkgs/archive/refs/heads/master.tar.gz
+
+
 # Print if the file is sourced
 # -----------------------------------------------
 echo "-- .bashrc file sourced"
-
-export NIX_PATH=nixpkgs=https://github.com/nixos/nixpkgs/archive/refs/heads/master.tar.gz
