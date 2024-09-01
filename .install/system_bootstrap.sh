@@ -91,6 +91,7 @@ install_packages() {
         # pipewire
         # networkmanager         
         # wire-plumber
+        # smartmontools - required for check_driver script
 
     )
     sudo pacman -S --needed "${pacman[@]}"
