@@ -13,6 +13,7 @@
     trashy
     helix
     wlogout
+    fastfetch
   ];
 
   home.stateVersion = "24.05";
