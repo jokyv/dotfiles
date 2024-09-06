@@ -123,13 +123,21 @@ disabled = false
 
 [python]
 disabled = false
-pyenv_version_name = true
-pyenv_prefix = "pyenv"
+# pyenv_version_name = true
+# pyenv_prefix = "pyenv"
 python_binary = "python3"
 style = "blue bold"
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+# format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+format = '\[[${symbol}(${version})(\($virtualenv\))]($style)\]'
 # symbol = " "
 symbol = " "
+
+[nix_shell]
+disabled = false
+impure_msg = '[impure shell](bold red)'
+pure_msg = '[pure shell](bold green)'
+unknown_msg = '[unknown shell](bold yellow)'
+format = 'via [☃️ $state( \($name\))](bold blue) '
 
 [rust]
 disabled = false
