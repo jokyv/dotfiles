@@ -28,7 +28,7 @@ auto_sync = false
 
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy, skim
-search_mode = "skim"
+search_mode = "fuzzy"
 
 ## which style to use
 ## possible values: auto, full, compact
