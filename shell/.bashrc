@@ -31,7 +31,7 @@ function source_if_exists {
 add_to_path $HOME/dot/bin
 add_to_path $HOME/dot/bin/scripts
 # cargo - rust applications
-# add_to_path $HOME/.local/share/cargo/bin
+add_to_path $HOME/.local/share/cargo/bin
 
 # brew installation for MacOS
 add_to_path /usr/local/opt
@@ -60,6 +60,33 @@ eval "$(uv generate-shell-completion bash)"
 # Nix
 export NIX_PATH=nixpkgs=https://github.com/nixos/nixpkgs/archive/refs/heads/master.tar.gz
 
+
+# Activate python default virtual enviroment
+activate_uv() {
+    # Check if UV_VIRTUAL_ENV is set (environment is already activated)
+    if [[ -n "${UV_VIRTUAL_ENV}" ]]; then
+        echo "uv virtual environment is already activated."
+    else
+        # Path to your uv virtual environment
+        UV_PATH="$HOME/uv_default"
+        
+        # Check if the uv directory exists
+        if [[ -d "$UV_PATH" ]]; then
+            echo "Activating uv virtual environment..."
+            source "$UV_PATH/bin/activate"
+            if [[ $? -eq 0 ]]; then
+                echo "uv virtual environment activated successfully."
+            else
+                echo "Failed to activate uv virtual environment."
+            fi
+        else
+            echo "uv virtual environment not found at $UV_PATH. Please check the installation."
+        fi
+    fi
+}
+
+# Call the function when .bashrc is sourced
+activate_uv
 
 # Print if the file is sourced
 # -----------------------------------------------

@@ -84,7 +84,8 @@ alias ff='fzf_util.py --file_phrase'
 # PYTHON
 # -----------------------------------------------------
 
-alias p='python3'
+# alias p='python3'
+alias p='python_execute_script.py'
 alias pipv='uv pip list | fzf'
 alias pu='python_pip_update.py -S'
 alias pua='python_pip_update.py -A'
@@ -133,10 +134,10 @@ alias cl='cargo install-update -l'
 alias l='eza --color=always --icons=always --long --all --group-directories-first --git --no-permissions --no-filesize --no-time --no-user'
 # sort by name first, directory first, with info
 alias ll='eza --color=always --icons=always --long --all --group-directories-first --git'
-# default eza
-alias lss='eza'
+# sort directory first, 
+alias lls='eza --color=always --icons=always --long --all --group-directories-first --total-size --sort=size --reverse'
 # sort by size name, long format
-alias lsl='eza --color=always --icons=always --long -all'
+alias lll='eza --color=always --icons=always --long -all'
 
 # trashy shortcuts
 # https://github.com/oberblastmeister/trashy
