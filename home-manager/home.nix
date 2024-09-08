@@ -1,6 +1,9 @@
-{ lib, pkgs, ... }:
+{ config, pkgs, stylix, ... }:
+
 {
+  imports = [ stylix.homeManagerModules.stylix ];
   home.username = "jokyv";
+
   home.homeDirectory = "/home/jokyv";
 
   # install packages with their default configs
@@ -17,6 +20,11 @@
   ];
 
   home.stateVersion = "24.05";
+
+  stylix.enable = true;
+  stylix.image = "${config.home.homeDirectory}/pics/wallpapers/aurora-borealis.jpg";
+  stylix.polarity = "dark";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
 
   # install packages AND specify their configs
   # gtk settings
