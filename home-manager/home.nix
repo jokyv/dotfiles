@@ -20,6 +20,7 @@
 
   home.stateVersion = "24.05";
 
+  # stylix configs
   stylix.enable = true;
   stylix.image = ./wallpaper.jpg;
   stylix.polarity = "dark";
@@ -78,6 +79,7 @@
   # enviroment.variables = {
   #   SECRET_KEY = "";
   #   PATH = [ "" ];
+  #   EDITOR = "hx"
   # };
   #
   # User management
