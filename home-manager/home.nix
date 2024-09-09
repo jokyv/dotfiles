@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  imports = [./firefox.nix];
+
   home.username = "jokyv";
   home.homeDirectory = "/home/jokyv";
 
