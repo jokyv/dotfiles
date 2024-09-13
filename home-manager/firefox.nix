@@ -3,37 +3,38 @@
 {
   programs.firefox = {
     enable = true;
-    enableGoogleTalkPlugin = false;
-    enableAdobeFlashPlayer = false;
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      bitwarden
-      darkreader
-      ublock-origin
-      privacy-badger
-      self-destructing-cookies
-    ];
+    # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    #   bitwarden
+    #   darkreader
+    #   ublock-origin
+    #   privacy-badger
+    #   self-destructing-cookies
+    # ];
 
     # sets the "jokyv" profile as the default profile for Firefox
     # profiles.jokyv = {
-      # isDefault = true;
+    # isDefault = true;
 
     profiles.default = {
       id = 0;
+      isDefault = true;
+      # name = "default";
+      # path = "fxoyb0f2.default";
+      # extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+      #   ublock-origin
+      #   1
+      #   password
+      #   duckduckgo-privacy-essentials
+      #   auto-tab-discard # increase browser speed and reduce memory when too many open tabs
 
-      extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
-        ublock-origin
-        1password
-        duckduckgo-privacy-essentials
-        auto-tab-discard # increase browser speed and reduce memory when too many open tabs
-
-        # bitwarden
-        # vimium # navigate like vim
-        # sidebery # vertical tabs tree and bookmarks
-      ];
+      #   #   # bitwarden
+      #   #   # vimium # navigate like vim
+      #   #   # sidebery # vertical tabs tree and bookmarks
+      # ];
 
       settings = {
         # General settings
-        # "browser.search.defaultenginename" = "duckduckgo";
+        "browser.search.defaultenginename" = "duckduckgo";
         "browser.startup.homepage" = "https://www.duckduckgo.com";
         "browser.startup.page" = 2;
         "browser.newtabpage.enabled" = false;
@@ -76,37 +77,37 @@
     };
   };
 }
-        
-        # "browser.newtabpage.pinned" = [
-        #   {
-        #     title = "youtube";
-        #     url = "https://www.youtube.com/";
-        #   }
-        #   {
-        #     title = "scientiac";
-        #     url = "https://scientiac.space/";
-        #   }
-        #   {
-        #     title = "messenger";
-        #     url = "https://www.messenger.com/";
-        #   }
-        #   {
-        #     title = "search.nixos";
-        #     url = "https://search.nixos.org/";
-        #   }
-        #   {
-        #     title = "fosstodon";
-        #     url = "https://fosstodon.org/";
-        #   }
-        #   {
-        #     title = "gitlab";
-        #     url = "http://www.gitlab.com/";
-        #   }
-        #   {
-        #     title = "github";
-        #     url = "https://www.github.com/";
-        #   }
-        #   {
-        #     title = "chatgpt";
-        #     url = "https://chatgpt.com/";
+
+# "browser.newtabpage.pinned" = [
+#   {
+#     title = "youtube";
+#     url = "https://www.youtube.com/";
+#   }
+#   {
+#     title = "scientiac";
+#     url = "https://scientiac.space/";
+#   }
+#   {
+#     title = "messenger";
+#     url = "https://www.messenger.com/";
+#   }
+#   {
+#     title = "search.nixos";
+#     url = "https://search.nixos.org/";
+#   }
+#   {
+#     title = "fosstodon";
+#     url = "https://fosstodon.org/";
+#   }
+#   {
+#     title = "gitlab";
+#     url = "http://www.gitlab.com/";
+#   }
+#   {
+#     title = "github";
+#     url = "https://www.github.com/";
+#   }
+#   {
+#     title = "chatgpt";
+#     url = "https://chatgpt.com/";
 
