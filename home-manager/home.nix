@@ -3,6 +3,7 @@
 {
   imports = [
     ./modules/firefox.nix
+    ./modules/fastfetch.nix
     # ./modules/ly.nix
   ];
 

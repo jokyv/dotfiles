@@ -19,6 +19,11 @@ clean:
     echo "Cleaning up old generations..."
     nix-collect-garbage --delete-older-than 7d
 
+# Define a task to logout
+logout:
+    echo "Time to say goobye..."
+    my_logout.sh
+
 # Define a task that runs install, update, and apply
 all: install update apply
     echo "Home Manager setup complete!"
