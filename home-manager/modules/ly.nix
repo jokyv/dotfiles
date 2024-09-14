@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  services.xserver.displayManager.ly = {
+  services.ly = {
     enable = true;
     settings = {
       asterisk = "*";
@@ -13,14 +13,12 @@
       input_len = 34;
       lang = "en";
       min_refresh_delta = 5;
+      waylandsessions = "${pkgs.niri}/share/wayland-sessions";
       shutdown_cmd = "${pkgs.systemd}/bin/systemctl poweroff";
       term_reset_cmd = "${pkgs.ncurses}/bin/tput reset";
       tty = 2;
     };
   };
-
-  # Ensure ly is installed
-  environment.systemPackages = [ pkgs.ly ];
 
   # Apply Stylix theming
   stylix.targets.ly = {

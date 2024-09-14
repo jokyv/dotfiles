@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./firefox.nix ];
+  imports = [
+    ./modules/firefox.nix
+    # ./modules/ly.nix
+  ];
 
   home.username = "jokyv";
   home.homeDirectory = "/home/jokyv";
@@ -18,6 +21,7 @@
     wlogout
     fastfetch
     base16-schemes
+    just
   ];
 
   home.stateVersion = "24.05";
@@ -39,6 +43,7 @@
   stylix.targets.zathura.enable = true;
   stylix.targets.firefox.enable = true;
   stylix.targets.fuzzel.enable = true;
+  # stylix.targets.ly.enable = true; stylix does not support ly right now
   # stylix.targets.bat.enable = true;
   # stylix.targets.kitty.enable = true;
   # stylix.targets.fzf.enable = true;
