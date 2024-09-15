@@ -11,7 +11,7 @@ alias .....='cd ../../../../'
 alias c='clear'
 alias ssd='sudo shutdown now'
 alias sr='sudo reboot'
-alias clock='tock -cms'
+
 # with -i it is asking you if overwrites something
 # with -v it explains what is being done on terminal - visual
 # with -p you are making the parent directory if doesnt exist
@@ -20,14 +20,13 @@ alias mkdir='mkdir -pv'
 alias rm='rm -iv' 
 alias mv='mv -iv' 
 alias cp='cp -iv'
-alias cat='bat --paging=never' # to preserve cat's default behavior
+
+# replace cat with bat, but preserve cat's default behavior
+alias cat='bat --paging=never'
 alias b='bash'
 alias e='exit'
-# hx='helix'
-
 # echo PATH, every path in different line
 alias ep='echo $PATH | tr : "\n"'
-
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
@@ -124,17 +123,11 @@ alias cl='cargo install-update -l'
 
 # eza shortcuts
 # https://github.com/eza-community/eza
-# TODO:
-# sort by name first, directory first, short format
-# sort by name first, directory first, long format
-# sort by size first, directory first, short format
-# sort by size first, directory first, long format
-
 # sort by name first, directory first, no info
 alias l='eza --color=always --icons=always --long --all --group-directories-first --git --no-permissions --no-filesize --no-time --no-user'
 # sort by name first, directory first, with info
 alias ll='eza --color=always --icons=always --long --all --group-directories-first --git'
-# sort directory first, 
+# sort directory first, sort by size
 alias lls='eza --color=always --icons=always --long --all --group-directories-first --total-size --sort=size --reverse'
 # sort by size name, long format
 alias lll='eza --color=always --icons=always --long -all'
@@ -196,7 +189,7 @@ alias gd='git diff -w'
 # -----------------------------------------------------
 
 alias hms='home-manager switch --flake .'
-alias hmsf="home-manager switch --flake ~/.config/home-manager/#jokyv"
+alias hmsf="home-manager switch --flake ~/dot/home-manager/#jokyv"
 
 # -----------------------------------------------------
 # PRINT FILE SOURCED CONFIRMATION
