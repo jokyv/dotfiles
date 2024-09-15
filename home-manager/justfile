@@ -1,6 +1,38 @@
-
 default:
   @just --list
+
+# -----------------------------------------------
+# home-manager specific
+# -----------------------------------------------
+
+# Define a task to install Home Manager
+install:
+    echo "Installing Home Manager..."
+    nix-shell '<home-manager>' -p home-manager --run "home-manager switch"
+
+# Define a task to update Home Manager
+update:
+    echo "Updating Home Manager..."
+    nix-channel --update
+    nix-shell '<home-manager>' -p home-manager --run "home-manager switch"
+
+# Define a task to apply Home Manager configuration
+apply:
+    echo "Applying Home Manager configuration..."
+    nix-shell '<home-manager>' -p home-manager --run "home-manager switch"
+
+# Define a task to clean up old generations
+clean:
+    echo "Cleaning up old generations..."
+    nix-collect-garbage --delete-older-than 7d
+
+# Define a task that runs install, update, and apply
+all: install update apply
+    echo "Home Manager setup complete!"
+
+# -----------------------------------------------
+# NixOS specific
+# -----------------------------------------------
 
 # Rebuild the system
 switch:
@@ -43,7 +75,7 @@ repl:
   nix repl
 
 # Remove all generations older than 7 days
-clean:
+cleanup:
   sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d
 
 # Garbage collect all unused nix store entries
