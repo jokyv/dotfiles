@@ -34,13 +34,13 @@
   home.stateVersion = "24.05";
 
 
-  stylix.targets.alacritty.enable = true;
-  stylix.targets.mako.enable = true;
-  stylix.targets.swaylock.enable = true;
-  stylix.targets.yazi.enable = true;
-  stylix.targets.zathura.enable = true;
-  stylix.targets.firefox.enable = true;
-  stylix.targets.fuzzel.enable = true;
+  # stylix.targets.alacritty.enable = true;
+  # stylix.targets.mako.enable = true;
+  # stylix.targets.swaylock.enable = true;
+  # stylix.targets.yazi.enable = true;
+  # stylix.targets.zathura.enable = true;
+  # stylix.targets.firefox.enable = true;
+  # stylix.targets.fuzzel.enable = true;
   # stylix.targets.ly.enable = true; stylix does not support ly right now
   # stylix.targets.bat.enable = true;
   # stylix.targets.kitty.enable = true;

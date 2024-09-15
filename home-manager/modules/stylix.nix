@@ -2,7 +2,8 @@
 
 {
   home.sessionVariables = {
-    GTK_THEME = "Catppuccin-Mocha-Compact-Maroon-Dark";
+    # GTK_THEME = "Catppuccin-Mocha-Compact-Maroon-Dark";
+    GTK_THEME = "Everforest-Dark";
   };
 
   stylix = {
@@ -15,7 +16,7 @@
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Amber";
-      size = 20;
+      size = 28;
     };
 
     # fonts =
