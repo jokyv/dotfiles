@@ -19,21 +19,33 @@
       size = 28;
     };
 
-    # fonts =
-    #   let
-    #     inherit (config.fontProfiles) regular monospace emoji;
-    #   in
-    #   {
-    #     inherit monospace emoji;
-    #     serif = regular;
-    #     sansSerif = regular;
-    #     sizes = {
-    #       applications = 12;
-    #       desktop = 12;
-    #       popups = 12;
-    #       terminal = 14;
-    #     };
-    #   };
+    fonts =
+      {
+        monospace = {
+          # https://www.nerdfonts.com/font-downloads
+          package = pkgs.nerdfonts.override { fonts = [ "MartianMono" "FiraCode" ]; };
+          name = "MartianMono Nerd Font";
+        };
+        serif = {
+          package = pkgs.dejavu_fonts;
+          name = "DejaVu Serif";
+        };
+        sansSerif = {
+          package = pkgs.noto-fonts;
+          name = "Noto Sans";
+        };
+        emoji = {
+          package = pkgs.noto-fonts-monochrome-emoji;
+          name = "Noto Emoji";
+        };
+        sizes = {
+          terminal = 18;
+          applications = 12;
+          popups = 12;
+          desktop = 12;
+        };
+      };
+
 
     opacity = {
       applications = 0.9;

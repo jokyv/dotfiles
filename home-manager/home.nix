@@ -6,7 +6,6 @@
     ./modules/fastfetch.nix
     ./modules/stylix.nix
     # ./modules/zathura.nix
-    # ./modules/fonts.nix
     # ./modules/ly.nix
   ];
 
@@ -29,6 +28,7 @@
     vscode-langservers-extracted
     zathura
     # wlogout  
+    libreoffice-qt-fresh
   ];
 
   home.stateVersion = "24.05";
