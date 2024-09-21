@@ -1,10 +1,10 @@
 { pkgs, lib, ... }:
 
 {
-  home.sessionVariables = {
-    # GTK_THEME = "Catppuccin-Mocha-Compact-Maroon-Dark";
-    GTK_THEME = "Everforest-Dark";
-  };
+  # home.sessionVariables = {
+  #   # GTK_THEME = "Catppuccin-Mocha-Compact-Maroon-Dark";
+  #   GTK_THEME = "Everforest-Dark";
+  # };
 
   stylix = {
     enable = true;
@@ -82,6 +82,10 @@
       # package = pkgs.tela-icon-theme;
       name = "everforest";
       package = pkgs.everforest-gtk-theme;
+      # name = "candy";
+      # package = pkgs.candy-icons;
+      # name = "sweet";
+      # package = pkgs.sweet-folders;
     };
   };
 

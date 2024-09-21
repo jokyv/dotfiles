@@ -7,7 +7,7 @@
     enable = true;
     settings = {
       logo = {
-        source = "arch_medium";
+        source = "arch_large";
         padding = {
           right = 1;
         };
@@ -31,6 +31,7 @@
           format = "{14}:{17}:{20}";
         }
         "title"
+        "uptime"
         "separator"
         "os"
         "host"
@@ -48,7 +49,9 @@
         "separator"
         "cpu"
         "memory"
+        "disk"
         "separator"
+        "network"
         "localip"
         "publicip"
         "break"

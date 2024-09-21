@@ -5,7 +5,7 @@
     ./modules/firefox.nix
     ./modules/fastfetch.nix
     ./modules/stylix.nix
-    # ./modules/zathura.nix
+    ./modules/zathura.nix
     # ./modules/ly.nix
   ];
 
@@ -29,23 +29,22 @@
     zathura
     # wlogout  
     libreoffice-qt-fresh
+    psst
+    gitleaks
+    cowsay
+    nemo
+    nautilus
   ];
 
   home.stateVersion = "24.05";
 
-
-  # stylix.targets.alacritty.enable = true;
-  # stylix.targets.mako.enable = true;
-  # stylix.targets.swaylock.enable = true;
-  # stylix.targets.yazi.enable = true;
-  # stylix.targets.zathura.enable = true;
-  # stylix.targets.firefox.enable = true;
-  # stylix.targets.fuzzel.enable = true;
-  # stylix.targets.ly.enable = true; stylix does not support ly right now
-  # stylix.targets.bat.enable = true;
-  # stylix.targets.kitty.enable = true;
-  # stylix.targets.fzf.enable = true;
-  # stylix.targets.helix.enable = true;
+  # nh
+  # programs.nh = {
+  #   enable = true;
+  #   clean.enable = true;
+  #   clean.extraArgs = "--keep-since 4d --keep 3";
+  #   flake = "/home/jokyv/dot/home-manager";
+  # };
 
   # install packages AND specify their configs
   #
@@ -94,8 +93,7 @@
 
   xdg.userDirs = {
     enable = true;
-
-    createDirectories = false;
+    createDirectories = true;
     desktop = "${config.home.homeDirectory}";
     download = "${config.home.homeDirectory}/downloads";
     pictures = "${config.home.homeDirectory}/pics";
