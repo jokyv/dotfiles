@@ -1,5 +1,15 @@
 # My configs for Arch on Wayland
 
+To easily start with this config run [archinstall](https://wiki.archlinux.org/title/Archinstall) with min packages.
+
+## Requirements
+
+This dotfiles support Arch linux based distros
+
+- EndeavourOS
+- Manjaro
+- Arch
+
 ## Applications
 
 - Window sytem: [Wayland](https://wayland.freedesktop.org/)
@@ -21,11 +31,21 @@
 - Power Menu: [Wlogout](https://github.com/ArtsyMacaw/wlogout)
 - Screenlock: [Swaylock](https://github.com/swaywm/swaylock)
 
-## Archived configs
+## Archived configs file
 
-### QTILE
+It contains config files for past used applications such as:
 
-### BSPWM
+- Xserver
+- Window managers: QTILE, BSPWM
+- Browsers: alacritty
+- rofi
+- polybar
+- dunst
+- erdtree
+
+## Documentation (Wiki)
+
+You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://github.com/jokyv/dotfiles/wiki)</b>
 
 ## Instalation
 
@@ -33,7 +53,7 @@
 git clone https://github.com/jokyv/dotfiles.git ~/repos/dot
 ```
 
-## Notes
+## Key Binding notes
 
-- just `Ctrl` or `Ctrl` + `Shift` reserved for Alacritty shortcuts.
-- just `Super Key` or `Super Key` + `Shift` for WM shortcuts.
+- just `Ctrl` or `Ctrl` + `Shift` reserved mainly for Terminal shortcuts.
+- just `Super Key` or `Super Key` + `Shift` mainly for WM shortcuts.
