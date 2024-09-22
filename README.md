@@ -37,7 +37,7 @@ It contains config files for past used applications, such as:
 
 - Xserver
 - Window managers: QTILE, BSPWM
-- Browsers: alacritty
+- Terminals: alacritty
 - rofi
 - polybar
 - dunst
@@ -51,9 +51,15 @@ You can find the complete documentation of the dotfiles in the Wiki. <b>[Open th
 
 ```bash
 git clone https://github.com/jokyv/dotfiles.git ~/repos/dot
+cd repos/dot/.install
+./system_bootstrap.sh
 ```
 
 ## Key Binding notes
 
 - just `Ctrl` or `Ctrl` + `Shift` reserved mainly for Terminal shortcuts.
 - just `Super Key` or `Super Key` + `Shift` mainly for WM shortcuts.
+
+## Wallpaper repository
+
+You can find my wallpaper collection in [this repository](https://github.com/jokyv/wallpapers).
