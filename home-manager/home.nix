@@ -32,6 +32,7 @@
     psst
     gitleaks
     cowsay
+    # nh
     nemo
     nautilus
   ];

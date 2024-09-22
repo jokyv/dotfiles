@@ -12,7 +12,7 @@ This dotfiles support Arch linux based distros only.
 
 ## Applications
 
-- Window sytem: [Wayland](https://wayland.freedesktop.org/)
+- Window system: [Wayland](https://wayland.freedesktop.org/)
 - Wayland Compositor: [Niri](https://github.com/YaLTeR/niri)
 - Terminal: [Alacritty](https://github.com/alacritty/alacritty)
 - Editor: [Helix](https://github.com/helix-editor/helix)
@@ -23,7 +23,7 @@ This dotfiles support Arch linux based distros only.
 - Application Launcher: [Fuzzel](https://codeberg.org/dnkl/fuzzel)
 - File manager: [Nautilus](https://gitlab.gnome.org/GNOME/nautilus)
 - Status Bar: [Waybar](https://github.com/Alexays/Waybar)
-- Sreenshots: [Grim](https://github.com/emersion/grim)/[slurp](https://github.com/emersion/slurp)/[swappy](https://github.com/jtheoof/swappy) or [Gnome-Screenshot](https://gitlab.gnome.org/GNOME/gnome-screenshot)
+- Screenshots: [Grim](https://github.com/emersion/grim)/[slurp](https://github.com/emersion/slurp)/[swappy](https://github.com/jtheoof/swappy) or [Gnome-Screenshot](https://gitlab.gnome.org/GNOME/gnome-screenshot)
 - Clipboard manager: [Cliphist](https://github.com/sentriz/cliphist) and [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
 - Document viewer: [Zathura](https://github.com/pwmt/zathura)
 - Login Manager: [Ly](https://github.com/fairyglade/ly)
@@ -47,7 +47,7 @@ It contains config files for past used applications, such as:
 
 You can find the complete documentation of the dotfiles in the Wiki. <b>[Open the Wiki here](https://github.com/jokyv/dotfiles/wiki)</b>
 
-## Instalation
+## Installation
 
 ```bash
 git clone https://github.com/jokyv/dotfiles.git ~/repos/dot

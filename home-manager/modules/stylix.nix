@@ -11,7 +11,8 @@
     autoEnable = true;
     image = ./../wallpaper.jpg;
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
 
     cursor = {
       package = pkgs.bibata-cursors;
@@ -78,14 +79,33 @@
     iconTheme = {
       # name = "Papirus-Dark";
       # package = pkgs.papirus-icon-theme;
-      # name = "Tela";
-      # package = pkgs.tela-icon-theme;
-      name = "everforest";
-      package = pkgs.everforest-gtk-theme;
+      name = "Tela";
+      package = pkgs.tela-icon-theme;
+      # name = "everforest";
+      # package = pkgs.everforest-gtk-theme;
       # name = "candy";
       # package = pkgs.candy-icons;
       # name = "sweet";
       # package = pkgs.sweet-folders;
+    };
+    # theme = {
+    #   name = "Everforest-Dark-B";
+    #   package = pkgs.everforest-gtk-theme;
+    # };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/nautilus/icon-view" = {
+      default-zoom-level = "standard";
+    };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
     };
   };
 
