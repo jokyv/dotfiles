@@ -3,4 +3,4 @@ repos:
     rev: v1.24.6
     hooks:
       - id: typos
-        args: [--write-changes]
+        # args: [--write-changes]
