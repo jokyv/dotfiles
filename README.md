@@ -4,7 +4,7 @@ To easily start with this config run [archinstall](https://wiki.archlinux.org/ti
 
 ## Requirements
 
-This dotfiles support Arch linux based distros
+This dotfiles support Arch linux based distros only.
 
 - EndeavourOS
 - Manjaro
@@ -33,7 +33,7 @@ This dotfiles support Arch linux based distros
 
 ## Archived configs file
 
-It contains config files for past used applications such as:
+It contains config files for past used applications, such as:
 
 - Xserver
 - Window managers: QTILE, BSPWM
@@ -45,7 +45,7 @@ It contains config files for past used applications such as:
 
 ## Documentation (Wiki)
 
-You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://github.com/jokyv/dotfiles/wiki)</b>
+You can find the complete documentation of the dotfiles in the Wiki. <b>[Open the Wiki here](https://github.com/jokyv/dotfiles/wiki)</b>
 
 ## Instalation
 
