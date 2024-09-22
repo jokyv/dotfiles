@@ -57,3 +57,5 @@ git clone https://github.com/jokyv/dotfiles.git ~/repos/dot
 
 - just `Ctrl` or `Ctrl` + `Shift` reserved mainly for Terminal shortcuts.
 - just `Super Key` or `Super Key` + `Shift` mainly for WM shortcuts.
+
+## testt
