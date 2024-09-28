@@ -14,10 +14,11 @@ This dotfiles support Arch linux based distros only.
 
 - Window system: [Wayland](https://wayland.freedesktop.org/)
 - Wayland Compositor: [Niri](https://github.com/YaLTeR/niri)
-- Terminal: [Alacritty](https://github.com/alacritty/alacritty)
+- ~~Terminal: [Alacritty](https://github.com/alacritty/alacritty)~~
+- Terminal: [Kitty](https://github.com/kovidgoyal/kitty) and [foot](https://codeberg.org/dnkl/foot)
 - Editor: [Helix](https://github.com/helix-editor/helix)
 - Prompt: [Starship](https://github.com/starship/starship)
-- Browser: [Brave](https://github.com/brave/brave-browser) and [Firefox](https://www.mozilla.org/en-US/firefox/)
+- Browser: [Firefox](https://www.mozilla.org/en-US/firefox) and [Brave](https://github.com/brave/brave-browser)
 - Fonts: [Hack Nerd Font](https://www.nerdfonts.com/)
 - Colorscheme: [Everforest](https://github.com/sainnhe/everforest)
 - Application Launcher: [Fuzzel](https://codeberg.org/dnkl/fuzzel)
