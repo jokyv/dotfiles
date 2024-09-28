@@ -6,6 +6,7 @@
     ./modules/fastfetch.nix
     ./modules/stylix.nix
     ./modules/zathura.nix
+    ./modules/foot.nix
     # ./modules/ly.nix
   ];
 
@@ -54,13 +55,13 @@
   #   hostname = "";
   #   networkmanager.enable = true;
   #   firewall = {
-  #     enabe = true;
+  #     enable = true;
   #     allowedTCPPorts = [ ];
   #   };
   # };
   #
-  # enviroment variables
-  # enviroment.variables = {
+  # environment variables
+  # environment.variables = {
   #   SECRET_KEY = "";
   #   PATH = [ "" ];
   #   EDITOR = "hx"

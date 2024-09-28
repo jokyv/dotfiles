@@ -40,7 +40,7 @@
           name = "Noto Emoji";
         };
         sizes = {
-          terminal = 18;
+          terminal = 14;
           applications = 12;
           popups = 12;
           desktop = 12;
