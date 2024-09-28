@@ -4,7 +4,7 @@
 # -----------------------------------------------
 export EDITOR='hx'
 export VISUAL='hx'
-export BROWSER='brave'
+export BROWSER='firefox'
 export TERMINAL='kitty'
 export WM='niri'
 export TERM="xterm-256color"
