@@ -70,7 +70,7 @@ install_packages() {
         discord htop slurp dialog dnsmasq dnsutils dosfstools 
         edk2-ovmf efibootmgr eza wget wireless_tools fd firefox 
         fzf git-cliff git-delta github-cli grim gvfs gvfs-smb hplip inetutils 
-        ipset kitty ly marksman mtools nautilus network-manager-applet nfs-utils 
+        ipset kitty ly marksman mesa mtools network-manager-applet nfs-utils 
         niri nix nss-mdns ntfs-3g openbsd-netcat openssh os-prober pulseaudio 
         pulseaudio-alsa otf-font-awesome otf-firamono-nerd ttf-firacode-nerd 
         ttf-hack-nerd python-pip python-rich reflector ripgrep skim sof-firmware 
@@ -147,7 +147,7 @@ enable_system_services() {
         # maybe section
         # "NetworkManager" # internet connection
         # "cups.service" # for connecting to printer
-        # "avahi-daemon" # for printing services, works in conjuction with cups
+        # "avahi-daemon" # for printing services, works in conjunction with cups
         # "tlp" # optimize battery life on Linux systems (laptops)
         # "firewalld" # firewall solution
         # "sshd" # for remote access
@@ -370,7 +370,7 @@ add_symlinks() {
         fi
     done
 
-    # Handle special cases seperatly
+    # Handle special cases separately
     echo ""
     echo ":: Symlinking special cases"
     create_symlink "$source_dir/starship/starship.toml" "$dest_dir/starship.toml"
