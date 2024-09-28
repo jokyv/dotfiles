@@ -11,4 +11,4 @@ ND = "ND"
 WTH = "WTH"
 
 [files]
-extend-exclude = ["*.csv"]
+extend-exclude = ["*.csv", "*.ini"]
