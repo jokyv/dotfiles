@@ -242,7 +242,7 @@ def fzf_restore_file_from_trash():
 
 
 def fzf_empty_file_from_trash():
-    """Permanetly delete a file from trash."""
+    """Permanently delete a file from trash."""
     trash_output = subprocess.run(["trash", "list"], capture_output=True, text=True)
     selected_files = subprocess.run(
         ["fzf", "--multi"], input=trash_output.stdout, capture_output=True, text=True

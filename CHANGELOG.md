@@ -23,7 +23,7 @@ All notable changes to this project will be documented in this file.
 - _(dprint)_ New versions for dprint plugins
 - _(helix)_ Add fira code nerd fonts
 - _(helix)_ Added HELIX_RUNTIME var.
-- _(helix)_ Change json formater to dprint
+- _(helix)_ Change json formatter to dprint
 - _(kitty)_ Add configs for kitty
 - _(kitty)_ Add new icons for kitty.
 - _(kitty)_ Change fonts other than regular to automated method.
@@ -36,7 +36,7 @@ All notable changes to this project will be documented in this file.
 - _(python libraries update)_ Add pylsp to the list
 - _(python scripts)_ Add new sudo previous command script
 - _(python)_ Add requirements folder with list of critical python libraries
-- _(qtile)_ Path fixing and formating.
+- _(qtile)_ Path fixing and formatting.
 - _(qtile)_ Theme nord json format update
 - _(requirements)_ Add more important python libraries
 - _(scripts)_ Added take_screenshot.sh script
@@ -48,7 +48,7 @@ All notable changes to this project will be documented in this file.
 - _(systemd)_ Add configs for niri systemd services
 - _(update_everything script)_ Update with the correct python function
 - _(waybar)_ Cleaner configs for the app.
-- _(waybar)_ Completly reworked the waybar configuration.
+- _(waybar)_ Completely reworked the waybar configuration.
 - _(wayland)_ Added niri, fuzzel waybar configs.
 - _(yazi)_ Add configs for yazi
 
@@ -56,7 +56,7 @@ All notable changes to this project will be documented in this file.
 
 - _(aliases)_ Added alias for helix.
 - _(bashrc)_ Commented pyenv, replaced path for bash-preexec (atuin).
-- _(exports)_ Fixed the helix enviromental runtime variable path
+- _(exports)_ Fixed the helix environmental runtime variable path
 - _(fzf_util)_ Moved from 'helix' to 'hx'
 - _(git)_ Editor is set to `helix` now.
 - _(git/config)_ Switch back to editor `hx` instead of `helix`.

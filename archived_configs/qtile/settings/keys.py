@@ -191,7 +191,7 @@ keys = [
         [mod, "shift"],
         "Return",
         lazy.spawn(f"{MY_TERM} -e zellij"),
-        desc="launch teminal & zellij together",
+        desc="launch terminal & zellij together",
     ),
     Key(
         [mod],

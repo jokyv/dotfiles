@@ -13,7 +13,7 @@ def base(fg="text", bg="dark"):
     return {"foreground": colors[fg], "background": colors[bg]}
 
 
-# add seperation
+# add separation
 def separator():
     return widget.Sep(**base(), linewidth=0, padding=5)
 

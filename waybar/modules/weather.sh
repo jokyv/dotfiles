@@ -30,7 +30,7 @@ fi
 
 mapfile -t weather < <(cat "$cachedir"/"$cachefile")
 
-[ -z "${weather[2]}" ] && { echo -e "{\"text\":\"Error retreaving weather info\", \"class\": \"weather\", \"tooltip\": \"\"}" ; exit 1; }
+[ -z "${weather[2]}" ] && { echo -e "{\"text\":\"Error retrieving weather info\", \"class\": \"weather\", \"tooltip\": \"\"}" ; exit 1; }
 
 case ${weather[2]} in
 "fair" | "clearsky" | "clear" | "sunny")

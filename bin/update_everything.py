@@ -27,7 +27,7 @@ console = Console()
 
 
 def ask(question):
-    # beutification
+    # beautification
     yes = "[bold yellow]yes[/bold yellow]"
     exit = "[bold red]exit[/bold red]"
     response = Prompt.ask(console.render_str(f"{question} ({yes}/no/{exit}) "))

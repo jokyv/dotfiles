@@ -43,7 +43,7 @@ super + t
 # lock screen 
 super + x
     betterlockscreen -l dim
-# Lock a window from closing, to unlock simpy press again
+# Lock a window from closing, to unlock simply press again
 # useful when you are working for something important
 super + shift + l
 	bspc node -g locked 
