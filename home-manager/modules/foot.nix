@@ -9,11 +9,8 @@
         # font = "FiraCode Nerd Font Mono:size=11";
         initial-window-size-pixels = "1024x768";
         # Set the initial window mode (windowed, maximized, fullscreen)
-        initial-window-mode = "maximized";
+        initial-window-mode = "windowed";
         pad = "10x10";
-        app-id = "foot";
-        title = "foot";
-        locked-title = "no";
       };
       mouse = {
         hide-when-typing = "yes";
@@ -23,20 +20,16 @@
         # Set alpha (transparency)
         alpha = 0.9;
       };
-      # csd = {
-      #   # Configure client-side decorations
-      #   preferred = "server";
-      #   size = 26;
-      #   font = "FiraCode Nerd Font Mono:size=11";
-      #   color = "ff0000";
-      #   border-width = 1;
-      #   border-color = "000000";
-      #   button-width = 26;
-      #   button-color = "000000";
-      #   button-minimize-color = "000000";
-      #   button-maximize-color = "000000";
-      #   button-close-color = "000000";
-      # };
+      csd = {
+        # Configure client-side decorations
+        # preferred = "client";
+        preferred = "server";
+        color = "000000"; # Black background
+        button-color = "ffffff"; # White buttons
+        button-minimize-color = "ffffff";
+        button-maximize-color = "ffffff";
+        button-close-color = "ffffff";
+      };
       key-bindings = {
         # Custom key bindings
         scrollback-up-page = "Shift+Page_Up";
