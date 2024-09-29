@@ -77,7 +77,7 @@ install_packages() {
         starship swappy taplo-cli tlp tokei typos uv vde2 virt-manager ttf-nerd-fonts-symbols 
         ttf-nerd-fonts-symbols-common vscode-json-languageserver wpa_supplicant xdg-user-dirs 
         xdg-utils xclip yaml-language-server yazi zathura awesome-terminal-fonts    
-        pacman-contrib apparmor jq acpid
+        pacman-contrib apparmor jq acpid less
 
         # installed from archinstall script
         # amd-ucode
