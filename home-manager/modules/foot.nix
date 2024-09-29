@@ -7,7 +7,7 @@
       main = {
         term = "xterm-256color";
         # font = "FiraCode Nerd Font Mono:size=11";
-        initial-window-size-pixels = "1024x768";
+        initial-window-size-pixels = "1920x1080";
         # Set the initial window mode (windowed, maximized, fullscreen)
         initial-window-mode = "windowed";
         pad = "10x10";

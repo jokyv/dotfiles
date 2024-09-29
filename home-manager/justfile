@@ -21,6 +21,10 @@ apply:
     echo "Applying Home Manager configuration..."
     nix-shell '<home-manager>' -p home-manager --run "home-manager switch"
 
+# Define a task that runs install, update, and apply
+all: install update apply
+    echo "Home Manager setup complete!"
+
 # Define a task to clean up old generations
 clean:
     echo "Cleaning up old generations..."
@@ -29,10 +33,6 @@ clean:
 # Rebuild the home config
 home:
   home-manager switch -b backup --flake .#jokyv switch --show-trace
-
-# Define a task that runs install, update, and apply
-all: install update apply
-    echo "Home Manager setup complete!"
 
 # -----------------------------------------------
 # NixOS specific
