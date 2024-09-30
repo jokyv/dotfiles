@@ -83,7 +83,7 @@ alias ff='fzf_util.py --file_phrase'
 # PYTHON
 # -----------------------------------------------------
 
-# alias p='python3'
+alias p3='python3'
 alias p='python_execute_script.py'
 alias pipv='uv pip list | fzf'
 alias pu='python_pip_update.py -S'
