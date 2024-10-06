@@ -3,6 +3,7 @@ version: ""
 feeds:
     - url: https://www.euro2day.gr/rss.ashx?catid=139
     - url: https://nixos.org/blog/newsletters-rss.xml
+    - url: https://nixos.org/blog/announcements-rss.xml
     - url: https://nixos.org/blog/stories-rss.xml
 theme:
     glamour: dark
