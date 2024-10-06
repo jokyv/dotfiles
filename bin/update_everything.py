@@ -30,7 +30,7 @@ def ask(question):
     # beautification
     yes = "[bold yellow]yes[/bold yellow]"
     exit = "[bold red]exit[/bold red]"
-    response = Prompt.ask(console.render_str(f"{question} ({yes}/no/{exit}) "))
+    response = Prompt.ask(console.render_str(f"{question} ({yes}/no/{exit})"))
 
     if not response:
         return True  # Return True for empty input (default to Yes)
@@ -44,6 +44,25 @@ def ask(question):
         sys.exit()
     else:
         console.print("Invalid input. Please try again!")
+
+
+def mirrors_update():
+    console.rule("------- MIRRORS UPDATE -------")
+    if ask("Do you want to update mirrors?"):
+        subprocess.run(
+            [
+                "sudo",
+                "reflector",
+                "--country",
+                "Singapore",
+                "--latest",
+                "10",
+                "--sort",
+                "rate",
+                "--save",
+                "/etc/pacman.d/mirrorlist",
+            ]
+        )
 
 
 def os_update():
@@ -171,6 +190,7 @@ def weekly_git_commits():
 
 
 def main() -> None:
+    mirrors_update()
     os_update()
     git_status_all_git_dirs()
     git_pull_all()
