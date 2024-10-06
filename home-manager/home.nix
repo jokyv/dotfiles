@@ -36,6 +36,7 @@
     # nh
     nemo
     nautilus
+    nom
   ];
 
   home.stateVersion = "24.05";
