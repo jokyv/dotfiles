@@ -9,6 +9,7 @@ Maks = "Maks"
 NDFs = "NDFs"
 ND = "ND"
 WTH = "WTH"
+ue = "ue"
 
 [files]
 extend-exclude = ["*.csv", "*.ini"]

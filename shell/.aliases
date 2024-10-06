@@ -49,6 +49,8 @@ alias sb=source_files
 alias cdd=cd_with_eza
 # run weekly updates, checks and clean up
 alias ue=update_everything.py
+# update mirrors
+alias upmirrors="sudo reflector --country Singapore --latest 10 --sort rate --save /etc/pacman.d/mirrorlist"
 
 # -----------------------------------------------------
 # FZF SCRIPTS
@@ -97,13 +99,13 @@ alias d='deactivate'
 # -----------------------------------------------------
 
 # install pacman program with the help of fzf
-alias pi='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
+alias pi='pacman -Sql | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
 # remove pacman program with the help of fzf
 alias pr='pacman -Qq | fzf --multi --preview "pacman -Qi {1}" | xargs -ro sudo pacman -Rns'
 # find the version for each pacman program install using fzf
 alias pv='pacman -Q | fzf'
 # install arch + aur programs with the help of paru and fzf
-alias auri='paru -Slq | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
+alias auri='paru -Sql | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
 
 # -----------------------------------------------------
 # RUST applications
