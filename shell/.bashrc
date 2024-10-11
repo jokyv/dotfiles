@@ -86,7 +86,7 @@ activate_uv() {
 }
 
 # Call the function when .bashrc is sourced
-activate_uv
+# activate_uv
 
 # Print if the file is sourced
 # -----------------------------------------------
