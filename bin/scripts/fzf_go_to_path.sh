@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 # find all type directories from $HOME and choose where to cd next
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Here all my re-usable bash functions
 # If you want to use on another bash script simply do the following:

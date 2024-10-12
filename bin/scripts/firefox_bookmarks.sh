@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Function to get the path of the Firefox profile
 get_firefox_profile() {
