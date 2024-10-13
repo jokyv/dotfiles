@@ -37,6 +37,8 @@
     nemo
     nautilus
     nom
+    xonsh
+    ddgr
   ];
 
   home.stateVersion = "24.05";
