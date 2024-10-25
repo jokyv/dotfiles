@@ -29,11 +29,11 @@
     vscode-langservers-extracted
     zathura
     # wlogout  
-    libreoffice-qt-fresh
+    # libreoffice-qt-fresh # no space left for this app
     psst
     gitleaks
     cowsay
-    # nh
+    # nh # move to NixOS first!
     nemo
     nautilus
     nom
@@ -81,6 +81,8 @@
   # };
 
   programs.home-manager.enable = true;
+  programs.home-manager.useGlobalPkgs = true;
+  programs.home-manager.useUserPackages = true;
 
   # ---------------------------------------------
   # Create specific folders in home directory
