@@ -77,10 +77,10 @@
   gtk = {
     enable = true;
     iconTheme = {
-      # name = "Papirus-Dark";
-      # package = pkgs.papirus-icon-theme;
-      name = "Tela";
-      package = pkgs.tela-icon-theme;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+      # name = "Tela";
+      # package = pkgs.tela-icon-theme;
       # name = "everforest";
       # package = pkgs.everforest-gtk-theme;
       # name = "candy";
@@ -113,8 +113,8 @@
     pkgs.libsForQt5.qtstyleplugin-kvantum
     pkgs.catppuccin-qt5ct
     (pkgs.catppuccin-kvantum.override {
-      variant = "Mocha";
-      accent = "Maroon";
+      variant = "mocha";
+      accent = "maroon";
     })
   ];
 }
