@@ -16,7 +16,7 @@
 
   # install packages with their default configs
   home.packages = with pkgs; [
-    alacritty
+    # alacritty
     base16-schemes
     brave
     dprint
@@ -29,16 +29,18 @@
     vscode-langservers-extracted
     zathura
     # wlogout  
-    # libreoffice-qt-fresh # no space left for this app
+    libreoffice-qt-fresh # no space left for this app
+    # onlyoffice-bin
     psst
     gitleaks
     cowsay
     # nh # move to NixOS first!
-    nemo
+    # nemo
     nautilus
     nom
     xonsh
     ddgr
+    tabiew
   ];
 
   home.stateVersion = "24.05";
@@ -81,8 +83,8 @@
   # };
 
   programs.home-manager.enable = true;
-  programs.home-manager.useGlobalPkgs = true;
-  programs.home-manager.useUserPackages = true;
+  # programs.home-manager.useGlobalPkgs = true;
+  # programs.home-manager.useUserPackages = true;
 
   # ---------------------------------------------
   # Create specific folders in home directory
