@@ -23,8 +23,10 @@
     fastfetch
     helix
     just
-    nil
     nixpkgs-fmt
+    # nixfmt-rfc-style
+    # nil
+    nixd
     trashy
     vscode-langservers-extracted
     zathura
@@ -39,6 +41,7 @@
     nautilus
     nom
     xonsh
+    nushell
     ddgr
     tabiew
   ];
