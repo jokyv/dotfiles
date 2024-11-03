@@ -44,6 +44,7 @@
     nushell
     ddgr
     tabiew
+    virtualenv # need this for python virtual env
   ];
 
   home.stateVersion = "24.05";
