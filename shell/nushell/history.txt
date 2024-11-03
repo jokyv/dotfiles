@@ -1,0 +1,272 @@
+ls
+open python-dev.nix
+open justfile
+ls
+hx sudo
+rm sudo
+ls
+z
+cd
+cd downloads/
+ls
+open config.jsonc
+cd
+cd projects/scalping_analysis/
+ls
+cd backtester/
+ls
+open test.csv
+open test.csv | head
+open test.csv | higher_high == true
+open test.csv | column higher_high == true
+open test.csv | where higher_high == true
+open test.csv | where higher_high == True
+open test.csv | where higher_high = true
+open test.csv | where close > 1.1
+open test.csv | where close > 1.2
+open test.csv | where close > 1.15
+open test.csv | where close > 1.11
+open test.csv | where close > 1.12
+open test.csv | where swing_high == true
+open test.csv | where swing_high == false
+open test.csv | where swing_high == False
+open test.csv | where swing_high == true
+hx test.csv
+open test.csv | where swing_high == 'true'
+open test.csv | where swing_high == 'true' | lc
+open test.csv | where swing_high == 'true' | length
+open test.csv | where close > 1.12
+exit
+$env.PATH = ($env.PATH | append "/home/jokyv/dot/bin/") 
+update_everything.py 
+z
+linux_scripts.sh 
+hx linux_scripts.sh
+$env.path
+cargo list
+exit
+hx functions.nu
+ls
+hx history.txt
+ls
+hx aliases.nu
+hx functions.nu
+sb
+c
+clear
+mkdir-v
+mkdir-v test
+hx aliases.nu
+hx config.nu
+exit
+hx config.nu
+exit
+hx functions.nu
+exit
+hx config.nu
+exit 
+hx config.nu
+exit 
+hx 
+hx config.nu
+exit 
+hx aliases.nu
+exit
+hx aliases.nu
+exit
+z
+vv
+$env
+yy
+vv
+hx functions.nu
+v
+source ~/.config/nushell/config.nu
+yy
+hx functions.nu
+source ~/.config/nushell/config.nu
+yy
+hx functions.nu
+y
+source ~/.config/nushell/config.nu
+y
+exit
+y
+ls
+source ~/.config/nushell/config.nu
+y
+vv
+hx config.nu
+create_left_prompt
+hx config.nu
+z
+vv
+fzf_go_to_path.sh 
+create_left_prompt
+hx config.nu
+source ~/.config/nushell/config.nu
+hx config.nu
+source ~/.config/nushell/config.nu
+hx config.nu
+source ~/.config/nushell/config.nu
+hx config.nu
+source ~/.config/nushell/config.nu
+exit
+hx config.nu
+source ~/.config/nushell/config.nu
+hx config.nu
+hx functions.nu
+hx config.nu
+source ~/.config/nushell/config.nu
+hx config.nu
+source ~/.config/nushell/config.nu
+y
+l
+ls -ls
+z
+fzf_go_to_path.sh 
+cd
+cd projects/scalping_analysis/
+l
+ls
+cd backtester/
+ls
+open results.csv
+open test.csv | where close > 1.12
+gsa
+gac
+vv
+a
+vv
+source ~/.config/nushell/config.nu
+a
+vv
+source ~/.config/nushell/config.nu
+a
+vv
+cd
+a
+pu
+activate-venv 
+activate-venv ~/uv_default/bin/activate
+activate-venv uv_default/bin/activate
+pu
+ls -al
+uv_default/bin/activate
+uv_default/bin/activate.nu
+source uv_default/bin/activate.nu
+d
+deactivate
+source uv_default/bin/activate.nu
+let-env PATH = (path.join $env.PATH (path.join "uv_default/bin" ))
+activate-venv uv_default/bin/activate
+activate-venv uv_default/bin/activate.nu
+pu
+source uv_default/bin/activate.nu
+pu
+vv
+d
+deallocvt 
+deactivate
+exit
+bash -c ". uv_default/bin/activate && nu"
+a
+activate
+vcv
+vv
+a
+source ~/.config/nushell/config.nu
+a
+sb
+c
+version
+version  | pivot
+version | pivot
+version
+which python
+python --version
+pr
+exit
+a
+cd
+pu
+vv
+d
+which python
+a
+which python
+a
+which python
+pv
+pr
+hx aliases.nu
+vv
+exit
+which python
+exit
+a
+which python
+exit
+y
+yy
+xonsh
+exit
+cd nushell/
+hx config.nu
+hx env.nu
+source ~/.config/nushell/config.nu
+hx config.nu
+source ~/.config/nushell/config.nu
+hx config.nu
+source ~/.config/nushell/config.nu
+hx config.nu
+source ~/.config/nushell/config.nu
+cd
+cd projects/scalping_analysis/backtester/
+l
+ls
+open results.csv
+source ~/.config/nushell/config.nu
+open results.csv
+pwd
+z
+fzf_go_to_path.sh 
+z
+cd
+cd dot/shell/nushell/
+hx config.nu
+cd
+cd projects/scalping_analysis/backtester/
+open results.csv
+source ~/.config/nushell/config.nu
+hx ~/.config/nushell/config.nu
+source ~/.config/nushell/config.nu
+hx ~/.config/nushell/config.nu
+source ~/.config/nushell/config.nu
+hx ~/.config/nushell/config.nu
+source ~/.config/nushell/config.nu
+open results.csv
+hx ~/.config/nushell/env.nu
+gsa
+cd
+cd dot
+ga home-manager/
+gc
+git push
+gs
+hx shell/.aliases
+ga shell/.aliases
+gc
+git push
+hx shell/.bashrc
+ga shell/.bashrc
+gc
+typos
+gc
+hx typos.toml
+typos
+gc
+typos
+gc
+sb
+exit
