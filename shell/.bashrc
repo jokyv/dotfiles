@@ -31,7 +31,7 @@ function source_if_exists {
 add_to_path $HOME/dot/bin
 add_to_path $HOME/dot/bin/scripts
 # cargo - rust applications
-add_to_path $HOME/.local/share/cargo/bin
+# add_to_path $HOME/.local/share/cargo/bin
 
 # brew installation for MacOS
 add_to_path /usr/local/opt
@@ -60,8 +60,7 @@ eval "$(uv generate-shell-completion bash)"
 # Nix
 export NIX_PATH=nixpkgs=https://github.com/nixos/nixpkgs/archive/refs/heads/master.tar.gz
 
-
-# Activate python default virtual enviroment
+# Activate python default virtual environment
 activate_uv() {
     # Check if UV_VIRTUAL_ENV is set (environment is already activated)
     if [[ -n "${UV_VIRTUAL_ENV}" ]]; then
