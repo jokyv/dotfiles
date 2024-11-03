@@ -10,6 +10,7 @@ NDFs = "NDFs"
 ND = "ND"
 WTH = "WTH"
 ue = "ue"
+tre = "tre"
 
 [files]
 extend-exclude = ["*.csv", "*.ini"]
