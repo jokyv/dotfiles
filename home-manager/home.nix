@@ -47,6 +47,11 @@
     virtualenv # need this for python virtual env
   ];
 
+  nixpkgs.config.allowUnfreePredicate = 
+    pkg: builtins.elem (pkgs.lib.getName pkg) [
+      "discord"
+    ];
+
   home.stateVersion = "24.05";
 
   # nh
@@ -76,8 +81,14 @@
   #   EDITOR = "hx"
   # };
   #
+  # session variables
+  # home.sessionVariables = {
+  # HISTFILE = "/home/jokyv/.bash_history"
+  # CARGO_HOME = "/home/jokyv/.cargo"
+  # }
+  #
   # User management
-  # users.users.jokyc = {
+  # users.users.jokyv = {
   #   isNormalUser = true;
   #   home = "/home/jokyv";
   #   extraGroups = [ "wheel" "networkmanager"];
@@ -85,6 +96,18 @@
   #     "ssh-rsa ..."
   #   ];
   # };
+
+  # syncs automatically the repo with github
+  #services.git-sync = {
+  #  enable = true;
+  #  repositories = {
+  #    "my-repo" = {
+  #      path = "/home/jokyv/xxx/xxxx";
+  #      uri = "https://github.com/user/repo.git";
+  #     interval = "300"; # Sync every 5 minutes
+  #    };
+  #  };
+  #};
 
   programs.home-manager.enable = true;
   # programs.home-manager.useGlobalPkgs = true;
