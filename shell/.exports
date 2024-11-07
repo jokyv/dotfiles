@@ -34,6 +34,10 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/.ripgreprc"
 # i am adding it to path via bashrc
 # export PATH="$HOME/.local/share/cargo/bin:$PATH"
 
+# MAN syntax highlighting
+# -----------------------------------------------
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 # PYTHON
 # -----------------------------------------------
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.

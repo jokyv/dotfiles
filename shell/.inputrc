@@ -1,0 +1,11 @@
+set completion-ignore-case on
+set show-all-if-ambiguous on
+
+set colored-completion-prefix on
+set colored-stats on
+
+set skip-completed-text on
+
+set bell-style visible
+
+set show-all-if-unmodified on
