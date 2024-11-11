@@ -34,15 +34,6 @@ alias ep='echo $PATH | tr : "\n"'
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-# Run previous command with sudo
-s() {
-    if [ $# -eq 0 ]; then
-        sudo "$(fc -ln -1)"
-    else
-        sudo "$@"
-    fi
-}
-
 # -----------------------------------------------------
 # LINUX SCRIPTS
 # -----------------------------------------------------
@@ -109,7 +100,7 @@ alias pr='pacman -Qq | fzf --multi --preview "pacman -Qi {1}" | xargs -ro sudo p
 # find the version for each pacman program install using fzf
 alias pv='pacman -Q | fzf'
 # install arch + aur programs with the help of paru and fzf
-alias auri='paru -Sql | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
+# alias auri='paru -Sql | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
 
 # -----------------------------------------------------
 # RUST applications
