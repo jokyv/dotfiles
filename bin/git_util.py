@@ -17,7 +17,11 @@ from rich.console import Console
 # -----------------------------------------------
 
 HOME = os.path.expanduser("~")
-PATHS = [f"{HOME}/projects/notes/", f"{HOME}/pics/wallpapers/"]
+PATHS = [
+    f"{HOME}/projects/secret_notes/",
+    f"{HOME}/projects/notes/",
+    f"{HOME}/pics/wallpapers/",
+]
 EXCLUDE_DIRS = [
     "-gE",
     ".local/share",
