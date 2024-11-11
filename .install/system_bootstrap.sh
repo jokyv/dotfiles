@@ -150,6 +150,7 @@ enable_system_services() {
         # "avahi-daemon" # for printing services, works in conjunction with cups
         # "tlp" # optimize battery life on Linux systems (laptops)
         # "firewalld" # firewall solution
+        # "ufw" # firewall solution (suggested)
         # "sshd" # for remote access
     )
 
