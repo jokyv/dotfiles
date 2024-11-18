@@ -100,6 +100,7 @@ layout {
 // which may be more convenient to use.
 
 spawn-at-startup "kitty"
+spawn-at-startup "waybar"
 spawn-at-startup "waypaper" "--restore"
 
 // prefer-no-csd
@@ -182,6 +183,7 @@ binds {
     Mod+E { spawn "nautilus"; }    
     Mod+Q { close-window; }
     Super+Ctrl+L { spawn "swaylock" "-i" "~/pics/wallpapers/20920.jpg"; }
+    Mod+W { spawn "waypaper" "--random"; }
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { reset-window-height; }
