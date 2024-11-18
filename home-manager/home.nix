@@ -16,43 +16,51 @@
 
   # install packages with their default configs
   home.packages = with pkgs; [
-    # alacritty
+    alacritty
+    atuin
     base16-schemes
+    bat
     brave
-    dprint
-    fastfetch
-    helix
-    just
-    nixpkgs-fmt
-    # nixfmt-rfc-style
-    # nil
-    nixd
-    trashy
-    vscode-langservers-extracted
-    zathura
-    # wlogout  
-    libreoffice-qt-fresh # no space left for this app
-    # onlyoffice-bin
-    psst
-    gitleaks
     cowsay
-    # nh # move to NixOS first!
-    # nemo
-    nautilus
-    nom
-    xonsh
-    nushell
     ddgr
+    dprint
+    eza
+    fastfetch
+    fd
+    fzf
+    gitleaks
+    just
+    libreoffice-qt-fresh # no space left for this app
+    nautilus
+    # nh # move to NixOS first!
+    nixd
+    nixpkgs-fmt
+    nom
+    nushell
+    psst
+    ripgrep
+    starship
     tabiew
+    trashy
     virtualenv # need this for python virtual env
+    vscode-langservers-extracted
+    uv
+    waybar
+    xonsh
+    zathura
   ];
 
-  nixpkgs.config.allowUnfreePredicate = 
+  nixpkgs.config.allowUnfreePredicate =
     pkg: builtins.elem (pkgs.lib.getName pkg) [
       "discord"
     ];
 
   home.stateVersion = "24.05";
+
+  programs.yazi.enable = true;
+  programs.kitty.enable = true;
+  programs.fuzzel.enable = true;
+  # programs.yazi.enable = true;
 
   # nh
   # programs.nh = {
