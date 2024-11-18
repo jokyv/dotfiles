@@ -100,7 +100,7 @@ layout {
 // which may be more convenient to use.
 
 spawn-at-startup "kitty"
-// spawn-at-startup "swaybg" "-i" "$(shuf -n 1 -e ~/pics/wallpapers/)"
+spawn-at-startup "waypaper" "--restore"
 
 // prefer-no-csd
 
