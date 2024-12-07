@@ -7,6 +7,8 @@ use-grammars = { only = [
   "json",
   "yaml",
   "markdown",
+  "nu",
+  "nix",
 ] }
 
 [language-server.nixd]
