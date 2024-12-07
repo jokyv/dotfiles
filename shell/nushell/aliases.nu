@@ -13,7 +13,7 @@ alias sr = sudo reboot
 # with -i it is asking you if overwrites something
 # with -v it explains what is being done on terminal
 # with -p you are making the parent directory if doesnt exist
-alias mkdir = mkdir-v
+alias mkdir = mkdir -v
 # alias rmd='rm -rfv'
 alias rm = rm -iv
 alias mv = mv -iv  
@@ -29,7 +29,6 @@ alias ep = echo $env.PATH | tr : "\n"
 # Recursively delete `.DS_Store` files
 # alias cleanup = find . -type f -name '*.DS_Store' -ls -delete
 
-
 # -----------------------------------------------------
 # LINUX SCRIPTS
 # -----------------------------------------------------
@@ -40,8 +39,6 @@ alias sb = source_files
 alias cdd = cd_with_eza
 # run weekly updates, checks and clean up
 alias ue = update_everything.py
-# update mirrors
-alias upmirrors = sudo reflector --country Singapore --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 # -----------------------------------------------------
 # FZF SCRIPTS
@@ -85,35 +82,6 @@ alias pic = python_init_code.py
 # alias a = activate-venv
 alias a = bash -c ". ~/uv_default/bin/activate && nu"
 alias d = deactivate 
-
-# -----------------------------------------------------
-# PACMAN - AUR
-# -----------------------------------------------------
-
-# install pacman program with the help of fzf
-alias pi = pacman -Sql | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S
-# remove pacman program with the help of fzf
-alias pr = pacman -Qq | fzf --multi --preview "pacman -Qi {1}" | xargs -ro sudo pacman -Rns
-# find the version for each pacman program install using fzf
-alias pv = pacman -Q | fzf
-# install arch + aur programs with the help of paru and fzf
-# alias auri = paru -Sql | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S
-
-# -----------------------------------------------------
-# RUST applications
-# -----------------------------------------------------
-
-# cargo shortcuts
-# https://doc.rust-lang.org/book/ch01-03-hello-cargo.html
-alias cn = cargo new
-alias ci = cargo install
-alias cc = cargo check
-alias cr = cargo run
-alias cb = cargo build
-alias cs = cargo search
-alias ct = cargo test
-alias cu = cargo install-update -a
-alias cl = cargo install-update -l
 
 # eza shortcuts
 # https://github.com/eza-community/eza
@@ -178,13 +146,6 @@ alias gsa = git_util.py --status_all_dirs
 # clean up ignore files that mistakenly are tracked
 alias gclean = git_util.py --clean_up
 alias gd = git diff -w
-
-# -----------------------------------------------------
-# NIX SHORTCUTS
-# -----------------------------------------------------
-
-alias hms = home-manager switch --flake .
-alias hmsf = home-manager switch --flake ~/dot/home-manager/#jokyv
 
 # -----------------------------------------------------
 # PRINT FILE SOURCED CONFIRMATION

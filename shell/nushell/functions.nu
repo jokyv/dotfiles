@@ -61,3 +61,19 @@ def create_left_prompt [] {
     
     $"($dir_segment)($git_segment)(ansi reset)> "
 }
+
+
+def fzf-cd [
+    --hidden = true # Include hidden directories
+    --maxdepth = 3 # Maximum search depth
+] {
+    cd (
+        if $hidden {
+            fd -t d -H --max-depth $maxdepth
+        } else {
+            fd -t d --max-depth $maxdepth
+        }
+        | fzf --height 50% --layout=reverse --border 
+        | str trim
+    )
+}

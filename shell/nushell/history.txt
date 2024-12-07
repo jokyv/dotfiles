@@ -270,3 +270,201 @@ typos
 gc
 sb
 exit
+open models.csv
+open models.csv | sort Time Taken
+open models.csv | sort 'Time Taken'
+open models.csv | sort-by Time Taken
+open models.csv | sort-by 'Time Taken'
+ls
+ls -sort by size
+ls -sort-by size
+ls | sort-by size
+ls | sort-by size | reverse
+plugin list
+plugin add   nu_plugin_polars<\n>
+plugin add ./my_plugins/nu_plugin_polars
+cd
+cd .config/
+cd nushell/
+ls
+mkdir my_plugins
+mkdir-v my_plugins
+mkdir my_plugins
+mkdir ./my_plugins
+mkdir -v my_plugins
+mkd my_plugins
+mkdir my_plugins
+create dir my_plugins
+mkdir my_plugins
+ls
+hx aliases.nu
+sb
+mkdir my_plugins
+exit
+mkdir my_plugins
+rm -rf my_plugins/
+cd
+cd .config/nushell/
+mkdir my_plugins
+plugin add ./my_plugins/nu_plugin_polars
+l
+ls
+cargo install nu_plugin_polars --locked
+plugin add ./my_plugins/nu_plugin_polars
+plugin add ~/.config/nushell/my_plugins/nu_plugin_polars
+ls
+cd my_plugins/
+ls
+nu --features=plugin
+nu --plugin polars
+plugin add ~/.config/nushell/my_plugins/nu_plugin_polars
+which polars
+polars
+$env.PATH = ($env.PATH | split row (char path_sep) | append "/Users/jkyvetos/.local/share/cargo/bin")
+plugin add ~/.config/nushell/my_plugins/nu_plugin_polars
+polars
+l
+ls
+..
+ls
+hx config.nu
+hx env.nu
+exit
+polars
+..
+cd .config/nushell/
+ll
+ls
+cd my_plugins/
+l
+ls
+plugin add ./nu_plugin_polars
+cargo install nu_plugin_polars --locked
+ls
+exit
+open models.csv | sort-by 'Time Taken'
+exit
+ls
+open models.csv | sort-by 'Time Taken'
+open models_1000.csv | sort-by 'Time Taken'
+open models_100000.csv | sort-by 'Time Taken'
+open models_100000.csv
+open models_500000.csv
+open models_1000000.csv
+open models_2000000.csv
+exit
+open predictions_100000.csv
+open predictions_1000000.csv
+open predictions_2000000.csv
+l
+z
+exit
+hx README.md
+exit
+iiidhx
+open perpetual_results.csv
+open perpetual_results.csv | sort roc_auc
+open perpetual_results.csv | sort 'roc_auc'
+open perpetual_results.csv | sort-by 'roc_auc'
+open perpetual_results.csv | sort-by 'roc_auc'| reverse
+# Using the --format flag to show more digits<\n>open myfile.txt | format "{{roc_auc | format_float --precision 10}}"
+$env.config.float_precision = 10<\n><\n>
+open perpetual_results.csv | sort-by 'roc_auc'| reverse
+l
+ls
+hx functions.nu
+hx history.txt
+hx my_plugins/
+cat aliases.nu
+vv
+gs
+..
+.
+...
+cd dot/shell/nushell/
+hx --heatth nu
+hx --health nu
+hx aliases.nu
+ep
+hx aliases.nu
+sb
+hx aliases.nu
+ls
+hx config.nu
+hx env.nu
+exit
+fs
+vv
+open probability_comparison.csv
+ecit
+exit
+fzf_go_to_path.sh 
+fzf
+skim
+hx functions.nu
+exit
+hx functions.nu
+exit
+hx functions.nu
+exit
+fzf-cd --maxdepth 4
+cd
+fzf-cd --maxdepth 4
+fzf-cd --maxdepth 1
+cd dot/shell/nushell/
+hx functions.nu
+exit
+fzf-cd --maxdepth 1
+fzf-cd --maxdepth 4
+cd
+cd ~
+fzf-cd --maxdepth 3
+z
+cd Downloads/
+open Settings_Default-4.csv
+open Settings_Default-4.csv | filter "Taker Login" == 4007098
+open Settings_Default-4.csv | where "Taker login" == 4007098
+open Settings_Default-4.csv | where "Taker login" == 4035046
+open Settings_Default-4.csv | where "Taker login" == 4007098
+z
+fzf-cd --maxdepth 3
+cd
+fzf-cd --maxdepth 3
+cd projects/shared_projects/ml_toxic_clients/
+ls
+cd results
+ls
+cd 1_try/
+ls
+..
+ls
+open probability_comparison.csv
+ipythion
+ipython
+ls
+open perpetual_results.csv
+open models_1000000.csv
+exit
+fzf-cd --maxdepth 3
+cd
+du
+(http get https://api.chucknorris.io/jokes/random).value
+$env
+clock
+tock
+hx --health nu
+cd .config/nushell/
+l
+ls
+hx env.nu
+z
+dot
+...
+pwd
+cd .config/nushell/
+git log --pretty=%h»¦«%aN»¦«%s»¦«%aD | lines | split column "»¦«" sha1 committer desc merged_at | histogram committer merger | sort-by merger | reverse
+xz
+z
+..
+cd projects/cron
+git log --pretty=%h»¦«%aN»¦«%s»¦«%aD | lines | split column "»¦«" sha1 committer desc merged_at | histogram committer merger | sort-by merger | reverse
