@@ -30,6 +30,3 @@ source_if_exists $HOME/.bashrc
 # Print if the file is sourced
 # ----------------------------------------------------------------------------
 echo "-- .bash_profile file sourced"
-
-# uv
-export PATH="/home/jokyv/.local/bin:$PATH"
