@@ -30,6 +30,7 @@ function source_if_exists {
 # my own personal scripts
 add_to_path $HOME/dot/bin
 add_to_path $HOME/dot/bin/scripts
+add_to_path $HOME/.local/bin
 # cargo - rust applications
 # add_to_path $HOME/.local/share/cargo/bin
 
@@ -56,6 +57,9 @@ eval "$(atuin init bash)"
 
 # uv
 eval "$(uv generate-shell-completion bash)"
+
+# zoxide
+eval "$(zoxide init bash)"
 
 # Nix
 export NIX_PATH=nixpkgs=https://github.com/nixos/nixpkgs/archive/refs/heads/master.tar.gz
