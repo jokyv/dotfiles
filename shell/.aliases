@@ -51,16 +51,6 @@ alias upmirrors="sudo reflector --country Singapore --latest 10 --sort rate --sa
 # FZF SCRIPTS
 # -----------------------------------------------------
 
-# find a directory with fzf and go there, works only with bash
-z() {
-    local dir
-    dir=$(fzf_go_to_path.sh)
-    if [ -n "$dir" ]; then
-        cd "$dir" && eza --color=always --icons=always --long --all --group-directories-first --git
-    else
-        echo "No directory selected."
-    fi
-}
 # find a file with fzf and open it with nvim
 alias vv='fzf_util.py --open_file'
 # find empty files
