@@ -26,7 +26,10 @@ add_newline = true
 
 [fill]
 disabled = false
-symbol = " "
+symbol = "."
+# style = "bold #dbbc7f" # Yellow
+# style = "bold #7fbbb3" # Cyan
+style = "bold #859289" # Gray
 
 [character]
 disabled = false
@@ -103,13 +106,13 @@ untracked = "?"
 
 [git_metrics]
 disabled = false
-format = '([+$added]($added_style) )([-$deleted]($deleted_style))'
+format = '([+$added]($added_style) )([-$deleted]($deleted_style)) '
 
 [hostname]
 disabled = false
 ssh_only = true
 trim_at = "."
-format = '\[[$symbol($hostname)]($style)\]'
+format = '\[[$symbol($hostname)]($style)\] '
 
 [jobs]
 disabled = true
