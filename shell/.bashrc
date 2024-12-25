@@ -91,6 +91,9 @@ activate_uv() {
 # Call the function when .bashrc is sourced
 # activate_uv
 
+# SOPS
+export SOPS_AGE_KEY_FILE=~/.config/sops/age/secret.key
+
 # Print if the file is sourced
 # -----------------------------------------------
 echo "-- .bashrc file sourced"
