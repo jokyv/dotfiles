@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.2.0] - 2024-12-19
+
+### 󰩉 Features
+
+- _(.aliases)_ Add more alliases and group commands better
+- _(.gitignore)_ Update with new rule
+- _(.install)_ Added ufw as potential services to activate when new install
+- _(aliases)_ Remove reduntant code
+- _(bin)_ Add more links to check for git updates
+- _(helix)_ Add grammar for more languages
+- _(home)_ New formatter and LSP for nix
+- _(home)_ New formatter and LSP for nix
+- _(home-manager)_ Add more applications managed by hm
+- _(home-manager)_ Add more programs
+- _(home-manager)_ Add not free apps option
+- _(home-manager)_ Add some useful configs for later
+- _(home.nix)_ Add more applications
+- _(justfile)_ No more debug mode for gc command
+- _(kitty)_ Back to previous setup without nix home-manager
+- _(kitty)_ Kitty conf managed by home manager now
+- _(niri)_ Add spawn at start up the waypaper --restore
+- _(niri)_ Add waybar to spawn at startup
+- _(nushell)_ Add more configs for nu
+- _(nushell)_ Init nushell config
+- _(polars)_ Moved it to python folder
+- _(python)_ Add more core python libraries to the file
+- _(python-dev.nix)_ Add nix shell python enviroment
+- _(shell)_ Add inputrc
+- _(stylix)_ Switching icons package
+- _(typos)_ Add word
+- _(waypaper)_ Add config
+
+###  Bug Fixes
+
+- _(.aliases)_ Remove dupe
+- _(aliases)_ Typo
+- _(bash)_ Remove tool PATH for uv tools
+- _(cargo)_ Remove to source cargo folder
+
+### 📚 Documentation
+
+- _(CHANGELOG.md)_ Add new release notes
+
 ## [4.1.0] - 2024-10-12
 
 ### 󰩉 Features
@@ -14,17 +57,17 @@ All notable changes to this project will be documented in this file.
 - _(home manager nix)_ Update configs
 - _(niri)_ Simpler configs and wallpaper change
 - _(bin)_ Update scripts
-- _(helix)_ New shortcuts and config cleaning
-- _(helix)_ Add nix formatter
+- _(helix)_ New shortcuts and confing cleaning
+- _(helix)_ Add nix formater
 - _(kitty)_ Font size to 15
 - _(shell)_ Sourcing linux_script - required for some of my scripts
 - _(home manager nix)_ Add modules folder and refactoring
 - _(shell)_ Add alias related to nix
 - _(kitty)_ Change window decoration
 - _(home manager nix)_ Moved to the unstable
-- _(niri)_ Added multiple monitor support
+- _(niri)_ Added mutiple monitor support
 - _(install)_ Adding scripts for post installation
-- _(helix)_ Added new shortcuts to close buffers
+- _(helix)_ Added new shorcuts to close buffers
 - _(python)_ Created python folder for all the related projects with the lang
 - _(install)_ Add more auto configurations on the script
 - _(python)_ Created ruff.toml
@@ -44,7 +87,7 @@ All notable changes to this project will be documented in this file.
 - _(swayidle)_ Update service to run swaylock with background image
 - _(.aliases)_ Update home-manager shortcut alias
 - _(system_bootstrap.sh)_ Updates on package and service list
-- _(bin)_ Separating standalone scripts and utilities
+- _(bin)_ Seperating standalone scripts and utilities
 - _(ly)_ Added config options for ly
 - _(shell)_ Changed naming from projects to repos
 - _(system_bootstrap)_ Updates and code clarity
@@ -61,16 +104,16 @@ All notable changes to this project will be documented in this file.
 - _(bin)_ Cleaning scripts
 - _(linux_util)_ Created new python script for linux related scripts
 - _(shell)_ Fixes and updated aliases
-- _(system_bootstrap)_ Add dependency for check_driver script
+- _(system_boostrap)_ Add dependency for check_driver scipt
 - _(ruff)_ Revamp the config for ruff
 - _(home-manager)_ Add yet another package managed by nix hm
 - _(git)_ Update ignore list
 - _(atuin)_ Change search to fuzzy
-- _(python script)_ Add notes to remember
+- _(python sctipt)_ Add notes to remember
 - _(kitty)_ Enable horizontal layout
 - _(starship)_ Remobe pyenv add nix shell
 - _(python script)_ Check venv before execute any python script
-- _(shell)_ Activate python environment when bashrc is sourced
+- _(shell)_ Activate python enviroment when bashrc is sourced
 - _(home-manager)_ Updates
 - _(home-manager)_ Updates
 - _(niri)_ Cursor is managed by stylix now
@@ -168,12 +211,12 @@ All notable changes to this project will be documented in this file.
 - _(python libraries update)_ Add pylsp to the list
 - _(dprint)_ New versions for dprint plugins
 - _(update_everything script)_ Update with the correct python function
-- _(helix)_ Change json formatter to dprint
+- _(helix)_ Change json formater to dprint
 - _(qtile)_ Theme nord json format update
 - _(niri)_ Added niri wm config file
 - _(wayland)_ Added niri, fuzzel waybar configs.
 - _(mako)_ Add configuration
-- _(waybar)_ Completely reworked the waybar configuration.
+- _(waybar)_ Completly reworked the waybar configuration.
 - _(niri)_ Completely changed and cleaned the niri configuration.
 - _(swappy)_ Add configs for the app
 - _(dprint)_ Added dprint in the parent directory
@@ -194,7 +237,7 @@ All notable changes to this project will be documented in this file.
 - _(alacritty)_ Archived alacritty configs.
 - _(kitty)_ Change fonts other than regular to automated method.
 - _(kitty)_ Add new icons for kitty.
-- _(qtile)_ Path fixing and formatting.
+- _(qtile)_ Path fixing and formating.
 - _(bin)_ Created folder bin for all .sh and .py scripts.
 - _(git_util.py)_ Created the git util script for all the git custom scripts.
 - _(shell)_ Update new alliases and folders to path
@@ -213,9 +256,9 @@ All notable changes to this project will be documented in this file.
 - _(ruff)_ Removed lint that was not working
 - _(fzf_util)_ Moved from 'helix' to 'hx'
 - _(python update libraries)_ New commands to shortcuts to update python libraries
-- _(exports)_ Fixed the helix environmental runtime variable path
+- _(exports)_ Fixed the helix enviromental runtime variable path
 - _(my_logout)_ Changed logout to niri.
-- _(scripts)_ Merged folders scripts and scripts_in_python into bin.
+- _(scripts)_ Merged folders scripts and scripts_in_pyhton into bin.
 - _(fzf_go_to_path)_ Fixed script now it moves path as well.
 - _(erdtree)_ Remove erdtree aliases, functions and comments
 
