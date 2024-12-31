@@ -39,9 +39,9 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # -----------------------------------------------------
 
 # source bash files and clear terminal
-alias sb=source_files
+alias sb='linux_util.py --source_bash_profile'
 # combine cd with eza
-alias cdd=cd_with_eza
+alias cdd='linux_util.py --cd_with_eza'
 # run weekly updates, checks and clean up
 alias ue=update_everything.py
 # update mirrors
