@@ -28,8 +28,7 @@ function source_if_exists {
 # add to $PATH
 # -----------------------------------------------
 # my own personal scripts
-add_to_path $HOME/dot/bin
-add_to_path $HOME/dot/bin/scripts
+add_to_path $HOME/scripts/bin
 add_to_path $HOME/.local/bin
 # cargo - rust applications
 # add_to_path $HOME/.local/share/cargo/bin
