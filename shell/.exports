@@ -90,3 +90,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 # bind '"\C-f":"cd_with_fzf\n"'
 # bind '"\C-o":"open_with_fzf\n"'
 # bind '"\C-v":"nvidoes 
+
+# Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+
