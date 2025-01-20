@@ -98,7 +98,6 @@ formatter = { command = "dprint", args = ["fmt", "--stdin", "json"] }
 [language-server.json-server]
 command = "vscode-json-language-server"
 
-
 [[language]]
 name = "toml"
 auto-format = true
@@ -106,14 +105,17 @@ file-types = ["toml", "ini", "pycodestyle"]
 language-servers = ["taplo"]
 formatter = { command = "taplo", args = ["fmt", "-"] }
 
-
 [[language]]
 name = "markdown"
 auto-format = true
 file-types = ["md"]
 # language-servers = ["marksman", "ltex-ls"]
-language-servers = ["marksman"]
+# language-servers = ["marksman"]
+language-servers = ["markdown-oxide"]
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
+
+# [language-server.markdown-oxide]
+# command = "markdow-oxide"
 
 [language.auto-pairs]
 '(' = ')'
