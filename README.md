@@ -1,4 +1,4 @@
-# My configs for Arch on Wayland
+My configs for Arch on Wayland
 
 To easily start with this config run [archinstall](https://wiki.archlinux.org/title/Archinstall) with min packages.
 
@@ -58,8 +58,8 @@ cd repos/dot/.install
 
 ## Key Binding notes
 
-- just `Ctrl` or `Ctrl` + `Shift` reserved mainly for Terminal shortcuts.
-- just `Super Key` or `Super Key` + `Shift` mainly for WM shortcuts.
+- Just `Ctrl` or `Ctrl` + `Shift` reserved mainly for Terminal shortcuts.
+- Just `Super Key` or `Super Key` + `Shift` mainly for WM shortcuts.
 
 ## Wallpaper repository
 
