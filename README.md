@@ -1,6 +1,7 @@
 My configs for Arch on Wayland
 
-> [!important] Current status
+> [!IMPORTANT]
+> Current status
 > I have switched to [Nixos-config](https://github.com/jokyv/nixos-config) but those dotfiles can still be used with MacOS.
 
 To easily start with this config run [archinstall](https://wiki.archlinux.org/title/Archinstall) with min packages.
