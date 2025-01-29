@@ -11,6 +11,7 @@ use-grammars = { only = [
   "nix",
 ] }
 
+
 [language-server.nixd]
 command = "nixd"
 
@@ -19,6 +20,7 @@ name = "nix"
 language-servers = ["nixd"]
 auto-format = true
 formatter = { command = "nixpkgs-fmt" }
+
 
 [language-server.ruff]
 command = "ruff"
@@ -48,6 +50,7 @@ formatter = { command = "prettier", args = ["--parser", "yaml"] }
 
 # [language-server.yaml-server]
 # command = "yaml-language-server"
+
 
 [[language]]
 name = "rust"
@@ -87,6 +90,10 @@ file-types = [
 ]
 formatter = { command = "shfmt", args = ["-l", "-w"] }
 
+
+[language-server.json-server]
+command = "vscode-json-language-server"
+
 [[language]]
 name = "json"
 auto-format = true
@@ -95,8 +102,6 @@ language-servers = ["json-server"]
 # formatter = { command = "prettier", args = ["--parser", "json"] }
 formatter = { command = "dprint", args = ["fmt", "--stdin", "json"] }
 
-[language-server.json-server]
-command = "vscode-json-language-server"
 
 [[language]]
 name = "toml"
@@ -105,17 +110,18 @@ file-types = ["toml", "ini", "pycodestyle"]
 language-servers = ["taplo"]
 formatter = { command = "taplo", args = ["fmt", "-"] }
 
+
+[language-server.typos]
+command = "typos-lsp"
+
 [[language]]
 name = "markdown"
 auto-format = true
 file-types = ["md"]
-# language-servers = ["marksman", "ltex-ls"]
 # language-servers = ["marksman"]
-language-servers = ["markdown-oxide", "ltex-ls-plus"]
+# language-servers = ["marksman", "ltex-ls"]
+language-servers = ["markdown-oxide", "typos"]
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
-
-# [language-server.markdown-oxide]
-# command = "markdow-oxide"
 
 [language.auto-pairs]
 '(' = ')'
