@@ -1,17 +1,24 @@
-# Personal Notes for Aider
+# Notes for Aider
+
+## General notes
 
 - currently works with python3.12 and below
-- run a venv with uv and python3.12
+- run a venv with uv and python3.12 as `uv venv talk_to_ai -p python3.12`
+  - activate env as `source talk_to_ai/bin/activate`
+  - `uv pip install aider-chat[help]`
+- best architect in terms of value per dollar is currently: `openrouter/deepseek/deepseek-r1`
+- prefer `diff` edit format for the editor model as it uses less tokens
+  - add `--editor-edit-format diff` into the initial `aider` command.
 
 ## Run architect/editor setup
 
-If you have sonnet via anthropic
+### If you have sonnet via anthropic
 
 ```bash
 aider --architect --model openrouter/deepseek/deepseek-r1 --editor-model sonnet
 ```
 
-If you have sonnet via openrouter
+### If you have sonnet via openrouter
 
 ```bash
 # PAID deepseek version
@@ -21,8 +28,46 @@ aider --architect --model openrouter/deepseek/deepseek-r1 --editor-model openrou
 aider --architect --model openrouter/deepseek/deepseek-r1:free --editor-model openrouter/anthropic/claude-3.5-sonnet
 ```
 
-## How to setup GEMINI (google)
+## GEMINI (google)
+
+### How to set it up first
 
 - install `google-cloud-sdk`
 - run `gcloud init`
-- ???
+- export VERTEXAI_PROJECT=<PROJECT ID>
+- export VERTEXAI_LOCATION=us-central1
+
+### If you have to work with only gemini
+
+- strong reasoning model as architect
+- strong coding model as editor
+- week model and be some cheap or free model
+
+```bash
+aider --architect --model vertex_ai/gemini-2.0-flash-thinking-exp-01-21 --editor-model vertex_ai/gemini-2.0-flash-exp --weak-model vertex_ai/gemini-2.0-flash-exp --editor-edit-format diff
+```
+
+## Commands and changes from your IDE instead of terminal
+
+- start as `aider --watch-files`
+- comment as `# add documentation to this function. AI?`
+- or long form instructions as:
+
+```python
+# Make these changes: AI?
+# - add a proper main() function
+# - accept --host and --port args
+```
+
+## Specifying coding conventions
+
+- `/read CONVENTIONS.md` or `aider --read CONVENTIONS.md`
+- always read conventions:
+  - add to file .aider.conf.yml
+  ```yaml
+  # alone
+  read: CONVENTIONS.md
+
+  # multiple files
+  read: [CONVENTIONS.md, anotherfile.txt]
+  ```

@@ -1,0 +1,142 @@
+# Main model settings
+model:
+  main:
+    AIDER_MODEL: "vertex_ai/gemini-2.0-flash-thinking-exp"
+    # AIDER_OPUS: ""  # Uncomment if needed
+    # AIDER_SONNET: ""  # Uncomment if needed
+    # AIDER_HAIKU: ""  # Uncomment if needed
+    # AIDER_4: ""  # Uncomment if needed
+    # AIDER_4O: ""  # Uncomment if needed
+    # AIDER_MINI: ""  # Uncomment if needed
+    # AIDER_4_TURBO: ""  # Uncomment if needed
+    # AIDER_35TURBO: ""  # Uncomment if needed
+    # AIDER_DEEPSEEK: ""  # Uncomment if needed
+    # AIDER_O1_MINI: ""  # Uncomment if needed
+    # AIDER_O1_PREVIEW: ""  # Uncomment if needed
+
+# API keys and settings
+# Safer to pass them as env variables
+api_keys:
+  AIDER_OPENAI_API_KEY: ""  # Add API key here if needed
+  AIDER_ANTHROPIC_API_KEY: ""  # Add API key here if needed
+  AIDER_API_KEY: ""  # Add general API key if needed
+  AIDER_OPENAI_API_BASE: ""  # API base URL if needed
+  AIDER_SET_ENV: ""  # Additional environment variables if needed
+
+# Model settings
+model_settings:
+  AIDER_VERIFY_SSL: true
+  AIDER_TIMEOUT: ""  # Optional timeout setting
+  AIDER_SHOW_MODEL_WARNINGS: true
+  AIDER_MAX_CHAT_HISTORY_TOKENS: ""  # Optional setting for max chat history tokens
+  AIDER_LIST_MODELS: ""  # Optional list of model names
+  AIDER_MODEL_SETTINGS_FILE: ".aider.model.settings.yml"
+  AIDER_MODEL_METADATA_FILE: ".aider.model.metadata.json"
+  AIDER_ALIAS: ""  # Optional model alias
+
+# Cache settings
+cache:
+  AIDER_CACHE_PROMPTS: false
+  AIDER_CACHE_KEEPALIVE_PINGS: false
+
+# Repo map settings
+repomap:
+  AIDER_MAP_REFRESH: "auto"
+  # AIDER_MAP_MULTIPLIER_NO_FILES: true  # Uncomment if needed
+
+# History files
+history_files:
+  AIDER_INPUT_HISTORY_FILE: ".aider.input.history"
+  AIDER_CHAT_HISTORY_FILE: ".aider.chat.history.md"
+  AIDER_RESTORE_CHAT_HISTORY: false
+  AIDER_LLM_HISTORY_FILE: ""  # Optional LLM history file path
+  AIDER_MAX_HISTORY_SIZE: 1000  # Limit the number of history entries stored
+  AIDER_HISTORY_BACKUP: false  # Backup chat history to a separate file (e.g., daily backups)
+  AIDER_HISTORY_RETENTION_PERIOD: 30  # Retain history for X days (cleanup older entries)
+
+# Output settings
+output:
+  AIDER_DARK_MODE: true
+  AIDER_LIGHT_MODE: false
+  AIDER_PRETTY: true
+  AIDER_STREAM: true
+  AIDER_CODE_THEME: "zenburn"
+  AIDER_SHOW_DIFFS: true
+
+# Git settings
+git:
+  AIDER_GIT: true
+  AIDER_GITIGNORE: true
+  AIDER_AIDERIGNORE: ".aiderignore"
+  AIDER_SUBTREE_ONLY: true
+  AIDER_AUTO_COMMITS: true
+  AIDER_DIRTY_COMMITS: true
+  AIDER_ATTRIBUTE_AUTHOR: true
+  AIDER_ATTRIBUTE_COMMITTER: true
+  AIDER_ATTRIBUTE_COMMIT_MESSAGE_AUTHOR: false
+  AIDER_ATTRIBUTE_COMMIT_MESSAGE_COMMITTER: false
+  AIDER_COMMIT: false
+  AIDER_DRY_RUN: false
+  AIDER_SKIP_SANITY_CHECK_REPO: false
+  AIDER_WATCH_FILES: false
+  # AIDER_GIT_COMMIT_MESSAGE_TEMPLATE: "Aider-generated commit for changes"
+
+# Fixing and committing
+fixing_and_committing:
+  AIDER_LINT: true
+  AIDER_LINT_CMD: "python: ruff check --fix"
+  AIDER_AUTO_LINT: true
+  AIDER_TEST_CMD: ""  # Optional test command
+  AIDER_AUTO_TEST: false
+  AIDER_TEST: false
+
+# Analytics
+analytics:
+  AIDER_ANALYTICS_DISABLE: true
+  AIDER_ANALYTICS_LOG: ""  # Optional analytics log file
+
+# Upgrading
+upgrading:
+  AIDER_JUST_CHECK_UPDATE: false
+  AIDER_CHECK_UPDATE: false
+  AIDER_INSTALL_MAIN_BRANCH: false
+  AIDER_UPGRADE: false
+
+# Modes
+modes:
+  AIDER_MESSAGE: ""  # Optional single message to send
+  AIDER_MESSAGE_FILE: ""  # Optional file with message to send
+  AIDER_GUI: false
+  AIDER_COPY_PASTE: false
+  AIDER_APPLY: ""  # Optional apply file
+  AIDER_APPLY_CLIPBOARD_EDITS: false
+  AIDER_EXIT: false
+  AIDER_SHOW_REPO_MAP: false
+  AIDER_SHOW_PROMPTS: false
+
+# Voice settings
+voice:
+  AIDER_VOICE_FORMAT: "wav"
+  AIDER_VOICE_LANGUAGE: "en"
+  AIDER_VOICE_INPUT_DEVICE: ""  # Optional input device
+
+user_interaction:
+  AIDER_WELCOME_MESSAGE: "Welcome! How can I assist you today?"
+  AIDER_DEFAULT_USER_LANGUAGE: "en"  # Default language for user interactions
+  AIDER_CONFIRMATION_PROMPT: true  # Enable prompts for user confirmation (e.g., before committing)
+  AIDER_FAREWELL_MESSAGE: "Thank you for using Aider. Goodbye!"  # Farewell message
+
+# Other settings
+other:
+  AIDER_VIM: true
+  AIDER_YES_ALWAYS: false
+  AIDER_VERBOSE: false
+  AIDER_ENCODING: "utf-8"
+  AIDER_LINE_ENDINGS: "platform"
+  AIDER_ENV_FILE: ".env"
+  AIDER_SUGGEST_SHELL_COMMANDS: true
+  AIDER_FANCY_INPUT: true
+  AIDER_MULTILINE: false
+  AIDER_DETECT_URLS: true
+  AIDER_EDITOR: "hx"
+

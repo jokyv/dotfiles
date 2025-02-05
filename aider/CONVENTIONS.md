@@ -1,0 +1,4 @@
+- Prefer polars over pandas for data analysis with python
+- Use types everywhere possible
+- functions always should have docstrings following Numpy docstring standard
+- make sure the code can handle all the exceptions
