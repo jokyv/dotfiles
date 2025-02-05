@@ -24,7 +24,8 @@ formatter = { command = "nixpkgs-fmt" }
 
 [language-server.ruff]
 command = "ruff"
-args = ["server", "--preview"]
+args = ["server"]
+# args = ["server", "--preview"]
 
 [language-server.pylsp]
 command = "pylsp"
@@ -41,16 +42,16 @@ language-servers = ["ruff", "pylsp"]
 formatter = { command = "ruff", args = ["format", "--quiet", "-"] }
 
 
+[language-server.yaml-language-server.config.yaml]
+format = { enable = true }
+validation = true
+
 [[language]]
 name = "yaml"
 auto-format = true
 file-types = ["yaml", "yml"]
 language-servers = ["yaml-language-server"]
-formatter = { command = "prettier", args = ["--parser", "yaml"] }
-
-# [language-server.yaml-server]
-# command = "yaml-language-server"
-
+# formatter = { command = "prettier", args = ["--parser", "yaml"] }
 
 [[language]]
 name = "rust"
@@ -110,6 +111,15 @@ file-types = ["toml", "ini", "pycodestyle"]
 language-servers = ["taplo"]
 formatter = { command = "taplo", args = ["fmt", "-"] }
 
+# fork of ltex-ls that is getting updated
+# [language-server]
+# ltex-ls-plus = { command = "ltex-ls-plus" }
+
+# [language-server.ltex-ls.config]
+# disable profanity rule
+# ltex.disabledRules = { "en-US" = ["PROFANITY"], "en-GB" = ["PROFANITY"] }
+# add `builtin` to the dictionary
+# ltex.dictionary = { "en-US" = ["builtin"], "en-GB" = ["builtin"] }
 
 [language-server.typos]
 command = "typos-lsp"
