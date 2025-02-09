@@ -1,75 +1,78 @@
+# specify read only file
+read:
+  ~/dot/aider/CONVENTIONS.md
+
 # Main model settings
-model: "vertex_ai/gemini-2.0-flash-thinking-exp"
-# opus: ""  # Uncomment if needed
-# sonnet: ""  # Uncomment if needed
-# haiku: ""  # Uncomment if needed
-# 4: ""  # Uncomment if needed
-# 4o: ""  # Uncomment if needed
-# mini: ""  # Uncomment if needed
-# turbo: ""  # Uncomment if needed
-# deepseek: ""  # Uncomment if needed
-# o1_mini: ""  # Uncomment if needed
-# o1_preview: ""  # Uncomment if needed
+# model: "vertex_ai/gemini-2.0-flash-thinking-exp"
+# opus: ""
+# sonnet: ""
+# haiku: ""
+# 4: ""
+# 4o: ""
+# mini: ""
+# turbo: ""
+# deepseek: ""
+# o1_mini: ""
+# o1_preview: ""
 
 # API keys and settings
 # Safer to pass them as env variables
-openai-api-key: ""  # Add API key here if needed
-openai-api-base: ""  # API base URL if needed
-anthropic-api-key: ""  # Add API key here if needed
+# openai-api-key: ""  # Add API key here if needed
+# openai-api-base: ""  # API base URL if needed
+# anthropic-api-key: ""  # Add API key here if needed
 
 # Model settings
+architect: true
 verify-ssl: true
 # timeout: 10_000  # Optional timeout setting
 show-model-warnings: true
 # max-chat-history-tokensl 10000  # Optional setting for max chat history tokens
-list-models: ""  # Optional list of model names
-model-settings-file: ".aider.model.settings.yml"
-model-metadata-file: ".aider.model.metadata.json"
+model-settings-file: .aider.model.settings.yml
+model-metadata-file: .aider.model.metadata.json
 
 # Cache settings
-cache-prompts: false
+cache-prompts: true
 # cache-keepalive-pings: 0
 
 # Repo map settings
 map-refresh: "auto"
-# map_multiplier_no_files: true  # Uncomment if needed
+# map_multiplier_no_files: true
 
 # History files
-input-history-file: ".aider.input.history"
-chat-history-file: ".aider.chat.history.md"
+input-history-file: .aider.input.history
+chat-history-file: .aider.chat.history.md
 restore-chat-history: false
-llm-history-file: ""  # Optional LLM history file path
+# llm-history-file: ""
 
 # Output settings
 dark-mode: true
 light-mode: false
 pretty: true
 stream: true
-code-theme: "zenburn"
+code-theme: zenburn
 show-diffs: true
 
 # Git settings
 git: true
 gitignore: true
-aiderignore: ".aiderignore"
+aiderignore: .aiderignore
 subtree-only: true
 auto-commits: true
 dirty-commits: true
 attribute-author: true
 attribute-committer: true
 attribute-commit-message-author: false
-attribute-commit-message-committer: false
+attribute-commit-message-committer: false # otherwise aider will be the committer
 commit: false
 dry-run: false
 skip-sanity-check-repo: false
 watch-files: false
-# git_commit_message_template: "Aider-generated commit for changes"
 
 # Fixing and committing
-lint: true
-lint-cmd: "python: ruff check --fix"
-auto-lint: true
-test-cmd: ""  # Optional test command
+lint: false
+# lint-cmd: "python: ruff check --fix"
+auto-lint: false
+# test-cmd: xxx  # Optional test command
 auto-test: false
 test: false
 
@@ -84,28 +87,20 @@ install-main-branch: false
 upgrade: false
 
 # Modes
-message: ""  # Optional single message to send
-message-file: ""  # Optional file with message to send
 gui: false
 copy-paste: false
-apply: ""  # Optional apply file
 exit: false
-# show-repo_map: false
-# show-prompts: false
 
 # Voice settings
-voice-format: "wav"
-voice-language: "en"
+# voice-format: wav
+# voice-language: en
 
 # Other settings
 vim: true
 yes-always: false
 verbose: false
-encoding: "utf-8"
-line-endings: "platform"
-env-file: ".env"
+encoding: utf-8
 suggest-shell-commands: true
 fancy-input: true
 multiline: false
 detect-urls: true
-editor: "hx"

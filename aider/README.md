@@ -2,13 +2,15 @@
 
 ## General notes
 
-- currently works with python3.12 and below
-- run a venv with uv and python3.12 as `uv venv talk_to_ai -p python3.12`
-  - activate env as `source talk_to_ai/bin/activate`
-  - `uv pip install aider-chat[help]`
-- best architect in terms of value per dollar is currently: `openrouter/deepseek/deepseek-r1`
-- prefer `diff` edit format for the editor model as it uses less tokens
+- Currently works with python3.12 and below
+- How to install:
+  - Run a venv with uv and python3.12 as `uv venv talk_to_ai -p python3.12`
+  - Activate env as `source talk_to_ai/bin/activate`
+  - Then run `uv pip install aider-chat[help]`
+- best architect model in terms of value per dollar is currently: `openrouter/deepseek/deepseek-r1`
+- You should prefer `diff` edit format for the editor model as it uses less tokens
   - add `--editor-edit-format diff` into the initial `aider` command.
+  - or have it in your aider config file.
 
 ## Run architect/editor setup
 
@@ -39,9 +41,9 @@ aider --architect --model openrouter/deepseek/deepseek-r1:free --editor-model op
 
 ### If you have to work with only gemini
 
-- strong reasoning model as architect
-- strong coding model as editor
-- week model and be some cheap or free model
+- Strong reasoning model as architect (model `thinking`)
+- Strong coding model as editor
+- Week model the cheapest option, something cheap or free model
 
 ```bash
 aider --architect --model vertex_ai/gemini-2.0-flash-thinking-exp-01-21 --editor-model vertex_ai/gemini-2.0-flash-exp --weak-model vertex_ai/gemini-2.0-flash-exp --editor-edit-format diff

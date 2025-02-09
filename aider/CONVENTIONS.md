@@ -1,4 +1,5 @@
-- Prefer polars over pandas for data analysis with python
-- Use types everywhere possible
-- functions always should have docstrings following Numpy docstring standard
-- make sure the code can handle all the exceptions
+- Prefer polars over pandas for data analysis with python.
+- Use types everywhere possible.
+- Functions/classes always should have docstrings following Numpy docstring standard.
+- Make sure the code can handle all the exceptions.
+- For python class always use with the dataclasses module.
