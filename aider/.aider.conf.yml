@@ -24,18 +24,20 @@ read:
 # Model settings
 architect: true
 verify-ssl: true
-# timeout: 10_000  # Optional timeout setting
 show-model-warnings: true
-# max-chat-history-tokensl 10000  # Optional setting for max chat history tokens
 model-settings-file: .aider.model.settings.yml
 model-metadata-file: .aider.model.metadata.json
+# model: # the main model
+# editor-model: # the editor model aka the `coding` model
+# max-chat-history-tokensl 10000  # Optional setting for max chat history tokens
+# timeout: 10_000  # Optional timeout setting
 
 # Cache settings
 cache-prompts: true
 # cache-keepalive-pings: 0
 
 # Repo map settings
-map-refresh: "auto"
+map-refresh: auto
 # map_multiplier_no_files: true
 
 # History files
@@ -78,7 +80,7 @@ test: false
 
 # Analytics
 analytics-disable: true
-analytics-log: ""  # Optional analytics log file
+# analytics-log:  # Optional analytics log file
 
 # Upgrading
 just-check-update: false
