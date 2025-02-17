@@ -1,5 +1,14 @@
 # Notes for Aider
 
+## Workflow
+
+- Start aider in architect mode
+- Add only the files that are relevant to what you want to do.
+- You can add comment to create new functionality for aider to know where to add code as `# expander here` comment
+- Or when you want to update a function name the function on that specific file. Aider has already created a map of everything
+- Press `/tokens` to report the number of tokens used by the current chat context.
+- Press `/clear` to reset and clear the prompt.
+
 ## General notes
 
 - Currently works with python3.12 and below
