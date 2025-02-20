@@ -4,32 +4,43 @@
 
 - Start aider in architect mode
 - Add only the files that are relevant to what you want to do.
-- You can add comment to create new functionality for aider to know where to add code as `# expander here` comment
-- Or when you want to update a function name the function on that specific file. Aider has already created a map of everything
+- You can add comment/expander for new functionality for aider to know where to add code as `# expander here` comment.
+- Or when you want to update a function, name the function on that specific file. Aider has already created a map of everything.
 - Press `/tokens` to report the number of tokens used by the current chat context.
-- Press `/clear` to reset and clear the prompt.
+- Press `/ask` to discuss with LLM and aider regarding what you want to do.
+  - Questions: Does it change from architect mode though?
+- Press `/clear` to reset and clear the prompt after you are done with your changes to move to the next change.
 
 ## General notes
 
 - Currently works with python3.12 and below
 - How to install:
-  - Run a venv with uv and python3.12 as `uv venv talk_to_ai -p python3.12`
+  - Run a venv with uv and python3.12 as `uv venv talk_to_ai -p python3.12` at $HOME.
   - Activate env as `source talk_to_ai/bin/activate`
   - Then run `uv pip install aider-chat[help]`
-- best architect model in terms of value per dollar is currently: `openrouter/deepseek/deepseek-r1`
-- You should prefer `diff` edit format for the editor model as it uses less tokens
+- best architect/reasoning model in terms of value per dollar is currently: `deepseek-r1` followed by `o3-mini`
+- You should prefer `diff` edit format for the editor model as it uses less tokens.
   - add `--editor-edit-format diff` into the initial `aider` command.
-  - or have it in your aider config file.
+  - or even better have it in your aider config file.
 
 ## Run architect/editor setup
 
-### If you have sonnet via anthropic
+- Best for coding with sonnet
+- Best for Architect mode, reasoning models such as deepseek or o3-mini
+
+### Examples:
+
+If you have sonnet via anthropic.
 
 ```bash
 aider --architect --model openrouter/deepseek/deepseek-r1 --editor-model sonnet
 ```
 
-### If you have sonnet via openrouter
+```bash
+aider --architect --model openai/o3-mini --editor-model sonnet
+```
+
+If you have sonnet via openrouter
 
 ```bash
 # PAID deepseek version
@@ -50,24 +61,12 @@ aider --architect --model openrouter/deepseek/deepseek-r1:free --editor-model op
 
 ### If you have to work with only gemini
 
-- Strong reasoning model as architect (model `thinking`)
+- Strong reasoning model as architect (model: `thinking`)
 - Strong coding model as editor
-- Week model the cheapest option, something cheap or free model
+- Week model the cheapest possible option.
 
 ```bash
 aider --architect --model vertex_ai/gemini-2.0-flash-thinking-exp-01-21 --editor-model vertex_ai/gemini-2.0-flash-exp --weak-model vertex_ai/gemini-2.0-flash-exp --editor-edit-format diff
-```
-
-## Commands and changes from your IDE instead of terminal
-
-- start as `aider --watch-files`
-- comment as `# add documentation to this function. AI?`
-- or long form instructions as:
-
-```python
-# Make these changes: AI?
-# - add a proper main() function
-# - accept --host and --port args
 ```
 
 ## Specifying coding conventions
@@ -81,4 +80,19 @@ aider --architect --model vertex_ai/gemini-2.0-flash-thinking-exp-01-21 --editor
 
   # multiple files
   read: [CONVENTIONS.md, anotherfile.txt]
+  ```
+
+## Consider this!
+
+- `--cache-prompts` Aider supports prompt caching for cost savings and faster coding.
+  - Currently Anthropic provides caching for Sonnet and Haiku, and DeepSeek provides caching for Chat.
+- `--no-detect-urls` no detection and offering to add URLs to chat (default: True)
+- `--no-auto-commits` no auto commit of LLM changes (default: True)
+- start as `aider --watch-files`
+  - comment as `# add documentation to this function. AI?`
+  - or long form instructions as:
+  ```python
+  # Make these changes: AI?
+  # - add a proper main() function
+  # - accept --host and --port args
   ```
