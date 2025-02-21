@@ -9,7 +9,10 @@
 - Press `/tokens` to report the number of tokens used by the current chat context.
 - Press `/ask` to discuss with LLM and aider regarding what you want to do.
   - Questions: Does it change from architect mode though?
-- Press `/clear` to reset and clear the prompt after you are done with your changes to move to the next change.
+- Press `/clear` - Clear the chat history.
+- Press `/reset` - Drop all files and clear the chat history.
+- Press `/load <FILE>` - load a file full od prompt instructions all at once.
+  - create a template that can be re-used.
 
 ## General notes
 
@@ -84,6 +87,7 @@ aider --architect --model vertex_ai/gemini-2.0-flash-thinking-exp-01-21 --editor
 
 ## Consider this!
 
+- linting using `ruff check --fix` (fix any fixable errors), how to do it?
 - `--cache-prompts` Aider supports prompt caching for cost savings and faster coding.
   - Currently Anthropic provides caching for Sonnet and Haiku, and DeepSeek provides caching for Chat.
 - `--no-detect-urls` no detection and offering to add URLs to chat (default: True)
