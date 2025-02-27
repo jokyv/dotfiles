@@ -10,7 +10,7 @@
 
 [core]
   editor = hx
-  pager = delta
+  pager = cat
 
 [credential]
   helper = store
