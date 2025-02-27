@@ -25,6 +25,8 @@
 - You should prefer `diff` edit format for the editor model as it uses less tokens.
   - add `--editor-edit-format diff` into the initial `aider` command.
   - or even better have it in your aider config file.
+  - If `diff` fails can try `udiff` or as `--diff-mode=udiff`
+  - `gemini` specific use `diff-fenced`
 
 ## Run architect/editor setup
 
