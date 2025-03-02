@@ -57,6 +57,7 @@ skip-levels = 1
 
 [editor.soft-wrap]
 enable = true
+wrap-indicator = ""
 
 [keys.insert]
 # j = { k = "normal_mode" }
@@ -116,6 +117,10 @@ backspace = ["delete_char_backward"] # counterpart for `d`
 # EXPERIMENT_4:
 # my custom keys: in normal mode, press space and c and then the keys below
 [keys.normal.space.c]
+# toggle zen mode
+z = ":toggle gutters.line-numbers.min-width 25 3"
+# toggle soft warp
+s = ":toggle soft-wrap.enable"
 r = [":w", ":config-reload"]
 o = ":config-open"
 w = ":wq"

@@ -127,10 +127,13 @@ command = "typos-lsp"
 [[language]]
 name = "markdown"
 comment-tokens = ["-", "+", "*", "1.", ">", "- [ ]"]
+soft-wrap.enable = true
+text-width = 80
+soft-wrap.wrap-at-text-width = true
 auto-format = true
-file-types = ["md"]
-# language-servers = ["marksman"]
-# language-servers = ["marksman", "ltex-ls"]
+# file-types = ["md"]
+# ltex-ls-plus uses https://languagetool.org/ under the hood.
+# language-servers = [ "marksman" "ltex-ls-plus"];
 language-servers = ["markdown-oxide", "typos"]
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 
