@@ -14,6 +14,29 @@
 - Press `/load <FILE>` - load a file full od prompt instructions all at once.
   - create a template that can be re-used.
 
+## Example of full/detailed prompt
+
+- Example from [PR case study](https://www.entelligence.ai/post/deepseek_eval.html)
+
+You are a senior staff engineer - analyze these code review comments and categorize each one into exactly ONE of:
+
+    CRITICAL_BUG: Comments identifying serious issues that could cause crashes, data loss, security vulnerabilities, etc.
+    NITPICK: Minor suggestions about style, formatting, variable names, or trivial changes that don't affect functionality
+    OTHER: Everything else - general suggestions, questions, or feedback that don't fit the above.
+
+Respond with a JSON array where each object has:
+
+    {
+        "comment_index": "",
+        "Comment": ,
+        "category": "CRITICAL_BUG|NITPICK|OTHER",
+        "reasoning": "Brief explanation of why this category was chosen"
+    }
+
+IMPORTANT: Each comment MUST be categorized. The category field MUST be exactly one of CRITICAL_BUG, NITPICK, or OTHER.
+
+Remember: Only report issues that could actually break functionality or corrupt data at runtime.
+
 ## General notes
 
 - Currently works with python3.12 and below
