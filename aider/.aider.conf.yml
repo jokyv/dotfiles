@@ -61,10 +61,9 @@ aiderignore: .aiderignore
 subtree-only: true
 auto-commits: true
 dirty-commits: true
-attribute-author: true
-attribute-committer: true
-attribute-commit-message-author: false
-attribute-commit-message-committer: false # otherwise aider will be the committer
+attribute-author: false # no (Aider) next to author name
+attribute-committer: false # no (Aider) next to the committer name
+# commit-prompt: Write concise, descriptive commit messages with a clear header (50 chars max) that ends with (A), optional body (72 chars/line), using specific prefixes, and referencing issues when relevant.
 commit: false
 dry-run: false
 skip-sanity-check-repo: false

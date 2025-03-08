@@ -26,8 +26,6 @@ select = [
 ]
 
 ignore = [
-  # Line length regulated by black
-  # "E501",
   # pydocstyle: http://www.pydocstyle.org/en/stable/error_codes.html
   # numpy convention with a few additional lints
   "D107",
@@ -47,8 +45,6 @@ ignore = [
   # TODO: Remove errors below to further improve docstring linting
   # Ordered from most common to least common errors.
   "D105",
-  "D100",
-  "D103",
   "D102",
   "D104",
   "D101",
