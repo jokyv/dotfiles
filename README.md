@@ -2,39 +2,48 @@ My configs for Arch on Wayland
 
 > [!IMPORTANT]
 > Current status:
-> I have switched to [Nixos-config](https://github.com/jokyv/nixos-config) but those dotfiles can still be used with MacOS.
-
-To easily start with this config run [archinstall](https://wiki.archlinux.org/title/Archinstall) with min packages.
+> I have switched to [Nixos-config](https://github.com/jokyv/nixos-config). 
+> These dotfiles are now primarily maintained as a reference and can be used with MacOS or Arch-based distributions.
 
 ## Requirements
 
-This dotfiles support Arch linux based distros only.
+Primarily designed for Arch Linux-based distributions, but with cross-platform compatibility:
 
 - EndeavourOS
 - Manjaro
 - Arch
+- MacOS (with some adaptations)
 
 ## Applications
 
-- Window system: [Wayland](https://wayland.freedesktop.org/)
-- Wayland Compositor: [Niri](https://github.com/YaLTeR/niri)
-- ~~Terminal: [Alacritty](https://github.com/alacritty/alacritty)~~
-- Terminal: [Kitty](https://github.com/kovidgoyal/kitty) and [foot](https://codeberg.org/dnkl/foot)
-- Editor: [Helix](https://github.com/helix-editor/helix)
-- Prompt: [Starship](https://github.com/starship/starship)
-- Browser: [Firefox](https://www.mozilla.org/en-US/firefox) and [Brave](https://github.com/brave/brave-browser)
-- Fonts: [Hack Nerd Font](https://www.nerdfonts.com/)
-- Colorscheme: [Everforest](https://github.com/sainnhe/everforest)
-- Application Launcher: [Fuzzel](https://codeberg.org/dnkl/fuzzel)
-- File manager: [Nautilus](https://gitlab.gnome.org/GNOME/nautilus)
-- Status Bar: [Waybar](https://github.com/Alexays/Waybar)
-- Screenshots: [Grim](https://github.com/emersion/grim)/[slurp](https://github.com/emersion/slurp)/[swappy](https://github.com/jtheoof/swappy) or [Gnome-Screenshot](https://gitlab.gnome.org/GNOME/gnome-screenshot)
-- Clipboard manager: [Cliphist](https://github.com/sentriz/cliphist) and [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
-- Document viewer: [Zathura](https://github.com/pwmt/zathura)
-- Login Manager: [Ly](https://github.com/fairyglade/ly)
-- Notification daemon: [Mako](https://github.com/emersion/mako)
-- Power Menu: [Wlogout](https://github.com/ArtsyMacaw/wlogout)
-- Screenlock: [Swaylock](https://github.com/swaywm/swaylock)
+- **Window System**: [Wayland](https://wayland.freedesktop.org/)
+- **Wayland Compositor**: [Niri](https://github.com/YaLTeR/niri)
+- **Terminals**: 
+  - [Kitty](https://github.com/kovidgoyal/kitty)
+  - [Foot](https://codeberg.org/dnkl/foot)
+- **Editor**: [Helix](https://github.com/helix-editor/helix)
+- **Prompt**: [Starship](https://github.com/starship/starship)
+- **Browsers**: 
+  - [Firefox](https://www.mozilla.org/en-US/firefox)
+  - [Brave](https://github.com/brave/brave-browser)
+- **Fonts**: [Hack Nerd Font](https://www.nerdfonts.com/)
+- **Colorscheme**: [Everforest](https://github.com/sainnhe/everforest)
+- **Application Launcher**: [Fuzzel](https://codeberg.org/dnkl/fuzzel)
+- **File Manager**: [Nautilus](https://gitlab.gnome.org/GNOME/nautilus)
+- **Status Bar**: [Waybar](https://github.com/Alexays/Waybar)
+- **Screenshots**: 
+  - [Grim](https://github.com/emersion/grim)
+  - [Slurp](https://github.com/emersion/slurp)
+  - [Swappy](https://github.com/jtheoof/swappy)
+  - [Gnome-Screenshot](https://gitlab.gnome.org/GNOME/gnome-screenshot)
+- **Clipboard Manager**: 
+  - [Cliphist](https://github.com/sentriz/cliphist)
+  - [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
+- **Document Viewer**: [Zathura](https://github.com/pwmt/zathura)
+- **Login Manager**: [Ly](https://github.com/fairyglade/ly)
+- **Notification Daemon**: [Mako](https://github.com/emersion/mako)
+- **Power Menu**: [Wlogout](https://github.com/ArtsyMacaw/wlogout)
+- **Screenlock**: [Swaylock](https://github.com/swaywm/swaylock)
 
 ## Archived configs file
 
