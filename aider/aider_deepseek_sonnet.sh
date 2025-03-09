@@ -1,2 +1,2 @@
-aider --architect --model openrouter/deepseek/deepseek-r1 --editor-model openrouter/anthropic/claude-3.5-sonnet
+aider --architect --model openrouter/deepseek/deepseek-r1 --editor-model anthropic/claude-3.7-sonnet
 

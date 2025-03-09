@@ -50,7 +50,7 @@ dark-mode: true
 light-mode: false
 pretty: true
 stream: true
-# code-theme: zenburn
+code-theme: monokai
 show-diffs: true
 
 # Git settings
