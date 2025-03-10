@@ -125,3 +125,8 @@ aider --architect --model vertex_ai/gemini-2.0-flash-thinking-exp-01-21 --editor
   # - add a proper main() function
   # - accept --host and --port args
   ```
+
+### GIT strategy when working with Aider
+
+- given that aider is making a new commit for every change, make a branch when using it and then marge in back into main when you are happy with what's going on.
+- You can also use --no-auto-commit and use /commit only when it passes a sanity test or whatever you feel is right.
