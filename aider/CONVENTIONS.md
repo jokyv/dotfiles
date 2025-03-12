@@ -1,6 +1,0 @@
-- Prefer polars over pandas for data analysis with python.
-- Use python data types everywhere possible.
-- Functions/classes always should have Numpy docstrings standard.
-- Make sure the code can handle all the exceptions.
-- For python class always use it with the dataclasses module.
-- Always use the pathlib module to represent filesystem paths.
