@@ -22,6 +22,7 @@ read: [~/dot/aider/conventions/python_conventions.md]
 
 # Model settings
 architect: true
+auto-accept-architect: false
 verify-ssl: true
 show-model-warnings: true
 model-settings-file: .aider.model.settings.yml
