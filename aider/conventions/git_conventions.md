@@ -1,15 +1,45 @@
-The commit message should be structured as follows:
+## Git Commit Message Format
 
-<type>[optional scope]: <description>
+```
+<type>[scope]: <description>
 
-[optional body]
+[body]
 
-[optional footer(s)]
+[footer]
+```
 
-The commit contains the following structural elements, to communicate intent to the consumers of your library:
+## Types
 
-- fix: a commit of the type fix patches a bug in your codebase (this correlates with PATCH in Semantic Versioning).
-- feat: a commit of the type feat introduces a new feature to the codebase (this correlates with MINOR in Semantic Versioning).
-- BREAKING CHANGE: a commit that has a footer BREAKING CHANGE:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
-- types other than fix: and feat: are allowed, for example: chore:, ci:, docs:, style:, refactor:, perf:, test:, and others.
-- footers other than BREAKING CHANGE: <description> may be provided and follow a convention similar to git trailer format.
+`feat` (feature), `fix` (bugfix), `docs` (documentation), `style` (formatting), `refactor`, `perf` (performance), `test`, `build`, `ci`, `chore` (maintenance), `revert`
+
+## Guidelines
+
+- Description: imperative, lowercase, no period, ≤50 chars
+- Body: explain WHY, not HOW, wrap at 72 chars
+- Footer: reference issues (`Fixes #123`), breaking changes (`BREAKING CHANGE: description`)
+
+## Examples
+
+```
+feat(auth): implement SSO functionality
+```
+
+```
+fix(api): prevent timeout on large requests
+
+Increased request timeout and implemented streaming response.
+Fixes #422
+```
+
+Commit should be atomic, specific, and focus on WHAT changed in subject line with WHY explained in body when needed.
+
+## Git Commit Practices
+
+- Use semantic commit messages following the format in the Git Commit Message Format memory
+- Commits should be atomic, focusing on specific changes
+- NEVER create separate files (e.g., commit-message.txt or COMMIT_MESSAGE.md) for drafting commit messages
+- When committing, use the git commit command directly with the -m flag:
+  ```bash
+  git commit -m "type(scope): description" -m "additional details"
+  ```
+- Keep commit messages concise but descriptive
