@@ -21,7 +21,7 @@ read: [~/dot/aider/conventions/python_conventions.md]
 # anthropic-api-key: ""  # Add API key here if needed
 
 # Model settings
-architect: true
+architect: false
 auto-accept-architect: false
 verify-ssl: true
 show-model-warnings: true
