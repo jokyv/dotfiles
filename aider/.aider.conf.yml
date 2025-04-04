@@ -21,7 +21,7 @@ read: [~/dot/aider/conventions/python_conventions.md]
 # anthropic-api-key: ""  # Add API key here if needed
 
 # Model settings
-architect: false
+architect: false # make architest the default mode
 auto-accept-architect: false
 verify-ssl: true
 show-model-warnings: true
@@ -86,6 +86,7 @@ just-check-update: false
 check-update: false
 install-main-branch: false
 upgrade: false
+show-release-notes: false
 
 # Modes
 gui: false
