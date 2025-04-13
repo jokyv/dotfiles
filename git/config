@@ -12,6 +12,9 @@
   editor = hx
   pager = cat
 
+[color]
+  ui = auto
+
 [credential]
   helper = store
 
