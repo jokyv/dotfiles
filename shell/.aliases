@@ -172,6 +172,7 @@ alias gsa='git_util.py --status_all_dirs'
 # clean up ignore files that mistakenly are tracked
 alias gclean='git_util.py --clean_up'
 alias gd='git diff -w'
+alias gh-create='git_util.py --create_push_gh_repo'
 
 # -----------------------------------------------------
 # NIX SHORTCUTS
