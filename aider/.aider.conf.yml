@@ -50,7 +50,7 @@ restore-chat-history: false
 dark-mode: true
 light-mode: false
 pretty: true
-stream: true
+stream: false
 code-theme: monokai
 show-diffs: true
 
