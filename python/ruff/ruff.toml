@@ -34,7 +34,6 @@ select = [
 ]
 
 ignore = [
-
   # tab-indentation 
   "W191",
   # indentation-with-invalid-multiple
