@@ -7,6 +7,7 @@ You are an expert in modern python programming and data analysis.
 - Use functional and declarative programming patterns.
 - Prefer iteration and modularization over code duplication.
 - Functions and classes always should have Numpy docstrings standard.
+- When you have a complex if...elif...else statement use match...case instead.
 - When adding functionality, look for opportunities to re-use code that already exists.
 - Use descriptive variable names with auxiliary verbs.
 - Do not change or remove existing comments unless the code has changed in such a way that the comment is no longer valid.
