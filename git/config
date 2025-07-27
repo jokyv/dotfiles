@@ -8,9 +8,22 @@
 [pull]
   rebase = true
 
+[push]
+  autoSetupRemote = true
+
 [core]
   editor = hx
   pager = cat
+  compression = 6
+
+[branch]
+  sort = -committerdate
+
+[status]
+  branch = true
+
+[commit]
+  verbose = true
 
 [color]
   ui = auto
@@ -18,10 +31,14 @@
 [credential]
   helper = store
 
+[tag]
+  sort = -version:refname
+
 [interactive]
   diffFilter = delta --color-only
+
 [add.interactive]
-  seBuilting = false
+  useBuiltin = false
 
 [delta]
   features = side-by-side line-numbers decorations
@@ -46,3 +63,20 @@
 
 [diff]
   colorMoved = default
+  algorithm = histogram
+
+[maintenance]
+  auto = true
+  strategy = incremental
+
+[help]
+  autocorrect = prompt
+
+[alias]
+  graph = log --all --graph --decorate --oneline
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  ignore = "!gi() { local IFS=','; curl -sL https://www.toptal.com/developers/gitignore/api/\"$*\"; }; gi"
+
+
+# references:
+# https://micahkepe.com/blog/gitconfig/
