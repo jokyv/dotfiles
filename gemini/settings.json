@@ -1,0 +1,11 @@
+{
+  "theme": "Dracula",
+  "showLineNumbers": false,
+  "selectedAuthType": "vertex-ai",
+  "preferredEditor": "vim",
+  "autoAccept": true,
+  "vimMode": true,
+  "usageStatisticsEnabled": false,
+  "excludeTools": ["ShellTool(rm -rf)"],
+  "mcpServers": { "context7": { "httpUrl": "https://mcp.context7.com/mcp" } }
+}
