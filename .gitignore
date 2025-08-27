@@ -2,3 +2,5 @@ helix/runtime
 nom/nom.db
 **/history.txt
 .aider*
+.gemini/temp/*
+.gemini/installation_id
