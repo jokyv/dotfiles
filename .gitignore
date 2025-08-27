@@ -2,4 +2,3 @@ helix/runtime
 nom/nom.db
 **/history.txt
 .aider*
-gemini/tmp/*
