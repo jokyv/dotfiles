@@ -2,20 +2,40 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.4.0] - 2025-06-03
+## [4.5.0] - 2025-08-31
 
 ### 󰩉 Features
 
-- _(helix)_ Continue to next row if a markdown list
-- _(aider)_ Clearer readme, better conventions, working aider.conf.yml
-- _(aider)_ Config updates and alias to run venv for aider
-- _(aider)_ Update readme and workflow commands
-- _(aider)_ Updated CONVENTIONS.md file
-- _(aider)_ Better naming for the aider scripts
-- _(aider)_ Updated info for different `diff` formats
-- _(git)_ Updated pager to `cat`
-- _(helix)_ Markdown config updates
-- _(aider)_ Added full prompt example
+- *(git)* Add count parameter to log aliases
+- *(helix)* Increase markdown text width to 120
+- *(gemini)* Add initial Gemini configuration
+- Add model configuration scripts for Gemini and DeepSeek
+
+### ⚙️ Miscellaneous Tasks
+
+- Clean up commented-out lines in Gemini work script
+- Remove old aider config scripts
+- Add match/case convention and adjust Ruff line lengths
+- Update python conventions and mypy configuration
+- Update git config with aliases, settings and typo fix
+- Ignore Gemini AI files
+- Ignore Gemini CLI temporary files and installation ID
+- Update deepseek model to v3.1
+
+## [4.4.0] - 2025-05-24
+
+### 󰩉 Features
+
+- *(helix)* Continue to next row if a markdown list
+- *(aider)* Clearer readme, better conventions, working aider.conf.yml
+- *(aider)* Config updates and alias to run venv for aider
+- *(aider)* Update readme and workflow commands
+- *(aider)* Updated CONVENTIONS.md file
+- *(aider)* Better naming for the aider scripts
+- *(aider)* Updated info for different `diff` formats
+- *(git)* Updated pager to `cat`
+- *(helix)* Markdown config updates
+- *(aider)* Added full prompt example
 - Add aider script for DeepSeek model configuration
 - Improve python conventions and add auto-accept-architect option
 - Enable --architect mode for gemini and deepseek scripts
@@ -27,16 +47,16 @@ All notable changes to this project will be documented in this file.
 
 ###  Bug Fixes
 
-- _(aider)_ Fixing upper case to lower and removing params that do not exist..
-- _(aider)_ Removing old naming aider scripts
-- _(foot)_ Comment out uri-characters setting
+- *(aider)* Fixing upper case to lower and removing params that do not exist..
+- *(aider)* Removing old naming aider scripts
+- *(foot)* Comment out uri-characters setting
 - Correct Gemini 2.5 Pro model name for Vertex AI
 
 ### 📚 Documentation
 
-- _(CHANGELOG.md)_ Update changelog file
-- _(aider)_ Updated README.md with more explanation and workflow examples
-- _(aider)_ Added more notes for README.md
+- *(CHANGELOG.md)* Update changelog file
+- *(aider)* Updated README.md with more explanation and workflow examples
+- *(aider)* Added more notes for README.md
 - Add git commit message conventions documentation
 - Update README.md with current project status and applications
 - Add sonnet conventions documentation file
@@ -65,78 +85,78 @@ All notable changes to this project will be documented in this file.
 
 ### 󰩉 Features
 
-- _(shell)_ Remove z command replaced with zoxide
-- _(shell)_ Add .local/bin to path and zoxide
-- _(starship)_ Add `.` to fill gap between panels
-- _(yazi)_ Update configs
-- _(bin)_ Moved all my scripts to a standalone repo
-- _(bashrc)_ Add path for the sops key
-- _(.bashrc)_ Add path for personal scripts
-- _(.aliases)_ Update alises related to lunix_util.py
-- _(.exports)_ Export variable for homebrew
-- _(helix)_ Change markdown LSP to 'markdown-oxide'
-- _(helix)_ Switched to markdown oxide instead of marksman
-- _(helix)_ Add `typos` for typo checking to markdown config
-- _(aider)_ Add .env with aider configurations
-- _(aider)_ Updates to .env file
-- _(aider)_ Many updates with the config
-- _(helix)_ Languages config updates
+- *(shell)* Remove z command replaced with zoxide
+- *(shell)* Add .local/bin to path and zoxide
+- *(starship)* Add `.` to fill gap between panels
+- *(yazi)* Update configs
+- *(bin)* Moved all my scripts to a standalone repo
+- *(bashrc)* Add path for the sops key
+- *(.bashrc)* Add path for personal scripts
+- *(.aliases)* Update alises related to lunix_util.py
+- *(.exports)* Export variable for homebrew
+- *(helix)* Change markdown LSP to 'markdown-oxide'
+- *(helix)* Switched to markdown oxide instead of marksman
+- *(helix)* Add `typos` for typo checking to markdown config
+- *(aider)* Add .env with aider configurations
+- *(aider)* Updates to .env file
+- *(aider)* Many updates with the config
+- *(helix)* Languages config updates
 
 ###  Bug Fixes
 
-- _(bash_profile)_ Moved GCP installation to $HOME
-- _(README.md)_ Fixed grammar errors
-- _(README.md)_ Fixed the call out
-- _(README.md)_ Fixed small typo
+- *(bash_profile)* Moved GCP installation to $HOME
+- *(README.md)* Fixed grammar errors
+- *(README.md)* Fixed the call out
+- *(README.md)* Fixed small typo
 
 ### 📚 Documentation
 
-- _(changelog.md)_ Add new changelog for 4.2
-- _(README.md)_ Updated current status of usage of repo
-- _(aider)_ Added more info into README.md file
+- *(changelog.md)* Add new changelog for 4.2
+- *(README.md)* Updated current status of usage of repo
+- *(aider)* Added more info into README.md file
 
 ## [4.2.0] - 2024-12-19
 
 ### 󰩉 Features
 
-- _(python-dev.nix)_ Add nix shell python enviroment
-- _(home.nix)_ Add more applications
-- _(.aliases)_ Add more alliases and group commands better
-- _(stylix)_ Switching icons package
-- _(home-manager)_ Add not free apps option
-- _(polars)_ Moved it to python folder
-- _(justfile)_ No more debug mode for gc command
-- _(home-manager)_ Add more applications managed by hm
-- _(home)_ New formatter and LSP for nix
-- _(home)_ New formatter and LSP for nix
-- _(typos)_ Add word
-- _(nushell)_ Init nushell config
-- _(home-manager)_ Add some useful configs for later
-- _(shell)_ Add inputrc
-- _(bin)_ Add more links to check for git updates
-- _(aliases)_ Remove reduntant code
-- _(.install)_ Added ufw as potential services to activate when new install
-- _(niri)_ Add spawn at start up the waypaper --restore
-- _(waypaper)_ Add config
-- _(home-manager)_ Add more programs
-- _(niri)_ Add waybar to spawn at startup
-- _(kitty)_ Kitty conf managed by home manager now
-- _(kitty)_ Back to previous setup without nix home-manager
-- _(helix)_ Add grammar for more languages
-- _(nushell)_ Add more configs for nu
-- _(.gitignore)_ Update with new rule
-- _(python)_ Add more core python libraries to the file
+- *(python-dev.nix)* Add nix shell python enviroment
+- *(home.nix)* Add more applications
+- *(.aliases)* Add more alliases and group commands better
+- *(stylix)* Switching icons package
+- *(home-manager)* Add not free apps option
+- *(polars)* Moved it to python folder
+- *(justfile)* No more debug mode for gc command
+- *(home-manager)* Add more applications managed by hm
+- *(home)* New formatter and LSP for nix
+- *(home)* New formatter and LSP for nix
+- *(typos)* Add word
+- *(nushell)* Init nushell config
+- *(home-manager)* Add some useful configs for later
+- *(shell)* Add inputrc
+- *(bin)* Add more links to check for git updates
+- *(aliases)* Remove reduntant code
+- *(.install)* Added ufw as potential services to activate when new install
+- *(niri)* Add spawn at start up the waypaper --restore
+- *(waypaper)* Add config
+- *(home-manager)* Add more programs
+- *(niri)* Add waybar to spawn at startup
+- *(kitty)* Kitty conf managed by home manager now
+- *(kitty)* Back to previous setup without nix home-manager
+- *(helix)* Add grammar for more languages
+- *(nushell)* Add more configs for nu
+- *(.gitignore)* Update with new rule
+- *(python)* Add more core python libraries to the file
 
 ###  Bug Fixes
 
-- _(aliases)_ Typo
-- _(.aliases)_ Remove dupe
-- _(cargo)_ Remove to source cargo folder
-- _(bash)_ Remove tool PATH for uv tools
+- *(aliases)* Typo
+- *(.aliases)* Remove dupe
+- *(cargo)* Remove to source cargo folder
+- *(bash)* Remove tool PATH for uv tools
 
 ### 📚 Documentation
 
-- _(CHANGELOG.md)_ Add new release notes
+- *(CHANGELOG.md)* Add new release notes
 
 ### Home-manager/flake.lock
 
@@ -150,144 +170,144 @@ All notable changes to this project will be documented in this file.
 
 ### 󰩉 Features
 
-- _(python_pip_update)_ Add mypy to the library list
-- _(nix home manager)_ Add nix flake for home manager
-- _(nix home manager)_ Update home.nix and flake.lock
-- _(nix)_ Update home.nix
-- _(nix)_ New config
-- _(home manager nix)_ Update configs
-- _(niri)_ Simpler configs and wallpaper change
-- _(bin)_ Update scripts
-- _(helix)_ New shortcuts and confing cleaning
-- _(helix)_ Add nix formater
-- _(kitty)_ Font size to 15
-- _(shell)_ Sourcing linux_script - required for some of my scripts
-- _(home manager nix)_ Add modules folder and refactoring
-- _(shell)_ Add alias related to nix
-- _(kitty)_ Change window decoration
-- _(home manager nix)_ Moved to the unstable
-- _(niri)_ Added mutiple monitor support
-- _(install)_ Adding scripts for post installation
-- _(helix)_ Added new shorcuts to close buffers
-- _(python)_ Created python folder for all the related projects with the lang
-- _(install)_ Add more auto configurations on the script
-- _(python)_ Created ruff.toml
-- _(systemd)_ Add config file for swayidle service
-- _(system_bootstrap.sh)_ Update list of packages with some notes
-- _(.exports)_ Fix FZF main command
-- _(.install)_ More automated functions to bootstrap system
-- _(python scripts)_ Updated python library list and template
-- _(system_bootstrap.sh)_ Updated script
-- _(folders)_ Moved files to their own folders
-- _(bravebookmarks.sh)_ Replaced rofi for fuzzel
-- _(update_grub.sh)_ New script to update grub when changes implemented
-- _(home-manager)_ New flack.lock file
-- _(niri)_ Add firefox and lockscreen and image bindings
-- _(waybar)_ Added wlogout with right click on icon
-- _(bashrc)_ Added Nix path
-- _(swayidle)_ Update service to run swaylock with background image
-- _(.aliases)_ Update home-manager shortcut alias
-- _(system_bootstrap.sh)_ Updates on package and service list
-- _(bin)_ Seperating standalone scripts and utilities
-- _(ly)_ Added config options for ly
-- _(shell)_ Changed naming from projects to repos
-- _(system_bootstrap)_ Updates and code clarity
-- _(browser_bookmarks)_ Updated scripts for brave and firefox
-- _(home.nix)_ New examples for nix home-manager
-- _(aliases)_ Add small function to run previous command with sudo
-- _(python_path)_ Add libraries to python path
-- _(ignore config)_ New ignore patterns for fd and ripgrep
-- _(python_pip_update)_ New list to check for updates
-- _(fd)_ Ignore more directories i dont use
-- _(dprint)_ Update include files and versions
-- _(pyproject)_ I do not need this anymore here
-- _(python)_ Updates
-- _(bin)_ Cleaning scripts
-- _(linux_util)_ Created new python script for linux related scripts
-- _(shell)_ Fixes and updated aliases
-- _(system_boostrap)_ Add dependency for check_driver scipt
-- _(ruff)_ Revamp the config for ruff
-- _(home-manager)_ Add yet another package managed by nix hm
-- _(git)_ Update ignore list
-- _(atuin)_ Change search to fuzzy
-- _(python sctipt)_ Add notes to remember
-- _(kitty)_ Enable horizontal layout
-- _(starship)_ Remobe pyenv add nix shell
-- _(python script)_ Check venv before execute any python script
-- _(shell)_ Activate python enviroment when bashrc is sourced
-- _(home-manager)_ Updates
-- _(home-manager)_ Updates
-- _(niri)_ Cursor is managed by stylix now
-- _(home-manager)_ Updates
-- _(aliases)_ Finally having the correct path for home-manager switch anywhere
-- _(home-manager)_ Updates
-- _(home-manager)_ Added firefox.nix with firefox configs
-- _(firefox.nix)_ Add more custom settings for firefox
-- _(home-manager)_ Updates
-- _(just)_ Added the justfile for just
-- _(home-manager)_ Added ly.nix
-- _(home-manager)_ Added font.nix
-- _(home-manager)_ Added zathura.nix
-- _(home-manager)_ Add second file justfile
-- _(justfile)_ Add justfile
-- _(home-manager)_ Add fastfetch.nix
-- _(home-manager)_ Updates
-- _(home-manager)_ More updates to make the home-manager setup cleaner
-- _(home-manager)_ Justfile replacing tasks.sh
-- _(shell)_ Clean up aliases
-- _(home-manager)_ Added fonts into stylix
-- _(user-dirs.dirs)_ Replaced by nix home-manager
-- _(repo)_ Added pre-commit hook typos check and correct
-- _(home-manager)_ Add foot.nix configs
-- _(.install)_ Added mesa removed nautilus
-- _(typos)_ Added typos.toml to the project
-- _(niri)_ Added foot key binding
-- _(home-manager)_ Added module foot.nix
-- _(.exports)_ Update browser variable
-- _(typos.toml)_ Ignore .ini files
-- _(files)_ Fixed a lot of typos
-- _(README.md)_ Update the application list i use
-- _(home-manager)_ More updates with foot.nix
-- _(system_bootstrap.sh)_ Add "less"
-- _(.aliases)_ New alias p3 added
-- _(nom)_ Added config
-- _(update_everything)_ Added update mirrors function
-- _(nom)_ Add more feeds
-- _(home-manager)_ Add more packages to install
-- _(typos)_ Add new word to dict
-- _(.bashrc)_ Deactivate function that activates the virtual py env
-- _(bin)_ Move all bash scripts to /usr/bin/env bash shebang
+- *(python_pip_update)* Add mypy to the library list
+- *(nix home manager)* Add nix flake for home manager
+- *(nix home manager)* Update home.nix and flake.lock
+- *(nix)* Update home.nix
+- *(nix)* New config
+- *(home manager nix)* Update configs
+- *(niri)* Simpler configs and wallpaper change
+- *(bin)* Update scripts
+- *(helix)* New shortcuts and confing cleaning
+- *(helix)* Add nix formater
+- *(kitty)* Font size to 15
+- *(shell)* Sourcing linux_script - required for some of my scripts
+- *(home manager nix)* Add modules folder and refactoring
+- *(shell)* Add alias related to nix
+- *(kitty)* Change window decoration
+- *(home manager nix)* Moved to the unstable
+- *(niri)* Added mutiple monitor support
+- *(install)* Adding scripts for post installation
+- *(helix)* Added new shorcuts to close buffers
+- *(python)* Created python folder for all the related projects with the lang
+- *(install)* Add more auto configurations on the script
+- *(python)* Created ruff.toml
+- *(systemd)* Add config file for swayidle service
+- *(system_bootstrap.sh)* Update list of packages with some notes
+- *(.exports)* Fix FZF main command
+- *(.install)* More automated functions to bootstrap system
+- *(python scripts)* Updated python library list and template
+- *(system_bootstrap.sh)* Updated script
+- *(folders)* Moved files to their own folders
+- *(bravebookmarks.sh)* Replaced rofi for fuzzel
+- *(update_grub.sh)* New script to update grub when changes implemented
+- *(home-manager)* New flack.lock file
+- *(niri)* Add firefox and lockscreen and image bindings
+- *(waybar)* Added wlogout with right click on icon
+- *(bashrc)* Added Nix path
+- *(swayidle)* Update service to run swaylock with background image
+- *(.aliases)* Update home-manager shortcut alias
+- *(system_bootstrap.sh)* Updates on package and service list
+- *(bin)* Seperating standalone scripts and utilities
+- *(ly)* Added config options for ly
+- *(shell)* Changed naming from projects to repos
+- *(system_bootstrap)* Updates and code clarity
+- *(browser_bookmarks)* Updated scripts for brave and firefox
+- *(home.nix)* New examples for nix home-manager
+- *(aliases)* Add small function to run previous command with sudo
+- *(python_path)* Add libraries to python path
+- *(ignore config)* New ignore patterns for fd and ripgrep
+- *(python_pip_update)* New list to check for updates
+- *(fd)* Ignore more directories i dont use
+- *(dprint)* Update include files and versions
+- *(pyproject)* I do not need this anymore here
+- *(python)* Updates
+- *(bin)* Cleaning scripts
+- *(linux_util)* Created new python script for linux related scripts
+- *(shell)* Fixes and updated aliases
+- *(system_boostrap)* Add dependency for check_driver scipt
+- *(ruff)* Revamp the config for ruff
+- *(home-manager)* Add yet another package managed by nix hm
+- *(git)* Update ignore list
+- *(atuin)* Change search to fuzzy
+- *(python sctipt)* Add notes to remember
+- *(kitty)* Enable horizontal layout
+- *(starship)* Remobe pyenv add nix shell
+- *(python script)* Check venv before execute any python script
+- *(shell)* Activate python enviroment when bashrc is sourced
+- *(home-manager)* Updates
+- *(home-manager)* Updates
+- *(niri)* Cursor is managed by stylix now
+- *(home-manager)* Updates
+- *(aliases)* Finally having the correct path for home-manager switch anywhere
+- *(home-manager)* Updates
+- *(home-manager)* Added firefox.nix with firefox configs
+- *(firefox.nix)* Add more custom settings for firefox
+- *(home-manager)* Updates
+- *(just)* Added the justfile for just
+- *(home-manager)* Added ly.nix
+- *(home-manager)* Added font.nix
+- *(home-manager)* Added zathura.nix
+- *(home-manager)* Add second file justfile
+- *(justfile)* Add justfile
+- *(home-manager)* Add fastfetch.nix
+- *(home-manager)* Updates
+- *(home-manager)* More updates to make the home-manager setup cleaner
+- *(home-manager)* Justfile replacing tasks.sh
+- *(shell)* Clean up aliases
+- *(home-manager)* Added fonts into stylix
+- *(user-dirs.dirs)* Replaced by nix home-manager
+- *(repo)* Added pre-commit hook typos check and correct
+- *(home-manager)* Add foot.nix configs
+- *(.install)* Added mesa removed nautilus
+- *(typos)* Added typos.toml to the project
+- *(niri)* Added foot key binding
+- *(home-manager)* Added module foot.nix
+- *(.exports)* Update browser variable
+- *(typos.toml)* Ignore .ini files
+- *(files)* Fixed a lot of typos
+- *(README.md)* Update the application list i use
+- *(home-manager)* More updates with foot.nix
+- *(system_bootstrap.sh)* Add "less"
+- *(.aliases)* New alias p3 added
+- *(nom)* Added config
+- *(update_everything)* Added update mirrors function
+- *(nom)* Add more feeds
+- *(home-manager)* Add more packages to install
+- *(typos)* Add new word to dict
+- *(.bashrc)* Deactivate function that activates the virtual py env
+- *(bin)* Move all bash scripts to /usr/bin/env bash shebang
 
 ###  Bug Fixes
 
-- _(home_manager)_ Created useful script
-- _(shell)_ Helix env variable commented
-- _(system_bootstrap.sh)_ Fix spelling
-- _(projects)_ Back to projects folder instead of repos
-- _(scripts)_ Deleted scripts that do not work
-- _(flake.nix)_ Fix error
-- _(home-manager)_ Still wrong path
-- _(README.md)_ Fixed typo
-- _(repo)_ Testing the pre commit hook
+- *(home_manager)* Created useful script
+- *(shell)* Helix env variable commented
+- *(system_bootstrap.sh)* Fix spelling
+- *(projects)* Back to projects folder instead of repos
+- *(scripts)* Deleted scripts that do not work
+- *(flake.nix)* Fix error
+- *(home-manager)* Still wrong path
+- *(README.md)* Fixed typo
+- *(repo)* Testing the pre commit hook
 
 ###  Refactor
 
-- _(folders)_ Creating more folders for clarity
-- _(.aliases)_ Making things clearer
-- _(day.sh)_ Small refactoring
-- _(home-manager)_ All imports coming from folder modules
+- *(folders)* Creating more folders for clarity
+- *(.aliases)* Making things clearer
+- *(day.sh)* Small refactoring
+- *(home-manager)* All imports coming from folder modules
 
 ### 📚 Documentation
 
-- _(CHANGELOG)_ Update changelog for the v4.0.0 update
-- _(README.md)_ Updated to include more info
-- _(README.md)_ More updates
-- _(README.md)_ Added archived configs section
+- *(CHANGELOG)* Update changelog for the v4.0.0 update
+- *(README.md)* Updated to include more info
+- *(README.md)* More updates
+- *(README.md)* Added archived configs section
 
 ###  Styling
 
-- _(waybar)_ Json file format updated
-- _(config)_ Add last line
+- *(waybar)* Json file format updated
+- *(config)* Add last line
 
 ### Home-manager/flake.lock
 
@@ -302,70 +322,72 @@ All notable changes to this project will be documented in this file.
 ### 󰩉 Features
 
 - Add fira code nerd fonts
-- _(helix)_ Added HELIX_RUNTIME var.
-- _(python)_ Add requirements folder with list of critical python libraries
-- _(alacritty)_ Changed fonts to Hack Nerd Fonts
-- _(scripts_in_python)_ Updated library list, using uv now
-- _(requirements)_ Add more important python libraries
-- _(aliases)_ Add aliases for activate and deactiva virtual env.
-- _(python scripts)_ Add new sudo previous command script
-- _(python libraries update)_ Add pylsp to the list
-- _(dprint)_ New versions for dprint plugins
-- _(update_everything script)_ Update with the correct python function
-- _(helix)_ Change json formater to dprint
-- _(qtile)_ Theme nord json format update
-- _(niri)_ Added niri wm config file
-- _(wayland)_ Added niri, fuzzel waybar configs.
-- _(mako)_ Add configuration
-- _(waybar)_ Completly reworked the waybar configuration.
-- _(niri)_ Completely changed and cleaned the niri configuration.
-- _(swappy)_ Add configs for the app
-- _(dprint)_ Added dprint in the parent directory
-- _(scripts)_ Added take_screenshot.sh script
-- _(waybar)_ Cleaner configs for the app.
-- _(niri)_ Cleaner config for the app.
-- _(archived_configs)_ Renamed retired_configs to archived_configs
-- _(systemd)_ Add configs for niri systemd services
-- _(archived_configs)_ Moved not used configs to archived_configs folder.
-- _(scripts)_ Removing git stash from scripts
-- _(kitty)_ Add configs for kitty
-- _(yazi)_ Add configs for yazi
-- _(niri)_ Replaced alacritty for kitty.
-- _(alacritty)_ Changed fonts to Fira.
-- _(shell)_ Cleaning and stopped X11 start up command.
-- _(kitty)_ Update config and lcon.
-- _(scripts_in_python)_ Added exit option for update everything script.
-- _(alacritty)_ Archived alacritty configs.
-- _(kitty)_ Change fonts other than regular to automated method.
-- _(kitty)_ Add new icons for kitty.
-- _(qtile)_ Path fixing and formating.
-- _(bin)_ Created folder bin for all .sh and .py scripts.
-- _(git_util.py)_ Created the git util script for all the git custom scripts.
-- _(shell)_ Update new alliases and folders to path
-- _(niri)_ Stop showing hotkey overlay.
+- *(helix)* Added HELIX_RUNTIME var.
+- *(python)* Add requirements folder with list of critical python libraries
+- *(alacritty)* Changed fonts to Hack Nerd Fonts
+- *(scripts_in_python)* Updated library list, using uv now
+- *(requirements)* Add more important python libraries
+- *(aliases)* Add aliases for activate and deactiva virtual env.
+- *(python scripts)* Add new sudo previous command script
+- *(python libraries update)* Add pylsp to the list
+- *(dprint)* New versions for dprint plugins
+- *(update_everything script)* Update with the correct python function
+- *(helix)* Change json formater to dprint
+- *(qtile)* Theme nord json format update
+- *(niri)* Added niri wm config file
+- *(wayland)* Added niri, fuzzel waybar configs.
+- *(mako)* Add configuration
+- *(waybar)* Completly reworked the waybar configuration.
+- *(niri)* Completely changed and cleaned the niri configuration.
+- *(swappy)* Add configs for the app
+- *(dprint)* Added dprint in the parent directory
+- *(scripts)* Added take_screenshot.sh script
+- *(waybar)* Cleaner configs for the app.
+- *(niri)* Cleaner config for the app.
+- *(archived_configs)* Renamed retired_configs to archived_configs
+- *(systemd)* Add configs for niri systemd services
+- *(archived_configs)* Moved not used configs to archived_configs folder.
+- *(scripts)* Removing git stash from scripts
+- *(kitty)* Add configs for kitty
+- *(yazi)* Add configs for yazi
+- *(niri)* Replaced alacritty for kitty.
+- *(alacritty)* Changed fonts to Fira.
+- *(shell)* Cleaning and stopped X11 start up command.
+- *(kitty)* Update config and lcon.
+- *(scripts_in_python)* Added exit option for update everything script.
+- *(alacritty)* Archived alacritty configs.
+- *(kitty)* Change fonts other than regular to automated method.
+- *(kitty)* Add new icons for kitty.
+- *(qtile)* Path fixing and formating.
+- *(bin)* Created folder bin for all .sh and .py scripts.
+- *(git_util.py)* Created the git util script for all the git custom scripts.
+- *(shell)* Update new alliases and folders to path
+- *(niri)* Stop showing hotkey overlay.
 
 ###  Bug Fixes
 
 - Replace `hx` with `helix`
-- _(starship)_ Updated broken icons.
-- _(git)_ Editor is set to `helix` now.
-- _(aliases)_ Added alias for helix.
-- _(bashrc)_ Commented pyenv, replaced path for bash-preexec (atuin).
-- _(starship)_ Deactivated jobs task as it was broken
-- _(git/config)_ Switch back to editor `hx` instead of `helix`.
-- _(helix language)_ Simplified python config
-- _(ruff)_ Removed lint that was not working
-- _(fzf_util)_ Moved from 'helix' to 'hx'
-- _(python update libraries)_ New commands to shortcuts to update python libraries
-- _(exports)_ Fixed the helix enviromental runtime variable path
-- _(my_logout)_ Changed logout to niri.
-- _(scripts)_ Merged folders scripts and scripts_in_pyhton into bin.
-- _(fzf_go_to_path)_ Fixed script now it moves path as well.
-- _(erdtree)_ Remove erdtree aliases, functions and comments
+- *(starship)* Updated broken icons.
+- *(git)* Editor is set to `helix` now.
+- *(aliases)* Added alias for helix.
+- *(bashrc)* Commented pyenv, replaced path for bash-preexec (atuin).
+- *(starship)* Deactivated jobs task as it was broken
+- *(git/config)* Switch back to editor `hx` instead of `helix`.
+- *(helix language)* Simplified python config
+- *(ruff)* Removed lint that was not working
+- *(fzf_util)* Moved from 'helix' to 'hx'
+- *(python update libraries)* New commands to shortcuts to update python libraries
+- *(exports)* Fixed the helix enviromental runtime variable path
+- *(my_logout)* Changed logout to niri.
+- *(scripts)* Merged folders scripts and scripts_in_pyhton into bin.
+- *(fzf_go_to_path)* Fixed script now it moves path as well.
+- *(erdtree)* Remove erdtree aliases, functions and comments
 
 ### 📚 Documentation
 
-- _(README.md)_ Update application list with links
-- _(README.md)_ Updated application list and cleaned up the doc.
+- *(README.md)* Update application list with links
+- *(README.md)* Updated application list and cleaned up the doc.
+
+## [1.0.0] - 2022-01-02
 
 <!-- generated by git-cliff -->
