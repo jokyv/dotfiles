@@ -7,5 +7,6 @@
   "vimMode": true,
   "usageStatisticsEnabled": false,
   "excludeTools": ["ShellTool(rm -rf)"],
+  "checkpointing": { "enabled": true },
   "mcpServers": { "context7": { "httpUrl": "https://mcp.context7.com/mcp" } }
 }
