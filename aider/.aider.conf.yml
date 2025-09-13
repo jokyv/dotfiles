@@ -41,8 +41,9 @@ map-refresh: auto
 # map_multiplier_no_files: true
 
 # History files
-input-history-file: .aider.input.history
-chat-history-file: .aider.chat.history.md
+input-history-file: /dev/null
+chat-history-file: /dev/null
+llm-history-file: /dev/null
 restore-chat-history: false
 # llm-history-file: ""
 
