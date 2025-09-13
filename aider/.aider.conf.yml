@@ -1,5 +1,5 @@
 # specify read only file
-read: [~/dot/aider/conventions/python_conventions.md]
+read: [~/dot/conventions/python.md]
 
 # Main model settings
 # model: "vertex_ai/gemini-2.0-flash-thinking-exp"

@@ -10,3 +10,6 @@
   "checkpointing": { "enabled": true },
   "mcpServers": { "context7": { "httpUrl": "https://mcp.context7.com/mcp" } }
 }
+
+# Documentation and example at:
+# https://gemini-cli.xyz/docs/en/cli/configuration
