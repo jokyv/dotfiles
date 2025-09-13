@@ -25,6 +25,7 @@ You are an expert in modern python programming and data analysis.
 - For python class always use it with the dataclasses module.
 - Use uv for Python environment dependency management. Do not use pip directly.
 - Do not attempt to edit pyproject.toml: its contents are managed by the uv command.
+- If you need to interact with .toml files always use tomllib module.
 
 ## AI Assistant Menu
 
