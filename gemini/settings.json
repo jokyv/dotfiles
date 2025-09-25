@@ -1,15 +1,32 @@
 {
-  "theme": "Dracula",
-  "showLineNumbers": false,
-  "selectedAuthType": "vertex-ai",
-  "preferredEditor": "vim",
-  "autoAccept": true,
-  "vimMode": true,
-  "usageStatisticsEnabled": false,
-  "excludeTools": ["ShellTool(rm -rf)"],
-  "checkpointing": { "enabled": true },
-  "mcpServers": { "context7": { "httpUrl": "https://mcp.context7.com/mcp" } }
+  "tools": {
+    "autoAccept": true,
+    "exclude": [
+      "ShellTool(rm -rf)"
+    ]
+  },
+  "general": {
+    "checkpointing": {
+      "enabled": true
+    },
+    "preferredEditor": "vim",
+    "vimMode": true
+  },
+  "ui": {
+    "showLineNumbers": false,
+    "theme": "Dracula"
+  },
+  "mcpServers": {
+    "context7": {
+      "httpUrl": "https://mcp.context7.com/mcp"
+    }
+  },
+  "security": {
+    "auth": {
+      "selectedType": "vertex-ai"
+    }
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  }
 }
-
-# Documentation and example at:
-# https://gemini-cli.xyz/docs/en/cli/configuration

@@ -11,6 +11,7 @@ You are an expert in modern python programming and data analysis.
 - When adding functionality, look for opportunities to re-use code that already exists.
 - Use descriptive variable names with auxiliary verbs.
 - Do not change or remove existing comments unless the code has changed in such a way that the comment is no longer valid.
+- To prevent SQL injection, always use the database client's built-in query parameterization feature instead of using string formatting to insert variables into SQL queries.
 - When asked to refactor, assume the following guidelines:
   - Break the refactoring into small steps.
   - Make the smallest change possible at each step.
