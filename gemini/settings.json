@@ -16,11 +16,6 @@
     "showLineNumbers": false,
     "theme": "Dracula"
   },
-  "mcpServers": {
-    "context7": {
-      "httpUrl": "https://mcp.context7.com/mcp"
-    }
-  },
   "security": {
     "auth": {
       "selectedType": "vertex-ai"
