@@ -2,17 +2,46 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.6.0] - 2025-10-06
+
+### 󰩉 Features
+
+- *(gemini)* Enable checkpointing
+- Update model configurations and add new paid model scripts
+
+###  Refactor
+
+- *(config)* Reorganize settings.json and add SQL injection guideline
+
+### 📚 Documentation
+
+- Add project conventions and update Python conventions
+
+### ⚙️ Miscellaneous Tasks
+
+- Update .gitignore
+- Rename convention files to shorter names
+- Update config file paths and add docs link
+- Disable history files by setting them to /dev/null
+- Update deepseek model reference
+
 ## [4.5.0] - 2025-08-31
 
 ### 󰩉 Features
 
+- Add model configuration scripts for Gemini and DeepSeek
 - *(git)* Add count parameter to log aliases
 - *(helix)* Increase markdown text width to 120
-- *(gemini)* Add initial Gemini configuration
-- Add model configuration scripts for Gemini and DeepSeek
+- Add initial Gemini configuration
+- *(gemini)* Add initial configuration and context
+
+### 📚 Documentation
+
+- Update changelog for v4.5.0 release
 
 ### ⚙️ Miscellaneous Tasks
 
+- Update CHANGELOG.md
 - Clean up commented-out lines in Gemini work script
 - Remove old aider config scripts
 - Add match/case convention and adjust Ruff line lengths
