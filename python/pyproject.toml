@@ -2,7 +2,7 @@
 docstring-code-format = true
 
 [tool.ruff]
-line-length = 88
+line-length = 120
 fix = true
 
 [tool.ruff.lint]

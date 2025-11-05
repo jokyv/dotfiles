@@ -26,3 +26,6 @@ You are an expert in modern python programming and data analysis.
 - Use uv for Python environment dependency management. Do not use pip directly.
 - Do not attempt to edit pyproject.toml: its contents are managed by the uv command.
 - Use numpy style for docstrings.
+
+## Gemini Added Memories
+- Pydantic offers concise, declarative, runtime data validation, while standard Python requires more boilerplate code with manual checks in a class's __init__ method.
