@@ -20,33 +20,36 @@
       size = 28;
     };
 
-    fonts =
-      {
-        monospace = {
-          # https://www.nerdfonts.com/font-downloads
-          package = pkgs.nerdfonts.override { fonts = [ "MartianMono" "FiraCode" ]; };
-          name = "MartianMono Nerd Font";
+    fonts = {
+      monospace = {
+        # https://www.nerdfonts.com/font-downloads
+        package = pkgs.nerdfonts.override {
+          fonts = [
+            "MartianMono"
+            "FiraCode"
+          ];
         };
-        serif = {
-          package = pkgs.dejavu_fonts;
-          name = "DejaVu Serif";
-        };
-        sansSerif = {
-          package = pkgs.noto-fonts;
-          name = "Noto Sans";
-        };
-        emoji = {
-          package = pkgs.noto-fonts-monochrome-emoji;
-          name = "Noto Emoji";
-        };
-        sizes = {
-          terminal = 14;
-          applications = 12;
-          popups = 12;
-          desktop = 12;
-        };
+        name = "MartianMono Nerd Font";
       };
-
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+      sansSerif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-monochrome-emoji;
+        name = "Noto Emoji";
+      };
+      sizes = {
+        terminal = 14;
+        applications = 12;
+        popups = 12;
+        desktop = 12;
+      };
+    };
 
     opacity = {
       applications = 0.9;
@@ -63,10 +66,12 @@
     # };
   };
 
-  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
-    # ls ~/.nix-profile/share/Kvantum/*/*.kvconfig
-    General.theme = "Catppuccin-Mocha-Maroon";
-  };
+  xdg.configFile."Kvantum/kvantum.kvconfig".source =
+    (pkgs.formats.ini { }).generate "kvantum.kvconfig"
+      {
+        # ls ~/.nix-profile/share/Kvantum/*/*.kvconfig
+        General.theme = "Catppuccin-Mocha-Maroon";
+      };
 
   qt = {
     enable = true;
@@ -118,4 +123,3 @@
     })
   ];
 }
-
