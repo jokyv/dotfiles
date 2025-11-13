@@ -46,6 +46,8 @@ ignore = [
   "D206",
   # triple-single-quotes
   "D300",
+  # missing-blank-line-after-last-section
+  "D413"
   # bad-quotes-inline-string
   "Q000",
   # bad-quotes-multiline-string
