@@ -1,5 +1,3 @@
-# ruff.toml
-
 line-length = 120
 
 [format]
@@ -7,86 +5,79 @@ indent-style = "space"
 line-ending = "auto"
 docstring-code-format = true
 docstring-code-line-length = 88
-skip-magic-trailing-comma = true
+# Using the "magic" trailing comma is recommended to reduce diff noise.
+skip-magic-trailing-comma = false
 
 [lint]
 # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []
 select = [
-  "B",   # flake8-bugbear
-  "C4",  # flake8-comprehensions
-  "D",   # pydocstyle
-  "DTZ", # flake8-datetimez
-  "E",   # pycodestyle
-  "F",   # Pyflakes
-  "I",   # isort
-  "N",   # pep8-naming
-  "PT",  # flake8-pytest-style
-  "Q",   # flake8-quotes
-  "RUF", # Ruff-specific rules
-  "SIM", # flake8-simplify
-  "TCH", # flake8-type-checking
-  "TD",  # flake8-todos
-  "TID", # flake8-tidy-imports
-  "UP",  # pyupgrade
-  "W",   # pycodestyle
+  "A",    # flake8-builtins
+  "B",    # flake8-bugbear
+  "C4",   # flake8-comprehensions
+  "D",    # pydocstyle
+  "DTZ",  # flake8-datetimez
+  "E",    # pycodestyle
+  "ERA",  # eradicate (commented-out code)
+  "F",    # Pyflakes
+  "I",    # isort
+  "N",    # pep8-naming
+  "PERF", # Perflint
+  "PIE",  # flake8-pie
+  "PT",   # flake8-pytest-style
+  "Q",    # flake8-quotes
+  "RUF",  # Ruff-specific rules
+  "SIM",  # flake8-simplify
+  "TCH",  # flake8-type-checking
+  "TD",   # flake8-todos
+  "TID",  # flake8-tidy-imports
+  "UP",   # pyupgrade
+  "W",    # pycodestyle
 ]
 
 ignore = [
-  # tab-indentation 
   "W191",
-  # indentation-with-invalid-multiple
   "E111",
-  # indentation-with-invalid-multiple-comment
   "E114",
-  # over-indented
   "E117",
-  # indent-with-spaces
-  "D206",
-  # triple-single-quotes
-  "D300",
-  # missing-blank-line-after-last-section
-  "D413"
-  # bad-quotes-inline-string
-  "Q000",
-  # bad-quotes-multiline-string
-  "Q001",
-  # bad-quotes-docstring
-  "Q002",
-  # avoidable-escaped-quote
-  "Q003",
-  # missing-trailing-comma
-  "COM812",
-  # prohibited-trailing-comma
-  "COM819",
-  # single-line-implicit-string-concatenation
+  # Implicit string concatenation is a style choice.
   "ISC001",
-  # multi-line-implicit-string-concatenation
   "ISC002",
-  # numpy convention with a few additional lints
+  # Docstring Ignores
+  # D10* rules are for missing docstrings. It's common to disable these,
+  # especially for private methods or tests.
+  "D100",
+  "D102",
+  "D103",
+  "D104",
+  "D105",
   "D107",
+  # These are stylistic choices that can be debated.
   "D203",
   "D212",
   "D401",
   "D402",
   "D415",
   "D416",
-  # flake8-pytest-style:
-  "PT011", # pytest.raises({exception}) is too broad, set the match parameter or use a more specific exception
-  # flake8-simplify
-  "SIM102", # Use a single `if` statement instead of nested `if` statements
-  # ruff
-  "RUF005", # unpack-instead-of-concatenating-to-collection-literal
-  # pycodestyle
-  # TODO: Remove errors below to further improve docstring linting
-  # Ordered from most common to least common errors.
-  "D105",
-  "D100",
-  "D103",
-  "D102",
-  "D104",
-  # todo errors
+  # Tool-specific Ignores
+  # Allow broad pytest.raises()
+  "PT011",
+  # Allow nested if statements
+  "SIM102",
+  # Allow `foo.bar("a" + "b")`
+  "RUF005",
+  # TODOs
+  # Allow TODOs without a ticket link
   "TD002",
   "TD003",
 ]
+
+[lint.pydocstyle]
+# Use the numpy docstring convention.
+convention = "numpy"
+
+[lint.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "double"
+multiline-quotes = "double"

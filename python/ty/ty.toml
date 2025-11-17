@@ -1,0 +1,48 @@
+# Global configuration for `ty`, the Astral type checker.
+
+# Set the target Python version for analysis.
+# This ensures `ty` uses the correct syntax and standard library definitions.
+# Options: "3.8", "3.9", "3.10", "3.11", "3.12", "3.13", etc.
+python-version = "3.13"
+
+[rules]
+# Disallow functions without type annotations.
+# This is the cornerstone of a strict type-checking setup.
+disallow_untyped_defs = "warn"
+
+# Disallow calls to functions that have no type annotations.
+disallow_untyped_calls = "warn"
+
+# Enforce explicit `None` checks for optional types.
+# This is crucial for preventing `NoneType` errors at runtime.
+strict_optional = "error"
+
+# Disallow the use of the `Any` type.
+# Using `Any` silences the type checker. A warning encourages more precise types
+# without being overly restrictive for libraries that lack type hints.
+# For maximum strictness, you can change this to "error".
+disallow_any = "warn"
+
+# Report an error for functions that implicitly return `Any`.
+warn_return_any = "error"
+
+# Report an error for `# type: ignore` comments that are no longer needed.
+# This helps keep your codebase and suppression comments clean.
+warn_unused_ignores = "error"
+
+
+# Overrides
+# This section allows you to apply different rule configurations for specific files.
+# This is extremely useful for third-party libraries or legacy code that is not fully typed.
+
+[[overrides]]
+# For all files in the `tests/` directory, you might want to be less strict
+# to avoid typing every test helper function.
+files = ["tests/*", "*/test_*.py"]
+disallow_untyped_defs = "ignore"
+disallow_any = "ignore"
+
+[[overrides]]
+# For a specific legacy file that you don't plan to refactor soon.
+files = ["src/legacy_module.py"]
+disallow_untyped_defs = "ignore"
