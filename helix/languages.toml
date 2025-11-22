@@ -19,7 +19,7 @@ command = "nixd"
 name = "nix"
 language-servers = ["nixd"]
 auto-format = true
-formatter = { command = "nixpkgs-fmt" }
+formatter = { command = "nixfmt" }
 
 
 [language-server.ruff]
@@ -27,12 +27,12 @@ command = "ruff"
 args = ["server"]
 # args = ["server", "--preview"]
 
-[language-server.pylsp]
-command = "pylsp"
+# [language-server.pylsp]
+# command = "pylsp"
 
-[language-server.pylsp.config.pylsp]
-plugins.pyls_mypy.enabled = false
-plugins.pyls_mypy.live_mode = true
+# [language-server.pylsp.config.pylsp]
+# plugins.pyls_mypy.enabled = false
+# plugins.pyls_mypy.live_mode = true
 
 [language-server.ty]
 command = "ty"
@@ -41,7 +41,7 @@ args = ["server"]
 [[language]]
 name = "python"
 auto-format = true
-language-servers = ["ruff", "pylsp", "ty"]
+language-servers = ["ruff", "ty"]
 # formatter = { command = "sh", args = ["-c", "ruff format --quiet -"] }
 formatter = { command = "ruff", args = ["format", "--quiet", "-"] }
 
