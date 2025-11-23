@@ -10,7 +10,8 @@
       "enabled": true
     },
     "preferredEditor": "vim",
-    "vimMode": true
+    "vimMode": true,
+    "previewFeatures": true
   },
   "ui": {
     "showLineNumbers": false,

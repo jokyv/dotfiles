@@ -44,7 +44,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PYTHONIOENCODING='UTF-8';
 # The PATH environment variable is used by the shell to locate executables
 # Python uses the PYTHONPATH variable to locate modules and packages.
-export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
+# export PYTHONPATH="${PYTHONPATH}:$HOME/projects/python_path"
 
 # Prefer US English and use UTF-8.
 # -----------------------------------------------
