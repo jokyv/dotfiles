@@ -23,6 +23,7 @@ You are an expert in modern python programming and data analysis.
 - Catch specific exceptions rather than using broad `except Exception:` clauses.
 - Use `try/except/else/finally` blocks to ensure resources are cleaned up (or use context managers).
 - Raise custom exception classes for domain-specific errors rather than generic runtime errors.
+- Define custom exceptions by inheriting from the built-in `Exception` class and suffixing the name with `Error` (e.g., `ConfigurationError`).
 - When catching exceptions, log the error with context before re-raising or handling it gracefully.
 - Never swallow exceptions silently; if an exception is ignored, explicitly comment _why_ it is safe to do so.
 
