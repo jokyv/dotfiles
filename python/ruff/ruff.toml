@@ -38,6 +38,7 @@ select = [
 
 ignore = [
   "W191",
+  "ERA001", # warning for commented out code
   "E111",
   "E114",
   "E117",
