@@ -1,0 +1,26 @@
+[project]
+name = "project_name"
+version = "0.0.1"
+description = ""
+readme = "README.md"
+requires-python = ">=3.14"
+authors = [{ name = "John Kyvetos", email = "johnkyvetos@gmail.com" }]
+# add dependencies for this project
+dependencies = []
+
+# import other libraries to this project
+[tool.uv.sources]
+external_library = { path = "../library_folder", editable = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = false # Keep this if you mostly build apps/scripts, remove for libraries
+
+[project.optional-dependencies]
+dev = ["deptry"]
+
+[tool.deptry]
+per_rule_ignores = { DEP002 = ["deptry", "ruff", "ty", "pytest"] }
