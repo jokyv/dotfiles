@@ -19,6 +19,8 @@ build-backend = "hatchling.build"
 [tool.uv]
 package = false # Keep this if you mostly build apps/scripts, remove for libraries
 
+# add deptry with `uv add --dev deptry`
+# run deptry with `uv run deptry .`
 [project.optional-dependencies]
 dev = ["deptry"]
 
