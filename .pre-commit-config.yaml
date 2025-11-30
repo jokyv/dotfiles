@@ -1,6 +1,1 @@
-repos:
-  - repo: https://github.com/crate-ci/typos
-    rev: v1.24.6
-    hooks:
-      - id: typos
-        # args: [--write-changes]
+git/.pre-commit-config.yaml
