@@ -9,11 +9,17 @@ authors = [{ name = "John Kyvetos", email = "johnkyvetos@gmail.com" }]
 dependencies = []
 
 [tool.uv]
-package = false # Keep this if you mostly build apps/scripts, remove for libraries
+# True for libraries/packaged apps
+# False for virtual projects (scripts only).
+package = false
+
+# Uncomment If the repo is a library
+# [tool.hatch.build.targets.wheel]
+# packages = ["src/project_name"]
 
 # import other libraries to this project
-[tool.uv.sources]
-external_library = { path = "../library_folder", editable = true }
+# [tool.uv.sources]
+# external_library = { path = "../library_folder", editable = true }
 
 [build-system]
 requires = ["hatchling"]
@@ -24,7 +30,7 @@ build-backend = "hatchling.build"
 # Run 'uv sync --group dev' for only dev
 dev = ["pytest", "pytest-cov"]
 # Run 'uv sync --group dev --group lint' for only lint
-lint = ["bandit", "deptry", "pre-commit"]
+lint = ["bandit", "deptry", "pre-commit", "ruff"]
 # Run 'uv sync --group dev --group security' for only security
 security = ["detect-secrets", "trufflehog"]
 
