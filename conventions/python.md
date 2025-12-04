@@ -43,3 +43,16 @@ Follow these additional commands when provided by the user.
 USER MENU:
 
 - /compact = summarize the current chat history and tasks and what's next.
+
+## Gemini Added Memories
+
+- Mapping for refactoring 'symbols.py' to 'symbols_mapping.py':
+
+1. Module replacement: 'from oandapp.info import symbols' -> 'from oandapp.info import symbols_mapping as symbols'
+2. Variable replacements (Old -> New):
+   - cfd_mapping_v20_meta_ogm -> CFD_MAPPING_V20_TO_META_OGM
+   - cfd_mapping_v20_meta_ogm2 -> CFD_MAPPING_META_OGM_TO_V20
+   - cfd_mapping -> CFD_MAPPING_V20_TO_OZ
+   - cfd_mapping2 -> CFD_MAPPING_OZ_TO_V20
+   - cfd_mapping3 -> CFD_MAPPING_META_TO_OZ
+   - cfd_list_tapaas -> CFD_MAPPING_TAPAAS_TO_V20
