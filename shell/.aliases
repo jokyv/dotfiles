@@ -39,9 +39,14 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # -----------------------------------------------------
 
 # source bash files and clear terminal
-alias sb='linux_util.py --source_bash_profile'
+alias sb='uv run linux_util.py --source_bash_profile'
 # combine cd with eza
-alias cdd='linux_util.py --cd_with_eza'
+alias cdd='uv run linux_util.py --cd_with_eza'
+
+# Weather aliases
+alias weather='uv run linux_util.py --weather'
+alias weatherd='uv run linux_util.py --weather_detailed'
+alias weatherc='uv run linux_util.py --weather_cities'
 # run weekly updates, checks and clean up
 alias ue=update_everything.py
 # update mirrors
@@ -52,19 +57,19 @@ alias upmirrors="sudo reflector --country Singapore --latest 10 --sort rate --sa
 # -----------------------------------------------------
 
 # find a file with fzf and open it with nvim
-alias vv='fzf_util.py --open_file'
+alias vv='python3 fzf_util.py --open_file'
 # find empty files
-alias fe='fzf_util.py --empty_files'
+alias fe='python3 fzf_util.py --empty_files'
 # find files bigger than xxxMB
-alias fb='fzf_util.py --big_files'
+alias fb='python3 fzf_util.py --big_files'
 # find all the scripts i have
-alias fs='fzf_util.py --find_scripts'
+alias fs='python3 fzf_util.py --find_scripts'
 # move a file from anywhere folder to anywhere folder
-alias fm='fzf_util.py --move_file'
+alias fm='python3 fzf_util.py --move_file'
 # copy file to anywhere
-alias fc='fzf_util.py --copy_file'
+alias fc='python3 fzf_util.py --copy_file'
 # find a phrase in a file
-alias ff='fzf_util.py --file_phrase'
+alias ff='python3 fzf_util.py --file_phrase'
 
 # -----------------------------------------------------
 # PYTHON
@@ -77,7 +82,7 @@ alias pu='python_pip_update.py -S'
 alias pua='python_pip_update.py -A'
 alias pic=python_init_code.py
 alias a='source ~/uv_default/bin/activate'
-alias talk='source ~/talk_to_ai/bin/activate'
+# alias talk='source ~/talk_to_ai/bin/activate'
 alias d='deactivate'
 
 # -----------------------------------------------------
@@ -149,30 +154,30 @@ function yy() {
 # GIT SHORTCUTS
 # -----------------------------------------------------
 
-alias ginit='git_util.py --init_template'
+alias ginit='python3 git_util.py --init_template'
 alias gpu='git push'
 alias gpl='git pull'
 alias ga='git add'
 alias gall='git add -A'
 alias gc='git commit'
 alias gcm='git commit -m'
-alias gcw='git_util.py --commit_workflow'
+alias gcw='python3 git_util.py --commit_workflow'
 alias gl='git log -n 5'
 alias glo='git log --oneline -10'
-alias glg='git_util.py --log_graph'
-alias gpulla='git_util.py --pull_all_dirs'
-alias gpusha='git_util.py --push_all_dirs'
-alias gac='git_util.py --auto_commit'
+alias glg='python3 git_util.py --log_graph'
+alias gpulla='python3 git_util.py --pull_all_dirs'
+alias gpusha='python3 git_util.py --push_all_dirs'
+alias gac='python3 git_util.py --auto_commit'
 # amend a commit without changing the commit message
 alias gcame='git commit --amend --no-edit'
 # working directory removes all changes and goes back to the latest commit
 alias gcheck='git checkout .'
 alias gs='git status -sb'
-alias gsa='git_util.py --status_all_dirs'
+alias gsa='python3 git_util.py --status_all_dirs'
 # clean up ignore files that mistakenly are tracked
-alias gclean='git_util.py --clean_up'
+alias gclean='python3 git_util.py --clean_up'
 alias gd='git diff -w'
-alias gh-create='git_util.py --create_push_gh_repo'
+alias gh-create='python3 git_util.py --create_push_gh_repo'
 
 # -----------------------------------------------------
 # NIX SHORTCUTS
