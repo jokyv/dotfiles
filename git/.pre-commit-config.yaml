@@ -4,6 +4,30 @@ repos:
     hooks:
       - id: ruff-format
 
+  # use the versions from repo's .venv
+  # - repo: local
+  #   hooks:
+  #     - id: ruff
+  #       name: ruff
+  #       entry: uv run ruff check --force-exclude
+  #       language: system
+  #       types: [python]
+  #       require_serial: true
+
+  #     - id: ruff-format
+  #       name: ruff-format
+  #       entry: uv run ruff format --force-exclude
+  #       language: system
+  #       types: [python]
+  #       require_serial: true
+
+  #     - id: ty
+  #       name: ty
+  #       entry: uv run ty check
+  #       language: system
+  #       types: [python]
+  #       pass_filenames: false # ty usually checks the whole project
+
   - repo: https://github.com/crate-ci/typos
     rev: v1.29.4
     hooks:

@@ -30,7 +30,7 @@ build-backend = "hatchling.build"
 # Run 'uv sync --group dev' for only dev
 dev = ["pytest", "pytest-cov"]
 # Run 'uv sync --group dev --group lint' for only lint
-lint = ["bandit", "deptry", "pre-commit", "ruff"]
+lint = ["bandit", "deptry", "pre-commit", "ruff", "ty"]
 # Run 'uv sync --group dev --group security' for only security
 security = ["detect-secrets", "trufflehog"]
 

@@ -21,12 +21,6 @@ language-servers = ["nixd"]
 auto-format = true
 formatter = { command = "nixfmt" }
 
-
-[language-server.ruff]
-command = "ruff"
-args = ["server"]
-# args = ["server", "--preview"]
-
 # [language-server.pylsp]
 # command = "pylsp"
 
@@ -34,17 +28,23 @@ args = ["server"]
 # plugins.pyls_mypy.enabled = false
 # plugins.pyls_mypy.live_mode = true
 
+[language-server.ruff]
+# command = "ruff"
+# args = ["server"]
+command = "uv"
+args = ["run", "ruff", "server"]
+
 [language-server.ty]
-command = "ty"
-args = ["server"]
+# command = "ty"
+# args = ["server"]
+command = "uv"
+args = ["run", "ty", "server"]
 
 [[language]]
 name = "python"
-auto-format = true
 language-servers = ["ruff", "ty"]
-# formatter = { command = "sh", args = ["-c", "ruff format --quiet -"] }
+auto-format = true
 formatter = { command = "ruff", args = ["format", "--quiet", "-"] }
-
 
 [language-server.yaml-language-server.config.yaml]
 format = { enable = true }
