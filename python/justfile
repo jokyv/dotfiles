@@ -1,0 +1,62 @@
+# -----------------------------------------------
+# List available commands
+# -----------------------------------------------
+
+default:
+    @just --list
+
+# -----------------------------------------------
+# SETUP & INSTALLATION
+# -----------------------------------------------
+
+# Install dependencies and setup git hooks (Run this first!)
+setup: sync install-hooks
+
+# Sync dependencies with uv.lock
+sync:
+    uv sync
+
+# Install pre-commit hooks into .git/hooks
+install-hooks:
+    uv run pre-commit install
+
+# Update uv.lock based on pyproject.toml changes
+lock:
+    uv lock
+
+# Upgrade all dependencies to latest compatible versions
+upgrade:
+    uv lock --upgrade
+
+# -----------------------------------------------
+# QUALITY ASSURANCE (QA)
+# -----------------------------------------------
+
+# Run all pre-commit hooks on all files
+lint:
+    uv run pre-commit run --all-files
+
+# Run tests
+test:
+    uv run pytest
+
+# Format code
+format:
+    uv run ruff format .
+
+# Check types
+check-types:
+    uv run ty .
+
+# -----------------------------------------------
+# UTILITIES
+# -----------------------------------------------
+
+# Run the main application (Adjust 'main.py' as needed)
+run:
+    uv run python main.py
+
+# Clean up temporary files and caches
+clean:
+    rm -rf .pytest_cache .ruff_cache .mypy_cache __pycache__
+    find . -type d -name "__pycache__" -exec rm -rf {} +
