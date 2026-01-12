@@ -31,7 +31,7 @@ You are an expert in modern python programming and data analysis.
 
 - Prefer polars over pandas for data analysis with python.
 - Always use the pathlib module to represent filesystem paths.
-- Use the @dataclass decorator for classes that primarily store data.
+- Use the `@dataclass` decorator for classes that primarily store data.
 - Use uv for Python environment dependency management. Do not use pip directly.
 - Do not attempt to edit pyproject.toml: its contents are managed by the uv command.
 - If you need to interact with .toml files always use tomllib module.
