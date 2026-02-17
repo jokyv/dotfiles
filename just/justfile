@@ -1,0 +1,38 @@
+# -----------------------------------------------
+# Claude Code Commands (Global)
+# -----------------------------------------------
+# Include this in your project justfiles with:
+#   import "~/.config/just/justfile"
+#
+# Or set JUST_UNPOWDER=1 to use globally
+# Default mode for quick start
+
+default_mode := "prime"
+
+# Start Claude with prime command (quick context load)
+cli:
+    claude -p .claude/commands/work-prime.md
+
+# Start Claude in setup/init mode (interactive onboarding)
+cli-init:
+    claude -p .claude/commands/work-setup.md
+
+# Start Claude in maintenance mode (periodic health checks)
+cli-maintain:
+    claude -p .claude/commands/work-maintain.md
+
+# Start Claude with a specific prompt file. Usage: just clipath path/to/prompt.md
+clipath prompt:
+    claude -p {{ prompt }}
+
+# Start Claude in plan mode for architecture decisions
+cli-plan:
+    claude --plan -p .claude/commands/work-prime.md
+
+# Start with specific mode. Modes: prime (default), setup, maintain
+cli-mode mode=default_mode:
+    claude -p .claude/commands/work-{{ mode }}.md
+
+# Start Claude with experimental features enabled. Usage: just cli-exp --chrome
+cli-exp *flags:
+    @export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 && claude {{ flags }}
