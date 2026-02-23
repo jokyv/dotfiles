@@ -1,0 +1,11 @@
+# Issue template configuration
+# Disables blank issues and provides links to resources
+
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/YOUR_USERNAME/YOUR_REPO#readme
+    about: Check the README and docs before opening an issue
+  - name: Questions & Discussions
+    url: https://github.com/YOUR_USERNAME/YOUR_REPO/discussions
+    about: Ask questions and discuss ideas here

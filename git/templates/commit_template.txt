@@ -1,0 +1,31 @@
+# <type>[optional scope]: <description>
+#
+# Types:
+#   feat     - new feature (MINOR version)
+#   fix      - bug fix (PATCH version)
+#   docs     - documentation only
+#   style    - formatting, no code change
+#   refactor - neither fix nor feature
+#   perf     - performance improvement
+#   test     - adding/updating tests
+#   build    - build system, deps
+#   ci       - CI/CD changes
+#   chore    - other changes
+#   revert   - revert previous commit
+#
+# Breaking change: add ! after type/scope or include footer:
+#   BREAKING CHANGE: description
+#
+# Examples:
+#   feat: add user authentication
+#   fix(api): handle null response
+#   docs: update README
+#   feat!: remove deprecated API
+#   fix(parser)!: change encoding default
+#
+# Format:
+#   <type>[scope]: <description>   (required, max 50 chars)
+#                                   (blank line)
+#   [body]                          (optional, wrap at 72 chars)
+#                                   (blank line)
+#   [footer(s)]                     (optional: BREAKING CHANGE, Fixes #123)

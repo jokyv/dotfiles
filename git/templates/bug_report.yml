@@ -1,0 +1,68 @@
+name: Bug Report
+description: Report a bug to help us improve
+labels: ["bug"]
+body:
+  - type: checkboxes
+    id: before-submitting
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and didn't find this problem
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What's the bug? Be clear and concise.
+      placeholder: "The app crashes when..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How can we recreate this?
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happens?
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, version, relevant details
+      placeholder: |
+        - OS: NixOS
+        - Version: v1.2.3
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Paste relevant logs or attach screenshots
+      render: shell
+    validations:
+      required: false
