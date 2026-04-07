@@ -187,6 +187,13 @@ alias hms='home-manager switch --flake .'
 alias hmsf="home-manager switch --flake ~/dot/home-manager/#jokyv"
 
 # -----------------------------------------------------
+# GEMINI SHORTCUTS
+# -----------------------------------------------------
+
+alias ge='gemini'
+alias g='gemini --extensions none'
+
+# -----------------------------------------------------
 # PRINT FILE SOURCED CONFIRMATION
 # -----------------------------------------------------
 
