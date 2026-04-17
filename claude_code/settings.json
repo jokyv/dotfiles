@@ -1,0 +1,96 @@
+{
+  "model": "claude-sonnet-4-6",
+  "env": {
+    "API_TIMEOUT_MS": "3000000"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git branch:*)",
+      "Bash(git show:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git remote:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(pwd)",
+      "Bash(which:*)",
+      "Bash(tree:*)",
+      "Bash(file:*)",
+      "Bash(stat:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(find:*)",
+      "Bash(fd:*)",
+      "Bash(curl --head:*)",
+      "Bash(wget --spider:*)",
+      "Bash(ps:*)",
+      "Bash(top -b:*)",
+      "Bash(htop -b:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf :*)",
+      "Bash(sudo rm -rf :*)",
+      "Bash(dd :*)",
+      "Bash(mkfs :*)",
+      "Bash(fdisk :*)",
+      "Bash(format :*)",
+      "Bash(shred :*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_TOOL_INPUT\" | grep -qiE \"(password|api_key|secret|token)\\s*[=:]\\s*['\\\"][^'\\\"]{8,}['\\\"]\"; then\n  mkdir -p ~/.claude/logs && echo \"[SECURITY] Potential secret leak in $CLAUDE_FILE_PATH at $(date '+%Y-%m-%d %H:%M:%S')\" >> ~/.claude/logs/security.log\nfi"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -f \"$CLAUDE_FILE_PATH\" ] && file \"$CLAUDE_FILE_PATH\" | grep -q \"binary\\|data\"; then\n  echo \"BINARY_FILE_BLOCKED: Cannot modify binary file $CLAUDE_FILE_PATH\"\n  exit 1\nfi"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "TaskOutput",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send \"Claude Code\" \"Task completed\" -t 2000 2>/dev/null || osascript -e 'display notification \"Task completed\" with title \"Claude Code\"' 2>/dev/null || true"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if grep -qE \"^(<{7}|={7}|>{7})\" \"$CLAUDE_FILE_PATH\" 2>/dev/null; then\n  echo \"GIT_CONFLICT_MARKERS in $CLAUDE_FILE_PATH - resolve before committing\"\nfi"
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "REMINDER_FILE=\"$HOME/.claude/logs/session-analysis-reminder\"\nCOUNT_FILE=\"$HOME/.claude/logs/tool-count\"\nmkdir -p \"$(dirname \"$REMINDER_FILE\")\"\n\nCOUNT=$(cat \"$COUNT_FILE\" 2>/dev/null || echo 0)\nCOUNT=$((COUNT + 1))\necho \"$COUNT\" > \"$COUNT_FILE\"\n\nif [ \"$COUNT\" -ge 20 ]; then\n  if [ ! -f \"$REMINDER_FILE\" ] || [ $(($(date +%s) - $(cat \"$REMINDER_FILE\" 2>/dev/null || echo 0))) -gt 604800 ]; then\n    echo \"\"\n    echo \"💡 TIP: Run /session-analysis to review conversation patterns\"\n    echo \"\"\n    date +%s > \"$REMINDER_FILE\"\n  fi\n  echo \"0\" > \"$COUNT_FILE\"\nfi"
+          }
+        ]
+      }
+    ]
+  }
+}
