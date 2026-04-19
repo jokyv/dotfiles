@@ -1,0 +1,6 @@
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = "rm -rf"
+decision = "deny"
+priority = 100
+deny_message = "The command rm -rf is restricted by security policy."

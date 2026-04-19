@@ -3,8 +3,3 @@ nom/nom.db
 **/history.txt
 
 .aider*
-
-gemini/tmp/*
-gemini/extensions/*
-gemini/history/*
-gemini/installation_id
