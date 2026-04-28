@@ -9,6 +9,10 @@
 
 default_mode := "prime"
 
+# Show all recipes.
+default:
+    @just --list
+
 # Start Claude with prime command (quick context load)
 cli:
     claude -p .claude/commands/work-prime.md
@@ -36,3 +40,32 @@ cli-mode mode=default_mode:
 # Start Claude with experimental features enabled. Usage: just cli-exp --chrome
 cli-exp *flags:
     @export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 && claude {{ flags }}
+
+# Friendly aliases for the common launch modes.
+prime: cli
+setup: cli-init
+maintain: cli-maintain
+plan: cli-plan
+
+# Sanity-check the Claude workspace and prompt files.
+doctor:
+    @echo "== Claude Code workspace doctor =="
+    @command -v claude >/dev/null && echo "claude: OK ($(claude --version 2>&1 | head -1))" || echo "claude: MISSING"
+    @for f in .claude/commands/work-prime.md .claude/commands/work-setup.md .claude/commands/work-maintain.md; do \
+      [ -f "$f" ] && echo "$f: OK" || echo "$f: MISSING"; \
+    done
+
+# Show available modes and prompt files.
+modes:
+    @echo "== Claude modes =="
+    @echo "prime    -> .claude/commands/work-prime.md"
+    @echo "setup    -> .claude/commands/work-setup.md"
+    @echo "maintain -> .claude/commands/work-maintain.md"
+    @echo "plan     -> .claude/commands/work-prime.md (with --plan)"
+    @echo ""
+    @echo "== Prompt files in .claude/commands =="
+    @if [ -d .claude/commands ]; then \
+      find .claude/commands -type f -name '*.md' | sort; \
+    else \
+      echo "(no .claude/commands directory found)"; \
+    fi
