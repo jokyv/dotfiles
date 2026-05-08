@@ -1,5 +1,4 @@
 {
-  "model": "claude-sonnet-4-6",
   "env": {
     "API_TIMEOUT_MS": "3000000"
   },
@@ -42,6 +41,7 @@
       "Bash(shred :*)"
     ]
   },
+  "model": "haiku",
   "hooks": {
     "PreToolUse": [
       {

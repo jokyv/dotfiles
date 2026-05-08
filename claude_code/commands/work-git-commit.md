@@ -17,6 +17,7 @@ Important rules:
 - If user provides all details in their request, use them directly
 - If no files are staged, ask if they want to stage all changes first
 - Don't mention Claude or Anthropic in commit messages
+- Never add a Co-Authored-By trailer to commits
 
 Example interaction:
 User: /git-commit "fixed login bug"
