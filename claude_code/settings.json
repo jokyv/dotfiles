@@ -41,7 +41,7 @@
       "Bash(shred :*)"
     ]
   },
-  "model": "haiku",
+  "model": "claude-sonnet-4-6",
   "hooks": {
     "PreToolUse": [
       {
@@ -92,5 +92,20 @@
         ]
       }
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/jkyvetos/.claude/statusline-command.sh"
+  },
+  "extraKnownMarketplaces": {
+    "wiki-skills": {
+      "source": {
+        "source": "github",
+        "repo": "kfchou/wiki-skills"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "wiki-skills@wiki-skills": true
   }
 }
