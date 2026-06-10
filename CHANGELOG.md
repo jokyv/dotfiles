@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.8.1] - 2026-06-10
+
+### ⚙️ Miscellaneous Tasks
+
+- Add python deps and fix settings key ordering
+
 ## [4.8.0] - 2026-06-07
 
 ### 󰩉 Features
@@ -24,6 +30,7 @@ All notable changes to this project will be documented in this file.
 - Expand CLAUDE.md guidelines, add conventions, update settings
 - Upgrade claude model, add wiki-skills plugin, update ignores
 - Remove stale conventions and gemini config files
+- *(release)* Update changelog for v4.8.0
 
 ### Ignore
 
