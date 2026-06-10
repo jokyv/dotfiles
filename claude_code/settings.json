@@ -97,6 +97,9 @@
     "type": "command",
     "command": "bash /Users/jkyvetos/.claude/statusline-command.sh"
   },
+  "enabledPlugins": {
+    "wiki-skills@wiki-skills": true
+  },
   "extraKnownMarketplaces": {
     "wiki-skills": {
       "source": {
@@ -104,8 +107,5 @@
         "repo": "kfchou/wiki-skills"
       }
     }
-  },
-  "enabledPlugins": {
-    "wiki-skills@wiki-skills": true
   }
 }

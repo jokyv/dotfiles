@@ -5,6 +5,10 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.14"
 authors = [{ name = "John Kyvetos", email = "johnkyvetos@gmail.com" }]
+dependencies = [
+    "google-cloud-storage>=3.10.1",
+    "polars>=1.41.2",
+]
 
 # add dependencies for this project
 # Examples that auto updates minor and patch fixes releases
