@@ -48,7 +48,7 @@ name = "yaml"
 auto-format = true
 file-types = ["yaml", "yml"]
 language-servers = ["yaml-language-server"]
-# formatter = { command = "prettier", args = ["--parser", "yaml"] }
+formatter = { command = "dprint", args = ["fmt", "--stdin", "yaml"] }
 
 [[language]]
 name = "rust"
