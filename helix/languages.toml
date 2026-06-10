@@ -35,6 +35,10 @@ language-servers = ["ruff", "ty"]
 auto-format = true
 formatter = { command = "ruff", args = ["format", "--quiet", "-"] }
 
+[language-server.yaml-language-server]
+command = "yaml-language-server"
+timeout = 5
+
 [language-server.yaml-language-server.config.yaml]
 format = { enable = true }
 validation = true
