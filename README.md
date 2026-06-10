@@ -2,7 +2,7 @@ My configs for Arch on Wayland
 
 > [!IMPORTANT]
 > Current status:
-> I have switched to [Nixos-config](https://github.com/jokyv/nixos-config). 
+> I have switched to [Nixos-config](https://github.com/jokyv/nixos-config).
 > These dotfiles are now primarily maintained as a reference and can be used with MacOS or Arch-based distributions.
 
 ## Requirements
@@ -18,12 +18,12 @@ Primarily designed for Arch Linux-based distributions, but with cross-platform c
 
 - **Window System**: [Wayland](https://wayland.freedesktop.org/)
 - **Wayland Compositor**: [Niri](https://github.com/YaLTeR/niri)
-- **Terminals**: 
+- **Terminals**:
   - [Kitty](https://github.com/kovidgoyal/kitty)
   - [Foot](https://codeberg.org/dnkl/foot)
 - **Editor**: [Helix](https://github.com/helix-editor/helix)
 - **Prompt**: [Starship](https://github.com/starship/starship)
-- **Browsers**: 
+- **Browsers**:
   - [Firefox](https://www.mozilla.org/en-US/firefox)
   - [Brave](https://github.com/brave/brave-browser)
 - **Fonts**: [Hack Nerd Font](https://www.nerdfonts.com/)
@@ -31,12 +31,12 @@ Primarily designed for Arch Linux-based distributions, but with cross-platform c
 - **Application Launcher**: [Fuzzel](https://codeberg.org/dnkl/fuzzel)
 - **File Manager**: [Nautilus](https://gitlab.gnome.org/GNOME/nautilus)
 - **Status Bar**: [Waybar](https://github.com/Alexays/Waybar)
-- **Screenshots**: 
+- **Screenshots**:
   - [Grim](https://github.com/emersion/grim)
   - [Slurp](https://github.com/emersion/slurp)
   - [Swappy](https://github.com/jtheoof/swappy)
   - [Gnome-Screenshot](https://gitlab.gnome.org/GNOME/gnome-screenshot)
-- **Clipboard Manager**: 
+- **Clipboard Manager**:
   - [Cliphist](https://github.com/sentriz/cliphist)
   - [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
 - **Document Viewer**: [Zathura](https://github.com/pwmt/zathura)

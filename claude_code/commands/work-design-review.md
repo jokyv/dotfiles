@@ -8,21 +8,25 @@ Review recent code changes for design quality and structural issues.
 2. For each modified file, analyze:
 
 ### Responsibility Check
+
 - Does any class/function have more than one reason to change?
 - Are high-level concepts mixed with low-level implementation details?
 - Should any class be a function (or vice versa)?
 
 ### Dependency Check
+
 - Are there circular dependencies between modules?
 - Do low-level modules depend on high-level abstractions?
 - Are imports going in the wrong direction?
 
 ### Abstraction Check
+
 - Is the abstraction level consistent within each module?
 - Are domain relationships clear and correctly modeled?
 - Does the code leak implementation details?
 
 ### Structure Check
+
 - Are there god classes or god functions doing too much?
 - Is there code duplication that suggests missing abstraction?
 - Are there long chains of method calls (Law of Demeter violations)?

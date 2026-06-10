@@ -10,7 +10,7 @@ repos:
         name: dprint
         entry: dprint fmt
         language: system
-        types_or: [markdown, json, toml]
+        types_or: [markdown, json, toml, yaml]
         require_serial: true
 
   # use the versions from repo's .venv

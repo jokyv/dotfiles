@@ -14,6 +14,7 @@ Unified documentation sync for CLAUDE.md and project docs/. Intelligently update
 ```
 
 **Targets:**
+
 - `claudemd` - Update CLAUDE.md from recent git changes
 - `docs` - Update docs/ folder from codebase
 - `all` - Both (default)

@@ -78,6 +78,7 @@ Based on detected environment, ask the user:
 Based on user selections, execute setup steps:
 
 ### NixOS Setup
+
 ```bash
 # Example commands (only run if user confirms)
 # nix develop
@@ -86,18 +87,21 @@ Based on user selections, execute setup steps:
 ```
 
 ### Python Setup
+
 ```bash
 # uv sync
 # uv run pre-commit install
 ```
 
 ### Node Setup
+
 ```bash
 # npm install
 # npx husky install
 ```
 
 ### Claude Integration Setup
+
 ```bash
 # Create .claude directory if needed
 # Copy CLAUDE.md template
@@ -149,13 +153,13 @@ Provide a setup report:
 
 ## Common Issues Resolution
 
-| Issue | Resolution |
-|-------|------------|
-| Nix not found | Install via `sh <(curl -L https://nixos.org/nix/install) --daemon` |
-| uv not found | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
-| Permission denied | Check file permissions, use nix-shell or sudo appropriately |
+| Issue              | Resolution                                                                           |
+| ------------------ | ------------------------------------------------------------------------------------ |
+| Nix not found      | Install via `sh <(curl -L https://nixos.org/nix/install) --daemon`                   |
+| uv not found       | `curl -LsSf https://astral.sh/uv/install.sh \| sh`                                   |
+| Permission denied  | Check file permissions, use nix-shell or sudo appropriately                          |
 | Git not configured | Run `git config --global user.name "..."` and `git config --global user.email "..."` |
-| Flake locked | Run `nix flake update` or use `--impure` flag |
+| Flake locked       | Run `nix flake update` or use `--impure` flag                                        |
 
 ## Notes
 

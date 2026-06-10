@@ -7,6 +7,7 @@ Universal Claude Code settings, commands, skills, and hooks for use across proje
 ### Settings
 
 **`settings.json`** — Permissions, hooks, and environment configuration
+
 - Permission allowlist for git, filesystem, search, process commands (read-only safe)
 - Denylists for destructive operations
 - Pre/post-tool hooks for security, notifications, and session analysis
@@ -15,27 +16,27 @@ Universal Claude Code settings, commands, skills, and hooks for use across proje
 
 Custom Claude Code commands for workflow automation:
 
-| Command | Purpose |
-|---------|---------|
+| Command              | Purpose                                                                                       |
+| -------------------- | --------------------------------------------------------------------------------------------- |
 | `work-design-review` | Analyze code changes for design quality, responsibility, dependencies, and abstraction issues |
-| `work-git-commit` | Interactive conventional commit assistant with semantic versioning |
-| `work-issue` | GitHub issue analyzer — fetch, analyze, and implement GitHub issues |
-| `work-maintain` | Periodic codebase maintenance: health checks, cleanup, security scans, reports |
-| `work-prime` | Quick project context loader — detect type, structure, git state, and report readiness |
-| `work-release-notes` | Generate release notes using git-cliff from conventional commits |
-| `work-setup` | Interactive environment setup — detect tools, configure projects, verify installations |
-| `work-sync-docs` | Sync CLAUDE.md and docs/ from codebase changes (git-based analysis) |
+| `work-git-commit`    | Interactive conventional commit assistant with semantic versioning                            |
+| `work-issue`         | GitHub issue analyzer — fetch, analyze, and implement GitHub issues                           |
+| `work-maintain`      | Periodic codebase maintenance: health checks, cleanup, security scans, reports                |
+| `work-prime`         | Quick project context loader — detect type, structure, git state, and report readiness        |
+| `work-release-notes` | Generate release notes using git-cliff from conventional commits                              |
+| `work-setup`         | Interactive environment setup — detect tools, configure projects, verify installations        |
+| `work-sync-docs`     | Sync CLAUDE.md and docs/ from codebase changes (git-based analysis)                           |
 
 ### Skills
 
 Reusable skills for Claude Code:
 
-| Skill | Purpose |
-|-------|---------|
-| `python` | Modern Python conventions: uv, polars, pathlib, type hints, comprehensions |
+| Skill              | Purpose                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------- |
+| `python`           | Modern Python conventions: uv, polars, pathlib, type hints, comprehensions          |
 | `session-analysis` | Analyze recent conversations for friction patterns → suggest CLAUDE.md improvements |
-| `smart-git-commit` | Auto-commit changes after 30+ minutes with intelligent semantic messages |
-| `worktree` | Isolate risky refactors in git worktrees to protect main repo |
+| `smart-git-commit` | Auto-commit changes after 30+ minutes with intelligent semantic messages            |
+| `worktree`         | Isolate risky refactors in git worktrees to protect main repo                       |
 
 ### CLAUDE.md
 

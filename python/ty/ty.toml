@@ -30,7 +30,6 @@ warn_return_any = "error"
 # This helps keep your codebase and suppression comments clean.
 warn_unused_ignores = "error"
 
-
 # Overrides
 # This section allows you to apply different rule configurations for specific files.
 # This is extremely useful for third-party libraries or legacy code that is not fully typed.

@@ -1,16 +1,5 @@
 # download grammar for the below only
-use-grammars = { only = [
-  "python",
-  "rust",
-  "toml",
-  "bash",
-  "json",
-  "yaml",
-  "markdown",
-  "nu",
-  "nix",
-] }
-
+use-grammars = { only = ["python", "rust", "toml", "bash", "json", "yaml", "markdown", "nu", "nix"] }
 
 [language-server.nixd]
 command = "nixd"
@@ -73,7 +62,6 @@ command = "clippy"
 '<' = '>'
 '`' = '`'
 
-
 [[language]]
 name = "bash"
 auto-format = true
@@ -95,7 +83,6 @@ file-types = [
 ]
 formatter = { command = "shfmt", args = ["-l", "-w"] }
 
-
 [language-server.json-server]
 command = "vscode-json-language-server"
 
@@ -106,7 +93,6 @@ file-types = ["json", "kdl"]
 language-servers = ["json-server"]
 # formatter = { command = "prettier", args = ["--parser", "json"] }
 formatter = { command = "dprint", args = ["fmt", "--stdin", "json"] }
-
 
 [[language]]
 name = "toml"

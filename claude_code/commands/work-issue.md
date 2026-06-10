@@ -43,6 +43,7 @@ You are a GitHub issue analyzer and implementation assistant. When a user runs t
    - **If issue auto-closes via commit message**: Always add a comment with implementation details using `gh issue comment`
 
 For additional comments if needed:
+
 ```bash
 gh issue view $1 --comments | jq -r '.comments[] | "- \(.author.login) (\(.createdAt)): \(.body)"'
 ```

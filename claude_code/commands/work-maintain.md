@@ -33,6 +33,7 @@ Quick assessment of current state:
 Based on project type, suggest cleanup commands:
 
 ### NixOS Projects
+
 ```bash
 # Check nix store usage
 !`nix path-info --size --all 2>/dev/null | sort -rn | head -10 || echo "Nix not available"`
@@ -44,6 +45,7 @@ Based on project type, suggest cleanup commands:
 ```
 
 ### Python Projects
+
 ```bash
 # Check for cache directories
 !`find . -type d -name "__pycache__" -o -name ".pytest_cache" -o -name "*.egg-info" -o -name ".mypy_cache" 2>/dev/null | head -10`
@@ -53,6 +55,7 @@ Based on project type, suggest cleanup commands:
 ```
 
 ### Node Projects
+
 ```bash
 # Check node_modules size
 !`test -d node_modules && du -sh node_modules || echo "No node_modules"`
@@ -62,6 +65,7 @@ Based on project type, suggest cleanup commands:
 ```
 
 ### General
+
 ```bash
 # Find old log files
 !`find . -name "*.log" -mtime +30 2>/dev/null | head -10`
@@ -125,7 +129,7 @@ Static analysis and code quality checks:
 
 Provide a structured maintenance report:
 
-```
+````
 ## Maintenance Report
 
 **Generated:** [timestamp]
@@ -168,13 +172,13 @@ Provide a structured maintenance report:
 ```bash
 # Suggested cleanup (review before running)
 [cleanup commands based on project type]
-```
+````
 
 ### Next Maintenance
 
 Suggested interval: [weekly/biweekly/monthly]
-```
 
+```
 ## Interactive Options
 
 After report, ask user:
@@ -191,3 +195,4 @@ After report, ask user:
 - Log all maintenance actions
 - Compare before/after states
 - Consider setting up automated maintenance via cron/systemd timer
+```

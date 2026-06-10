@@ -43,19 +43,20 @@ Analyze recent Claude Code conversation history (last 7 days) to find friction p
    - Fix: Add "[rule]" to CLAUDE.md
 
 ### Suggested CLAUDE.md Addition
-
 ```
+
 [Single most impactful rule to add]
+
 ```
 ```
 
 ## Friction Keywords
 
-| Category | Keywords |
-|----------|----------|
+| Category    | Keywords                          |
+| ----------- | --------------------------------- |
 | Corrections | wrong, incorrect, no, stop, don't |
-| Repetition | again, repeating, still, keeps |
-| Quality | mistake, error, fail, broken |
+| Repetition  | again, repeating, still, keeps    |
+| Quality     | mistake, error, fail, broken      |
 
 ## Where to Apply Changes
 

@@ -27,6 +27,7 @@ Write modern Python code following these conventions.
 ## Single-file Scripts
 
 Use inline script metadata:
+
 ```python
 # /// script
 # requires-python = ">=3.11"

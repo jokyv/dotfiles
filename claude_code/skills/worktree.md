@@ -52,12 +52,12 @@ git branch -d <task-name>
 
 ## Quick Reference
 
-| Command | Purpose |
-|---------|---------|
-| `git worktree add <path> -b <branch>` | Create new worktree |
-| `git worktree list` | Show all worktrees |
-| `git worktree remove <path>` | Delete worktree |
-| `git worktree prune` | Clean up stale entries |
+| Command                               | Purpose                |
+| ------------------------------------- | ---------------------- |
+| `git worktree add <path> -b <branch>` | Create new worktree    |
+| `git worktree list`                   | Show all worktrees     |
+| `git worktree remove <path>`          | Delete worktree        |
+| `git worktree prune`                  | Clean up stale entries |
 
 ## Integration with Work Commands
 
