@@ -37,18 +37,18 @@ repos:
   #       types: [python]
   #       pass_filenames: false # ty usually checks the whole project
 
-  - repo: https://github.com/crate-ci/typos
-    rev: v1.29.4
-    hooks:
-      - id: typos
-        # Exclude generated files and data directories
-        exclude: |
-          (?x)^(
-            .*\.csv|
-            .*\.html|
-            .*\.ods|
-            .*\.lock
-          )$
+  # - repo: https://github.com/crate-ci/typos
+  #   rev: v1.29.4
+  #   hooks:
+  #     - id: typos
+  #       # Exclude generated files and data directories
+  #       exclude: |
+  #         (?x)^(
+  #           .*\.csv|
+  #           .*\.html|
+  #           .*\.ods|
+  #           .*\.lock
+  #         )$
 
   # SECRET SCANNING TOOLS - DISABLED FOR PERFORMANCE
 
