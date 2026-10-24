@@ -123,28 +123,28 @@ alias tre = fzf_util.py --empty_trash
 # GIT SHORTCUTS
 # -----------------------------------------------------
 
-alias ginit = git_util.py --init_template
+alias ginit = git_util --init_template
 alias gpu = git push
 alias gpl = git pull
 alias ga = git add
 alias gall = git add -A
 alias gc = git commit
 alias gcm = git commit -m
-alias gcw = git_util.py --commit_workflow
+alias gcw = git_util --commit_workflow
 alias gl = git log
 alias glo = git log --oneline
-alias glg = git_util.py --log_graph
-alias gpulla = git_util.py --pull_all_dirs
-alias gpusha = git_util.py --push_all_dirs
-alias gac = git_util.py --auto_commit
+alias glg = git_util --log_graph
+alias gpulla = git_util --pull_all_dirs
+alias gpusha = git_util --auto_commit --all
+alias gac = git_util --auto_commit
 # amend a commit without changing the commit message
 alias gcame = git commit --amend --no-edit
 # working directory removes all changes and goes back to the latest commit
 alias gcheck = git checkout .
 alias gs = git status -sb
-alias gsa = git_util.py --status_all_dirs
+alias gsa = git_util --status_all_dirs
 # clean up ignore files that mistakenly are tracked
-alias gclean = git_util.py --clean_up
+alias gclean = git_util --clean_up
 alias gd = git diff -w
 
 # -----------------------------------------------------

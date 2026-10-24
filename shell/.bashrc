@@ -40,6 +40,7 @@ add_to_path /usr/local/bin
 # source all my scripts, aliases and exports
 # -----------------------------------------------
 # source_if_exists $HOME/dot/bin/fzf_scripts.sh
+source_if_exists "$HOME/scripts/bin/bash_util.sh"
 source_if_exists $HOME/dot/bin/linux_scripts.sh
 source_if_exists $HOME/dot/shell/.aliases
 source_if_exists $HOME/dot/shell/.exports

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Bug Fixes
+
+- _(shell)_ Use the project-aware `git_util` launcher for Bash and Nushell Git aliases; replace removed `--push_all_dirs` with `--auto_commit --all`.
+
 ## [4.9.0] - 2026-10-12
 
 ### 󰩉 Features

@@ -17,7 +17,7 @@ trap 'echo "Error on line $LINENO"; exit 1' ERR
 # Source files
 # -----------------------------------------------
 
-source $HOME/dot/bin/bash_util.sh
+source "$HOME/scripts/bin/bash_util.sh"
 
 # -----------------------------------------------
 # Function definitions
