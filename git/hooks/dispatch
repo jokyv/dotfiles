@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -u
+
+hook=${0##*/}
+common_dir=$(git rev-parse --path-format=absolute --git-common-dir) || exit 1
+local_hook="$common_dir/hooks/$hook"
+
+if [ "$hook" = pre-push ]; then
+  repo=$(git rev-parse --show-toplevel) || exit 1
+  repo=$(cd -- "$repo" && pwd -P) || exit 1
+  case "$repo" in
+    *$'\n'*) printf 'Push blocked: repository paths containing newlines are not supported.\n' >&2; exit 1 ;;
+  esac
+  trust_file="${XDG_CONFIG_HOME:-$HOME/.config}/git/trusted-repositories"
+  if [ ! -f "$trust_file" ] || ! grep -Fqx -- "$repo" "$trust_file"; then
+    printf 'Push blocked: repository %s is not trusted. Enroll it in %s before pushing.\n' "$repo" "$trust_file" >&2
+    exit 1
+  fi
+  if [ ! -f "$repo/check" ] || [ ! -x "$repo/check" ]; then
+    printf 'Push blocked: trusted repository %s needs an executable check at %s/check.\n' "$repo" "$repo" >&2
+    exit 1
+  fi
+  printf 'Validating %s with %s/check\n' "$repo" "$repo" >&2
+  (cd -- "$repo" && ./check </dev/null)
+  status=$?
+  if [ "$status" -ne 0 ]; then
+    printf 'Push blocked: %s/check failed (exit %s).\n' "$repo" "$status" >&2
+    exit "$status"
+  fi
+fi
+
+if [ -x "$local_hook" ] && ! [ "$local_hook" -ef "$0" ]; then
+  exec "$local_hook" "$@"
+fi
+exit 0
