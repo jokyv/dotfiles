@@ -20,8 +20,8 @@ alias sr='sudo reboot'
 # with -p you are making the parent directory if doesnt exist
 alias mkdir='mkdir -pv'
 # alias rmd='rm -rfv'
-alias rm='rm -iv' 
-alias mv='mv -iv' 
+alias rm='rm -iv'
+alias mv='mv -iv'
 alias cp='cp -iv'
 alias ln='ln -i'
 
@@ -38,8 +38,8 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # LINUX SCRIPTS
 # -----------------------------------------------------
 
-# source bash files and clear terminal
-alias sb='linux_util.py --source_bash_profile'
+# source the Bash profile in the current shell
+alias sb='source ~/.bash_profile'
 # combine cd with eza
 alias cdd='cd_with_eza'
 
